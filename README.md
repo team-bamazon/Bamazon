@@ -7,8 +7,9 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|furigana|string|null: false|
+|furigana|string||
 |address|string||
+|postal_code|string||
 |language|string||
 |points|integer||
 |phone_number|string||
@@ -19,7 +20,7 @@
 ### Association
 - has_one :cart
 - has_many :orders
-- has_many :payment_infos
+- has_many :payment_informations
 - has_many :wanteds
 - has_many :reviews
 - has_many :review_comments
@@ -83,11 +84,11 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|address|string|null: false|
-|postal_code|string|null: false|
-|phone_number|string|null: false|
-|payment_info|string|null: false|
-|status|integer|null: false|
+|address|string||
+|postal_code|string||
+|phone_number|string||
+|payment_info|string||
+|status|integer||
 |user_id|integer|foreign_key: true|
 
 ### Association
@@ -100,10 +101,10 @@
 |Column|Type|Options|
 |------|----|-------|
 |order_id|integer|foreign_key: true|
-|product_name|string|null: false|
-|price|string|null: false|
+|product_name|string||
+|price|string||
 |product_image|string||
-|count|integer|null: false|
+|count|integer||
 
 ### Association
 - belongs_to :order
@@ -114,6 +115,12 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|foreign_key: true|
+|card_name|string||
+|card_number|integer||
+|month|integer||
+|year|integer||
+|security_code|integer||
+|card_company|string||
 
 ### Association
 - belongs_to :user
