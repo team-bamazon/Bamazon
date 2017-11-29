@@ -107,7 +107,7 @@
 |------|----|-------|
 |order_id|integer|foreign_key: true|
 |product_name|string||
-|price|string||
+|price|float||
 |product_image|string||
 |count|integer||
 
