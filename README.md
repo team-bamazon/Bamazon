@@ -34,8 +34,8 @@
 |price|float|null: false|
 |detail|string||
 |stock|integer||
-|ammount_sales|integer||
-|product_category_id|integer|foreign_key: true|
+|amount_sales|integer||
+|product_category_id|integer||
 
 ### Association
 - has_many :carts, through: :cart_products
@@ -87,7 +87,12 @@
 |address|string||
 |postal_code|string||
 |phone_number|string||
-|payment_info|string||
+|card_name|string||
+|card_number|integer||
+|month|integer||
+|year|integer||
+|security_code|integer||
+|card_company|string||
 |status|integer||
 |user_id|integer|foreign_key: true|
 
