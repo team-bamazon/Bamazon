@@ -9,31 +9,73 @@
   </head>
 
   <body>
-    <header>
-      <div id ="navbar">
-        <%= image_tag "IMG_1997.JPG" %>
-        <div class = "nav-belt">
-          <div class = "nav-left">
+    <header class="nav-locale-jp nav-lang-ja nav-ssl nav-rec nav-opt-sprite">
+      <div id="navbar" role="navigation" class="nab-sprite-v1 nav-bluebeacon">
+        <div class="nav-belt">
+          <div class="nav-left">
+            <div id="nav-logo" class="nav-prime-1">
+              <a class="nav-logo-link" tabindex="2">
+                <span class="nav-logo-base nav-sprite">Bamazon</span>
+                <span class="nav-logo-ext nav-sprite"></span>
+                <span class="nav-logo-locale nav-sprite"></span>
+              </a>
+              <a href="/ref=nav_logo_prime" aria-label="" tabindex="3" class="nav-logo-tagline nav-sprite">
+              </a>
+            </div>
           </div>
-          <div class = "nav-right">
+          <div class="nav-right">
+
+
           </div>
-          <div class = "nav-fill">
+          <div class="nav-fill">
+            <div class="nav-search">
+            </div>
           </div>
-          <div class = "nav-belt">
+          <div class="nav-belt">
           </div>
         </div>
-        <div id = "nav-main" class = "nav-sprite">
-          <div class = "nav-left">
+        <div id="nav-main" class="nav-sprite">
+          <div class="nav-left">
+            <div id="nav-shop">
+              <span class="nav-line-1"></span>
+              <span class="nav-line-2">カテゴリー<span class="nav-icon nav-arrow" style="visibility: visible;"></span></span>
+            </div>
+          <div class="nav-right">
+            <div id="nav-tools">
+              <a class="nav-a nav-a-2 nav-truncate" data-nav-ref="nav_ya_signin" data-nav-role="signin" data-ux-mouseover="true" id="nav-link-yourAccount" tabindex="26"><span class="nav-line-1"> 貝塚秀雄さん</span><span class="nav-line-2">アカウントサービス<span class="nav-icon nav-arrow" style="visibility: visible;"></span></span></a>
+              <a class="nav-a nav-a-2" data-ux-mouseover="true" id="nav-link-prime" tabindex="28"><span class="nav-line-1">今すぐ確認</span><span class="nav-line-2">プライム<span class="nav-icon nav-arrow" style="visibility: visible;"></span></span></a>
+              <a class="nav-a nav-a-2" data-ux-mouseover="true" id="nav-link-wishlist" tabindex="29"><span class="nav-line-1">ほしい物</span><span class="nav-line-2">リスト<span class="nav-icon nav-arrow" style="visibility: visible;"></span></span></a>
+              <a aria-label="カート内の商品数：0" class="nav-a nav-a-2" id="nav-cart" tabindex="30"><span aria-hidden="true" class="nav-line-1"> </span><span aria-hidden="true" class="nav-line-2">カート<span class="nav-icon nav-arrow"></span></span><span class="nav-cart-icon nav-sprite"></span><span id="nav-cart-count" aria-hidden="true" class="nav-cart-count nav-cart-0">0</span></a>
+            </div>
           </div>
-          <div class = "nav-right">
-          </div>
-          <div class = "nav-fill">
+          <div class="nav-fill">
+            <div id="nav-xshop-container">
+              <div id="nav-xshop">
+                <div id="nav-xshop">
+                  <a class="nav-a" tabindex="18">マイストア</a>
+                  <a class="nav-a" tabindex="19">タイムセール</a>
+                  <a class="nav-a" tabindex="20">ギフト券</a>
+                  <a class="nav-a" tabindex="21">Amazonで売る</a>
+                  <a class="nav-a" tabindex="22">ヘルプ</a>
+                </div>
+              </div>
+              <div id="nav-supra" class="nav-supra-points">
+              </div>
           </div>
         </div>
       </div>
     </header>
 
     <%= yield %>
+    <div class="navLeftFooter nav-sprite-v1" id="navFooter">
+      <a href="#nav-top" id="navBackToTop">
+        <div class="navFooterBackToTop">
+          <span class="navFooterBackToTopText">トップへ戻る</span>
+        </div>
+      </a>
+      <table class="navFooterVerticalColumn" cellspaceing="0" align="center" role="presentation">
+      </table>
+    </div>
   </body>
 </html>
 

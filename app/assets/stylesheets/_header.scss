@@ -1,0 +1,35 @@
+#navbar.nav-bluebeacon {
+    background-color: #232f3e;
+    height: 50px;
+}
+
+#navbar {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 198;
+    font-family: arial,sans-serif;
+    font-size: 12px;
+    line-height: 1em;
+    margin: 0 -8px;
+    display: block;
+    zoom: 1;
+    min-width: 1000px;
+
+}
+
+.nav-left {
+    position: relative;
+    float: left;
+    width: auto;
+    display: inline-block;
+}
+
+#nav-logo {
+    position: relative;
+    float: left;
+    line-height: 0;
+    height: 100%;
+    width: 192px;
+    padding: 13px 18px 0 27px;
+}
