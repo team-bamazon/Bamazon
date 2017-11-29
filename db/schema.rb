@@ -45,8 +45,12 @@ ActiveRecord::Schema.define(version: 20171129041039) do
 
   create_table "cart_products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "product_count"
+    t.bigint "cart_id", null: false
+    t.bigint "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_cart_products_on_cart_id"
+    t.index ["product_id"], name: "index_cart_products_on_product_id"
   end
 
   create_table "carts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -166,8 +170,12 @@ ActiveRecord::Schema.define(version: 20171129041039) do
 
   create_table "wanted_products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "product_count"
+    t.bigint "wanted_id", null: false
+    t.bigint "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_wanted_products_on_product_id"
+    t.index ["wanted_id"], name: "index_wanted_products_on_wanted_id"
   end
 
   create_table "wanteds", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -178,4 +186,8 @@ ActiveRecord::Schema.define(version: 20171129041039) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "cart_products", "carts"
+  add_foreign_key "cart_products", "products"
+  add_foreign_key "wanted_products", "products"
+  add_foreign_key "wanted_products", "wanteds"
 end
