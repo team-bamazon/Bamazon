@@ -1,0 +1,2 @@
+class WantedProduct < ApplicationRecord
+end
