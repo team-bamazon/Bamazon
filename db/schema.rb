@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171129023834) do
+ActiveRecord::Schema.define(version: 20171129024144) do
 
   create_table "carts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -39,6 +39,13 @@ ActiveRecord::Schema.define(version: 20171129023834) do
     t.integer "year"
     t.integer "security_code"
     t.string "card_company"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "product_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "category_name"
+    t.integer "parent_product_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
