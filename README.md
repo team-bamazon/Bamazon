@@ -40,7 +40,9 @@
 
 ### Association
 - has_many :carts, through: :cart_products
+- has_many :cart_products
 - has_many :wanteds, through: :wanted_products
+- has_many :wanted_products
 - has_many :product_images
 - has_many :reviews
 - belongs_to :product_category
@@ -65,6 +67,7 @@
 
 ### Association
 - belongs_to :user
+- has_many :cart_products
 - has_many :products, through: :cart_products
 
 
@@ -144,6 +147,7 @@
 ### Association
 - belongs_to :user
 - has_many :products, through: :wanted_products
+- has_many :wanted_products
 
 
 ## wanted_products table
