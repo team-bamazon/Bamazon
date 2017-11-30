@@ -67,3 +67,6 @@ end
 
 gem 'devise'
 
+# active-admin
+gem 'activeadmin'
+
