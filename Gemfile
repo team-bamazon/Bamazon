@@ -70,3 +70,5 @@ gem 'devise'
 # active-admin
 gem 'activeadmin'
 
+gem 'rails-i18n'
+
