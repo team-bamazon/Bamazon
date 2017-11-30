@@ -1,0 +1,204 @@
+
+
+#navFooter.navLeftFooter {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    background-color: #232f3e;
+    min-width: 1000px;
+    position: relative;
+}
+
+#navFooter {
+    margin: 30px 0 8px 0;
+    padding: 0 0 7px 0;
+}
+
+#navFooter a:link {
+    font-family: arial,sans-serif;
+    color: #004B91;
+    text-decoration: none;
+}
+
+#navFooter a:visited {
+    font-family: arial,sans-serif;
+    color: #004B91;
+    text-decoration: none;
+}
+
+#navFooter a, #navFooter span {
+    white-space: nowrap;
+}
+
+/*-----------トップへ戻るのところ---*/
+
+#navFooter.navLeftFooter .navFooterBackToTop .navFooterBackToTopText {
+    color: #fff;
+}
+
+#navFooter.navLeftFooter .navFooterBackToTop {
+    margin-bottom: 40px;
+    background-color: #37475a;
+}
+
+#navFooter .navFooterBackToTop span {
+    display: block;
+    text-align: center;
+    color: #111;
+    padding: 15px 0;
+    line-height: 19px;
+    font-size: 13px;
+}
+
+/*-----------トップへ戻るのところがここまで---*/
+
+/*----------トップへ戻るの下の一覧------*/
+#navFooter.navLeftFooter .navFooterVerticalColumn {
+    max-width: 1000px;
+}
+
+#navFooter table.navFooterVerticalColumn {
+    margin: 0 auto 0 auto;
+    width: auto;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+    border-top-color: inherit;
+    border-right-color: inherit;
+    border-bottom-color: inherit;
+    border-left-color: inherit;
+}
+
+#navFooter td {
+    font-family: arial,sans-serif;
+    font-size: 13px;
+    line-height: 120%;
+    padding: 0 10px;
+}
+
+#navFooter.navLeftFooter .navFooterColHead {
+    font-weight: 700;
+    color: #fff;
+}
+
+.navFooterColHead {
+    font-family: arial,sans-serif;
+    font-size: 16px;
+    margin: 6px 0 14px 0;
+    white-space: nowrap;
+}
+
+#navFooter.navLeftFooter a.nav_a:link, #navFooter.navLeftFooter a.nav_a:visited, #navFooter.navLeftFooter li.nav_a_carat span.nav_a_carat {
+    color: #ddd;
+}
+
+#navFooter a:link, #navFooter a:visited {
+    font-family: arial,sans-serif;
+    color: #004B91;
+    text-decoration: none;
+}
+
+#navFooter.navLeftFooter .navFooterLinkCol ul li {
+    margin: 0 0 10px;
+}
+
+/*----------トップへ戻るの下の一覧がここまで------*/
+
+
+
+#navFooter.navLeftFooter .nav-footer-line {
+    border-top: 1px solid #3a4553;
+    margin-top: 40px;
+}
+
+
+#navFooter.navLeftFooter div.navFooterLine {
+    font-size: 12px;
+}
+
+/*------ここからが一番下の黒いところ----*/
+#navFooter.navLeftFooter .navFooterLinkLine {
+    margin: 10px auto;
+}
+
+#navFooter.navLeftFooter .navFooterDescLine {
+    background-color: #131a22;
+    padding: 30px 0;
+    margin: 30px 0 0;
+}
+
+div.navFooterLine {
+    font-family: arial,sans-serif;
+    color: #767676;
+    font-size: 11px;
+    text-align: center;
+    line-height: 18px;
+    white-space: nowrap;
+}
+
+#navFooter.navLeftFooter .navFooterDescLine .navFooterMoreOnAmazon {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#navFooter table {
+    width: 100%;
+}
+
+table:last-child {
+    margin-bottom: 0!important;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+#navFooter .navFooterDescItem {
+    font-size: 11px!important;
+    padding: 0 .75em;
+    vertical-align: top;
+    text-align: left;
+    line-height: 115%;
+}
+
+#navFooter.navLeftFooter a.nav_a:link, #navFooter.navLeftFooter a.nav_a:visited, #navFooter.navLeftFooter li.nav_a_carat span.nav_a_carat {
+    color: #ddd;
+}
+
+#navFooter.navLeftFooter .navFooterDescText, #navFooter.navLeftFooter .nav_last {
+    color: #999;
+}
+
+/*---一番下の黒いところの下半分------*/
+
+#navFooter.navLeftFooter .navFooterCopyright {
+    background-color: #131a22;
+    max-width: 100%;
+    margin: 0;
+    padding: 10px 0 30px;
+}
+
+.navFooterLinkLine span, .navFooterLinkLine ul {
+    list-style-type: none;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    line-height: 18px;
+}
+.navFooterLinkLine ul li {
+    display: inline;
+}
+
+.navFooterLineDivider ul li.nav_first {
+    border-left: 0;
+}
+
+.navFooterLineDivider ul li {
+    border-left: 1px solid #999;
+}
+
+
