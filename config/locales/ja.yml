@@ -1,0 +1,8 @@
+ja:
+  helpers:
+    label:
+      user:
+        name: 名前
+        email: Eメールアドレス
+        password: パスワード
+        password_confirmation: もう一度パスワードを入力してください
