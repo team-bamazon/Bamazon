@@ -70,3 +70,6 @@ gem 'devise'
 # active-admin
 gem 'activeadmin'
 
+gem "carrierwave"
+gem "mini_magick"
+gem "fog"
