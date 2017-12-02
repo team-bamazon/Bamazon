@@ -5,7 +5,6 @@ header {
 
 #navbar.nav-bluebeacon {
   background-color: #232f3e;
-  height: 50px;
   position: relative;
   top: 0;
   left: 0;
@@ -57,6 +56,7 @@ input {
 /*---------------------------------------------------------------------- */
 /*-- nav-belt style ---------------------------------------------------- */
 #nav-belt {
+  background-color: #232f3e;
   position: relative;
   width: 100%;
   font-size: 14px;
@@ -692,6 +692,12 @@ input {
 }
 
 #nav-xshop {
+  .nav-a:first-of-type {
+    padding-left: 0;
+  }
+}
+
+#nav-xshop {
   .nav-a {
     color: #ccc;
     padding: 2px 10px 0 10px;
@@ -703,11 +709,11 @@ input {
 
 #nav-supra {
   position: absolute;
-  margin-left: 10px;
+  // margin-left: 10px;
   bottom: 42px;
   .nav-a, .nav-span {
     color: #ccc;
-    text-decoration: none;
+    // text-decoration: none;
     font-size: 12px;
     font-family: arial,sans-serif;
   }
