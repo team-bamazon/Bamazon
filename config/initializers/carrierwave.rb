@@ -11,6 +11,6 @@ CarrierWave.configure do |config|
     region: 'us-east-1'
   }
 
-  config.fog_directory  = 'b-amazon'
+  config.fog_directory  = 'team-b-amazon'
   config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com'
 end
