@@ -13,19 +13,20 @@
     padding: 0 0 7px 0;
 }
 
-#navFooter a:link {
-    font-family: arial,sans-serif;
-    color: #004B91;
-    text-decoration: none;
-}
+// #navFooter a:link {
+//     font-family: arial,sans-serif;
+//     color: #004B91;
+//     text-decoration: none;
+// }
 
-#navFooter a:visited {
-    font-family: arial,sans-serif;
-    color: #004B91;
-    text-decoration: none;
-}
+// #navFooter a:visited {
+//     font-family: arial,sans-serif;
+//     color: #004B91;
+//     text-decoration: none;
+// }
 
 #navFooter a, #navFooter span {
+    font-family: arial,sans-serif;
     white-space: nowrap;
 }
 
@@ -78,9 +79,19 @@ tbody {
     padding: 0 10px;
 }
 
+.navFooterVerticalColumn .navFooterColSpacerInner {
+    width: 10%;
+    padding: 0 15px;
+}
+
 #navFooter.navLeftFooter .navFooterColHead {
     font-weight: 700;
     color: #fff;
+}
+
+.navFooterLinkCol {
+    color: #333;
+    vertical-align: top;
 }
 
 .navFooterColHead {
@@ -89,6 +100,8 @@ tbody {
     margin: 6px 0 14px 0;
     white-space: nowrap;
 }
+
+
 
 #navFooter.navLeftFooter a.nav_a:link, #navFooter.navLeftFooter a.nav_a:visited, #navFooter.navLeftFooter li.nav_a_carat span.nav_a_carat {
     color: #ddd;
@@ -100,13 +113,28 @@ tbody {
     text-decoration: none;
 }
 
+.navFooterLinkCol ul {
+    padding: 0;
+    margin: 0;
+}
+
+.navFooterLinkCol ul li.nav_a_carat {
+    position: relative;
+    padding-left: 0;
+}
+
+
 #navFooter.navLeftFooter .navFooterLinkCol ul li {
     margin: 0 0 10px;
 }
 
+ul:last-child {
+    margin-bottom: 0!important;
+}
+
 /*----------トップへ戻るの下の一覧がここまで------*/
 
-
+/*-----間のスペースを作っているところ---*/
 
 #navFooter.navLeftFooter .nav-footer-line {
     border-top: 1px solid #3a4553;
@@ -114,9 +142,146 @@ tbody {
 }
 
 
+/*-----ここまで-----*/
+
+/*--------ロゴと言語を選ぶところ------*/
+
+
+
 #navFooter.navLeftFooter div.navFooterLine {
     font-size: 12px;
 }
+
+#navFooter.navLeftFooter .navFooterLinkLine {
+    margin: 10px auto;
+}
+
+#navFooter.navLeftFooter .navFooterLogoLine, #navFooter.navLeftFooter .navFooterPadItemLine {
+    text-align: center;
+    max-width: 1000px;
+    margin: 30px auto 15px;
+}
+
+div.navFooterLine {
+    font-family: arial,sans-serif;
+    color: #767676;
+    font-size: 11px;
+    text-align: center;
+    line-height: 18px;
+    white-space: nowrap;
+}
+
+
+.navFooterPadItemLine a, .navFooterPadItemLine span {
+    padding: 0 .6em;
+}
+
+.navFooterLinkLine {
+    margin: 0 8px 0 8px;
+}
+
+.navFooterLinkLine span, .navFooterLinkLine ul {
+    list-style-type: none;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+div.navFooterLogoLine {
+    margin: 30px 8px 4px 8px;
+    font-size: 1px;
+    line-height: 0;
+}
+
+#navFooter .nav-logo-base {
+    background-position: -10px -90px;
+    width: 76px;
+    height: 23px;
+    margin: 0 auto;
+}
+
+
+.nav-sprite-v1 .nav-sprite, .nav-sprite-v1 .nav-icon {
+    background-image: url("bamazon_layer.png");
+    background-position: 0 1000px;
+    background-repeat: repeat-x;
+}
+
+span.icp-container-desktop {
+    vertical-align: top;
+    margin: 18px auto 0;
+    margin-left: 70px;
+}
+
+.icp-container-desktop .icp-flag-2, .icp-container-desktop .icp-flag-3 {
+    margin: 3px 0 0;
+    top: 1px;
+}
+
+
+
+
+.icp-container-desktop .icp-button {
+    display: inline-block!important;
+    border: 1px solid #848688;
+    border-radius: 3px;
+    padding: 6px 18px 6px 8px;
+    font-size: 13px;
+    margin-right: 4px;
+}
+
+
+#navFooter.navLeftFooter .icp-color-base, footer.nav-ftr-batmobile .icp-color-base {
+    color: #ccc;
+}
+
+.navLeftFooter .icp-button-globe-2 {
+    background-position: -77px -24px;
+}
+
+.icp-nav-globe-img-2 {
+    position: relative;
+    top: 15px;
+    left: 24px;
+    background: url("earth.png");
+    background-position: -77px -24px;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+}
+
+.icp-button-globe-2 {
+    width: 15px;
+    height: 15px;
+    background-position: -76px -51px;
+    top: 2px;
+    left: 0;
+}
+
+.nav-arrow.icp-up-down-arrow {
+    background: url("earth.png");
+    width: 12px;
+    height: 12px;
+    background-position: -77px -80px;
+    position: relative;
+    left: 12px;
+}
+
+.icp-flag-3 {
+    width: 18px;
+    position: relative;
+    top: 2px;
+    margin-right: 0.8em;
+    display: inline-block;
+    height: 12px;
+    margin: 0 .6em;
+    background-image: url("earth.png");
+}
+
+.icp-flag-3.icp-flag-3-jp {
+    background-position: -18px -96px;
+}
+
 
 /*------ここからが一番下の黒いところ----*/
 #navFooter.navLeftFooter .navFooterLinkLine {
@@ -129,14 +294,7 @@ tbody {
     margin: 30px 0 0;
 }
 
-div.navFooterLine {
-    font-family: arial,sans-serif;
-    color: #767676;
-    font-size: 11px;
-    text-align: center;
-    line-height: 18px;
-    white-space: nowrap;
-}
+
 
 #navFooter.navLeftFooter .navFooterDescLine .navFooterMoreOnAmazon {
     max-width: 1000px;
@@ -182,13 +340,6 @@ tbody {
     padding: 10px 0 30px;
 }
 
-.navFooterLinkLine span, .navFooterLinkLine ul {
-    list-style-type: none;
-    display: inline-block;
-    padding: 0;
-    margin: 0;
-    line-height: 18px;
-}
 .navFooterLinkLine ul li {
     display: inline;
 }
@@ -199,6 +350,10 @@ tbody {
 
 .navFooterLineDivider ul li {
     border-left: 1px solid #999;
+}
+
+.navFooterPadItemLine a, .navFooterPadItemLine span {
+    padding: 0 .6em;
 }
 
 

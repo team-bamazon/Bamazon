@@ -1,0 +1,226 @@
+.a-container {
+    min-width: 998px;
+    padding: 14px 18px 18px;
+    margin: 0 auto;
+}
+
+.a-section:last-child {
+    margin-bottom: 0;
+}
+
+.ya-personalized, .ya-two-col-container {
+    max-width: 1000px;
+}
+
+.ya-one-col-container, .ya-personalized, .ya-two-col-container {
+    margin: 0 auto;
+}
+
+.a-spacing-base, .a-ws .a-ws-spacing-base {
+    margin-bottom: 14px!important;
+}
+
+.a-row {
+    width: 100%;
+}
+
+h1.a-spacing-none, h2.a-spacing-none, h3.a-spacing-none, h4.a-spacing-none {
+    padding-bottom: 0;
+}
+
+h1:last-child, h2:last-child, h3:last-child, h4:last-child {
+    padding-bottom: 0;
+}
+
+h1 {
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.2;
+}
+
+h3 {
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 1.255;
+}
+
+h3, h4 {
+    padding-bottom: 4px;
+}
+
+//----- 上のテーブルのところ------
+
+.ya-card-row {
+    display: table;
+    height: 100%;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.ya-card-cell:first-child {
+    padding-left: 0;
+    width: 320px;
+}
+
+.ya-card, .ya-card--rich {
+    height: 100%;
+}
+
+
+.ya-card-cell {
+    display: table-cell;
+    height: 100%;
+    padding-left: 20px;
+    width: 340px;
+}
+
+
+.a-box {
+    display: block;
+    border-radius: 4px;
+    border: 1px #ddd solid;
+    background-color: #fff;
+}
+
+.a-box .a-box-inner {
+    border-radius: 4px;
+    position: relative;
+    padding: 14px 18px;
+}
+
+.a-row {
+    width: 100%;
+}
+
+.a-row .a-span3, .a-ws .a-row .a-ws-span3 {
+    width: 23.448%;
+}
+
+.a-ws div.a-column, div.a-column {
+    margin-right: 2%;
+    float: left;
+    min-height: 1px;
+    overflow: visible;
+}
+
+img {
+    vertical-align: top;
+    max-width: 100%;
+    border: 0;
+}
+
+.a-ws .a-ws-span12, div.a-column.a-span-last {
+    margin-right: 0;
+    float: right;
+}
+
+.ya-card__whole-card-link {
+    height: 100%;
+    display: block;
+}
+
+.a-row .a-span9, .a-ws .a-row .a-ws-span9 {
+    width: 74.448%;
+}
+
+.a-text-normal {
+    font-weight: 400!important;
+    font-style: normal!important;
+    text-transform: none!important;
+    text-decoration: none!important;
+}
+
+.ya-card__heading--rich {
+    color: #111;
+}
+
+a, a:active, a:link, a:visited {
+    text-decoration: none;
+    color: #0066c0;
+}
+
+.a-color-secondary {
+    color: #555!important;
+}
+
+.a-row:after, .a-row:before {
+    display: table;
+    content: "";
+    line-height: 0;
+    font-size: 0;
+}
+
+.a-row:after {
+    clear: both;
+}
+
+.a-row:after, .a-row:before {
+    display: table;
+    content: "";
+    line-height: 0;
+    font-size: 0;
+}
+
+// -----------間の区切りところ----------
+
+.a-spacing-top-extra-large {
+    margin-top: 26px!important;
+}
+
+.a-spacing-extra-large, .a-ws .a-ws-spacing-extra-large {
+    margin-bottom: 26px!important;
+}
+
+hr {
+    background-color: transparent;
+    display: block;
+    height: 1px;
+    border-width: 0;
+    border-top: 1px solid #e7e7e7;
+    line-height: 19px;
+    margin-top: 0;
+    margin-bottom: 14px;
+}
+
+// ----------下のテーブルのところ------
+
+.a-spacing-micro, .a-ws .a-ws-spacing-micro {
+    margin-bottom: 4px!important;
+}
+
+h4 {
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.255;
+}
+
+.a-ordered-list.a-nostyle, .a-unordered-list.a-nostyle, ol.a-nostyle, ul.a-nostyle {
+    margin-left: 0;
+    color: #111;
+}
+
+.a-ordered-list:last-child, .a-unordered-list:last-child, ol:last-child, ul:last-child {
+    margin-bottom: 0!important;
+}
+
+.a-ordered-list, .a-unordered-list, ol, ul {
+    padding: 0;
+}
+.a-unordered-list, ul {
+    margin: 0 0 18px 18px;
+    color: #949494;
+}
+
+.a-ordered-list.a-nostyle li, .a-unordered-list.a-nostyle li, ol.a-nostyle li, ul.a-nostyle li {
+    list-style: none;
+}
+
+.a-ordered-list li, .a-unordered-list li, ol li, ul li {
+    word-wrap: break-word;
+    margin: 0;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
