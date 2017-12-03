@@ -11,6 +11,9 @@ html {
     padding: 0;
     margin: 0;
     background: #fff;
+    label {
+      cursor: default;
+    }
   }
   body {
     font-size: 13px;
@@ -112,7 +115,7 @@ a, a:active, a:link, a:visited {
 }
 
 .a-hires .a-domain-jp, .a-hires .a-icon-domain-jp, .a-hires .a-icon-jp, .a-hires .a-icon-prime-jp, .a-hires .a-icon-prime-jp-nav, .a-hires .a-prime-jp-logo, .a-hires .a-prime-jp-nav-logo {
-  background-image: url(https://m.media-amazon.com/images/G/01/AUIClients/AmazonUIBaseCSS-sprite_jp_2x-3fbd39a…._V2_.png);
+  background-image: url('bamazon_layer.png');
 }
 
 .a-domain-jp, .a-icon-domain-jp {
@@ -125,7 +128,7 @@ a, a:active, a:link, a:visited {
 }
 
 .a-domain-jp, .a-icon-domain-jp, .a-icon-jp, .a-icon-prime-jp, .a-icon-prime-jp-nav, .a-prime-jp-logo, .a-prime-jp-nav-logo {
-  background-image: url(https://m.media-amazon.com/images/G/01/AUIClients/AmazonUIBaseCSS-sprite_jp_1x-f858235…._V2_.png);
+  background-image: url('bamazon_layer.png');
   -webkit-background-size: 350px 350px;
   background-size: 350px 350px;
 }
@@ -195,7 +198,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .a-hires .a-icon, .a-hires .a-link-emphasis:after {
-    background-image: url(https://m.media-amazon.com/images/G/01/AUIClients/AmazonUIBaseCSS-sprite_2x-8852bac…._V2_.png);
+    background-image: url('bamazon_layer.png');
 }
 
 p:last-child {
@@ -233,10 +236,6 @@ input, select, textarea {
   color: #111;
 }
 
-.a-spacing-extra-large, .a-ws .a-ws-spacing-extra-large {
-  margin-bottom: 26px!important;
-}
-
 .a-spacing-small, .a-ws .a-ws-spacing-small {
   margin-bottom: 10px!important;
 }
@@ -250,10 +249,6 @@ h1 {
 h1, h2, h3, h4 {
   font-family: "Hiragino Kaku Gothic Pro W3","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
   padding-bottom: 4px;
-}
-
-.a-spacing-base, .a-ws .a-ws-spacing-base {
-  margin-bottom: 14px!important;
 }
 
 .a-row {
@@ -415,24 +410,6 @@ button, input[type=button], input[type=reset], input[type=submit] {
   -webkit-appearance: button;
 }
 
-.a-button-text {
-  background-color: transparent;
-  border: 0;
-  display: block;
-  font-family: "Hiragino Kaku Gothic Pro W3","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
-  font-size: 13px;
-  line-height: 29px;
-  margin: 0;
-  outline: 0;
-  padding: 0 10px 0 11px;
-  text-align: center;
-  white-space: nowrap;
-}
-
-.a-button .a-button-text {
-  color: #111;
-}
-
 .a-button-primary .a-button-text {
   color: #111;
 }
@@ -514,6 +491,10 @@ a.a-link-emphasis {
   margin-bottom: 0;
 }
 
+.a-spacing-extra-large, .a-ws .a-ws-spacing-extra-large {
+  margin-bottom: 26px!important;
+}
+
 .a-size-mini {
   font-size: 11px!important;
   line-height: 1.465!important;
@@ -537,5 +518,113 @@ a.a-link-emphasis {
   padding-left: 2px;
   padding-bottom: 2px;
   font-weight: 700;
+}
+
+.a-padding-extra-large {
+  padding: 20px 26px!important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Hiragino Kaku Gothic Pro W3","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+  padding-bottom: 4px;
+}
+
+.a-column a-span7 a-text-right a-span-last {
+  margin-bottom: 22px!important;
+}
+
+.a-section {
+  margin-bottom: 22px;
+}
+
+.a-row .a-span5, .a-ws .a-row .a-ws-span5 {
+  width: 40.448%;
+}
+
+.a-spacing-top-medium {
+  margin-top: 18px!important;
+}
+
+.a-text-left {
+  text-align: left!important;
+}
+
+.a-checkbox-label, .a-radio-label {
+  position: relative;
+  padding-left: 5px;
+  text-indent: 0;
+  display: inline-block;
+}
+
+.a-box .a-divider.a-divider-break:after, .a-color-base-background .a-divider.a-divider-break:after, .a-divider.a-divider-break:after {
+  content: "";
+  width: 100%;
+  background-color: transparent;
+  display: block;
+  height: 1px;
+  border-top: 1px solid #e7e7e7;
+  position: absolute;
+  top: 50%;
+  margin-top: -1px;
+  z-index: 1;
+}
+
+.a-box .a-divider.a-divider-break, .a-color-base-background .a-divider.a-divider-break, .a-divider.a-divider-break {
+  text-align: center;
+  position: relative;
+  top: 2px;
+  padding-top: 1px;
+  margin-bottom: 14px;
+  line-height: 0;
+}
+
+.a-box .a-divider.a-divider-break h5, .a-color-base-background .a-divider.a-divider-break h5, .a-divider.a-divider-break h5 {
+  line-height: 1;
+  font-size: 12px;
+  color: #767676;
+  font-weight: 400;
+  z-index: 2;
+  position: relative;
+  display: inline-block;
+  background-color: #fff;
+  padding: 0 8px 0 7px;
+}
+
+.a-button-text {
+  background-color: transparent;
+  border: 0;
+  display: block;
+  font-family: "Hiragino Kaku Gothic Pro W3","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+  font-size: 13px;
+  line-height: 29px;
+  margin: 0;
+  outline: 0;
+  padding: 0 10px 0 11px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.a-button .a-button-text {
+  color: #111;
+}
+
+#createAccountSubmit {
+  background-color: transparent;
+  border: 0;
+  display: block;
+  font-family: "Hiragino Kaku Gothic Pro W3","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+  font-size: 13px;
+  line-height: 29px;
+  margin: 0;
+  outline: 0;
+  padding: 0 10px 0 11px;
+  text-align: center;
+  white-space: nowrap;
+  color: #111;
 }
 
