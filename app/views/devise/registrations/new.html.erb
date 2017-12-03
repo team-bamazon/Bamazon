@@ -1,17 +1,5 @@
 <body class="ap-locale-ja_JP a-m-jp a-aui_51744-c a-aui_57326-c a-aui_72554-c a-aui_83815-c a-aui_86171-c a-aui_96511-c a-aui_accessibility_49860-c a-aui_attr_validations_1_51371-c a-aui_bolt_62845-c a-aui_noopener_84118-c a-aui_ux_102912-c a-aui_ux_59374-c a-aui_ux_60000-c a-aui_ux_92006-c a-aui_ux_98513-c a-dex_92889-c a-meter-animate">
-  <!-- <script type="text/javascript">
-    (function(){function l(a){for(var c=b.location.search.substring(1).split("&"),e=0;e<c.length;e++){var d=c[e].split("=");if(d[0]===a)return d[1]}}window.amzn=window.amzn||{};amzn.copilot=amzn.copilot||{};var b=window,f=document,g=b.P||b.AmazonUIPageJS,h=f.head||f.getElementsByTagName("head")[0],m=0,n=0;amzn.copilot.checkCoPilotSession=function(){f.cookie.match("cpidv")&&("undefined"!==typeof jQuery&&k(jQuery),g&&g.when&&g.when("jQuery").execute(function(a){k(a)}),b.amznJQ&&b.amznJQ.available&&b.amznJQ.available("jQuery",
-    function(){k(jQuery)}),b.jQuery||g||b.amznJQ||q())};var q=function(){m?b.ue&&"function"===typeof b.ue.count&&b.ue.count("cpJQUnavailable",1):(m=1,f.addEventListener?f.addEventListener("DOMContentLoaded",amzn.copilot.checkCoPilotSession,!1):f.attachEvent&&f.attachEvent("onreadystatechange",function(){"complete"===f.readyState&&amzn.copilot.checkCoPilotSession()}))},k=function(a){if(!n){n=1;amzn.copilot.jQuery=a;a=l("debugJS");var c="https:"===b.location.protocol?1:0,e=1;url="/gp/copilot/handlers/copilot_strings_resources.html";
-    window.texas&&texas.locations&&(url=texas.locations.makeUrl(url));g&&g.AUI_BUILD_DATE&&(e=0);amzn.copilot.jQuery.ajax&&amzn.copilot.jQuery.ajax({url:url,dataType:"json",data:{isDebug:a,isSecure:c,includeAUIP:e},success:function(a){amzn.copilot.vip=a.serviceEndPoint;amzn.copilot.enableMultipleTabSession=a.isFollowMe;r(a)},error:function(){b.ue.count("cpLoadResourceError",1)}})}},r=function(a){var c=amzn.copilot.jQuery,e=function(){amzn.copilot.setup(c.extend({isContinuedSession:!0},a))};a.CSSUrls&&
-    c.each(a.CSSUrls[0],function(a,c){var b=f.createElement("link");b.type="text/css";b.rel="stylesheet";b.href=c;h.appendChild(b)});a.CSSTag&&s(a.CSSTag);if(a.JSUrls){var d=l("forceSynchronousJS"),b=a.JSUrls[0];c.each(b,function(a,c){a===b.length-1?p(c,d,e):p(c,d)})}a.JSTag&&(t(a.JSTag),P.when("CSCoPilotPresenterAsset").execute(function(){e()}))},t=function(a){var c=f.createElement("div");c.innerHTML=a;a=0;for(var b=c.children.length;a<b;a++){var d=f.createElement("script");d.type="text/javascript";
-    d.innerHTML=c.children[a].innerHTML;h.appendChild(d)}},s=function(a){var b=f.createElement("div");b.innerHTML=a;a=0;for(var e=b.children.length;a<e;a++)h.appendChild(b.children[a])},p=function(a,b,e){var d=f.createElement("script");d.type="text/javascript";d.src=a;d.async=b?!1:!0;e&&(d.onload=e);h.appendChild(d)}})();
-
-    amzn.copilot.checkCoPilotSession();
-
-  </script> -->
   <div id="a-page">
-    <!-- <script type="a-state" data-a-state="{&quot;key&quot;:&quot;a-wlab-states&quot;}">{"AUI_51744":null,"AUI_57326":null,"AUI_72554":null,"AUI_83815":null,"AUI_86171":null,"AUI_96511":null,"AUI_ACCESSIBILITY_49860":null,"AUI_ATTR_VALIDATIONS_1_51371":null,"AUI_BOLT_62845":null,"AUI_NOOPENER_84118":null,"AUI_UX_102912":null,"AUI_UX_59374":null,"AUI_UX_60000":null,"AUI_UX_92006":"C","AUI_UX_98513":null,"DEX_92889":null}
-    </script> -->
     <div class="a-section a-padding-medium auth-workflow">
       <div class="a-section a-spacing-none auth-navbar">
         <div class="a-section a-spacing-medium a-text-center">
@@ -42,21 +30,6 @@
         <div class="a-section">
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= devise_error_messages! %>
-          <!-- <form id="ap_register_form" name="register" novalidate action="https://www.amazon.co.jp/ap/register" data-enable-mobile-account-js="false" data-post-verification-action="https://www.amazon.co.jp/ap/register" class="a-spacing-none auth-validate-form auth-real-time-validation fwcim-form" data-fwcim-id="undefinedc84309bb"> -->
-            <!-- <input type="hidden" name="appActionToken" value="9ePKZJMgUmJGaRBbvqRUms3Jj2BGkj3D">
-            <input type="hidden" name="appAction" value="REGISTER">
-            <input type="hidden" name="openid.pape.max_auth_age" value="ape:MA==">
-            <input type="hidden" name="openid.return_to" value="ape:aHR0cHM6Ly93d3cuYW1hem9uLmNvLmpwL2dwL3lvdXJzdG9yZS9ob21lP2llPVVURjgmYWN0aW9uPXNpZ24tb3V0JnBhdGg9JTJGZ3AlMkZ5b3Vyc3RvcmUlMkZob21lJnJlZl89bmF2X3lvdXJhY2NvdW50X3NpZ25vdXQmc2lnbkluPTEmdXNlUmVkaXJlY3RPblN1Y2Nlc3M9MQ==">
-            <input type="hidden" name="prevRID" value="ape:MUVESjRGMktSUk1ITTYwQzJTSks=">
-            <input type="hidden" name="openid.identity" value="ape:aHR0cDovL3NwZWNzLm9wZW5pZC5uZXQvYXV0aC8yLjAvaWRlbnRpZmllcl9zZWxlY3Q=">
-            <input type="hidden" name="openid.assoc_handle" value="ape:anBmbGV4">
-            <input type="hidden" name="openid.mode" value="ape:Y2hlY2tpZF9zZXR1cA==">
-            <input type="hidden" name="openid.ns.pape" value="ape:aHR0cDovL3NwZWNzLm9wZW5pZC5uZXQvZXh0ZW5zaW9ucy9wYXBlLzEuMA==">
-            <input type="hidden" name="failedSignInCount" value="ape:MA==">
-            <input type="hidden" name="openid.claimed_id" value="ape:aHR0cDovL3NwZWNzLm9wZW5pZC5uZXQvYXV0aC8yLjAvaWRlbnRpZmllcl9zZWxlY3Q=">
-            <input type="hidden" name="pageId" value="ape:anBmbGV4">
-            <input type="hidden" name="openid.ns" value="ape:aHR0cDovL3NwZWNzLm9wZW5pZC5uZXQvYXV0aC8yLjA=">
-            <input type="hidden" name="claimToken" class="auth-contact-verification-claim-token"> -->
             <div class="a-box a-spacing-extra-large">
               <div class="a-box-inner">
                 <h1 class="a-spacing-small">アカウントを作成</h1>
@@ -72,8 +45,8 @@
                 </div>
                 <div class="auth-require-fields-match-group">
                   <div class="a-row a-spacing-base">
+                    <!-- メールアドレスのフォーム -->
                     <div class="label" for="ap_email">Eメールアドレス<%f.label :email %><br />
-                      <!-- メールアドレスのフォーム -->
                     <%= f.email_field :email, maxlength: "64", id: "ap_email", class: "a-input-text a-span12 auth-required-field auth-require-fields-match auth-require-email-validaton auth-require-reverify-on-change auth-contact-verification-request-info" %></div>
                   </div>
                 </div>
@@ -111,7 +84,7 @@
                 </div>
                 <div class="a-row">
                   すでにアカウントをお持ちですか？
-                  <a class="a-link-emphasis" href="/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fyourstore%2Fhome%3Fie%3DUTF8%26action%3Dsign-out%26path%3D%252Fgp%252Fyourstore%252Fhome%26ref_%3Dnav_youraccount_signout%26signIn%3D1%26useRedirectOnSuccess%3D1&prevRID=1EDJ4F2KRRMHM60C2SJK&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=jpflex&openid.mode=checkid_setup&openid.ns.pape=http%3A%2F%2Fspecs.openid.net%2Fextensions%2Fpape%2F1.0&failedSignInCount=0&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&pageId=jpflex&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">
+                  <a class="a-link-emphasis" href="/users/sign_in">
                     サインイン
                   </a>
                 </div>

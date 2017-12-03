@@ -1,0 +1,122 @@
+<body class="ap-locale-ja_JP a-m-jp a-aui_51744-c a-aui_57326-c a-aui_72554-c a-aui_83815-c a-aui_86171-c a-aui_96511-c a-aui_accessibility_49860-c a-aui_attr_validations_1_51371-c a-aui_bolt_62845-c a-aui_noopener_84118-c a-aui_ux_102912-c a-aui_ux_59374-c a-aui_ux_60000-c a-aui_ux_92006-c a-aui_ux_98513-c a-dex_92889-c a-meter-animate">
+  <div id="a-page">
+    <div class="a-section a-padding-medium auth-workflow">
+      <div class="a-section a-spacing-none auth-navbar">
+        <div class="a-section a-spacing-medium a-text-center">
+          <a class="a-link-nav-icon" tabindex="-1" href="/ref=ap_frn_logo">
+            <i class="a-icon a-icon-logo" aria-label="Amazon">
+              <span class="a-icon-alt">Bmazon</span>
+            </i>
+            <i class="a-icon a-icon-jp a-icon-domain-jp a-icon-domain"></i>
+          </a>
+        </div>
+      </div>
+      <div class="a-section a-spacing-base auth-pagelet-container">
+        <div id="auth-cookie-warning-message" class="a-box a-alert a-alert-warning">
+          <div class="a-box-inner a-alert-container">
+            <h4 class="a-alert-heading">続行するには、cookieを有効にしてください
+            </h4>
+            <i class="a-icon a-icon-alert"></i>
+            <div class="a-alert-content">
+              <p>
+                <a class="a-link-normal" href="/gp/help/customer/display.html/ref=ap_cookie_error_help?">
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="a-section auth-pagelet-container">
+        <div class="a-section a-spacing-base">
+          <div class="a-section">
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <%= devise_error_messages! %>
+              <div class="a-section">
+                <div class="a-box">
+                  <div class="a-box-inner a-padding-extra-large">
+                    <h1 class="a-spacing-small">サインイン</h1>
+                    <div class="a-row a-spacing-base">
+                      <div class="label" for="ap_email">Eメールアドレス<%f.label :email %><br />
+                      <%= f.email_field :email, maxlength: "64", id: "ap_email", class: "a-input-text a-span12 auth-required-field auth-require-fields-match auth-require-email-validaton auth-require-reverify-on-change auth-contact-verification-request-info" %></div>
+                    </div>
+                    <div class="a-section a-spacing-large">
+                      <div class="a-row">
+                        <div class="label a-column a-span5" for="ap_password"><%= f.label :password %><br /></div>
+                        <div class="a-column a-span7 a-text-right a-span-last">パスワードを忘れた場合</div>
+                        <%= f.password_field :password, maxlength: "1024", id: "ap_password", placeholder: "最低6文字必要です", class: "a-input-text a-form-normal a-span12 auth-required-field auth-require-fields-match  auth-require-password-validation" %>
+                      </div>
+                    </div>
+                    <div class="a-section a-spacing-extra-large">
+                      <span class="a-button a-button-normal a-button-span12 a-button-primary" id="a-autoid-0">
+                        <span class="a-button-inner">
+                          <!-- 送信ボタンのフォーム -->
+                          <%= f.submit id: "continue", class: "a-button-input", "aria-labelledby": "a-autoid-0-announce" %>
+                          <span class="a-button-text" aria-hidden="true" id="a-autoid-0-announce">ログイン</span>
+                        </span>
+                      </span>
+                    <div class="a-row a-spacing-top-medium">
+                      <!-- チェックボックス -->
+                      <div class="a-section a-text-left">
+                        <label for="auth-remember-me" class="a-form-label">
+                          <div data-a-input-name: "rememberMe", class: a-checkbox>
+                            <label>
+                              <input type="checkbox", name="rememberMe">
+                              <i class="a-icon a-icon-checkbox"></i>
+                              <span class="a-label a-checkbox-label">サインインしたままにする</span>
+                                <span class="a-declarative" data-action="a-popover">
+                                  <a id="remember_me_learn_more_link" href="javascript:void(0)" class="a-popover-trigger a-declarative">
+                                    詳細
+                                    <i class="a-icon a-icon-popover"></i>
+                                  </a>
+                                </span>
+                            </label>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="a-divider a-divider-break">
+                    <h5>Bamazonの新しいお客様ですか？</h5>
+                  </div>
+                  <span id="auth-create-account-link" class="a-button a-button-span12">
+                    <span class="a-button-inner">
+                      <a id="createAccountSubmit" href="/users/sign_up">Bamazonアカウント作成</a>
+                    </span>
+                  </span>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="a-section a-spacing-top-extra-large auth-footer">
+        <div class="a-divider a-divider-section">
+          <div class="a-divider-inner">
+          </div>
+        </div>
+        <div class="a-section a-spacing-small a-text-center a-size-mini">
+          <span class="auth-footer-seperator"></span>
+          <a class="a-link-normal" target="_blank" rel="noopener noreferrer" href="/gp/help/customer/display.html/ref=ap_desktop_footer_cou?ie=UTF8&nodeId=643006">利用規約</a>
+          <span class="auth-footer-seperator"></span>
+          <a class="a-link-normal" target="_blank" rel="noopener noreferrer" href="/gp/help/customer/display.html/ref=ap_desktop_footer_privacy_notice?ie=UTF8&nodeId=643000">プライバシー規約</a>
+          <span class="auth-footer-seperator"></span>
+          <a class="a-link-normal" target="_blank" href="/help">ヘルプ</a>
+          <span class="auth-footer-seperator"></span>
+        </div>
+        <div class="a-section a-spacing-none a-text-center">
+          <span class="a-size-mini a-color-secondary">© 2017, Bamazon.com, Inc. or its affiliates</span>
+        </div>
+      </div>
+    </div>
+    <div id="be" style="display:none;visibility:hidden;">
+      <form name="ue_backdetect" action="get">
+        <input type="hidden" name="ue_back" value="2">
+      </form>
+    </div>
+    <div class="fwcim-container"></div>
+    <div id="UMS_TOOLTIP" style="position: absolute; cursor: pointer; z-index: 2147483647; background: transparent; top: -100000px; left: -100000px;"></div>
+    <div id="a-popover-root" style="z-index:-1;position:absolute;"></div>
+  </div>
+</body>
+<umsdataelement id="UMSSendDataEventElement"></umsdataelement>
