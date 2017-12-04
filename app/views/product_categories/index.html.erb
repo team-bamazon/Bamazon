@@ -1,0 +1,21 @@
+<%= render partial: 'layouts/header' %>
+<% @results.each do |result| %>
+  <% if result[:parent_product_category_id] %>
+    <li><%= result[:name] %> | <%= result[:node_id] %> | <%= result[:category_url] %></li>
+    <% if result[:products] %>
+      <ol>
+        <% result[:products].each do |product| %>
+          <li><%= product %></li>
+        <% end %>
+      </ol>
+    <% end %>
+  <% else %>
+    <% if result[:id] != 0 %>
+      </ul>
+    <% end %>
+    <h3><%= result[:name] %></h3>
+    <ul>
+  <% end %>
+<% end %>
+</ul>
+<%= render partial: 'layouts/footer' %>
