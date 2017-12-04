@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   root "products#index"
   # resources :products, [:index]
   resources :users, only: [:index, :edit]
+  get '/users/user_info' => 'users#user_info'
 end
