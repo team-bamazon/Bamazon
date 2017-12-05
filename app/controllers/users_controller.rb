@@ -10,6 +10,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:user_id])
   end
 
+  def edit_email
+    @user = User.find(params[:user_id])
+  end
+
   def edit
   end
 end

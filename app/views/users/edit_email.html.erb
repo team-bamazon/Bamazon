@@ -1,0 +1,115 @@
+<%= render partial: 'layouts/header' %>
+  <div class="a-container">
+    <div class="a-section auth-pagelet-desktop-wide-container">
+      <div class="a-section auth-pagelet-desktop-wide-container">
+        <ol id="breadcrumb_CNEP" class="a-ordered-list a-horizontal">
+          <li>
+            <span class="a-list-item">
+              <a class="a-link-normal" href="/users">アカウントサービス</a>
+            </span>
+          </li>
+          <li>
+            <span class="a-list-item"> > </span>
+          </li>
+          <li>
+            <span class="a-list-item a-color-state">
+              <a class="a-link-normal" href="/users/1/user_info">サインインとセキュリティ</a>
+            </span>
+          </li>
+          <li>
+            <span class="a-list-item"> > </span>
+          </li>
+          <li>
+            <span class="a-list-item a-color-state">Eメールを変更する</span>
+          </li>
+        </ol>
+        <h1 id="ap_cnep_header" class="a-spacing-small">Eメールを変更する</h1>
+        <div class="a-section a-spacing-top-large">
+          <div class="a-box">
+            <div class="a-box-inner">
+              <div class="a-row a-spacing-base">
+                AmazonのアカウントのEメールアドレスを変更するには、下のフォームを使用してください。次回ログインまたは発注する際は、新しいEメールアドレスを使用してください。
+              </div>
+              <form method="post" novalidate action="https://www.amazon.co.jp/ap/cnep">
+                <div class="a-section" id="a-section-box">
+                  <div class="a-row">
+                    <label class="a-form-label">現在のメールアドレス</label>
+                  </div>
+                  <div class="a-row">
+                    <div id="ap_email_old" class="a-section a-padding-mini"><%= current_user.email %></div>
+                  </div>
+                <div class="a-section a-spacing-large">
+                  <div class="a-row">
+                    <label for="ap_email_new" class="a-form-label">新しいEメールアドレス:</label>
+                  </div>
+                  <div class="a-row">
+                    <input type="email" id="ap_email_new" name="emailNew" tabindex="1" class="a-input-text a-width-large">
+                  </div>
+                </div>
+                <div class="a-section a-spacing-large">
+                  <div class="a-row">
+                    <label for="ap_email_new_check" class="a-form-label">新しいEメールアドレスの再入力:</label>
+                  </div>
+                  <div class="a-row a-spacing-large">
+                    <input type="email" id="ap_email_new_check" name="emailNewCheck" tabindex="2" class="a-input-text a-width-large">
+                  </div>
+                </div>
+                <div class="a-section a-spacing-large">
+                  <div class="a-row">
+                    <label for="auth-password" class="a-form-label">現在のパスワード:</label>
+                  </div>
+                  <div class="a-row">
+                    <input type="password" maxlength="1024" id="ap_password" name="password" tabindex="3" class="a-input-text a-width-large">
+                  </div>
+                </div>
+                <div class="a-fixed-right-grid a-spacing-base">
+                  <div class="a-fixed-right-grid-inner" style="padding-right:0px">
+                    <div class="a-fixed-right-grid-col" style="float:left;">
+                      <div class="a-section" id="a-section-box">
+                        <div id="image-captcha-section" class="a-section a-spacing-large">
+                          <input type="hidden" name="use_image_captcha" value="true" id="use_image_captcha">
+                          <div class="a-section a-spacing-base">
+                            <h4 class="font">表示されている文字列を半角で入力してください</h4>
+                            <div id="auth-captcha-image-container" class="a-section a-text-center">
+                              <img alt="CAPTCHA" src="https://opfcaptcha-prod.s3.amazonaws.com/dffe6ff13ec84da8acd2871bef5a7b37.jpg?AWSAccessKeyId=AKIAJWUJUDKR4XD6N3KQ&amp;Expires=1512443944&amp;Signature=jFtSup8wdZ2rCUfqYzSO116T%2FEs%3D" data-refresh-url="/ap/captcha?appAction=CNEP_EMAIL&amp;captchaObfuscationLevel=ape:ZWFzeQ==&amp;captchaType=image" id="auth-captcha-image">
+                            </div>
+                            <div class="a-row">
+                              <div class="a-column a-span12 a-text-center">
+                                <a id="auth-captcha-refresh-link" class="a-link-normal" tabindex="4" href="/ap/cnep?openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;pageId=jpflex&amp;returnOnSuccess=false&amp;openid.return_to=https%3A%2F%2Fwww.amazon.co.jp%2Fyour-account&amp;prevRID=DRS72KSS0Z5Y39BAMGFR&amp;openid.assoc_handle=jpflex&amp;openid.mode=checkid_setup&amp;openid.ns.pape=http%3A%2F%2Fspecs.openid.net%2Fextensions%2Fpape%2F1.0&amp;openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&amp;email=m-m.42.sundai.soccer%40ezweb.ne.jp&amp;use_audio_captcha=0">他の画像に切り替える</a>
+                                <a id="auth-captcha-noop-link" class="a-link-normal" href="javascript:void(0);" style="display: none;">他の画像に切り替える</a>
+                              </div>
+                            </div>
+                          </div>
+                          <script>P.register('auth-captcha-cf');</script>
+                          <label for="auth-captcha-guess" class="a-form-label">文字列を入力</label>
+                          <input type="text" id="auth-captcha-guess" autocomplete="off" name="guess" tabindex="4" class="a-input-text a-span12 auth-required-field">
+                          <div id="auth-guess-missing-alert" class="a-box a-alert-inline a-alert-inline-error auth-inlined-error-message a-spacing-none a-spacing-top-mini">
+                            <div class="a-box-inner a-alert-container">
+                              <i class="a-icon a-icon-alert"></i>
+                              <div class="a-alert-content">画像に表示されている文字を半角で入力してください。</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="a-section a-text-center">
+                          <a class="a-link-normal" href="/gp/help/customer/account-issues/ref=is_auth_captcha_fp?ie=UTF8">視覚障害等により判読できない場合はこちら</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="a-section a-spacing-large">
+                  <span class="a-button a-button-primary" id="a-autoid-0">
+                    <span class="a-button-inner">
+                      <input id="cnep_1B_submit_button" tabindex="5" class="a-button-input" type="submit" aria-labelledby="a-autoid-0-announce">
+                      <span class="a-button-text" aria-hidden="true" id="a-autoid-0-announce">変更内容を保存</span>
+                    </span>
+                  </span>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<%= render partial: 'layouts/footer' %>
