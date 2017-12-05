@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # before_action :set_user, only: [:edit_name, :edit_email, :new_phone_number, :edit, :update]
+  before_action :set_user, only: [:edit_name, :edit_email, :new_phone_number, :edit_password, :edit, :update]
 
   def index
   end
@@ -16,10 +16,15 @@ class UsersController < ApplicationController
   def new_phone_number
   end
 
+  def edit_password
+  end
+
   def edit
   end
 
-  # def set_user
-  #   @user = User.find(params[:user_id])
-  # end
+
+
+  def set_user
+    @user = User.find(params[:user_id])
+  end
 end
