@@ -41,7 +41,7 @@
                             <div class="a-row">
                               <span class="a-button a-button-span12" id="a-autoid-0">
                                 <span class="a-button-inner">
-                                  <input id="auth-cnep-edit-name-button" class="a-button-input" type="submit" aria-labelledby="a-autoid-0-announce">
+                                  <%= link_to "編集", user_edit_name_path(current_user), class: 'btn btn-default a-button-input', id: "auth-cnep-edit-name-button" %>
                                   <span class="a-button-text" aria-hidden="true" id="a-autoid-0-announce">編集</span>
                                 </span>
                               </span>
@@ -71,7 +71,7 @@
                             <div class="a-row">
                               <span class="a-button a-button-span12" id="a-autoid-1">
                                 <span class="a-button-inner">
-                                  <input id="auth-cnep-edit-email-button" class="a-button-input" type="submit" aria-labelledby="a-autoid-1-announce">
+                                  <%= link_to "編集", user_edit_email_path(current_user), class: 'btn btn-default a-button-input', id: "auth-cnep-edit-email-button" %>
                                   <span class="a-button-text" aria-hidden="true" id="a-autoid-1-announce">編集</span>
                                 </span>
                               </span>
@@ -110,7 +110,7 @@
                             <div class="a-row">
                               <span class="a-button a-button-span12" id="a-autoid-3">
                                 <span class="a-button-inner">
-                                  <input id="auth-cnep-add-phone-button" class="a-button-input" type="submit" aria-labelledby="a-autoid-3-announce">
+                                  <%= link_to "編集", user_new_phone_number_path(current_user), class: 'btn btn-default a-button-input', id: "auth-cnep-add-phone-button" %>
                                   <span class="a-button-text" aria-hidden="true" id="a-autoid-3-announce">追加</span>
                                 </span>
                               </span>
@@ -140,7 +140,7 @@
                             <div class="a-row">
                               <span class="a-button a-button-span12" id="a-autoid-4">
                                 <span class="a-button-inner">
-                                  <input id="auth-cnep-edit-password-button" class="a-button-input" type="submit" aria-labelledby="a-autoid-4-announce">
+                                  <%= link_to "編集", user_edit_password_path(current_user), class: 'btn btn-default a-button-input', id: "auth-cnep-edit-password-button" %>
                                   <span class="a-button-text" aria-hidden="true" id="a-autoid-4-announce">編集</span>
                                 </span>
                               </span>

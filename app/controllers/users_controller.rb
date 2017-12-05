@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit_name, :edit_email, :new_phone_number, :edit_password, :edit, :update]
+  before_action :set_user, only: [:user_info, :edit_name, :edit_email, :new_phone_number, :edit_password, :edit, :update]
 
   def index
   end
