@@ -25,10 +25,175 @@
               <li>
                 <span class="a-list-item">
                   <div class="a-section a-padding-medium">
+                    <div id="cnep_1a_name_form">
+                      <div class="a-fixed-right-grid">
+                        <div class="a-fixed-right-grid-inner" style="padding-right:70px">
+                          <div class="a-fixed-right-grid-col a-col-left" style="padding-right:5%;*width:94.6%;float:left;">
+                            <div class="a-row">
+                              <span class="a-text-bold">名前</span>
+                            </div>
+                            <div class="a-row">
+                              <%= current_user.name %>
+                              <%= current_user.furigana %>
+                            </div>
+                          </div>
+                          <div class="a-fixed-right-grid-col a-col-right" style="width:70px;margin-right:-70px;float:left;">
+                            <div class="a-row">
+                              <span class="a-button a-button-span12" id="a-autoid-0">
+                                <span class="a-button-inner">
+                                  <input id="auth-cnep-edit-name-button" class="a-button-input" type="submit" aria-labelledby="a-autoid-0-announce">
+                                  <span class="a-button-text" aria-hidden="true" id="a-autoid-0-announce">編集</span>
+                                </span>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </span>
+              </li>
+              <li>
+                <span class="a-list-item">
+                  <div class="a-section a-padding-medium">
+                    <div id="cnep_1a_email_form">
+                      <div class="a-fixed-right-grid">
+                        <div class="a-fixed-right-grid-inner" style="padding-right:70px">
+                          <div class="a-fixed-right-grid-col a-col-left" style="padding-right:5%;*width:94.6%;float:left;">
+                            <div class="a-row">
+                              <span class="a-text-bold">Eメールアドレス</span>
+                            </div>
+                            <div class="a-row">
+                              <%= current_user.email %>
+                            </div>
+                          </div>
+                          <div class="a-fixed-right-grid-col a-col-right" style="width:70px;margin-right:-70px;float:left;">
+                            <div class="a-row">
+                              <span class="a-button a-button-span12" id="a-autoid-1">
+                                <span class="a-button-inner">
+                                  <input id="auth-cnep-edit-email-button" class="a-button-input" type="submit" aria-labelledby="a-autoid-1-announce">
+                                  <span class="a-button-text" aria-hidden="true" id="a-autoid-1-announce">編集</span>
+                                </span>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </span>
+              </li>
+              <li>
+                <span class="a-list-item">
+                  <div class="a-section a-padding-medium">
+                    <div id="cnep_1a_mobile_phone_form">
+                      <div class="a-fixed-right-grid">
+                        <div class="a-fixed-right-grid-inner" style="padding-right:70px">
+                          <div class="a-fixed-right-grid-col a-col-left" style="padding-right:5%;*width:94.6%;float:left;">
+                            <div class="a-row">
+                              <span class="a-text-bold">携帯電話番号:</span>
+                            </div>
+                            <div class="a-row">
+                              <span class="a-declarative" data-action="a-modal" data-a-modal="{&quot;max-width&quot;:&quot;300px&quot;,&quot;width&quot;:&quot;95%&quot;,&quot;name&quot;:&quot;phoneModal&quot;,&quot;header&quot;:&quot;携帯電話番号を追加する理由&quot;}">
+                                <a id="phoneModalLink" class="a-link-normal" href="javascript:void(0)">
+                                  携帯電話番号を追加する理由
+                                </a>
+                              </span>
+                              <div class="a-popover-preload" id="a-popover-phoneModal">
+                                <div class="a-row">
+                                  <p id="phoneModalContent">携帯番号を追加すると、携帯番号でサインインしたり、パスワードのリセットに利用したりしていただけます。また、<a href="https://www.amazon.com/gp/help/customer/display.html/?nodeId=202073820">2段階認証</a>を利用するとセキュリティをより強化できます。</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="a-fixed-right-grid-col a-col-right" style="width:70px;margin-right:-70px;float:left;">
+                            <div class="a-row">
+                              <span class="a-button a-button-span12" id="a-autoid-3">
+                                <span class="a-button-inner">
+                                  <input id="auth-cnep-add-phone-button" class="a-button-input" type="submit" aria-labelledby="a-autoid-3-announce">
+                                  <span class="a-button-text" aria-hidden="true" id="a-autoid-3-announce">追加</span>
+                                </span>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </span>
+              </li>
+              <li>
+                <span class="a-list-item">
+                  <div class="a-section a-padding-medium">
+                    <div id="cnep_1a_password_form">
+                      <div class="a-fixed-right-grid">
+                        <div class="a-fixed-right-grid-inner" style="padding-right:70px">
+                          <div class="a-fixed-right-grid-col a-col-left" style="padding-right:5%;*width:94.6%;float:left;">
+                            <div class="a-row">
+                              <span class="a-text-bold">現在のパスワード</span>
+                            </div>
+                            <div class="a-row">
+                              ********
+                            </div>
+                          </div>
+                          <div class="a-fixed-right-grid-col a-col-right" style="width:70px;margin-right:-70px;float:left;">
+                            <div class="a-row">
+                              <span class="a-button a-button-span12" id="a-autoid-4">
+                                <span class="a-button-inner">
+                                  <input id="auth-cnep-edit-password-button" class="a-button-input" type="submit" aria-labelledby="a-autoid-4-announce">
+                                  <span class="a-button-text" aria-hidden="true" id="a-autoid-4-announce">編集</span>
+                                </span>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </span>
+              </li>
+              <li>
+                <span class="a-list-item">
+                  <div class="a-section a-padding-medium">
+                    <form>
+                      <div class="a-fixed-right-grid">
+                        <div class="a-fixed-right-grid-inner" style="padding-right:70px">
+                          <div class="a-fixed-right-grid-col a-col-left" style="padding-right:5%;*width:94.6%;float:left;">
+                            <div class="a-row">
+                              <span class="a-text-bold">高度なセキュリティ:</span>
+                            </div>
+                            <div class="a-row">
+                              <span class="a-color-secondary">セキュリティコードの設定と管理</span>
+                            </div>
+                          </div>
+                          <div class="a-fixed-right-grid-col a-col-right" style="width:70px;margin-right:-70px;float:left;">
+                            <div class="a-row">
+                              <span class="a-button a-button-span12" id="a-autoid-5">
+                                <span class="a-button-inner">
+                                  <input id="auth-cnep-advanced-security-settings-button" class="a-button-input" type="submit" aria-labelledby="a-autoid-5-announce">
+                                  <span class="a-button-text" aria-hidden="true" id="a-autoid-5-announce">編集</span>
+                                </span>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
                   </div>
                 </span>
               </li>
             </ul>
+          </div>
+        </div>
+        <div class="a-section a-spacing-top-base a-padding-small">
+          <div class="a-row">
+            <div class="a-column a-span12 a-span-last">
+              <span class="a-button a-button-primary" id="a-autoid-6">
+                <span class="a-button-inner">
+                  <a id="auth-cnep-done-button" href="/users" class="a-button-text" role="button">終了</a>
+                </span>
+              </span>
+            </div>
           </div>
         </div>
       </div>

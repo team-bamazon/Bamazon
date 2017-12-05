@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   root "products#index"
   # resources :products, [:index]
-  resources :users, only: [:index, :edit]
-  get '/users/user_info' => 'users#user_info'
+  resources :users, only: [:index, :edit] do
+    get 'user_info'
+  end
 end
