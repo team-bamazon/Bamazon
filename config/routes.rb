@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root "products#index"
   # resources :products, [:index]
   resources :users, only: [:index, :edit] do
-    get 'user_info'
+    get  'user_info'
+    post 'edit_name'
   end
 end
