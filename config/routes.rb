@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   # resources :products, [:index]
   resources :users, only: [:index, :edit] do
     get  'user_info'
-    post 'edit_name'
+    get 'edit_name'
   end
 end
