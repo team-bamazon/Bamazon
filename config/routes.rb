@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     get  'user_info'
     get  'edit_name'
     get  'edit_email'
+    get  'new_phone_number'
   end
 end

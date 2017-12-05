@@ -1,19 +1,25 @@
 class UsersController < ApplicationController
+  # before_action :set_user, only: [:edit_name, :edit_email, :new_phone_number, :edit, :update]
+
   def index
   end
 
   def user_info
-    @user = User.find(params[:user_id])
   end
 
   def edit_name
-    @user = User.find(params[:user_id])
   end
 
   def edit_email
-    @user = User.find(params[:user_id])
+  end
+
+  def new_phone_number
   end
 
   def edit
   end
+
+  # def set_user
+  #   @user = User.find(params[:user_id])
+  # end
 end
