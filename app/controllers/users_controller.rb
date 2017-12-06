@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    @password = current_user.password
     if @user.id == current_user.id
       @user.update(users_params)
       redirect_to user_info_user_path(current_user)
@@ -34,7 +35,7 @@ class UsersController < ApplicationController
   private
 
   def users_params
-    params.require(:user).permit(:name, :furigana, :email)
+    params.require(:user).permit(:name, :furigana, :email, :phone_number, :password, :password_confirmation)
   end
 
   def set_user

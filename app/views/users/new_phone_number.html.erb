@@ -4,7 +4,7 @@
       <ol id="breadcrumb_CNEP" class="a-ordered-list a-horizontal">
         <li>
           <span class="a-list-item">
-            <a class="a-link-normal" href="/users">アカウントサービス</a>
+            <%= link_to "アカウントサービス", users_path(current_user),  class: "a-link-normal" %>
           </span>
         </li>
         <li>
@@ -12,7 +12,7 @@
         </li>
         <li>
           <span class="a-list-item a-color-state">
-            <a class="a-link-normal" href="/users/1/user_info">サインインとセキュリティ</a>
+            <%= link_to "サインインとセキュリティ", user_info_user_path(current_user), class: "a-link-normal" %>
           </span>
         </li>
         <li>
@@ -29,7 +29,7 @@
             <div class="a-fixed-right-grid-inner" style="padding-right:0px">
               <div class="a-fixed-right-grid-col" style="float:left;">
                 <span class="a-declarative" data-action="a-modal" data-a-modal="{&quot;max-width&quot;:&quot;95%&quot;,&quot;width&quot;:&quot;300px&quot;,&quot;name&quot;:&quot;verifyContinueModal&quot;,&quot;header&quot;:&quot;番号の確認が必要です&quot;,&quot;height&quot;:&quot;240px&quot;}" id="auth-verify-modal-action" style=""></span>
-                <form id="auth-change-phone" method="post" novalidate action="https://www.amazon.co.jp/ap/profile/mobilephone">
+                <%= form_for current_user do |f| %>
                   <div class="a-row">
                     <label for="ap_phone_number" class="a-form-label auth-mobile-label">携帯番号</label>
                   </div>
@@ -44,18 +44,18 @@
                       </span>
                     </div>
                     <div class="a-column a-span7 a-span-last">
-                      <input type="tel" maxlength="50" id="ap_phone_number" name="newMobilePhoneNumber" tabindex="1" class="a-input-text a-span12 a-spacing-base auth-required-field auth-require-phone-validation" data-validation-id="phoneNumber">
+                      <%= f.text_field :phone_number, id: "ap_phone_number", class: "a-input-text a-span12 a-spacing-base auth-required-field auth-require-phone-validation" %>
                     </div>
                   </div>
                   <div class="a-row a-spacing-top-small">
                     <span class="a-button a-button-span12 a-button-primary auth-requires-verify-modal" id="a-autoid-1">
                       <span class="a-button-inner">
-                        <input id="auth-continue" tabindex="2" name="addMobilePhone" class="a-button-input" type="submit" aria-labelledby="a-autoid-1-announce">
+                        <%= f.submit id: "auth-continue", class: "a-button-input" %>
                         <span class="a-button-text" aria-hidden="true" id="a-autoid-1-announce">携帯番号を追加する</span>
                       </span>
                     </span>
                   </div>
-                </form>
+                <% end %>
                 <div class="a-row a-spacing-top-small">
                   <span class="a-button a-button-group-first a-button-span12" id="a-autoid-2">
                     <span class="a-button-inner">
