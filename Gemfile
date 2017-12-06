@@ -77,3 +77,6 @@ gem "fog"
 gem 'rails-i18n'
 gem 'pry-rails'
 
+# スクレイピング用のGem。'amazon-ecs'は本格的にamazonから全量のカテゴリを取得する場合に使う。
+gem 'mechanize'
+# gem 'amazon-ecs'

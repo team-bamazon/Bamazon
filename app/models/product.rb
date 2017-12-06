@@ -6,4 +6,6 @@ class Product < ApplicationRecord
   has_many   :product_images
   has_many   :reviews
   belongs_to :product_category
+
+  accepts_nested_attributes_for :product_images
 end
