@@ -34,7 +34,7 @@
                             </div>
                             <div class="a-row">
                               <%= current_user.name %>
-                              <%= current_user.furigana %>
+                              (<%= current_user.furigana %>)
                             </div>
                           </div>
                           <div class="a-fixed-right-grid-col a-col-right" style="width:70px;margin-right:-70px;float:left;">
@@ -170,7 +170,7 @@
                             <div class="a-row">
                               <span class="a-button a-button-span12" id="a-autoid-5">
                                 <span class="a-button-inner">
-                                  <input id="auth-cnep-advanced-security-settings-button" class="a-button-input" type="submit" aria-labelledby="a-autoid-5-announce">
+                                  <%= link_to "編集", "https://www.amazon.co.jp/a/settings/approval?appActionToken=4aWGG9hGEYD26bCONiTglBAqa7Ej3D&appAction=&openid.return_to=ape%3AaHR0cHM6Ly93d3cuYW1hem9uLmNvLmpwL3lvdXItYWNjb3VudA%3D%3D&prevRID=ape%3AMVNNNTZGWTBTMTdFQkFNSzJKNFc%3D&openid.identity=ape%3AaHR0cDovL3NwZWNzLm9wZW5pZC5uZXQvYXV0aC8yLjAvaWRlbnRpZmllcl9zZWxlY3Q%3D&openid.assoc_handle=ape%3AanBmbGV4&openid.mode=ape%3AY2hlY2tpZF9zZXR1cA%3D%3D&openid.ns.pape=ape%3AaHR0cDovL3NwZWNzLm9wZW5pZC5uZXQvZXh0ZW5zaW9ucy9wYXBlLzEuMA%3D%3D&openid.claimed_id=ape%3AaHR0cDovL3NwZWNzLm9wZW5pZC5uZXQvYXV0aC8yLjAvaWRlbnRpZmllcl9zZWxlY3Q%3D&pageId=ape%3AanBmbGV4&returnOnSuccess=ape%3AZmFsc2U%3D&openid.ns=ape%3AaHR0cDovL3NwZWNzLm9wZW5pZC5uZXQvYXV0aC8yLjA%3D&email=ape%3AbS1tLjQyLnN1bmRhaS5zb2NjZXJAZXp3ZWIubmUuanA%3D&referringAppAction=CNEP", class: 'btn btn-default a-button-input', id: "auth-cnep-advanced-security-settings-button" %>
                                   <span class="a-button-text" aria-hidden="true" id="a-autoid-5-announce">編集</span>
                                 </span>
                               </span>

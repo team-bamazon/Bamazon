@@ -8,6 +8,16 @@ class UsersController < ApplicationController
   end
 
   def edit_name
+    binding.pry
+  end
+
+  def update
+    if @user.id == current_user.id
+      @user.update(users_params)
+      redirect_to user_user_info_path(current_user)
+    else
+      render :edit_name
+    end
   end
 
   def edit_email
@@ -22,7 +32,11 @@ class UsersController < ApplicationController
   def edit
   end
 
+  private
 
+  def users_params
+    params.require(:user).permit(:name, :furigana, :email)
+  end
 
   def set_user
     @user = User.find(params[:user_id])

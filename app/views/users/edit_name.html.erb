@@ -5,7 +5,7 @@
         <ol id="breadcrumb_CNEP" class="a-ordered-list a-horizontal">
           <li>
             <span class="a-list-item">
-              <a class="a-link-normal" href="/users">アカウントサービス</a>
+              <%= link_to "アカウントサービス", users_path(current_user),  class: "a-link-normal" %>
             </span>
           </li>
           <li>
@@ -13,7 +13,7 @@
           </li>
           <li>
             <span class="a-list-item a-color-state">
-              <a class="a-link-normal" href="/users/1/user_info">サインインとセキュリティ</a>
+              <%= link_to "サインインとセキュリティ", user_user_info_path(current_user), class: "a-link-normal" %>
             </span>
           </li>
           <li>
@@ -30,18 +30,18 @@
               Amazonアカウントに関連付けられている名前を変更する場合は、下で変更を行うことができます。完了したら、[変更を保存] ボタンをクリックしてください。
             </div>
             <div class="a-section a-spacing-top-large">
-              <form method="post" novalidate action="https://www.amazon.co.jp/ap/cnep">
+              <%= form_for current_user do |f| %>
                 <div class="a-row">
                   <label class="a-row">新しい名前</label>
                 </div>
                 <div class="a-row a-spacing-large">
-                  <input type="text" value="本村正憲" id="ap_customer_name" name="customerName" tabindex="1" class="a-input-text">
+                  <%= f.text_field :name, id: "ap_customer_name",name: "customerName", class: "a-input-text" %>
                 </div>
                 <div class="a-row">
                   <label class="a-form-label">フリガナ</label>
                 </div>
                 <div class="a-row a-spacing-large">
-                  <input type="text" value="モトムラマサノリ" id="ap_customer_name_pronunciation" name="customerNamePronunciation" tabindex="2" class="a-input-text">
+                  <%= f.text_field :furigana, id: "ap_customer_name_pronunciation", name: "customerNamePronunciation", class: "a-input-text" %>
                 </div>
                 <div class="a-fixed-right-grid">
                   <div class="a-fixed-right-grid-inner" style="padding-right:0px">
@@ -50,12 +50,12 @@
                   </div>
                   <sapn class="a-button a-button-primary" id="a-autoid-0">
                     <span class="a-button-inner">
-                      <input id="cnep_1C_submit_button" tabindex="4" class="a-button-input" type="submit" aria-labelledby="a-autoid-0-announce">
+                      <%= f.submit id: "cnep_1C_submit_button", class: "a-button-input" %>
                       <span class="a-button-text" aria-hidden="true" id="a-autoid-0-announce">変更内容を保存</span>
                     </span>
                   </sapn>
                 </div>
-              </form>
+              <% end %>
             </div>
           </div>
         </div>
