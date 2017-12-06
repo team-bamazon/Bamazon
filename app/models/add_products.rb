@@ -106,8 +106,7 @@ class AddProducts
             detail:                    "マルヤム国王ギスカールと手を結んだヒルメス、魔将軍イルテリシュに率いられたチュルク軍、孔雀姫フィトナを押し立てたミスル軍、そして蛇王ザッハークと魔軍!!　難敵に包囲されたパルス国とアルスラーンの運命は!?　伝説的ベストセラー、堂々完結。",
             stock:                     rand(1..100),
             amount_sales:              rand(1..100),
-            product_category_id:       69,
-            product_images_attributes: [{image:""}]
+            product_category_id:       69
         },
         {
             name:                      "ぜったいに おしちゃダメ?",
