@@ -5,7 +5,7 @@
         <ol id="breadcrumb_CNEP" class="a-ordered-list a-horizontal">
           <li>
             <span class="a-list-item">
-              <a class="a-link-normal" href="/users">アカウントサービス</a>
+              <%= link_to "アカウントサービス", users_path(current_user),  class: "a-link-normal" %>
             </span>
           </li>
           <li>
@@ -13,7 +13,7 @@
           </li>
           <li>
             <span class="a-list-item a-color-state">
-              <a class="a-link-normal" href="/users/1/user_info">サインインとセキュリティ</a>
+              <%= link_to "サインインとセキュリティ", user_info_user_path(current_user), class: "a-link-normal" %>
             </span>
           </li>
           <li>
@@ -30,7 +30,7 @@
               <div class="a-row a-spacing-base">
                 AmazonのアカウントのEメールアドレスを変更するには、下のフォームを使用してください。次回ログインまたは発注する際は、新しいEメールアドレスを使用してください。
               </div>
-              <form method="post" novalidate action="https://www.amazon.co.jp/ap/cnep">
+              <%= form_for current_user do |f| %>
                 <div class="a-section" id="a-section-box">
                   <div class="a-row">
                     <label class="a-form-label">現在のメールアドレス</label>
@@ -43,7 +43,7 @@
                     <label for="ap_email_new" class="a-form-label">新しいEメールアドレス:</label>
                   </div>
                   <div class="a-row">
-                    <input type="email" id="ap_email_new" name="emailNew" tabindex="1" class="a-input-text a-width-large">
+                    <%= f.text_field :email, id: "ap_email_new", class: "a-input-text a-width-large" %>
                   </div>
                 </div>
                 <div class="a-section a-spacing-large">
@@ -51,7 +51,7 @@
                     <label for="ap_email_new_check" class="a-form-label">新しいEメールアドレスの再入力:</label>
                   </div>
                   <div class="a-row a-spacing-large">
-                    <input type="email" id="ap_email_new_check" name="emailNewCheck" tabindex="2" class="a-input-text a-width-large">
+                    <%= f.text_field :email, id: "ap_email_new_check", class: "a-input-text a-width-large" %>
                   </div>
                 </div>
                 <div class="a-section a-spacing-large">
@@ -59,7 +59,7 @@
                     <label for="auth-password" class="a-form-label">現在のパスワード:</label>
                   </div>
                   <div class="a-row">
-                    <input type="password" maxlength="1024" id="ap_password" name="password" tabindex="3" class="a-input-text a-width-large">
+                    <%= f.text_field :password, maxlength: "1024", id: "ap_password", class: "a-input-text a-width-large" %>
                   </div>
                 </div>
                 <div class="a-fixed-right-grid a-spacing-base">
@@ -105,7 +105,7 @@
                     </span>
                   </span>
                 </div>
-              </form>
+              <% end %>
             </div>
           </div>
         </div>
