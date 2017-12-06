@@ -13,7 +13,7 @@
           </li>
           <li>
             <span class="a-list-item a-color-state">
-              <%= link_to "サインインとセキュリティ", user_user_info_path(current_user), class: "a-link-normal" %>
+              <%= link_to "サインインとセキュリティ", user_info_user_path(current_user), class: "a-link-normal" %>
             </span>
           </li>
           <li>
@@ -35,13 +35,13 @@
                   <label class="a-row">新しい名前</label>
                 </div>
                 <div class="a-row a-spacing-large">
-                  <%= f.text_field :name, id: "ap_customer_name",name: "customerName", class: "a-input-text" %>
+                  <%= f.text_field :name, id: "ap_customer_name", class: "a-input-text" %>
                 </div>
                 <div class="a-row">
                   <label class="a-form-label">フリガナ</label>
                 </div>
                 <div class="a-row a-spacing-large">
-                  <%= f.text_field :furigana, id: "ap_customer_name_pronunciation", name: "customerNamePronunciation", class: "a-input-text" %>
+                  <%= f.text_field :furigana, id: "ap_customer_name_pronunciation", class: "a-input-text" %>
                 </div>
                 <div class="a-fixed-right-grid">
                   <div class="a-fixed-right-grid-inner" style="padding-right:0px">

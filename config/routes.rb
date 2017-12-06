@@ -5,10 +5,12 @@ Rails.application.routes.draw do
   root "products#index"
   # resources :products, [:index]
   resources :users, only: [:index, :edit, :update] do
-    get  'user_info'
-    get  'edit_name'
-    get  'edit_email'
-    get  'new_phone_number'
-    get  'edit_password'
+    member do
+      get  'user_info'
+      get  'edit_name'
+      get  'edit_email'
+      get  'new_phone_number'
+      get  'edit_password'
+    end
   end
 end
