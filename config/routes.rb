@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # resources :products, [:index]
   resources :users, only: [:index, :edit] do
     member do
-      resources :payment_infomations, only: [:index, :create, :delete, :edit, :update]
+      resources :payment_informations, only: [:index, :create, :delete, :edit, :update]
     end
   end
 end
