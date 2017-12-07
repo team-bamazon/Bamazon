@@ -6,11 +6,15 @@ Rails.application.routes.draw do
   # resources :products, [:index]
   resources :users, only: [:index, :edit, :update] do
     member do
-      get  'user_info'
-      get  'edit_name'
-      get  'edit_email'
-      get  'new_phone_number'
-      get  'edit_password'
+      get   'user_info'
+      get   'edit_name'
+      get   'edit_email'
+      get   'new_phone_number'
+      get   'edit_password'
+      patch 'update_email'
+      patch 'update_name'
+      patch 'update_phone_number'
+      patch 'update_password'
     end
   end
 end

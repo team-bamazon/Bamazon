@@ -29,7 +29,7 @@
             <div class="a-fixed-right-grid-inner" style="padding-right:0px">
               <div class="a-fixed-right-grid-col" style="float:left;">
                 <span class="a-declarative" data-action="a-modal" data-a-modal="{&quot;max-width&quot;:&quot;95%&quot;,&quot;width&quot;:&quot;300px&quot;,&quot;name&quot;:&quot;verifyContinueModal&quot;,&quot;header&quot;:&quot;番号の確認が必要です&quot;,&quot;height&quot;:&quot;240px&quot;}" id="auth-verify-modal-action" style=""></span>
-                <%= form_for current_user do |f| %>
+                <%= form_for current_user, url: update_phone_number_user_path do |f| %>
                   <div class="a-row">
                     <label for="ap_phone_number" class="a-form-label auth-mobile-label">携帯番号</label>
                   </div>

@@ -24,13 +24,14 @@
           </li>
         </ol>
         <h1 id="ap_cnep_header" class="a-spacing-small">Eメールを変更する</h1>
+        <%= flash[:alert] %>
         <div class="a-section a-spacing-top-large">
           <div class="a-box">
             <div class="a-box-inner">
               <div class="a-row a-spacing-base">
                 AmazonのアカウントのEメールアドレスを変更するには、下のフォームを使用してください。次回ログインまたは発注する際は、新しいEメールアドレスを使用してください。
               </div>
-              <%= form_for current_user do |f| %>
+              <%= form_for current_user, url: update_email_user_path  do |f| %>
                 <div class="a-section" id="a-section-box">
                   <div class="a-row">
                     <label class="a-form-label">現在のメールアドレス</label>
@@ -59,7 +60,7 @@
                     <label for="auth-password" class="a-form-label">現在のパスワード:</label>
                   </div>
                   <div class="a-row">
-                    <%= f.text_field :password, maxlength: "1024", id: "ap_password", class: "a-input-text a-width-large" %>
+                    <input type="password" maxlength="1024" id="ap_password" name="password" tabindex="3" class="a-input-text a-width-large">
                   </div>
                 </div>
                 <div class="a-fixed-right-grid a-spacing-base">
@@ -100,7 +101,7 @@
                 <div class="a-section a-spacing-large">
                   <span class="a-button a-button-primary" id="a-autoid-0">
                     <span class="a-button-inner">
-                      <input id="cnep_1B_submit_button" tabindex="5" class="a-button-input" type="submit" aria-labelledby="a-autoid-0-announce">
+                      <%= f.submit id: "cnep_1B_submit_button", class: "a-button-input" %>
                       <span class="a-button-text" aria-hidden="true" id="a-autoid-0-announce">変更内容を保存</span>
                     </span>
                   </span>

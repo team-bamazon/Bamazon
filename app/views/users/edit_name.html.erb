@@ -30,7 +30,7 @@
               Amazonアカウントに関連付けられている名前を変更する場合は、下で変更を行うことができます。完了したら、[変更を保存] ボタンをクリックしてください。
             </div>
             <div class="a-section a-spacing-top-large">
-              <%= form_for current_user do |f| %>
+              <%= form_for current_user, url: update_name_user_path do |f| %>
                 <div class="a-row">
                   <label class="a-row">新しい名前</label>
                 </div>
