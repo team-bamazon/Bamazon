@@ -26,6 +26,7 @@
 - has_many :review_comments
 - has_many :likes
 - has_many :dislikes
+- has_many :addresses
 
 ## products table
 
@@ -117,6 +118,24 @@
 
 ### Association
 - belongs_to :order
+
+## addresses table
+
+|Column|Type|Options|
+|------|----|-------|
+|country|string||
+|full_name|string||
+|postal_code_one|string||
+|postal_code_two|string||
+|region|string||
+|street_address_one|string||
+|street_address_two|string||
+|building_name|string||
+|phone_number|string||
+|user_id|integer|foreign_key: true|
+
+### Association
+- belongs_to :user
 
 
 ## payment_informations table
