@@ -12,4 +12,5 @@ class User < ApplicationRecord
   has_many :review_comments
   has_many :dislikes
   has_many :likes
+  has_many :addresses
 end
