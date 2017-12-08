@@ -342,3 +342,35 @@ label, legend {
 #pp-mm-25 {
   width: 80px;
 }
+
+.a-span-last{
+  width: 150px;
+}
+
+.a-expander-header {
+  outline: 0;
+}
+
+a.a-link-section-expander {
+  font-size: 17px;
+  line-height: 1.255;
+  display: block;
+  position: relative;
+  color: #111;
+  background-color: #f3f3f3;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+}
+
+a.a-link-section-expander {
+  padding: 11px 54px 11px 18px;
+}
+
+.a-section-expander-container:first-child a.a-link-section-expander {
+  border-radius: 4px 4px 0 0;
+}
+
+.a-size-base {
+  font-size: 13px!important;
+  line-height: 19px!important;
+}

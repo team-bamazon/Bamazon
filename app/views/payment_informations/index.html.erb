@@ -60,23 +60,53 @@
                         </div>
                       </div>
                       <div class="a-row a-spacing-top-mini a-ws-row">
+                        <% @cards.each do |card| %>
                         <div data-pmts-component-id="pp-51-10" aria-live="polite" class="a-row a-expander-container a-spacing-mini a-expander-section-container pmts-instrument-list-item-expander pmts-portal-component pmts-portal-components-pp-51-10 a-section-expander-container">
+                          <a data-action="a-expander-toggle" class="a-expander-header a-declarative a-expander-section-header a-color-alternate-background a-link-section-expander a-size-medium">
+                            <span class="a-expander-prompt">
+                              <div class="a-fixed-left-grid pmts-instrument-detail-rows">
+                                <div class="a-fixed-left-grid-inner" style="padding-left:44px">
+                                  <div class="a-fixed-left-grid-col a-col-left" style="width:44px;margin-left:-44px;_margin-left:-22px;float:left;">
+                                    <img alt="Visa" src="https://images-na.ssl-images-amazon.com/images/G/01/payments-portal/r1/issuer-images/visa._CB393363241_.png">
+                                  </div>
+                                  <div class="a-fixed-left-grid-col a-col-right" style="padding-left:0%;*width:99.6%;float:left;">
+                                    <div class="a-fixed-right-grid">
+                                      <div class="a-fixed-right-grid-inner" style="padding-right:209px">
+                                        <div class="a-fixed-right-grid-col a-col-left" style="padding-right:0%;*width:99.6%;float:left;">
+                                          <span class="a-size-base pmts-instrument-display-name">Visa</span>
+                                          <span class="a-size-base pmts-instrument-number-tail">
+                                            <span class="a-letter-space"></span>
+                                            <span>下４桁 <%= card.number_method %></span>
+                                          </span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="a-fixed-right-grid-col a-col-right" style="width:209px;margin-right:-209px;float:left;">
+                                    <div class="a-section pmts-account-expiry-date">
+                                      <span class="a-size-base a-color-secondary"><%= card.month %>/<%= card.year %></span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </span>
+                          </a>
                           <div aria-expanded="true" class="a-expander-content pmts-instrument-list-item-expander-content a-expander-section-content a-section-expander-inner a-expander-content-expanded" style="overflow: hidden; display: block;">
                             <div class="a-row">
                               <div class="a-column a-span7 pmts-account-holder-name">
-                                <span class="a-text-bold">クレジットカード名義人</span><br>本
+                                <span class="a-text-bold">クレジットカード名義人</span><br><%= card.card_name %>
                               </div>
                               <div class="a-column a-span4 a-span-last">
                                 <span class="a-text-bold">請求先住所</span>
                                 <div id="QLRYAAHSBFHMLYY4MWHUG12YNPO8HBJGGA1DGGJBH8OPNYPPXTQ2EIA2OXEMKWMS" class="a-section a-spacing-small">
-                                  <span class="a-size-small pmts-address-field a-text-bold">本</span><br>
-                                  <span class="a-size-small pmts-address-field">000-0000</span><br>
-                                  <span class="a-size-small pmts-address-field">東京都</span><br>
-                                  <span class="a-size-small pmts-address-field">渋谷区</span><br>
-                                  <span class="a-size-small pmts-address-field">フォンティスビル７F</span><br>
+                                  <span class="a-size-small pmts-address-field a-text-bold"><%= card.full_name %></span><br>
+                                  <span class="a-size-small pmts-address-field"><%= card.postal_code_one %>-<%= card.postal_code_two %></span><br>
+                                  <span class="a-size-small pmts-address-field"><%= card.region %></span><br>
+                                  <span class="a-size-small pmts-address-field"><%= card.street_address_one %></span><br>
+                                  <span class="a-size-small pmts-address-field"><%= card.building_name %></span><br>
                                   <span class="a-size-small pmts-address-field">日本</span><br>
                                   <div class="a-row pmts-address-phoneNumber-field">
-                                    <span class="a-size-small pmts-address-field">00011110000</span>
+                                    <span class="a-size-small pmts-address-field"><%= card.phone_number %></span>
                                   </div>
                                 </div>
                               </div>
@@ -114,6 +144,7 @@
                             </div>
                           </div>
                         </div>
+                        <% end %>
                       </div>
                     </div>
                   </div>
@@ -208,7 +239,7 @@
                                   </div>
                                   <div class="a-section a-spacing-none pmts-inline-field-block">
                                     <label for="pp-51-25" class="a-form-label">カード番号</label>
-                                    <%= f.text_field :card_number, id: "pp-51-25", maxlength: "15", class: "a-input-text a-form-normal a-width-medium" %>
+                                    <%= f.text_field :card_number, id: "pp-51-25", autocomplete: "off", class: "a-input-text a-form-normal a-width-medium" %>
                                   </div>
                                   <div class="a-section a-spacing-none a-spacing-top-large pmts-inline-field-block">
                                     <div data-pmts-component-id="pp-51-17" class="a-section a-spacing-none pmts-portal-component pmts-portal-components-pp-51-17">
