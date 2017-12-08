@@ -5,8 +5,6 @@ Rails.application.routes.draw do
   root "products#index"
   # resources :products, [:index]
   resources :users, only: [:index, :edit] do
-    member do
-      resources :payment_informations, only: [:index, :create, :delete, :edit, :update]
-    end
+    resources :payment_informations, only: [:index, :create, :delete, :edit, :update]
   end
 end

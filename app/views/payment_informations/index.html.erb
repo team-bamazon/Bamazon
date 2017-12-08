@@ -156,219 +156,137 @@
                   <div data-pmts-component-id="pp-51-9" class="a-section a-spacing-base pmts-portal-component pmts-portal-components-pp-51-9">
                     <hr class="a-divider-normal">
                     <div id="pp-51-19" data-pmts-component-id="pp-51-14" class="a-section pmts-portal-component pmts-portal-components-pp-51-14">
-                      <div aria-live="polite" class="a-row a-expander-container a-spacing-base a-expander-inline-container pmts-add-cc add-instrument-form-expander">
-                        <div class="a-fixed-right-grid">
-                          <div class="a-fixed-right-grid-inner" style="padding-right:147px">
-                            <div class="a-fixed-right-grid-col a-col-left" style="padding-right:2%;*width:97.6%;float:left;">
-                              <div class="a-row a-spacing-base">
-                                <div class="a-row">
-                                  <span class="a-size-medium pmts-portal-add-ba-title a-text-bold">クレジットカード</span>
-                                </div>
-                                <div class="a-row">
-                                  <div class="a-row">以下のクレジットカードをご利用いただけます</div>
+                      <%= form_for [current_user, @card] do |f| %>
+                        <div aria-live="polite" class="a-row a-expander-container a-spacing-base a-expander-inline-container pmts-add-cc add-instrument-form-expander">
+                          <div class="a-fixed-right-grid">
+                            <div class="a-fixed-right-grid-inner" style="padding-right:147px">
+                              <div class="a-fixed-right-grid-col a-col-left" style="padding-right:2%;*width:97.6%;float:left;">
+                                <div class="a-row a-spacing-base">
+                                  <div class="a-row">
+                                    <span class="a-size-medium pmts-portal-add-ba-title a-text-bold">クレジットカード</span>
+                                  </div>
+                                  <div class="a-row">
+                                    <div class="a-row">以下のクレジットカードをご利用いただけます</div>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                            <div class="a-text-right a-fixed-right-grid-col a-col-right" style="width:147px;margin-right:-147px;float:left;">
-                              <div class="a-section a-spacing-none a-text-right pmts-composite-logo-row">
-                                <span class="pmts-indiv-issuer-image" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/09/payments-portal/r1/issuer-images/sprite-map._CB345015564_.png'); background-position: -225px; margin-right: 6px;"></span>
-                                <span class="pmts-indiv-issuer-image" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/09/payments-portal/r1/issuer-images/sprite-map._CB345015564_.png'); background-position: 0px; margin-right: 6px;"></span>
-                                <span class="pmts-indiv-issuer-image" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/09/payments-portal/r1/issuer-images/sprite-map._CB345015564_.png'); background-position: -45px;"></span>
-                              </div>
-                              <div class="a-section a-spacing-none a-text-right pmts-composite-logo-row">
-                                <span class="pmts-indiv-issuer-image" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/09/payments-portal/r1/issuer-images/sprite-map._CB345015564_.png'); background-position: -90px; margin-right: 6px;"></span>
-                                <span class="pmts-indiv-issuer-image" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/09/payments-portal/r1/issuer-images/sprite-map._CB345015564_.png'); background-position: -135px; margin-right: 6px;"></span>
-                                <span class="pmts-indiv-issuer-image" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/09/payments-portal/r1/issuer-images/sprite-map._CB345015564_.png'); background-position: -270px;"></span>
+                              <div class="a-text-right a-fixed-right-grid-col a-col-right" style="width:147px;margin-right:-147px;float:left;">
+                                <div class="a-section a-spacing-none a-text-right pmts-composite-logo-row">
+                                  <span class="pmts-indiv-issuer-image" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/09/payments-portal/r1/issuer-images/sprite-map._CB345015564_.png'); background-position: -225px; margin-right: 6px;"></span>
+                                  <span class="pmts-indiv-issuer-image" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/09/payments-portal/r1/issuer-images/sprite-map._CB345015564_.png'); background-position: 0px; margin-right: 6px;"></span>
+                                  <span class="pmts-indiv-issuer-image" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/09/payments-portal/r1/issuer-images/sprite-map._CB345015564_.png'); background-position: -45px;"></span>
+                                </div>
+                                <div class="a-section a-spacing-none a-text-right pmts-composite-logo-row">
+                                  <span class="pmts-indiv-issuer-image" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/09/payments-portal/r1/issuer-images/sprite-map._CB345015564_.png'); background-position: -90px; margin-right: 6px;"></span>
+                                  <span class="pmts-indiv-issuer-image" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/09/payments-portal/r1/issuer-images/sprite-map._CB345015564_.png'); background-position: -135px; margin-right: 6px;"></span>
+                                  <span class="pmts-indiv-issuer-image" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/09/payments-portal/r1/issuer-images/sprite-map._CB345015564_.png'); background-position: -270px;"></span>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div aria-expanded="true" class="a-expander-content a-spacing-base a-expander-inline-content a-expander-inner a-expander-content-expanded" style="overflow: hidden; display: block;">
-                          <div id="pp-51-21" data-pmts-component-id="pp-51-15" class="a-section pmts-portal-component pmts-portal-components-pp-51-15">
-                            <form id="pp-51-22" method="post" action="https://www.amazon.co.jp:443/cpe/managepaymentmethods" class="pmts-add-credit-card-form a-spacing-none">
-                              <div id="pp-51-23" class="a-row a-spacing-base a-hidden aok-hidden">
-                                <div class="a-column a-span10">
-                                  <div  class="a-box a-alert a-alert-error" aria-live="assertive">
-                                    <div class="a-box-inner a-alert-container">
-                                      <h4 class="a-alert-heading">問題が発生しました。</h4>
-                                      <i class="a-icon a-icon-alert"></i>
-                                      <div class="a-alert-content">
-                                        <ul class="a-unordered-list a-vertical"></ul>
+                          <div aria-expanded="true" class="a-expander-content a-spacing-base a-expander-inline-content a-expander-inner a-expander-content-expanded" style="overflow: hidden; display: block;">
+                            <div id="pp-51-21" data-pmts-component-id="pp-51-15" class="a-section pmts-portal-component pmts-portal-components-pp-51-15">
+                              <form id="pp-51-22" method="post" action="https://www.amazon.co.jp:443/cpe/managepaymentmethods" class="pmts-add-credit-card-form a-spacing-none">
+                                <div id="pp-51-23" class="a-row a-spacing-base a-hidden aok-hidden">
+                                  <div class="a-column a-span10">
+                                    <div  class="a-box a-alert a-alert-error" aria-live="assertive">
+                                      <div class="a-box-inner a-alert-container">
+                                        <h4 class="a-alert-heading">問題が発生しました。</h4>
+                                        <i class="a-icon a-icon-alert"></i>
+                                        <div class="a-alert-content">
+                                          <ul class="a-unordered-list a-vertical"></ul>
+                                        </div>
                                       </div>
                                     </div>
                                   </div>
                                 </div>
-                              </div>
-                              <div class="a-row a-spacing-base">カード情報を入力してください</div>
-                              <div class="a-row a-spacing-base">
-                                <div class="a-section a-spacing-none pmts-inline-field-block">
-                                  <label for="pp-51-24" class="a-form-label">カード名義人（半角ローマ字）</label>
-                                  <input type="text" maxlength="50" id="pp-51-24" autocomplete="off" name="ppw-accountHolderName" class="a-input-text a-form-normal a-width-base">
-                                </div>
-                                <div class="a-section a-spacing-none pmts-inline-field-block">
-                                  <label for="pp-51-25" class="a-form-label">カード番号</label>
-                                  <input type="tel" id="pp-51-25" autocomplete="off" name="addCreditCardNumber" class="a-input-text a-form-normal a-width-medium">
-                                </div>
-                                <div class="a-section a-spacing-none a-spacing-top-large pmts-inline-field-block">
-                                  <div data-pmts-component-id="pp-51-17" class="a-section a-spacing-none pmts-portal-component pmts-portal-components-pp-51-17">
-                                    <img alt="" src="https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.gif" class="a-hidden aok-hidden" id="pp-51-26">
+                                <div class="a-row a-spacing-base">カード情報を入力してください</div>
+                                <div class="a-row a-spacing-base">
+                                  <div class="a-section a-spacing-none pmts-inline-field-block">
+                                    <label for="pp-51-24" class="a-form-label">カード名義人（半角ローマ字）</label>
+                                    <%= f.text_field :card_name, id: "pp-51-24", autocomplete: "off", class: "a-input-text a-form-normal a-width-base" %>
                                   </div>
-                                </div>
-                                <div class="a-section a-spacing-none pmts-inline-field-block">
-                                  <div class="a-section a-spacing-none pmts-expiry pmts-date-width">
-                                    <label for="pp-51-27" class="a-form-label">有効期限</label>
+                                  <div class="a-section a-spacing-none pmts-inline-field-block">
+                                    <label for="pp-51-25" class="a-form-label">カード番号</label>
+                                    <%= f.text_field :card_number, id: "pp-51-25", maxlength: "15", class: "a-input-text a-form-normal a-width-medium" %>
+                                  </div>
+                                  <div class="a-section a-spacing-none a-spacing-top-large pmts-inline-field-block">
+                                    <div data-pmts-component-id="pp-51-17" class="a-section a-spacing-none pmts-portal-component pmts-portal-components-pp-51-17">
+                                      <img alt="" src="https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.gif" class="a-hidden aok-hidden" id="pp-51-26">
+                                    </div>
+                                  </div>
+                                  <div class="a-section a-spacing-none pmts-inline-field-block">
+                                    <div class="a-section a-spacing-none pmts-expiry pmts-date-width">
+                                      <label for="pp-51-27" class="a-form-label">有効期限</label>
+                                      <span class="a-dropdown-container">
+                                        <%= f.select :month, ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"], {}, id: "pp-51-27", class: "a-native-dropdown pmts-native-dropdown" %>
+                                      </span>
+                                      <span class="a-letter-space"></span>
+                                      <span class="a-dropdown-container">
+                                        <%= f.select :year, ["2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037"], {}, id: "pp-51-28", class: "a-native-dropdown pmts-native-dropdown" %>
+                                      </span>
+                                    </div>
+                                  </div>
+                                  <div class="a-row a-spacing-top-base">
+                                  </div>
+                                  <div class="a-row a-spacing-top-base">
+                                    <label class="a-form-label">氏名</label>
+                                    <%= f.text_field :full_name, maxlength: "50", id: "pp-mm-23", class: "a-input-text a-form-normal a-width-extra-large" %>
+                                  </div>
+                                  <div class="a-row a-spacing-top-base">
+                                    <label class="a-form-label">郵便番号</label>
+                                  </div>
+                                  <div class="a-row">
+                                    <%= f.text_field :postal_code_one, maxlength: "3", id: "pp-mm-24", class: "a-input-text a-form-normal a-width-small"%>-<%= f.text_field :postal_code_two, maxlength: "4", id: "pp-mm-25", class: "a-input-text a-form-normal a-width-small" %>
+                                  </div>
+                                  <div class="a-row a-spacing-top-base">
+                                    <label class="a-form-label">都道府県</label>
+                                  </div>
+                                  <div class="a-row">
                                     <span class="a-dropdown-container">
-                                      <select name="ppw-expirationDate_month" autocomplete="off" data-a-native-class="pmts-native-dropdown" id="pp-51-27" tabindex="-1" class="a-native-dropdown pmts-native-dropdown">
-                                        <option value="1" selected="">01</option>
-                                        <option value="2">02</option>
-                                        <option value="3">03</option>
-                                        <option value="4">04</option>
-                                        <option value="5">05</option>
-                                        <option value="6">06</option>
-                                        <option value="7">07</option>
-                                        <option value="8">08</option>
-                                        <option value="9">09</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                      </select>
-                                    </span>
-                                    <span class="a-letter-space"></span>
-                                    <span class="a-dropdown-container">
-                                      <select name="ppw-expirationDate_year" autocomplete="off" data-a-native-class="pmts-native-dropdown" id="pp-51-28" tabindex="-1" class="a-native-dropdown pmts-native-dropdown">
-                                        <option value="2017" selected="">2017</option>
-                                        <option value="2018">2018</option>
-                                        <option value="2019">2019</option>
-                                        <option value="2020">2020</option>
-                                        <option value="2021">2021</option>
-                                        <option value="2022">2022</option>
-                                        <option value="2023">2023</option>
-                                        <option value="2024">2024</option>
-                                        <option value="2025">2025</option>
-                                        <option value="2026">2026</option>
-                                        <option value="2027">2027</option>
-                                        <option value="2028">2028</option>
-                                        <option value="2029">2029</option>
-                                        <option value="2030">2030</option>
-                                        <option value="2031">2031</option>
-                                        <option value="2032">2032</option>
-                                        <option value="2033">2033</option>
-                                        <option value="2034">2034</option>
-                                        <option value="2035">2035</option>
-                                        <option value="2036">2036</option>
-                                        <option value="2037">2037</option>
-                                      </select>
+                                      <%= f.select :region, ["北海道", "青森県", "岩手県", "宮城県", "秋田県", "山形県", "福島県", "茨城県", "栃木県", "群馬県", "埼玉県", "千葉県", "東京都", "神奈川県", "新潟県", "富山県", "石川県", "福井県", "山梨県", "長野県", "岐阜県", "静岡県", "愛知県", "三重県", "滋賀県", "京都府", "大阪府", "兵庫県", "奈良県", "和歌山県", "鳥取県", "島根県", "岡山県", "広島県", "山口県", "徳島県", "香川県", "愛媛県", "高知県", "福岡県", "佐賀県", "長崎県", "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県"], {}, id: "pp-mm-26", class: "a-native-dropdown" %>
                                     </span>
                                   </div>
-                                </div>
-                                <div class="a-row a-spacing-top-base">
-                                </div>
-                                <div class="a-row a-spacing-top-base">
-                                  <label class="a-form-label">氏名</label>
-                                  <input type="text" maxlength="50" value="masanorimotomura" id="pp-mm-23" name="ppw-fullName" class="a-input-text a-form-normal a-width-extra-large">
-                                </div>
-                                <div class="a-row a-spacing-top-base">
-                                  <label class="a-form-label">郵便番号</label>
-                                </div>
-                                <div class="a-row">
-                                  <input type="text" maxlength="3" id="pp-mm-24" name="ppw-postalCode_prefix" class="a-input-text a-form-normal a-width-small">-<input type="text" maxlength="4" id="pp-mm-25" name="ppw-postalCode_suffix" class="a-input-text a-form-normal a-width-small">
-                                </div>
-                                <div class="a-row a-spacing-top-base">
-                                  <label class="a-form-label">都道府県</label>
-                                </div>
-                                <div class="a-row">
-                                  <span class="a-dropdown-container">
-                                    <select name="ppw-stateOrRegion" autocomplete="off" id="pp-mm-26" tabindex="-1" class="a-native-dropdown">
-                                      <option class="a-prompt" value="">---</option>
-                                      <option value="北海道">北海道</option>
-                                      <option value="青森県">青森県</option>
-                                      <option value="岩手県">岩手県</option>
-                                      <option value="宮城県">宮城県</option>
-                                      <option value="秋田県">秋田県</option>
-                                      <option value="山形県">山形県</option>
-                                      <option value="福島県">福島県</option>
-                                      <option value="茨城県">茨城県</option>
-                                      <option value="栃木県">栃木県</option>
-                                      <option value="群馬県">群馬県</option>
-                                      <option value="埼玉県">埼玉県</option>
-                                      <option value="千葉県">千葉県</option>
-                                      <option value="東京都">東京都</option>
-                                      <option value="神奈川県">神奈川県</option>
-                                      <option value="新潟県">新潟県</option>
-                                      <option value="富山県">富山県</option>
-                                      <option value="石川県">石川県</option>
-                                      <option value="福井県">福井県</option>
-                                      <option value="山梨県">山梨県</option>
-                                      <option value="長野県">長野県</option>
-                                      <option value="岐阜県">岐阜県</option>
-                                      <option value="静岡県">静岡県</option>
-                                      <option value="愛知県">愛知県</option>
-                                      <option value="三重県">三重県</option>
-                                      <option value="滋賀県">滋賀県</option>
-                                      <option value="京都府">京都府</option>
-                                      <option value="大阪府">大阪府</option>
-                                      <option value="兵庫県">兵庫県</option>
-                                      <option value="奈良県">奈良県</option>
-                                      <option value="和歌山県">和歌山県</option>
-                                      <option value="鳥取県">鳥取県</option>
-                                      <option value="島根県">島根県</option>
-                                      <option value="岡山県">岡山県</option>
-                                      <option value="広島県">広島県</option>
-                                      <option value="山口県">山口県</option>
-                                      <option value="徳島県">徳島県</option>
-                                      <option value="香川県">香川県</option>
-                                      <option value="愛媛県">愛媛県</option>
-                                      <option value="高知県">高知県</option>
-                                      <option value="福岡県">福岡県</option>
-                                      <option value="佐賀県">佐賀県</option>
-                                      <option value="長崎県">長崎県</option>
-                                      <option value="熊本県">熊本県</option>
-                                      <option value="大分県">大分県</option>
-                                      <option value="宮崎県">宮崎県</option>
-                                      <option value="鹿児島県">鹿児島県</option>
-                                      <option value="沖縄県">沖縄県</option>
-                                    </select>
-                                  </span>
-                                </div>
-                                <div id="line1" class="a-row">
-                                  <div class="a-row a-spacing-top-base">
-                                    <label class="a-form-label">住所1</label>
+                                  <div id="line1" class="a-row">
+                                    <div class="a-row a-spacing-top-base">
+                                      <label class="a-form-label">住所1</label>
+                                    </div>
+                                    <%= f.text_field :street_address_one, maxlength: "60", id: "pp-mm-28", class: "a-input-text a-form-normal a-width-extra-large" %>
                                   </div>
-                                  <input type="text" maxlength="60" id="pp-mm-28" name="ppw-line1" class="a-input-text a-form-normal a-width-extra-large">
-                                </div>
-                                <div id="line2" class="a-row">
-                                  <div class="a-row a-spacing-top-base">
-                                    <label class="a-form-label">住所2</label>
+                                  <div id="line2" class="a-row">
+                                    <div class="a-row a-spacing-top-base">
+                                      <label class="a-form-label">住所2</label>
+                                    </div>
+                                    <%= f.text_field :street_address_two, maxlength: "60", id: "pp-mm-29", class: "a-input-text a-form-normal a-width-extra-large" %>
                                   </div>
-                                  <input type="text" maxlength="60" id="pp-mm-29" name="ppw-line2" class="a-input-text a-form-normal a-width-extra-large">
-                                </div>
-                                <div id="buildingName" class="a-row">
-                                  <div class="a-row a-spacing-top-base">
-                                    <label class="a-form-label">会社名</label>
+                                  <div id="buildingName" class="a-row">
+                                    <div class="a-row a-spacing-top-base">
+                                      <label class="a-form-label">建物名</label>
+                                    </div>
+                                    <%= f.text_field :building_name, maxlength: "50", id: "pp-mm-30", class: "a-input-text a-form-normal a-width-extra-large" %>
                                   </div>
-                                  <input type="text" maxlength="50" id="pp-mm-30" name="ppw-companyName" class="a-input-text a-form-normal a-width-extra-large">
-                                </div>
-                                <div id="phoneNumber" class="a-row">
-                                  <div class="a-row a-spacing-top-base">
-                                    <label class="a-form-label">電話番号</label>
+                                  <div id="phoneNumber" class="a-row">
+                                    <div class="a-row a-spacing-top-base">
+                                      <label class="a-form-label">電話番号</label>
+                                    </div>
+                                    <%= f.text_field :phone_number, maxlength: "20", id: "pp-mm-31", class: "a-input-text a-form-normal a-width-extra-large" %>
                                   </div>
-                                  <input type="text" maxlength="20" id="pp-mm-31" name="ppw-phoneNumber" class="a-input-text a-form-normal a-width-extra-large">
-                                </div>
-                                <div class="a-section a-spacing-none pmts-inline-field-block pmts-inline-add-button-spacing-top">
-                                  <span id="pp-51-31" class="a-button a-button-primary pmts-button-input">
-                                    <span class="a-button-inner">
-                                      <input name="ppw-widgetEvent:AddCreditCardEvent" class="a-button-input" type="submit" aria-labelledby="pp-51-31-announce">
-                                      <span id="pp-51-31-announce" class="a-button-text">クレジットカードを追加
-                                        <input name="ppw-widgetEvent:AddCreditCardEvent" class="a-button-input" type="submit" aria-labelledby="pp-51-31-announce">
+                                  <div class="a-section a-spacing-none pmts-inline-field-block pmts-inline-add-button-spacing-top">
+                                    <span id="pp-51-31" class="a-button a-button-primary pmts-button-input">
+                                      <span class="a-button-inner">
+                                        <%= f.submit "クレジットカードを追加", class: "a-button-input" %>
+                                        <span id="pp-51-31-announce" class="a-button-text">クレジットカードを追加
+                                          <%= f.submit "クレジットカードを追加", class: "a-button-input" %>
+                                        </span>
                                       </span>
                                     </span>
-                                  </span>
+                                  </div>
                                 </div>
-                              </div>
-                            </form>
+                              </form>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      <% end %>
                     </div>
                     <hr class="a-divider-normal">
                     <div data-pmts-component-id="pp-51-13" aria-live="polite" class="a-row a-expander-container a-spacing-base a-expander-inline-container  add-instrument-form-expander pmts-portal-component pmts-portal-components-pp-51-13">
