@@ -12,4 +12,5 @@ class User < ApplicationRecord
   has_many :review_comments
   has_many :dislikes
   has_many :likes
+  accepts_nested_attributes_for :payment_informations
 end
