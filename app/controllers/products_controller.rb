@@ -6,4 +6,8 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @cart = Cart.new
   end
+
+  def search
+
+  end
 end
