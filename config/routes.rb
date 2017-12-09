@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   root "products#index"
   # resources :products, [:index]
-  resources :products, only: [:show]
+  resources :products, only: [:show, :search]
   resources :cart, only: [:new, :show, :edit, :create, :destoy]
   resources :users, only: [:index, :edit, :update] do
     member do
