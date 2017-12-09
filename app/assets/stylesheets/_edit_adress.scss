@@ -1,0 +1,212 @@
+.a-section {
+    margin-bottom: 22px;
+}
+
+.address-wide-container-desktop {
+    width: 980px;
+    margin: 24px auto 44px auto!important;
+}
+
+.a-text-left {
+    text-align: left!important;
+}
+
+.a-ordered-list, .a-unordered-list, ol, ul {
+    padding: 0;
+}
+
+.a-spacing-medium, .a-ws .a-ws-spacing-medium {
+    margin-bottom: 18px!important;
+}
+
+.a-subheader.a-breadcrumb ul li a {
+    color: #555;
+}
+
+.a-spacing-small, .a-ws .a-ws-spacing-small {
+    margin-bottom: 10px!important;
+}
+
+.ordered-list.a-horizontal:after, .a-unordered-list.a-horizontal:after, ol.a-horizontal:after, ul.a-horizontal:after {
+    clear: both;
+}
+
+.a-ordered-list.a-horizontal:after, .a-ordered-list.a-horizontal:before, .a-unordered-list.a-horizontal:after, .a-unordered-list.a-horizontal:before, ol.a-horizontal:after, ol.a-horizontal:before, ul.a-horizontal:after, ul.a-horizontal:before {
+    display: table;
+    content: "";
+    line-height: 0;
+    font-size: 0;
+}
+
+.a-unordered-list, ul {
+    margin: 0 0 18px 18px;
+    color: #949494;
+}
+
+
+
+.a-ordered-list.a-horizontal, .a-unordered-list.a-horizontal, ol.a-horizontal, ul.a-horizontal {
+    display: block;
+    margin-left: 0;
+}
+
+.a-ordered-list.a-nostyle, .a-unordered-list.a-nostyle, ol.a-nostyle, ul.a-nostyle {
+    margin-left: 0;
+    color: #111;
+}
+
+.a-subheader.a-breadcrumb ul li {
+    margin-right: .4235em;
+    float: left;
+}
+
+.a-ordered-list.a-horizontal li, .a-unordered-list.a-horizontal li, ol.a-horizontal li, ul.a-horizontal li {
+    display: inline-block;
+    margin: 0 10px 0 0;
+}
+
+.a-ordered-list.a-nostyle li, .a-unordered-list.a-nostyle li, ol.a-nostyle li, ul.a-nostyle li {
+    list-style: none;
+}
+
+.a-ordered-list .a-list-item, .a-unordered-list .a-list-item, ol .a-list-item, ul .a-list-item {
+    color: #111;
+}
+
+.a-subheader.a-breadcrumb ul li.a-breadcrumb-divider {
+    color: #949494;
+    position: relative;
+    top: -1px;
+}
+
+.a-subheader.a-breadcrumb ul li {
+    margin-right: .4235em;
+    float: left;
+}
+
+.a-ordered-list.a-horizontal li, .a-unordered-list.a-horizontal li, ol.a-horizontal li, ul.a-horizontal li {
+    display: inline-block;
+    margin: 0 10px 0 0;
+}
+
+.a-spacing-medium, .a-ws .a-ws-spacing-medium {
+    margin-bottom: 18px!important;
+}
+
+.a-color-state {
+    color: #c45500!important;
+}
+
+h1 {
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.2;
+}
+
+.a-spacing-double-large, .a-ws .a-ws-spacing-double-large {
+    margin-bottom: 44px!important;
+}
+
+h1, h2 {
+    padding-bottom: 4px;
+}
+
+.address-column {
+    position: relative;
+}
+
+div.a-column.address-column:not(.a-span-last) {
+    margin-right: 13px;
+    width: auto;
+}
+
+a.add-new-address-button {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.a-box.first-desktop-address-tile {
+    border-style: dashed;
+    height: 245px;
+    width: 320px;
+    border-width: 2px;
+    box-sizing: border-box;
+    border-color: #C7C7C7;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.address-plus-icon {
+  img{
+    width: 50px;
+    height: 50px;
+    }
+}
+
+.a-inline-block, .aok-inline-block {
+    display: inline-block;
+}
+
+.a-color-tertiary {
+    color: #767676!important;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 1.3;
+}
+
+.normal-desktop-address-tile {
+    height: 245px;
+    width: 320px;
+    border-width: 1px;
+    box-sizing: border-box;
+    border-color: #C7C7C7;
+    box-shadow: 0 2px 1px 0 rgba(0,0,0,.16);
+    border-style: solid;
+}
+
+.default-section {
+    height: 40px;
+    border-bottom: 1px solid #C7C7C7;
+    padding-left: 20px;
+    padding-top: 11px;
+}
+
+.a-padding-none {
+    padding: 0!important;
+}
+
+.default-line-item {
+    vertical-align: top;
+}
+
+.a-size-small {
+    font-size: 12px!important;
+    line-height: 1.5!important;
+}
+
+.amazon-logo {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAASCAYAAADc4RcWAAAABGdBT…uqVJmRWzaLxeWbhdGNFNPoPV4j8vxrZYXQF2whlfz/av8BrVCMjANEGhgAAAAASUVORK5CYII=) left center no-repeat;
+    width: 37px;
+    height: 18px;
+}
+
+.address-section-with-default {
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.a-text-bold {
+    font-weight: 700!important;
+}
+
+.edit-address-desktop-link {
+    position: absolute;
+    bottom: 20px;
+    left: 22px;
+}
+
+

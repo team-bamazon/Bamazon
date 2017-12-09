@@ -16,5 +16,7 @@ Rails.application.routes.draw do
       patch 'update_phone_number'
       patch 'update_password'
     end
+    get 'edit_address'
+    resources :addresses, only: [:new, :create, :destroy, :edit, :update]
   end
-end
+ end

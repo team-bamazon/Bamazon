@@ -3,11 +3,11 @@
     <div id="nav-belt">
       <div class="nav-left">
         <div id="nav-logo">
-          <a href="/ref=nav_logo" class="nav-logo-link" tabindex="2">
+          <%= link_to root_path, class: "nav-logo-link" do %>
             <span class="nav-logo-base nav-sprite">Bamazon</span>
             <span class="nav-logo-ext nav-sprite"></span>
             <span class="nav-logo-locale nav-sprite"></span>
-          </a>
+          <% end %>
           <a href="/ref=nav_logo_prime" aria-label="" tabindex="3" class="nav-logo-tagline nav-sprite nav-prime-try">
           プライムを始める
           </a>
@@ -51,6 +51,173 @@
         </div>
       </div>
       <div id="nav-flyout-anchor">
+        <!-- カテゴリー -->
+        <div id="nav-flyout-shopAll" class="nav-catFlyout nav-flyout">
+          <div class="nav-arrow">
+            <div class="nav-arrow-inner"></div>
+          </div>
+          <div class="nav-template nav-flyout-content nav-tpl-itemList">
+            <div class="nav-hasPanel nav-item">
+              <span class="nav-text">Amazon ビデオ</span>
+            </div>
+            <div class="nav-hasPanel nav-item">
+              <span class="nav-text">Amazon Music</span>
+            </div>
+            <div class="nav-hasPanel nav-item">
+              <span class="nav-text">Android アプリストア</span>
+            </div>
+            <div class="nav-hasPanel nav-item">
+              <span class="nav-text">Echo & Alexa</span>
+            </div>
+            <div class="nav-hasPanel nav-item">
+              <span class="nav-text">Fireタブレット</span>
+            </div>
+            <div class="nav-hasPanel nav-item">
+              <span class="nav-text">Fire TV</span>
+            </div>
+            <div class="nav-hasPanel nav-item">
+              <span class="nav-text">Kindle 本＆電子書籍リーダー</span>
+            </div>
+            <div class="nav-hasPanel nav-item">
+              <span class="nav-text">Amazonフレッシュ</span>
+            </div>
+            <div class="nav-hasPanel nav-item">
+              <span class="nav-text">本・コミック・雑誌 & Audible</span>
+            </div>
+            <div class="nav-hasPanel nav-item">
+              <span class="nav-text">DVD・ミュージック・ゲーム</span>
+            </div>
+            <div class="nav-hasPanel nav-item">
+              <span class="nav-text">家電・カメラ・AV機器</span>
+            </div>
+            <div class="nav-hasPanel nav-item">
+              <span class="nav-text">パソコン・オフィス用品</span>
+            </div>
+            <div class="nav-hasPanel nav-item">
+              <span class="nav-text">ホーム＆キッチン・ペット・DIY</span>
+            </div>
+            <div class="nav-hasPanel nav-item">
+              <span class="nav-text">食品・飲料・お酒</span>
+            </div>
+            <div class="nav-hasPanel nav-item">
+              <span class="nav-text">ドラッグストア・ビューティー</span>
+            </div>
+            <div class="nav-hasPanel nav-item">
+              <span class="nav-text">ベビー・おもちゃ・ホビー</span>
+            </div>
+            <div class="nav-hasPanel nav-item">
+              <span class="nav-text">服・シューズ・バッグ ・腕時計</span>
+            </div>
+            <div class="nav-hasPanel nav-item">
+              <span class="nav-text">スポーツ＆アウトドア</span>
+            </div>
+            <div class="nav-hasPanel nav-item">
+              <span class="nav-text">車＆バイク・産業・研究開発</span>
+            </div>
+            <div class="nav-divider"></div>
+            <div class="nav-hasPanel nav-item">
+              <span class="nav-text">クレジットカード＆Amazonポイント</span>
+            </div>
+            <div class="nav-divider"></div>
+            <a href="#" class="nav-link nav-carat nav-item">
+              <span class="nav-text">すべてのカテゴリー</span>
+            </a>
+          </div>
+          <div class="nav-subcats">
+            <!-- たくさんの<div class="nav-template nav-subcat nav-tpl-itemList nav-colcount-2"> -->
+          </div>
+        </div>
+        <!-- アカウントサービス -->
+        <% if user_signed_in? %>
+        <div id="nav-flyout-yourAccount" class="nav-coreFlyout nav-flyout">
+          <div class="nav-arrow">
+            <div class="nav-arrow-inner"></div>
+          </div>
+          <div class="nav-template nav-flyout-content nav-tpl-itemList">
+            <%= link_to users_path, class: "nav-link nav-item" do %>
+              <div class="nav-text">アカウントサービス</div>
+            <% end %>
+            <a href="/" class="nav-link nav-item" id="nav_prefetch_yourorders">
+              <div class="nav-text">注文履歴</div>
+            </a>
+            <a href="/" class="nav-link nav-item">
+              <div class="nav-text">バーチャルダッシュ</div>
+            </a>
+            <a href="/" class="nav-link nav-item">
+              <div class="nav-text">ほしい物リスト</div>
+            </a>
+            <a href="/" class="nav-link nav-item">
+              <div class="nav-text">おすすめ商品</div>
+            </a>
+            <a href="/" class="nav-link nav-item">
+              <div class="nav-text">Amazon定期おトク便情報</div>
+            </a>
+            <a href="/" class="nav-link nav-item">
+              <div class="nav-text">Amazonプライム会員情報</div>
+            </a>
+            <a href="/" class="nav-link nav-item">
+              <div class="nav-text">ビジネスアカウントを登録</div>
+            </a>
+            <div class="nav-divider"></div>
+            <a href="/" class="nav-link nav-item">
+              <div class="nav-text">コンテンツと端末の管理</div>
+            </a>
+            <a href="/" class="nav-link nav-item">
+              <div class="nav-text">Prime Music</div>
+            </a>
+            <div class="nav-subtext">100万曲以上が聴き放題</div>
+            <a href="/" class="nav-link nav-item">
+              <div class="nav-text">ミュージックライブラリにアクセス</div>
+            </a>
+            <div class="nav-subtext">旧「ウェブ版Cloud Player」</div>
+            <a href="/" class="nav-link nav-item">
+              <div class="nav-text">お客様のAmazon Drive</div>
+            </a>
+            <div class="nav-subtext">プライムメンバー向け容量無制限のフォトストレージ</div>
+            <a href="/" class="nav-link nav-item">
+              <div class="nav-text">ウォッチリスト</div>
+            </a>
+            <div class="nav-subtext">後で観たいビデオをリストに追加</div>
+            <a href="/" class="nav-link nav-item">
+              <div class="nav-text">ビデオライブラリ</div>
+            </a>
+            <div class="nav-subtext">レンタルや購入したビデオを今すぐ視聴</div>
+            <a href="/" class="nav-link nav-item">
+              <div class="nav-text">お客様の Kindle Unlimited</div>
+            </a>
+            <a href="/" class="nav-link nav-item">
+              <div class="nav-text">ゲーム&PCソフトダウンロードライブラリ</div>
+            </a>
+            <a href="/" class="nav-link nav-item">
+              <div class="nav-text">アプリライブラリとデバイスの管理</div>
+            </a>
+            <div class="nav-divider"></div>
+            <%= link_to destroy_user_session_path, method: :delete, class: "nav-text", id: "nav-item-signout" do %>
+              <span><%= current_user.name %></span><spam>さんではありませんか？サインアウト</spam>
+            <% end %>
+            <div class="nav-subcats">
+            </div>
+          </div>
+        </div>
+        <% else %>
+        <div id="nav-flyout-yourAccount_sign_out" class="nav-coreFlyout nav-flyout">
+          <div class="nav-arrow">
+            <div class="nav-arrow-inner"></div>
+          </div>
+          <div class="nav-template nav-flyout-content nav-tpl-itemList">
+            <%= link_to new_user_session_path, class: "nav-action-button" do %>
+              <span class="nav-action-inner">サインイン</span>
+            <% end %>
+            <div id="nav-flyout-ya-newCust" class="nav_pop_new_cust nav-flyout-content">
+              初めてご利用ですか?
+              <%= link_to "新規登録はこちら", new_user_registration_path, class: "nav-a" %>
+            </div>
+            <div class="nav-subcats">
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <!-- プライム -->
         <div id="nav-flyout-prime" class="nav-coreFlyout nav-flyout" style="width: 310px;">
           <div class="nav-arrow">
             <div class="nav-arrow-inner"></div>
@@ -69,44 +236,37 @@
             <div class="nav-npt-text-detail"></div>
           </div>
         </div>
+        <!-- ほしい物リスト -->
+        <!-- サインイン時 -->
+        <% if user_signed_in? %>
         <div id="nav-flyout-wishlist" class="nav-coreFlyout nav-flyout">
-          <div class="nav-template nav-tpl-itemList" id="nav-flyout-wl-items" style="display: block;">
+          <div class="nav-arrow">
+            <div class="nav-arrow-inner"></div>
+          </div>
+          <div class="nav-template nav-tpl-itemList" id="nav-flyout-wl-items">
             <div class="nav-panel">
               <a href="/" class="nav-link nav-item">
-                <span class="nav-text">新しいほしい物リスト</span>
+                <div class="nav-text">新しいほしい物リスト</div>
               </a>
               <a href="/" class="nav-link nav-item">
-                <span class="nav-text">Userさんのほしい物リスト</span>
+                <div class="nav-text"><%= current_user.name %>さんのほしい物リスト</div>
+                <div class="nav-divider"></div>
               </a>
             </div>
           </div>
-          <div class="nav-arrow">
-            <div class="nav-arrow-inner"></div>
-          </div>
           <div class="nav-template nav-flyout-content nav-tpl-itemList">
             <a herf="/" class="nav-link nav-item">
-              <span class="nav-text">ほしい物リストを作成する</span>
+              <div class="nav-text">ほしい物リストを作成する</div>
             </a>
             <a herf="/" class="nav-link nav-item">
-              <span class="nav-text">ほしい物リストを見つける</span>
+              <div class="nav-text">ほしい物リストを見つける</div>
             </a>
             <a herf="/" class="nav-link nav-item">
-              <span class="nav-text">何でもほしい物リスト</span>
-              <span class="nav-subtext">ほかのサイトの商品を追加する</span>
+              <div class="nav-text">何でもほしい物リスト</div>
             </a>
+            <div class="nav-subtext">ほかのサイトの商品を追加する</div>
           </div>
           <div class="nav-subcats">
-          </div>
-        </div>
-        <div id="nav-flyout-shopAll" class="nav-catFlyout nav-flyout">
-          <div class="nav-arrow">
-            <div class="nav-arrow-inner"></div>
-          </div>
-          <div class="nav-template nav-flyout-content nav-tpl-itemList">
-            <!-- たくさんの<span class="nav-hasPanel nav-item"> -->
-          </div>
-          <div class="nav-subcats">
-            <!-- たくさんの<div class="nav-template nav-subcat nav-tpl-itemList nav-colcount-2"> -->
           </div>
         </div>
         <div id="nav-flyout-transientFlyout" class="nav-coreFlyout nav-flyout">
@@ -115,21 +275,65 @@
           </div>
           <div class="nav-template nav-flyout-content nav-spinner"></div>
         </div>
-        <div id="nav-flyout-yourAccount" class="nav-coreFlyout nav-flyout">
+        <!-- サインアウト時 -->
+        <% else %>
+        <div id="nav-flyout-wishlist_sign_out" class="nav-coreFlyout nav-flyout">
           <div class="nav-arrow">
             <div class="nav-arrow-inner"></div>
           </div>
           <div class="nav-template nav-flyout-content nav-tpl-itemList">
-            <!-- たくさんのhref class="nav-link" -->
+            <a herf="/" class="nav-link nav-item">
+              <div class="nav-text">ほしい物リストを作成する</div>
+            </a>
+            <a herf="/" class="nav-link nav-item">
+              <div class="nav-text">ほしい物リストを見つける</div>
+            </a>
+            <a herf="/" class="nav-link nav-item">
+              <div class="nav-text">何でもほしい物リスト</div>
+            </a>
+            <div class="nav-subtext">ほかのサイトの商品を追加する</div>
           </div>
           <div class="nav-subcats">
           </div>
         </div>
-        <div id="nav-flyout-icp" class="nav-coreFlyout nav-flyout">
+        <div id="nav-flyout-transientFlyout" class="nav-coreFlyout nav-flyout">
           <div class="nav-arrow">
             <div class="nav-arrow-inner"></div>
           </div>
           <div class="nav-template nav-flyout-content nav-spinner"></div>
+        </div>
+        <% end %>
+        <!-- 言語選択 -->
+        <div id="nav-flyout-icp" class="nav-coreFlyout nav-flyout">
+          <div class="nav-arrow">
+            <div class="nav-arrow-inner"></div>
+          </div>
+          <div class="nav-template nav-flyout-content nav-tpl-itemList">
+            <span class="nav-item">
+              <span class="nav-text">
+                <i class="icp-radio icp-radio-active"></i>
+                日本語 - JP
+              </span>
+            </span>
+            <div class="nav-divider"></div>
+            <a href="/" class="nav-link nav-item">
+              <div class="nav-text">
+                <i class="icp-radio"></i>
+                English - EN
+              </div>
+            </a>
+            <a href="/" class="nav-link nav-item">
+              <div class="nav-text">
+                <i class="icp-radio"></i>
+                简体中文 - ZH
+              </div>
+            </a>
+            <a href="/" class="nav-link nav-item">
+              <div class="nav-text">
+                <div class="icp-helplink">詳しくはこちら</div>
+              </div>
+            </a>
+          </div>
         </div>
         <div id="nav-flyout-icp-footer-flyout" class="nav-coreFlyout nav-flyout">
           <div class="nav-arrow">
@@ -169,8 +373,14 @@
             </span>
             <span class="icp-nav-link-border"></span>
           </a>
-          <a href="/" class="nav-a nav-a-2 nav-truncate" data-nav-ref="nav_ya_signin" data-nav-role="signin" data-ux-mouseover="true" id="nav-link-yourAccount" tabindex="26">
-            <span class="nav-line-1"> Userさん </span>
+
+          <a href="/users" class="nav-a nav-a-2 nav-truncate" data-nav-ref="nav_ya_signin" data-nav-role="signin" data-ux-mouseover="true" id="nav-link-yourAccount" tabindex="26">
+            <% if user_signed_in? %>
+              <span class="nav-line-1"><%=current_user.name %></span>
+            <% else %>
+              <span class="nav-line-1">こんにちは。サインイン</span>
+            <% end %>
+
             <span class="nav-line-2">アカウントサービス
               <span class="nav-icon nav-arrow" style="visibility: visible;"></span>
             </span>
