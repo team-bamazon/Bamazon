@@ -116,16 +116,10 @@
                             <div class="a-row a-grid-vertical-align a-grid-bottom">
                               <div class="a-column a-span7 a-text-left"></div>
                               <div class="a-column a-span4 a-text-right a-span-last">
-                                <span class="a-button pmts-button-input pmts-instrument-list-item-button-no-js" id="a-autoid-0">
+                                <span class="a-button pmts-button-input pmts-instrument-list-item-button-no-js">
                                   <span class="a-button-inner">
-                                    <input name="ppw-widgetEvent:StartDeleteEvent:{&quot;iid&quot;:&quot;0h_PJ_CUS_c79f319c-fa65-4f48-a4ae-5b7313f4ab78&quot;,&quot;renderPopover&quot;:&quot;false&quot;}" class="a-button-input" type="submit" aria-labelledby="a-autoid-0-announce">
+                                    <%= link_to "削除", user_payment_information_path(current_user, card), method: :delete, action: :destroy, class: "a-button-input" %>
                                     <span class="a-button-text" aria-hidden="true" id="a-autoid-0-announce">削除</span>
-                                  </span>
-                                </span>
-                                <span class="a-button pmts-button-input pmts-instrument-list-item-button-js" id="a-autoid-1">
-                                  <span class="a-button-inner">
-                                    <input name="ppw-widgetEvent:StartDeleteEvent:{&quot;iid&quot;:&quot;0h_PJ_CUS_c79f319c-fa65-4f48-a4ae-5b7313f4ab78&quot;,&quot;renderPopover&quot;:&quot;true&quot;}" class="a-button-input" type="submit" aria-labelledby="a-autoid-1-announce">
-                                    <span class="a-button-text" aria-hidden="true" id="a-autoid-1-announce">削除</span>
                                   </span>
                                 </span>
                                 <span class="a-button pmts-button-input pmts-instrument-list-item-button-no-js" id="a-autoid-2">
