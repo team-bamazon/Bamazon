@@ -1,0 +1,134 @@
+<%= render partial: 'layouts/header' %>
+
+<div class = "a-section">
+ <div class = "a-section a-spacing-medium a-text-left address-wide-container-desktop">
+  <div class = "a-section a-spacing-medium">
+    <div class = "a-subheader a-breadcrumb a-spacing-small">
+      <ul class = "a-nostyle a-horizontal">
+        <li>
+        <span class = "a-list-item">
+          <a class="a-spacing-large a-link-normal" href="/users">
+            <span>
+            アカウントサービス
+            </span>
+          </a>
+        </span>
+      </li>
+      <li class="a-breadcrumb-divider">›</li>
+
+      <li>
+                <span class="a-list-item">
+                    <span class="a-color-state"> お客様のご住所 </span>
+                </span>
+            </li>
+      </ul>
+    </div>
+  </div>
+  <h1 class="a-spacing-medium">住所</h1>
+  <div class = "a-section a-spacing-double-large">
+    <div class= "a-row a-spacing-micro">
+      <div class="a-column a-span4 a-spacing-none a-spacing-top-mini address-column">
+        <a id="ya-myab-address-add-link" class="a-link-normal add-new-address-button" href="/users/<%= current_user.id %>/addresses/new">
+          <div class="a-box first-desktop-address-tile">
+            <div class="a-box-inner a-padding-extra-large">
+              <div id="ya-myab-plus-address-icon" class="a-section a-spacing-none address-plus-icon aok-inline-block">➕
+              </div>
+              <h2 class="a-color-tertiary">
+              新しい住所を追加
+              </h2>
+            </div>
+          </div>
+        </a>
+      </div>
+      <% current_user.addresses.each do |address|%>
+      <div class ="a-column a-span4 a-spacing-none a-spacing-top-mini address-column">
+        <div id = "ya-myab-display-address-block-0" class = "a-box a-spacing-none normal-desktop-address-tile">
+          <div class="a-box-inner a-padding-none">
+            <div class="a-section a-spacing-none default-section">
+              <span class="a-size-small a-color-secondary default-line-item">既定の住所: &nbsp;
+              </span>
+            <div id="ya-myab-default-shipping-address-icon" class="a-section a-spacing-none amazon-logo aok-inline-block"></div>
+          </div>
+          <div class="a-section             address-section-with-default">
+            <div class="a-row a-spacing-small">
+              <ul class="a-unordered-list a-nostyle a-vertical">
+                <li>
+                  <span class="a-list-item">
+                    <h5 id="address-ui-widgets-FullName" class="id-addr-ux-search-text  a-text-bold">
+                    <%= address.full_name %>
+                    </h5>
+                  </span>
+                </li>
+                <li>
+                  <span class="a-list-item">
+                    <span id="address-ui-widgets-PostalCode" class="id-addr-ux-search-text">
+                    <%= address.postal_code_one %>-<%= address.postal_code_two %>
+                    </span>
+                  </span>
+                </li>
+                <li>
+                  <span class="a-list-item">
+                    <span id="address-ui-widgets-StateAddressLineOne" class="id-addr-ux-search-text"><%= address.region %>, <%= address.street_address_one %><%= address.street_address_two %> <%= address.building_name %>
+                    </span>
+                  </span>
+                </li>
+                <li>
+                  <span class="a-list-item">
+                    <span id="address-ui-widgets-Country" class="id-addr-ux-search-text">
+                    <%= address.country %>
+                    </span>
+                  </span>
+                </li>
+                <li>
+                  <span class="a-list-item">
+                    <span id="address-ui-widgets-PhoneNumber" class="id-addr-ux-search-text">
+                    電話番号: <%= address.komesuu %><%= address.simoketa %>
+                    </span>
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id ="ya-myab-edit-address-desktop-row-0" class = "a-row edit-address-desktop-link">
+        <a id="ya-myab-address-edit-btn-0" class="a-link-normal" href="/users/<%= current_user.id %>/addresses/<%= address.id %>/edit">
+          変更
+        </a>
+         &nbsp; | &nbsp;
+         <a id ="ya-myab-address-delete-btn-0" class = "a-link-normal" data-method = "delete" href ="/users/<%= current_user.id %>/addresses/<%= address.id%>">
+          <span class="a-declarative" data-action="a-modal" data-a-modal="{&quot;name&quot;:&quot;deleteAddressModal-0&quot;,&quot;width&quot;:&quot;400&quot;,&quot;header&quot;:&quot;削除を確認&quot;}">削除</span>
+         </a>
+       </div>
+     </div>
+     <% end %>
+    </div>
+    </div>
+    <h3>関連</h3>
+      <div class="a-section a-spacing-top-small">
+        <ul class="a-unordered-list a-nostyle a-vertical">
+          <li>
+            <span class="a-list-item">
+              <a class="a-link-normal" href="/users">
+                1-Click設定
+              </a>
+            </span>
+          </li>
+          <li>
+            <span class="a-list-item">
+              <a class="a-link-normal" href="/users"> フレッシュのアドレス帳
+              </a>
+            </span>
+          </li>
+          <li>
+            <span class="a-list-item">
+              <a class="a-link-normal" href="/users">未発送の注文のお届け先を変更
+              </a>
+            </span>
+          </li>
+        </ul>
+      </div>
+  </div>
+</div>
+
+<%= render partial: 'layouts/footer' %>

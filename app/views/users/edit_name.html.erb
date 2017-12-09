@@ -1,0 +1,65 @@
+<%= render partial: 'layouts/header' %>
+  <div class="a-container">
+    <div class="a-section auth-pagelet-desktop-wide-container">
+      <div class="a-section auth-pagelet-desktop-wide-container">
+        <ol id="breadcrumb_CNEP" class="a-ordered-list a-horizontal">
+          <li>
+            <span class="a-list-item">
+              <%= link_to "アカウントサービス", users_path(current_user),  class: "a-link-normal" %>
+            </span>
+          </li>
+          <li>
+            <span class="a-list-item"> > </span>
+          </li>
+          <li>
+            <span class="a-list-item a-color-state">
+              <%= link_to "サインインとセキュリティ", user_info_user_path(current_user), class: "a-link-normal" %>
+            </span>
+          </li>
+          <li>
+            <span class="a-list-item"> > </span>
+          </li>
+          <li>
+            <span class="a-list-item a-color-state">名前の変更</span>
+          </li>
+        </ol>
+        <h1 id="ap_cnep_header" class="a-spacing-small">名前の変更</h1>
+        <div class="a-box a-spacing-top-medium">
+          <div class="a-box-inner">
+            <div class="a-row">
+              Amazonアカウントに関連付けられている名前を変更する場合は、下で変更を行うことができます。完了したら、[変更を保存] ボタンをクリックしてください。
+            </div>
+            <div class="a-section a-spacing-top-large">
+              <%= form_for current_user, url: update_name_user_path do |f| %>
+                <div class="a-row">
+                  <label class="a-row">新しい名前</label>
+                </div>
+                <div class="a-row a-spacing-large">
+                  <%= f.text_field :name, id: "ap_customer_name", class: "a-input-text" %>
+                </div>
+                <div class="a-row">
+                  <label class="a-form-label">フリガナ</label>
+                </div>
+                <div class="a-row a-spacing-large">
+                  <%= f.text_field :furigana, id: "ap_customer_name_pronunciation", class: "a-input-text" %>
+                </div>
+                <div class="a-fixed-right-grid">
+                  <div class="a-fixed-right-grid-inner" style="padding-right:0px">
+                    <div class="a-fixed-right-grid-col" style="float:left;">
+                    </div>
+                  </div>
+                  <sapn class="a-button a-button-primary" id="a-autoid-0">
+                    <span class="a-button-inner">
+                      <%= f.submit id: "cnep_1C_submit_button", class: "a-button-input" %>
+                      <span class="a-button-text" aria-hidden="true" id="a-autoid-0-announce">変更内容を保存</span>
+                    </span>
+                  </sapn>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<%= render partial: 'layouts/footer' %>

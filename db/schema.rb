@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171129041039) do
+ActiveRecord::Schema.define(version: 20171207104451) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "namespace"
@@ -101,6 +101,16 @@ ActiveRecord::Schema.define(version: 20171129041039) do
     t.string "card_company"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "country"
+    t.string "postal_code_one"
+    t.string "postal_code_two"
+    t.string "region"
+    t.string "street_address_one"
+    t.string "street_address_two"
+    t.string "building_name"
+    t.string "phone_number"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_payment_informations_on_user_id"
   end
 
   create_table "product_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -114,17 +124,21 @@ ActiveRecord::Schema.define(version: 20171129041039) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "product_id"
+    t.index ["product_id"], name: "index_product_images_on_product_id"
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
     t.float "price", limit: 24, null: false
-    t.string "detail"
+    t.text "detail", limit: 16777215
     t.integer "stock"
     t.integer "amount_sales"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "product_category_id"
     t.index ["name"], name: "index_products_on_name"
+    t.index ["product_category_id"], name: "index_products_on_product_category_id"
   end
 
   create_table "review_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -188,6 +202,9 @@ ActiveRecord::Schema.define(version: 20171129041039) do
 
   add_foreign_key "cart_products", "carts"
   add_foreign_key "cart_products", "products"
+  add_foreign_key "payment_informations", "users"
+  add_foreign_key "product_images", "products"
+  add_foreign_key "products", "product_categories"
   add_foreign_key "wanted_products", "products"
   add_foreign_key "wanted_products", "wanteds"
 end
