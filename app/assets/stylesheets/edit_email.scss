@@ -1,0 +1,48 @@
+#a-section-box {
+  margin-bottom: 22px;
+}
+
+.a-padding-mini {
+  padding: 4px 6px!important;
+}
+
+.a-width-large {
+  width: 250px!important;
+}
+
+.a-spacing-large, .a-ws .a-ws-spacing-large {
+  margin-bottom: 22px!important;
+}
+
+input, textarea, select, button, meter, progress {
+  -webkit-writing-mode: horizontal-tb;
+}
+
+input, textarea, select, button {
+  text-rendering: auto;
+  color: initial;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  margin: 0em;
+  font: 400 11px system-ui;
+}
+
+.font {
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.255;
+  margin: 0 !important;
+}
+
+.auth-inlined-error-message {
+  display: none;
+}
+
+#a-section-box {
+  margin-bottom: 22px;
+}

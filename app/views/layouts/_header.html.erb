@@ -373,12 +373,14 @@
             </span>
             <span class="icp-nav-link-border"></span>
           </a>
-          <a href="/" class="nav-a nav-a-2 nav-truncate" data-nav-ref="nav_ya_signin" data-nav-role="signin" data-ux-mouseover="true" id="nav-link-yourAccount" tabindex="26">
+
+          <a href="/users" class="nav-a nav-a-2 nav-truncate" data-nav-ref="nav_ya_signin" data-nav-role="signin" data-ux-mouseover="true" id="nav-link-yourAccount" tabindex="26">
             <% if user_signed_in? %>
               <span class="nav-line-1"><%=current_user.name %></span>
             <% else %>
               <span class="nav-line-1">こんにちは。サインイン</span>
             <% end %>
+
             <span class="nav-line-2">アカウントサービス
               <span class="nav-icon nav-arrow" style="visibility: visible;"></span>
             </span>

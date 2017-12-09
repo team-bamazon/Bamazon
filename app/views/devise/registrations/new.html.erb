@@ -28,7 +28,7 @@
       </div>
       <div class="a-section auth-pagelet-container">
         <div class="a-section">
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <%= devise_error_messages! %>
             <div class="a-box a-spacing-extra-large">
               <div class="a-box-inner">
