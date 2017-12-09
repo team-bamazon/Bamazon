@@ -1,0 +1,959 @@
+<%= render partial: 'layouts/header' %>
+<!-- カテゴリー一覧表示 -->
+<div id="dp" class="book ja_JP">
+  <!-- amazon大賞ランキング -->
+  <!-- 所属カテゴリー表示 -->
+  <div id="wayfinding-breadcrumbs_container" class="a-section a-spacing-none a-padding-medium">
+    <div id="wayfinding-breadcrumbs_feature_div" class="a-subheader a-breadcrumb feature">
+      <ul class="a-unordered-list a-horizontal a-size-small">
+        <li>
+          <span class="a-list-item">
+            <%= link_to "本", root_path, class: "a-link-normal a-color-tertiary" %>
+          </span>
+        </li>
+        <li class="a-breadcrumb-divider">
+          <span class="a-list-item a-color-tertiary">
+            >
+          </span>
+        </li>
+        <li>
+          <span  class="a-list-item">
+            <a href="/" class="a-link-normal a-color-tertiary">
+              コンピュータ・IT
+            </a>
+          </span>
+        </li>
+        <li class="a-breadcrumb-divider">
+          <span class="a-list-item a-color-tertiary">
+            >
+          </span>
+        </li>
+        <li>
+          <span class="a-list-item">
+            <a href="/" class="a-link-normal a-color-tertiary">
+              プログラミング
+            </a>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- 商品詳細 -->
+  <div id="dp-container" class="a-container" role="main">
+    <!-- 右側の金額&カートに入れる -->
+    <div id="rightCol">
+      <div id="tellAFriendBylineBox_feature_div" class="feature">
+        <div id="tell-a-friend-byline" class="a-section a-text-center a-spacing-small">
+          <span class="a-declarative" id="swf-dp">
+            <a href="/" id="swfText" class="a-link-normal email">シェアする</a>
+            <span class="a-letter-space"></span>
+            <a href="/" id="swfImage" class="a-link-normal email">
+              <i class="a-icon a-icon-share-email"></i>
+            </a>
+            <span class="a-letter-space"></span>
+          </span>
+          <a href="/" class="a-link-normal swf-social-site">
+            <i class="a-icon a-icon-share-facebook">
+              <span class="a-icon-alt">Facebook</span>
+            </i>
+          </a>
+          <span class="a-letter-space"></span>
+          <a href="/" class="a-link-normal swf-social-site">
+            <i class="a-icon a-icon-share-twitter">
+              <span class="a-icon-alt">Twitter</span>
+            </i>
+          </a>
+          <span class="a-letter-space"></span>
+          <a href="/" class="a-link-normal swf-social-site">
+            <i class="a-icon a-icon-share-pinterest">
+              <span class="a-icon-alt">Pinterest</span>
+            </i>
+          </a>
+          <span class="a-letter-space"></span>
+        </div>
+      </div>
+      <div id="buybox_feature_div" class="feature">
+        <div id="combinedBuyBox" class="a-section a-spacing-medium">
+          <%= form_for cart_index_path, id: "addToCart", class: "a-content" do |f| %>
+            <div id="buybox" class="a-row a-spacing-medium">
+              <div id="rbbContainer" class="a-box-group dp-accordion">
+                <div class="a-box a-first rbbSection selected dp-accordion-active">
+                  <div class="a-box-inner">
+                    <div class="a-section a-spacing-none a-padding-none">
+                      <div id="buyNewSection" class="a-section a-spacing-none a-padding-base rbbHeader dp-accordion-row">
+                        <div class="a-row a-spacing-none a-grid-vertical-align a-grid-center">
+                          <div class="a-fixed-left-grid">
+                            <div class="a-fixed-left-grid-inner" style="padding-left:31px">
+                              <div class="a-text-left a-fixed-left-grid-col a-col-left" style="width:31px;margin-left:-31px;_margin-left:-15.5px;float:left;">
+                                <div class="a-row a-grid-vertical-align a-grid-center">
+                                  <i class="a-icon a-icon-radio-active new-header"></i>
+                                </div>
+                              </div>
+                              <div class="a-fixed-left-grid-col dualLineHeader a-col-right" style="padding-left:0%;*width:99.6%;float:left;">
+                                <a href="javascript:void(0);" class="a-link-normal rbbHeaderLink">
+                                  <div class="a-section">
+                                    <div class="a-row">
+                                      <span class="a-text-bold">新品</span>
+                                    </div>
+                                    <div class="a-row">
+                                      <span class="inlineBlock-display">
+                                        <span class="a-size-medium a-color-price offer-price a-text-normal">¥ <%= number_with_delimiter((@product.price).floor) %></span>
+                                      </span>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="buyNewInner" class="rbbContent dp-accordion-inner">
+                        <div id="buyBoxInner" class="a-section a-spacing-small">
+                          <div class="a-row a-spacing-none">
+                            <div class="a-fixed-left-grid">
+                              <div class="a-fixed-left-grid-inner" style="padding-left:27px">
+                                <div class="a-text-left a-fixed-left-grid-col a-col-left" style="width:27px;margin-left:-27px;_margin-left:-13.5px;float:left;"></div>
+                                <div class="a-fixed-left-grid-col a-col-right" style="padding-left:0%;*width:99.6%;float:left;">
+                                  <ul class="a-unordered-list a-nostyle a-vertical">
+                                    <li>
+                                      <span class="a-list-item">
+                                        <div class="a-row">
+                                          <span class="a-color-secondary">ポイント:</span>
+                                          <span class="a-color-price"><%= (@product.price / 10).floor %>pt (10%)</span>
+                                        </div>
+                                      </span>
+                                    </li>
+                                    <li>
+                                      <span class="a-list-item">
+                                        <div class="a-row">
+                                          <a href="/">詳細はこちら</a>
+                                        </div>
+                                      </span>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="a-section a-spacing-small a-spacing-top-micro">
+                          <div class="a-row">
+                            <span class="a-color-base buyboxShippingLabel">
+                              <b>通常配送無料</b>
+                              <a href="/">詳細</a>
+                            </span>
+                          </div>
+                        </div>
+                        <div class="a-section a-spacing-small">
+                          <div id="availability" class="a-section a-spacing-none">
+                            <span class="a-size-medium a-color-success">在庫あり。</span>
+                            <span class="availabilityHelpLink">
+                              <a href="/">在庫状況</a>
+                              について
+                            </span>
+                          </div>
+                          <div id="merchant-info" class="a-section a-spacing-mini">
+                            この商品は、<a href="/">Bamazon.co.jp</a>が販売、発送します。
+                            <span class>ギフトラッピングを利用できます。</span>
+                          </div>
+                        </div>
+                        <div class="a-section a-spacing-small">
+                          <div id="selectQuantity" class="a-section a-spacing-none a-padding-none">
+                            <span class="a-declarative">
+                              <div class="a-row a-spacing-base">
+                                <div class="a-column a-span12 a-text-left">
+                                  <span class="a-dropdown-container">
+                                    <%= f.label :product_count , "数量:", class: "a-native-dropdown" %>
+                                    <%= f.select :product_count, ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"], id: "quantity", class: "a-native-dropdown"%>
+                                  </span>
+                                </div>
+                              </div>
+                            </span>
+                          </div>
+                        </div>
+                        <div id="bbopAndCartBox" class="a-box">
+                          <div class="a-box-inner">
+                            <div id="bbop-sbbop-container" class="a-section">
+                              <div id="sbbop-popover-header" class="a-section a-hidden">
+                                <div class="a-box a-alert-inline a-alert-inline-success">
+                                  <div class="a-box-inner a-alert-container">
+                                    <i class="a-icon a-icon-alert"></i>
+                                    <div class="a-color-base">
+                                      <%= @product.name %>がカートに入りました
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div id="bbop" class="a-section">
+                                <div id="bbopCheckboxSection" class="a-checkbox">
+                                  <div class="a-checkbox">
+                                    <%#= f.check_box :bbop_check_box do %>
+                                    <label for="bbop-check-box">
+                                      <input id="bbop-check-box" type="checkbox">
+                                      <i class="a-icon a-icon-checkbox"></i>
+                                      <span class="a-label a-checkbox-label">　この注文で<b>お急ぎ便、お届け日時指定便を</b>無料体験
+                                        <a href="/" class="prime-details a-declarative">
+                                        Bamazonプライム無料体験について</a>
+                                      </span>
+                                    </label>
+                                    <%# end %>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="a-button-stack">
+                              <span id="submit.add-to-cart" class="a-button a-spacing-small a-button-primary a-button-icon">
+                                <span class="a-button-inner">
+                                  <i class="a-icon a-icon-cart"></i>
+                                  <%= f.submit "カートに入れる", id: "add-to-cart-button", class: "a-button-input"%>
+                                  <span id="submit.add-to-cart-announce" class="a-button-text">カートに入れる</span>
+                                </span>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="a-row a-spacing-none">
+                          <div id="oneClickSignIn" class="a-section a-spacing-none">
+                            <div class="a-divider a-divider-break a-spacing-micro">
+                              <h5>
+                                <a href="/">
+                                  <span class="a-size-mini">1-Clickで注文する場合は、サインインをしてください。
+                                  </span>
+                                </a>
+                              </h5>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- 住所を選べるセレクトボックス -->
+                        <div id="unifiedLocation_feature_div" class="a-section feature unifiedLocationMarginBottomClass">
+                          <div class="a-section a-spacing-none">
+                            <hr class="a-divider-normal">
+                            <div class="a-section a-spacing-mini">
+                              <span class="a-text-bold">お届け先住所</span>
+                            </div>
+                            <div class="a-section a-spacing-none">
+                              <span class="a-declarative">
+                                <a href="javascript:void(0)" class="a-popover-trigger a-declarative">
+                                  <span class="a-color-base lux-location-label">
+                                    これがUserの住所だよ
+                                  </span>
+                                  <i class="a-icon a-icon-popover"></i>
+                                </a>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="a-box a-last rbbSection unselected">
+                  <div class="a-box-inner">
+                    <div class="a-section a-spacing-none a-padding-none">
+                      <div id="usedBuySection" class="a-section a-spacing-none a-padding-base rbbHeader dp-accordion-row">
+                        <div class="a-row a-spacing-none a-grid-vertical-align a-grid-center">
+                          <div class="a-fixed-left-grid">
+                            <div class="a-fixed-left-grid-inner" style="padding-left:31px">
+                              <div class="a-text-left a-fixed-left-grid-col a-col-left" style="width:31px;margin-left:-31px;_margin-left:-15.5px;float:left;">
+                                <div class="a-row a-grid-vertical-align a-grid-center">
+                                  <i class="a-icon a-icon-radio-inactive new-header"></i>
+                                </div>
+                              </div>
+                              <div class="a-fixed-left-grid-col dualLineHeader a-col-right" style="padding-left:0%;*width:99.6%;float:left;">
+                                <a href="javascript:void(0);" class="a-link-normal rbbHeaderLink">
+                                  <div class="a-section">
+                                    <div class="a-row">
+                                      <span class="a-text-bold">中古品</span>
+                                    </div>
+                                    <div class="a-row">
+                                      <span class="inlineBlock-display">
+                                        <span class="a-color-base offer-price a-text-normal">¥ 2,200</span>
+                                      </span>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="wishlistButtonStack" class="a-button-stack">
+              <div id="add-to-wishlist-button-group" class="a-button-group a-declarative a-spacing-none">
+                <span id="wishListMainButton" class="a-button a-button-group-first a-spacing-none a-declarative">
+                  <span class="a-button-inner">
+                    <input id="add-to-wishlist-button-submit" title="ほしい物リストに追加する" class="a-button-input a-declarative">
+                    <span id="wishListMainButton-announce" class="a-button-text a-text-left">ほしい物リストに追加する</span>
+                  </span>
+                </span>
+                <span id="wishListDropDown" class="a-button a-button-dropdown a-button-group-last a-spacing-none wishlist-dropdown-button">
+                  <span class="a-button-inner">
+                    <i class="a-icon a-icon-dropdown"></i>
+                    <input id="add-to-wishlist-button" class="a-button-input a-declarative" type="submit">
+                  </span>
+                </span>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div id="sellYoursHere_feature_div" class="feature">
+        <!--「この商品をお持ちですか？」 ひとまず後回し -->
+      </div>
+    </div>
+    <div id="leftCol" style="width: 200px;">
+      <div id="booksImageBlock_feature_div" class="feature">
+        <div id="imageBlockOuter" class="a-row">
+          <div id="imageBlock" class="a-row" style="height: 281.667px; width: 200px">
+            <div id="imageBlockContainer" class="a-row a-grid-vertical-align a-grid-center maintain-height" style="height: 267px;">
+              <div id="main-image-container" class="a-column a-span12 a-text-center maintain-height a-span-last">
+                <div id="img-wrapper" class="maintain-height" style="position: relative;">
+                  <div id="img-canvas" class="maintain-height  image-2d" style="height: 267px; position: absolute; top: 0px; left: 6.0625px; width: 188px;">
+                    <%= image_tag "https://images-na.ssl-images-amazon.com/images/I/51MgH8Jmr3L._SX352_BO1,204,203,200_.jpg", class: "a-dynamic-image image-stretch-vertical frontImage", id: "imgBlkFront" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="flipAndSampleAudio" class="a-row">
+            <!-- サンプルオーディオは後回し -->
+            </div>
+          </div>
+          <div id="imageBlockThumbs" class="a-row a-spacing-mini a-spacing-top-micro">
+            <span class="a-declarative" id="imgThumbs">
+              <div class="a-column a-span3 a-spacing-micro imageThumb thumb">
+                <%= image_tag "https://images-na.ssl-images-amazon.com/images/I/51MgH8Jmr3L._AC_SX60_CR,0,0,60,60_.jpg" %>
+              </div>
+              <div class="a-column a-span3 a-spacing-micro imageThumb thumb">
+                <%= image_tag "https://images-na.ssl-images-amazon.com/images/I/41MjTupTFrL._AC_SX60_CR,0,0,60,60_.jpg" %>
+              </div>
+              <div class="a-column a-span3 a-spacing-micro imageThumb thumb">
+                <%= image_tag "https://images-na.ssl-images-amazon.com/images/I/51xzvyKj6CL._AC_SX60_CR,0,0,60,60_.jpg" %>
+              </div>
+              <div class="a-column a-span3 a-spacing-micro imageThumb thumb a-span-last">
+                <%= image_tag "https://images-na.ssl-images-amazon.com/images/I/31IbgwvNCML._AC_SX60_CR,0,0,60,60_.jpg" %>
+              </div>
+              <span class="thumb-text thumb">
+                <span class="a-color-link">8点すべてのイメージを見る</span>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="centerCol" class="centerColumn">
+      <div id="booksTitle" class="feature">
+        <div class="a-section a-spacing-none">
+          <h1 id="title" class="a-size-large a-spacing-none">
+            <span id="productTitle" class="a-size-large"><%= @product.name %></span>
+            <span class="a-size-medium a-color-secondary a-text-normal">単行本（ソフトカバー）だよ</span>
+            <span class="a-size-medium a-color-secondary a-text-normal">– 2012/6/23だよ</span>
+          </h1>
+        </div>
+        <div id="byline" class="a-section a-spacing-micro bylineHidden feature">
+          <span class="author notFaded">
+            <a href="/" class="a-link-normal">Dustin Boswell</a>
+            <span class="contribution" spacing="none">
+              <span class="a-color-secondary">(著),‎</span>
+            </span>
+          </span>
+          <span class="author notFaded">
+            <a href="/" class="a-link-normal">Trevor Foucher</a>
+            <span class="contribution" spacing="none">
+              <span class="a-color-secondary">(著),‎</span>
+            </span>
+          </span>
+        </div>
+      </div>
+      <div id="averageCustomerReviews_feature_div" class="feature">
+        <div id="averageCustomerReviews" class="a-spacing-none">
+          <span class="a-declarative">
+            <span id="acrPopover" class="reviewCountTextLinkedHistogram noUnderline">
+              <span class="a-declarative">
+                <a href="javascript:void(0)" class="a-popover-trigger a-declarative">
+                  <i class="a-icon a-icon-star a-star-4-5">
+                    <span class="a-icon-alt">5つ星のうち 4.6</span>
+                  </i>
+                  <i class="a-icon a-icon-popover"></i>
+                </a>
+              </span>
+              <span class="a-letter-space"></span>
+            </span>
+          </span>
+          <span class="a-letter-space"></span>
+          <span class="a-declarative">
+            <!-- カスタマーレビューへのリンクです -->
+            <a href="/" id="acrCustomerReviewLink" class="a-link-normal">
+              <span id="acrCustomerReviewText" class="a-size-base">67件のカスタマーレビュー</span>
+            </a>
+          </span>
+        </div>
+      </div>
+      <hr>
+      <div id="MediaMatrix" class="feature">
+        <div id="formats" class="a-section a-spacing-large responsive">
+          <a class="a-link-expander a-spacing-top-micro a-spacing-small a-size-small">
+            <i id="formatsIcon" class="a-icon a-icon-expand"></i>
+            <span id="showMoreFormatsPrompt" class="tmmShowPrompt">
+            その他（）の形式およびエディションを表示する</span>
+            <span id="hideMoreFormatsPrompt" class="tmmHidePrompt">
+            他のフォーマットおよびエディションを非表示にする</span>
+          </a>
+          <div id="tmmSwatches" class="a-row">
+            <ul class="a-unordered-list a-nostyle a-button-list a-horizontal">
+              <li class="swatchElement selected">
+                <span class="a-list-item">
+                  <span class="a-button a-button-selected a-spacing-mini a-button-toggle format" id="a-autoid-2">
+                    <span class="a-button-inner">
+                      <a href="/" class="a-button-text" id="a-autoid-2-announce" role="button">
+                        <span>単行本（ソフトカバー）だよ</span>
+                        <br>
+                        <span class="a-color-base">
+                          <span class="a-size-base a-color-price a-color-price">
+                            ¥ <%= number_with_delimiter((@product.price).floor) %>
+                          </span>
+                        </span>
+                      </a>
+                    </span>
+                  </span>
+                  <span class="tmm-olp-links">
+                    <span class="olp-used olp-link">
+                      <a href="/" class="a-size-mini a-link-normal">
+                        ￥ 2,111
+                        <span class="olp-from">より</span>
+                        14 中古品の出品
+                      </a>
+                    </span>
+                    <span class="olp-new olp-link">
+                      <a href="/" class="a-size-mini a-link-normal">
+                        ￥ 2,592
+                        <span class="olp-from">より</span>
+                        3 新品
+                      </a>
+                    </span>
+                  </span>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="holidayDeliveryMessage_feature_div" class="feature">
+        <div id="holidayDeliveryMessage" class="a-section a-spacing-mini a-spacing-top-mini a-text-left">
+          <span class="a-size-base">
+            <b>
+              <font color="#008500">クリスマスイブまでにお届け。</font>
+            </b>
+          </span>
+        </div>
+      </div>
+      <div id="dynamicDeliveryMessage_feature_div" class="feature">
+        <div id="dynamicDeliveryMessage" class="a-section a-spacing-mini a-spacing-top-mini">
+          <div id="ddmDeliveryMessage" class="a-section a-spacing-mini">
+            <b>12/24 日曜日</b>にお届けするには、今から
+            <span id="ddmFastestCountdown" class="a-color-success a-text-bold">ここは時を刻みます</span>以内に
+            <a href="/">お急ぎ便</a>を選択して注文を確定してください（有料オプション。
+            <a href="/">Bamazonプライム会員</a>は無料）
+          </div>
+        </div>
+      </div>
+      <div id="extraProductInfoFeatureGroup" class="feature">
+        <div id="productAlert_feature_div" class="feature">
+          <hr class="a-divider-normal">
+          <div id="universal-hero-quick-promo">
+            <div class="a-section a-spacing-none">
+              <div class="a-fixed-left-grid">
+                <div class="a-fixed-left-grid-inner" style="padding-left:75px">
+                  <div class="a-fixed-left-grid-col a-col-left" style="width:75px;margin-left:-75px;_margin-left:-37.5px;float:left;">
+                    <a href="/" class="a-link-normal">
+                      <%= image_tag "https://images-fe.ssl-images-amazon.com/images/G/09/2017/books/etak._SS75_CB503687082_.gif", class: "a-dynamic-image" %>
+                    </a>
+                  </div>
+                  <div class="a-fixed-left-grid-col a-col-right" style="padding-left:3.5%;*width:96.1%;float:left;">
+                    <div class="a-row">
+                      <span class="a-text-bold">Bamazonで直接、商品を販売</span>
+                    </div>
+                    <div class="a-row">
+                      Bamazon e託販売サービスは、商品をBamazonの配送センターに委託在庫として保管し、お客様への販売、配送およびサポートを提供するサービスです。
+                      <a href="/" class="a-link-normal">詳しくはこちら</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="edpIngress_feature_div" class="feature">
+        <span id="edpIngressContainer">
+          <span class="edpIngressIcon"></span>
+          <a href="/" id="edpIngress" class="a-link-normal a-declarative">
+            <span class="edpIngressText">不正確な製品情報を報告。</span>
+          </a>
+        </span>
+      </div>
+    </div>
+    <hr class="bucketDivider" noshade="noshade" size="1">
+    <div class="bucket" id="quickPromoBucketContent">
+      <h2>キャンペーンおよび追加情報</h2>
+      <div class="content">
+        <ul class="qpUL">
+          <li>
+            <div class="amabot_widget">
+              <p>
+                <b>【人気のジャンル】</b>
+                <a href="/">コミック・ラノベ・BL</a> | <a href="/">雑誌</a> | <a href="/">写真集</a> | <a href="/">文学・評論</a> | <a href="/">絵本・児童書</a> | <a href="/">ビジネス・経済</a> | <a href="/">新書・文庫</a> | <a href="/">新刊・予約</a> | <a href="/">和書TOP</a>
+              </p>
+            </div>
+          </li>
+          <li>
+            <div class="amabot_widget">
+              【出版社の方へ】直接取引で販売を促進。詳しくは
+              <a href="/">e託販売サービスの詳細ページ</a>へ。
+            </div>
+          </li>
+          <li>
+            <div class="amabot_widget">
+              <a href="/">【古本ストア】</a>
+              コミック や大人買いしたいセット本、バックナンバーも豊富な雑誌など
+              <a href="/">古本ストア</a>のページへ。
+            </div>
+          </li>
+          <li>
+            <div class="amabot_widget">
+              <a href="/">【コンピュータ・IT】</a>
+              プログラミング、アプリケーション関連書から各種試験対策まで
+              <a href="/">コンピュータ・IT</a>のページへ。
+            </div>
+          </li>
+          <li>
+            <div class="amabot_widget">
+              【大人買いでイッキ読み！】 コミックセット、絵本セット、文庫セットほか、充実の品揃え。
+              <a href="/">セット本</a>ページへ。
+            </div>
+          </li>
+        </ul>
+        <div class="issuance-banner">
+          <ul class="qpUL">
+            <li>
+              <a href="/" style="text-decoration:none; color:#333;">
+                入会特典をこの商品に利用した場合、2,592円が
+                <strong>592 円に</strong>  !  <span style="font-weight: bold"><span style="color: #0055AA">Bamazon Mastercardクラシック</span></span>
+                新規ご入会で、<span style="font-weight: bold"><span style="color: #B12704">2,000円分</span></span>の Bamazonポイントプレゼント。
+                <span style="color: #0066C0;">今すぐチェック</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="sims-fbt" class="similarities-widget bucket">
+      <hr class="a-divider-normal bucketDivider">
+      <h2>よく一緒に購入されている商品</h2>
+      <!-- ここは後回し -->
+    </div>
+    <div id="p13n-m-purchase-sims-feature-2" class="celwidget">
+      <div class="a-section similarities-widget sims-carousel-holder">
+        <hr class="a-divider-normal sims-carousel-heading bucketDivider">
+        <div id="purchase-sims-feature" class="a-section a-spacing-large bucket">
+          <div class="a-begin a-carousel-container a-carousel-display-swap a-carousel-transition-swap similarities-aui-carousel p13n-sc-carousel a-carousel-initialized">
+            <div class="a-row a-carousel-header-row a-size-large">
+              <h2 class="a-carousel-heading">この商品を買った人はこんな商品も買っています</h2>
+              <!-- ここは後回し -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="rightRail" class="a-box btfRightRail">
+      <div class="a-box-inner">
+        <div id="kcpAppBaseBox_" class="kcpAppBaseBox_">
+          <div class="kcpAppDesc">
+            <span class="kcpAppBaseHeader"></span>
+          </div>
+        </div>
+        <hr class="a-spacing-base a-divider-normal">
+        <div id="fiona-publisher-signup-link" class="a-row a-spacing-medium a-size-small">
+          <div class="fionaPublishBox">
+            <div class="cBox grayBox">
+              <div class="cBoxInner">
+                <div class="fionaPublish">
+                  <div>
+                    <strong>Kindle化リクエスト</strong>
+                    <br>
+                    <a href="/">このタイトルのKindle化をご希望の場合、こちらをクリックしてください。</a>
+                    <br>
+                    <br>Kindle をお持ちでない場合、
+                    <a href="/">こちらから購入いただけます。</a>
+                    Kindle 無料アプリのダウンロードは<a href="/" class="kcpAppsPopOver" id="kcpAppsPopOver"><span class="kcpAppBaseBox_"><span class="kcpAppsPopOver a-declarative" style="font-size: 1em;">こちら</span></span></a>
+                    <br>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="a-spacing-base a-divider-normal">
+        <div id="hero-quick-promo" class="a-row a-spacing-medium">
+          <div id="universal-hero-quick-promo">
+            <div class="a-section a-spacing-none">
+              <div class="a-fixed-left-grid">
+                <div class="a-fixed-left-grid-inner" style="padding-left:75px">
+                  <div class="a-fixed-left-grid-col a-col-left" style="width:75px;margin-left:-75px;_margin-left:-37.5px;float:left;">
+                    <a href="/" class="a-link-normal">
+                      <%= image_tag "https://images-fe.ssl-images-amazon.com/images/G/09/2017/x-site/amazon_ranking_awards/traffic/1071625_2017secondhalf_04_75x75._SS75_CB513794077_.jpg", class: "a-dynamic-image" %>
+                    </a>
+                  </div>
+                  <div class="a-fixed-left-grid-col a-col-right" style="padding-left:3.5%;*width:96.1%;float:left;">
+                    <div class="a-row">
+                      <span class="a-text-bold">Bamazonランキング大賞</span>
+                    </div>
+                    <div class="a-row">
+                      2017年にBamazonで最も売れた本をご紹介
+                      <a href="/" class="a-link-normal">＞詳しく見る</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="descriptionAndDetails" class="a-section a-spacing-extra-large">
+      <div id="productDescription_feature_div" class="feature">
+        <div id="productDescription_feature_div" class="a-row feature">
+          <div class="a-divider a-divider-section">
+            <div class="a-divider-inner"></div>
+            <h2 class="books">商品の説明</h2>
+            <div id="productDescription" class="a-section a-spacing-small">
+              <h3>内容紹介</h3>
+              <p><%= @product.detail %><br></p>
+              <h3>内容（「BOOK」データベースより）</h3>
+              <p>ここは内容だよ</p>
+              <a href="/" class="a-link-normal">商品の説明をすべて表示する</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="detail_bullets_id">
+      <hr noshade="noshade" size="1" class="bucketDivider">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tbody>
+          <tr>
+            <td class="bucket">
+              <h2>登録情報</h2>
+              <div class="content">
+                <ul>
+                  <li>
+                    <b>単行本（ソフトカバー）:</b>
+                    260ページ
+                  </li>
+                  <li>
+                    <b>出版社:</b>
+                    オライリージャパン; 初版八刷版 (2012/6/23)
+                  </li>
+                  <li>
+                    <b>言語:</b>
+                    日本語
+                  </li>
+                  <li>
+                    <b>ISBN-10:</b>
+                    4873115655
+                  </li>
+                  <li>
+                    <b>ISBN-13:</b>
+                    978-4873115658
+                  </li>
+                  <li>
+                    <b>発売日：</b>
+                    2012/6/23
+                  </li>
+                  <li>
+                    <b>商品パッケージの寸法:</b>
+                    2 x 15 x 21 cm
+                  </li>
+                  <li>
+                    <b>おすすめ度：</b>
+                    <span class="dpProductDetail4873115655">
+                      <span class="a-declarative">
+                        <a href="/" class="a-popover-trigger a-declarative"></a>
+                        <a href="/" class="a-link-normal a-text-normal">
+                          <i class="a-icon a-icon-star a-star-4-5">
+                            <span class="a-icon-alt">5つ星のうち 4.6</span>
+                          </i>
+                        </a>
+                        <i class="a-icon a-icon-popover"></i>
+                      </span>
+                      <span class="a-letter-space"></span>
+                      <span class="a-size-small">
+                        <a href="/" class="a-link-normal">
+                          67件のカスタマーレビューだよ
+                        </a>
+                      </span>
+                    </span>
+                  </li>
+                  <li id="SalesRank">
+                    <b>Amazon 売れ筋ランキング:</b>
+                    本 - 1,153位だよ (<a href="/">本の売れ筋ランキングを見る</a>)
+                    <ul class="zg_hrsr">
+                      <li class="zg_hrsr_item">
+                        <span class="zg_hrsr_rank">8位だよ</span>
+                        <span class="zg_hrsr_ladder">
+                          -
+                          <a href="/">本</a>
+                          >
+                          <a href="/">コンピュータ・IT</a>
+                          >
+                          <a href="/">プログラミング</a>
+                          >
+                          <b>
+                            <a href="/">ソフトウェア開発・言語</a>
+                          </b>
+                        </span>
+                      </li>
+                    </ul>
+                  </li>
+                  <p></p>
+                  <div class="bucket">
+                    <b>
+                      <a href="/" id="ns_B98TCSQPJRPWC0WFSYBV_22463_1_hmd_pricing_feedback_trigger_product-detail">さらに安い価格について知らせる</a>
+                    </b>
+                    <br>
+                    この商品を出品する場合、
+                    <b>
+                      <a href="/">出品者サポートを通じて更新を提案</a>
+                    </b>
+                    したいですか?
+                  </div>
+                  <p></p>
+                  <li>
+                    <b>
+                      <a href="/">目次を見る</a>
+                    </b>
+                  </li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <hr class="a-divider-normal sims-vtp-heading">
+    <div id="view_to_purchase-sims-feature" class="a-section similarities-widget bucket">
+      <h2 class="a-size-large a-spacing-base">この商品を見た後に買っているのは？</h2>
+      <!-- ここは後回し -->
+    </div>
+    <hr size="1" noshade="noshade" class="a-divider-normal" width="100%">
+    <div id="bamazon_coupon">
+      <%= image_tag "bamazon_coupon.png" ,class: "bamazon_coupon" %>
+    </div>
+    <div style="margin-bottom:10px;"></div>
+    <hr class="a-divider-normal">
+    <div id="reviewsMedley" class="a-row a-spacing-extra-large">
+      <div class="a-column a-span8">
+        <h2 id="dp-customer-review-header" class="a-spacing-small">カスタマーレビュー</h2>
+        <div id="reviewSummary" class="a-row a-spacing-medium">
+          <div class="a-row">
+            <a href="/" class="a-link-normal a-text-normal">
+              <div class="a-fixed-left-grid AverageCustomerReviews">
+                <div class="a-fixed-left-grid-inner" style="padding-left:100px">
+                  <div class="a-fixed-left-grid-col a-col-left" style="width:100px;margin-left:-100px;_margin-left:-50px;float:left;">
+                    <i class="a-icon a-icon-star-medium a-star-medium-4-5 averageStarRating">
+                      <span class="a-icon-alt">5つ星のうち4.6</span>
+                    </i>
+                  </div>
+                  <div class="a-fixed-left-grid-col a-col-right" style="padding-left:0%;*width:99.6%;float:left;">
+                    <div class="a-row">
+                      <span class="a-size-medium totalReviewCount">67だよ</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="a-row a-spacing-small">
+            <span class="a-declarative">
+              <a href="/" class="a-popover-trigger a-declarative">
+                <span class="arp-rating-out-of-text">5つ星のうち4.6</span>
+                <i class="a-icon a-icon-popover"></i>
+              </a>
+            </span>
+          </div>
+          <div class="a-fixed-left-grid_review">
+            <div class="a-fixed-left-grid-inner_review" style="padding-left:185px">
+              <div class="a-fixed-left-grid-col a-col-left" style="width:185px;margin-left:-185px;_margin-left:-92.5px;float:left;">
+                <div class="a-row a-spacing-small">
+                  <div class="a-section histogram">
+                    <span class="a-declarative">
+                      <table id="histogramTable" class="a-normal a-align-middle a-spacing-base">
+                        <tbody>
+                          <tr class="a-histogram-row">
+                            <td class="aok-nowrap">
+                              <a href="/" class="a-size-base a-link-normal 5star" title="星5つ">
+                              星5つ</a>
+                              <span class="a-letter-space"></span>
+                            </td>
+                            <td aria-hidden="true" class="a-span10">
+                              <a href="/" class="a-size-base a-link-normal">
+                                <div class="a-meter 5star">
+                                  <div class="a-meter-bar" style="width: 69%;">
+                                  </div>
+                                </div>
+                              </a>
+                            </td>
+                            <td aria-hidden="true" class="a-text-right aok-nowrap">
+                              <a href="/" class="a-size-base a-link-normal 5star histogram-review-count">69%</a>
+                              <span class="a-letter-space"></span>
+                            </td>
+                          </tr>
+                          <tr class="a-histogram-row">
+                            <td class="aok-nowrap">
+                              <a href="/" class="a-size-base a-link-normal 4star" title="星4つ">
+                              星4つ</a>
+                              <span class="a-letter-space"></span>
+                            </td>
+                            <td aria-hidden="true" class="a-span10">
+                              <a href="/" class="a-size-base a-link-normal">
+                                <div class="a-meter 4star">
+                                  <div class="a-meter-bar" style="width: 27%;">
+                                  </div>
+                                </div>
+                              </a>
+                            </td>
+                            <td aria-hidden="true" class="a-text-right aok-nowrap">
+                              <a href="/" class="a-size-base a-link-normal 3star histogram-review-count">27%</a>
+                              <span class="a-letter-space"></span>
+                            </td>
+                          </tr>
+                          <tr class="a-histogram-row">
+                            <td class="aok-nowrap">
+                              <a href="/" class="a-size-base a-link-normal 3star" title="星3つ">
+                              星3つ</a>
+                              <span class="a-letter-space"></span>
+                            </td>
+                            <td aria-hidden="true" class="a-span10">
+                              <a href="/" class="a-size-base a-link-normal">
+                                <div class="a-meter 3star">
+                                  <div class="a-meter-bar" style="width: 3%;">
+                                  </div>
+                                </div>
+                              </a>
+                            </td>
+                            <td aria-hidden="true" class="a-text-right aok-nowrap">
+                              <a href="/" class="a-size-base a-link-normal 5star histogram-review-count">3%</a>
+                              <span class="a-letter-space"></span>
+                            </td>
+                          </tr>
+                          <tr class="a-histogram-row">
+                            <td class="aok-nowrap">
+                              <a href="/" class="a-size-base a-link-normal 2star" title="星5つ">
+                              星2つ</a>
+                              <span class="a-letter-space"></span>
+                            </td>
+                            <td aria-hidden="true" class="a-span10">
+                              <a href="/" class="a-size-base a-link-normal">
+                                <div class="a-meter 2star">
+                                  <div class="a-meter-bar" style="width: 1%;">
+                                  </div>
+                                </div>
+                              </a>
+                            </td>
+                            <td aria-hidden="true" class="a-text-right aok-nowrap">
+                              <a href="/" class="a-size-base a-link-normal 2star histogram-review-count">1%</a>
+                              <span class="a-letter-space"></span>
+                            </td>
+                          </tr>
+                          <tr class="a-histogram-row">
+                            <td class="aok-nowrap">
+                              <span class="a-size-base">星1つ</span>
+                              <span class="a-offscreen">星1つ (0%)</span>
+                              <span class="a-letter-space"></span>
+                            </td>
+                            <td aria-hidden="true" class="a-span10">
+                              <div class="a-meter">
+                                <div class="a-meter-bar" style="width: 0%;">
+                                </div>
+                              </div>
+                            </td>
+                            <td aria-hidden="true" class="a-text-right aok-nowrap">
+                              <span class="a-size-base">0%</span>
+                              <span class="a-letter-space"></span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="a-fixed-left-grid-col a-col-right" style="padding-left:0%;*width:99.6%;">
+                <div class="a-column a-span11 a-push1">
+                  <div id="dp-summary-share-your-thoughts" class="a-row a-spacing-medium">
+                    他のお客様にも意見を伝えましょう
+                  </div>
+                  <div class="a-row">
+                    <span class="a-button writeReviewButton" id="a-autoid-6">
+                      <span class="a-button-inner">
+                        <a href="/" class="a-button-text" role="button" id="a-autoid-6-announce">カスタマーレビューを書く</a>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="/" id="dp-summary-see-all-reviews" class="a-link-emphasis">
+            すべてのカスタマーレビューを見る(67だよ)
+          </a>
+        </div>
+        <div id="cr-medley-top-reviews-wrapper" class="a-row">
+          <div id="cm-cr-dp-review-header" class="a-section a-spacing-small">
+            <h3>トップカスタマーレビュー</h3>
+          </div>
+          <div class="a-row">
+            <!-- ここにいろんな人のレビューがくるよ -->
+          </div>
+          <div id="reviews-medley-footer" class="a-section">
+            <div class="a-row a-spacing-large">
+              <a href="/" class="a-link-emphasis a-text-bold">すべての67レビューを表示するよ</a>
+            </div>
+            <div class="a-row">
+              <span class="a-button writeReviewButton" id="a-autoid-23">
+                <span class="a-button-inner">
+                  <a href="/" class="a-button-text" id="a-autoid-23-announce" role="button">カスタマーレビューを書く</a>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="a-column a-span4 a-span-last">
+        <div id="cm-cr-dp-recent-reviews" class="a-section a-spacing-none">
+          <a href="/" id="customer-reviews-recent-reviews" class="a-link-normal celwidget"></a>
+          <div id="most-recent-reviews-section" class="a-section">
+            <h3 class="a-spacing-small">最近のカスタマーレビュー</h3>
+            <!-- ここに最近のレビューが来ますよ -->
+          </div>
+        </div>
+        <div class="a-row">
+          <!-- ここにカスタマーレビューの検索を書く -->
+        </div>
+      </div>
+    </div>
+    <div class="a-section">
+      <span class="a-text-bold">同様の商品をご覧になりませんか？</span>
+      <span>
+        こちらのリンクで参照ください。
+        <a href="/" class="a-link-normal">rubyだよ</a>
+      </span>
+    </div>
+  </div>
+</div>
+<!-- ここに最近閲覧した商品とおすすめ商品 -->
+
+<%= render partial: 'layouts/footer' %>

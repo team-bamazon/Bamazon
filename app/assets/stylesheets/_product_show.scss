@@ -1,0 +1,910 @@
+// 所属カテゴリー表示
+
+#wayfinding-breadcrumbs_container {
+  padding: 0 16px!important;
+  margin-top: 8px!important;
+  height: 14px;
+}
+
+.a-unordered-list.a-horizontal, ul.a-horizontal {
+  display: block;
+  margin-left: 0;
+}
+
+.a-spacing-none,.a-unordered-list:last-child, ul:last-child {
+  margin-bottom: 0!important;
+}
+
+.a-unordered-list, ul {
+  padding: 0;
+  margin: 0 0 18px 18px;
+  color: #949494;
+}
+
+.a-size-small {
+  font-size: 12px!important;
+  line-height: 1.5!important;
+}
+
+.a-unordered-list.a-horizontal.a-size-small li, ul.a-horizontal.a-size-small li {
+  line-height: 14px;
+}
+
+.a-subheader.a-breadcrumb ul li {
+  margin-right: .4235em;
+  float: left;
+}
+
+.a-unordered-list.a-horizontal li, ul.a-horizontal li {
+  display: inline-block;
+  margin: 0 10px 0 0;
+}
+
+.a-unordered-list .a-list-item, ul .a-list-item {
+  color: #111;
+}
+
+.a-color-tertiary {
+  color: #767676!important;
+}
+
+.a-subheader.a-breadcrumb ul li.a-breadcrumb-divider {
+  color: #949494;
+  position: relative;
+  top: -1px;
+}
+
+
+// 商品詳細
+#dp .a-container{
+  margin: 20px auto 0;
+  padding: 0 18px 18px 18px;
+  min-width: 996px;
+}
+
+//// rightCol 右側の金額&カートに入れる
+
+////// メールツイッターなどのアイコン
+#rightCol {
+  float: right;
+  margin: 0 0 22px 20px;
+  width: 270px;
+}
+
+.a-text-center {
+  text-align: center!important;
+}
+
+.a-spacing-small {
+  margin-bottom: 10px!important;
+}
+
+.a-letter-space {
+  display: inline-block;
+  width: .385em;
+}
+
+.a-icon {
+  background-image: url(https://m.media-amazon.com/images/G/01/AUIClients/AmazonUIBaseCSS-sprite_1x-c4a765aedd886dc04d89e7e93b6a02c59ecb7013._V2_.png);
+  background-size: 400px 750px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.a-icon-share-email {
+  width: 19px;
+  height: 17px;
+  background-position: -99px -168px;
+  position: relative;
+  top: 1px;
+}
+
+.a-icon-share-facebook {
+  width: 17px;
+  height: 17px;
+  background-position: -36px -168px;
+  position: relative;
+  top: 1px;
+}
+
+.a-icon-alt {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  display: block;
+  width: 1px;
+  height: 1px;
+  line-height: 1px;
+  font-size: 1px;
+  overflow: hidden;
+}
+
+.a-icon-share-twitter {
+  width: 18px;
+  height: 17px;
+  background-position: -57px -168px;
+  position: relative;
+  top: 1px;
+}
+
+.a-icon-share-pinterest {
+  width: 17px;
+  height: 17px;
+  background-position: -78px -168px;
+  position: relative;
+  top: 1px;
+}
+
+////buybox
+
+//////buyNewSection
+
+#buybox_feature_div {
+  position: relative;
+}
+
+#addToCart {
+  margin-bottom: 0;
+}
+
+#buybox {
+  border-radius: 4px;
+  box-shadow: 0 0 0 4px rgba(0,0,0,.1);
+}
+
+#rbbContainer .rbbSection {
+  overflow: hidden;
+}
+
+.a-box-group>.a-box.a-first, .a-box-group>.a-box:first-child {
+  border-radius: 4px 4px 0 0;
+  margin-top: 0;
+}
+
+.a-box {
+  display: block;
+  border: 1px #ddd solid;
+  background-color: #fff;
+}
+
+#rbbContainer .rbbSection .a-box-inner {
+  padding: 0;
+}
+
+.a-padding-base {
+  padding: 10px 14px!important;
+}
+
+.a-grid-vertical-align.a-row {
+  display: table!important;
+  table-layout: fixed;
+  zoom: 1;
+  border-collapse: collapse;
+}
+
+.a-row {
+  width: 100%;
+}
+
+.a-fixed-left-grid {
+  position: relative;
+}
+
+.a-fixed-left-grid .a-fixed-left-grid-col {
+  position: relative;
+  overflow: hidden;
+  zoom: 1;
+  min-height: 1px;
+}
+
+.a-text-left {
+  text-align: left!important;
+}
+
+.a-icon-radio-active {
+  left: 0;
+  margin-top: 10px;
+  // position: absolute;////なぜかこれを消したらアイコンが表示された
+  top: 50%;
+  background-position: -30px -294px;
+  vertical-align: middle;
+  width: 19px;
+  height: 19px;
+}
+
+.rbbHeader .rbbHeaderLink {
+  color: #000;
+}
+
+.a-section:last-child {
+  margin-bottom: 0;
+}
+
+b, strong {
+  font-weight: 700!important;
+}
+
+.a-text-normal {
+  font-weight: 400!important;
+  font-style: normal!important;
+  text-transform: none!important;
+  text-decoration: none!important;
+}
+
+.a-size-medium {
+  font-size: 17px!important;
+  line-height: 1.255!important;
+}
+
+.a-color-price {
+  color: #B12704!important;
+}
+
+//////buyNewInner
+
+.dp-accordion .dp-accordion-inner {
+  margin-top: -.5em;
+  display: block;
+  padding: 0 18px 14px;
+}
+
+
+.a-unordered-list.a-nostyle, ul.a-nostyle {
+  margin-left: 0;
+  color: #111;
+}
+
+.a-spacing-top-micro.a-section {
+  padding-top: 4px;
+  margin-top: 0!important;
+}
+
+.buyboxShippingLabel a {
+  font-size: 17px;
+}
+
+.a-color-success {
+  color: #008a00!important;
+}
+
+#bbopAndCartBox {
+  padding: 3px 6px 0 6px;
+  margin: 0 -6px 10px;
+  background-color: rgb(246, 246, 246) !important;
+  border: 1px solid rgb(221, 221, 221);
+}
+
+#bbopAndCartBox #bbop-sbbop-container {
+  margin-bottom: 6px !important;
+}
+
+// js カートに入れた時に表示されるメッセージ
+.a-hidden {
+  display: none!important;
+  visibility: hidden!important;
+}
+
+.a-section {
+  margin-bottom: 22px;
+}
+
+.a-alert-inline {
+  display: inline-block;
+  border: none;
+  vertical-align: middle;
+  background-color: transparent;
+}
+
+.a-alert-inline-success .a-alert-container {
+  color: #007600;
+}
+
+.a-alert-inline .a-icon-alert {
+  height: 13px;
+  width: 14px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+}
+
+.a-alert-inline-success .a-icon-alert, .a-icon-success.a-icon-small {
+  background-position: -117px -130px;
+}
+
+// js カートに入れた時に表示されるメッセージ ここまで
+
+#bbopAndCartBox #bbop {
+  font-size: 12px;
+  margin-bottom: 0px !important;
+}
+
+.a-checkbox label {
+  position: relative;
+  font-weight: 400;
+  color: #111;
+  padding-left: 15px;
+  text-indent: -15px;
+  margin-left: 3px;
+  top: -2px;
+  padding-bottom: 0;
+}
+
+.a-checkbox-label {
+  position: relative;
+  padding-left: 5px;
+  text-indent: 0;
+}
+
+input[type=checkbox] {
+  height: 13px;
+  width: 13px;
+  vertical-align:top;
+  position: relative;
+  bottom: -3px;
+}
+
+#bbopCheckboxSection label {
+  font-weight: bold;
+}
+#bbop label{
+  display:table;
+}
+#bbop label input{
+  display:table-cell;
+}
+#bbop label span.a-checkbox-label{
+  display:table-cell;
+}
+//// カートに入れるボタン
+
+.a-button-icon .a-icon-cart {
+  top: 2px;
+  left: 2px;
+  height: 25px;
+  position: absolute;
+  width: 25px;
+  background-position: -35px -5px;
+}
+
+.a-button-stack .a-button {
+  display: block;
+}
+
+.a-button-icon .a-button-text {
+  padding-left: 35px;
+  position: relative;
+  z-index: 10;
+}
+
+.a-button-text {
+  display: block;
+  font-size: 13px;
+  line-height: 29px;
+  margin: 0;
+  outline: 0;
+  padding: 0 10px 0 11px;
+  text-align: center;
+}
+
+//// お届け先住所
+
+#unifiedLocation_feature_div {
+  margin-top: 10px;
+}
+.a-spacing-medium {
+  margin-bottom: 18px!important;
+}
+
+.a-spacing-mini {
+  margin-bottom: 6px!important;
+}
+
+.a-spacing-micro {
+  margin-bottom: 4px!important;
+}
+
+
+.a-color-base {
+  color: #111!important;
+  &:hover {
+    text-decoration: underline #f08804;
+  }
+}
+
+.a-icon-popover {
+  margin: 5px 0 0 .385em;
+  vertical-align: text-top;
+  width: 7px;
+  height: 5px;
+  background-position: -90px -5px;
+  opacity: .6;
+}
+
+
+//// ほしい物リストに追加する
+// ここはいったん後回し
+#wishlistButtonStack {
+  padding: 0 18px;
+}
+
+.a-button-group {
+  display: table;
+  width: 100%;
+}
+.a-button-group .a-button {
+  border-left-width:0;
+}
+
+.a-button-stack .a-button-group .a-button {
+  display: table-cell;
+  width: auto;
+}
+
+.a-button-inner {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  height: 29px;
+  box-shadow: 0 1px 0 rgba(91, 59, 59, 0.6) inset;
+}
+
+.a-button .a-icon-dropdown {
+  position: absolute;
+  top: 10px;
+  right: 9px;
+}
+
+.a-icon-dropdown {
+  width: 5px;
+  height: 8px;
+  background-position: -65px -5px;
+}
+
+input[type="submit" i] {
+  border-radius: 4px;
+  padding: 1px 7px 2px;
+}
+//// leftCol 左側の商品画面
+
+#leftCol {
+  float: left;
+  margin-right: 20px;
+}
+
+#imageBlock {
+  margin: 10px 0;
+}
+
+
+#imageBlock .maintain-height {
+  display: block!important;
+}
+
+#imageBlock .maintain-height {
+  display: block!important;
+  height: 100%;
+  width: 100%;
+}
+
+#imageBlock #flipAndSampleAudio {
+  min-height: 25px;
+  margin-top: 15px;
+}
+
+#imageBlockThumbs .imageThumb {
+  height: 40px;
+  overflow: hidden;
+  text-align: center;
+  max-width: 75px;
+}
+
+.a-color-link {
+  color: #0066c0!important;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// .a-dynamic-image {
+//   max-width: 246px;
+//   max-height: 346px;
+//   overflow: hidden;
+//   position: absolute;
+//   top: 0px;
+//   left: 0px;
+// }
+
+//// centerCol 中央の商品名など
+#centerCol.centerColumn {
+  margin-left: 240px !important;
+  margin-right: 320px;
+}
+
+#productTitle {
+  font-size: 19px!important;
+}
+
+#booksTitle h1 {
+  font-weight: 700;
+}
+
+.a-size-large {
+  font-size: 21px!important;
+  line-height: 1.3!important;
+}
+
+#averageCustomerReviews_feature_div {
+  display: inline-block;
+  margin-bottom: 7px;
+}
+
+.a-star-4-5 {
+  background-position: -175px -368px;
+}
+
+.a-icon-star {
+  width: 80px;
+  height: 18px;
+  position: relative;
+  vertical-align: text-top;
+}
+
+#averageCustomerReviews {
+  display: inline-block;
+}
+
+.a-spacing-large {
+  margin-bottom: 22px!important;
+}
+
+.a-spacing-top-micro {
+  margin-top: 4px!important;
+}
+
+a.a-link-expander {
+  display: inline-block;
+  position: relative;
+  padding-left: 11px;
+}
+
+#formats .a-icon-expand {
+  opacity: .6;
+  width: 7px;
+  height: 7px;
+  background-position: -366px -86px;
+  position: absolute;
+  top: 50%;
+  margin-top: -4px;
+  left: 0;
+}
+
+#formats .tmmShowPrompt {
+  display: inline;
+}
+
+#formats .tmmHidePrompt {
+  display: none;
+}
+
+.a-button-toggle.a-button-selected {
+  border-color: #e77600;
+}
+
+.a-button-toggle.a-button-selected .a-button-inner {
+  background-color: #fef8f2;
+  background-image: none;
+  height: auto;
+}
+
+.a-button-toggle .a-button-text {
+  text-align: left;
+  padding: 5px 10px 5px 11px;
+  line-height: 19px;
+}
+
+.a-button-toggle.a-button-selected .a-button-text {
+  font-weight: 700;
+}
+
+#formats, .a-button-inner {
+  box-shadow: none;
+}
+
+#formats .tmm-olp-links {
+  display: block;
+  padding: 0 11px;
+}
+
+#formats .olp-link {
+  display: block;
+  line-height: 15px;
+}
+
+#formats .olp-link .olp-from {
+  color: #888;
+}
+
+
+#centerCol .a-row:after {
+  clear: none;
+}
+
+.a-spacing-top-mini.a-section {
+  padding-top: 6px;
+  margin-top: 0!important;
+}
+
+.edpIngressIcon {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAMCAYAAABx290PAAAA20lEQVQ4y2Ngzj7oxZF96BVD2oH/hDBIHUg9AxCciGL2OhbF8epIKMN/QhikDqQepI8BZMjWy2//EwO2XHoLthSkD2TIu3NbidL37uwWsKVgC0EuJwWAfQsEIJeTAkDqRy0cJhaCUh0o9ZGVSoGpj+RUijsfHvzXsePxb7iviMyHR0MZ/j3Z0PEb5iuMfIgTZByTBlpwLWHBje+wYCQGHAtlkD4ezXHt9rSE74h4IxaUXORmyzq0nRQLQeBiLAP3sUi27aRbCAIN/5lEi4/OJ1Xb/wYGplPJohj6AGLXLKmrpibWAAAAAElFTkSuQmCC);
+  display: inline-block;
+  position: relative;
+  width: 13px;
+  top: 1px;
+  height: 11px;
+  background-position: 0 0;
+}
+
+#edpIngress_feature_div {
+  padding-bottom: 6px;
+  clear: left;
+}
+
+//// キャンペーン情報
+
+#quickPromoBucketContent {
+  padding: 0 0 26px;
+}
+
+.book h2 {
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 1.3;
+  padding-bottom: 4px;
+}
+
+#quickPromoBucketContent div.content {
+  margin-left: 0;
+}
+
+div.bucket div.content {
+  margin: .5em 0 0 25px;
+}
+
+#quickPromoBucketContent .qpUL {
+  padding-left: 25px;
+  list-style-type: disc;
+}
+
+#quickPromoBucketContent ul li {
+  color: #333;
+}
+ul {
+  padding: 0;
+}
+
+//// よく一緒に購入されている商品
+
+//// この商品を買った人はこんな商品も買っています
+
+//// Kindle化リクエスト
+.btfRightRail {
+  float: right;
+  width: 270px;
+  clear: both;
+  margin: 0 0 20px 20px;
+}
+
+.a-box {
+  display: block;
+  border-radius: 4px;
+  border: 1px #ddd solid;
+  background-color: #fff;
+}
+
+.btfRightRail.a-box .a-box-inner {
+  padding: 12px;
+}
+
+.kcpAppBaseBox_ {
+  text-align: center;
+  padding: 10px 0;
+}
+
+div.fionaPublish {
+  background-image: url(https://images-fe.ssl-images-amazon.com/images/G/09/kindle/merch/global/kindle-widget-photo._CB402108284_.jpg);
+  background-repeat: no-repeat;
+  min-height: 8em;
+  height: auto !important;
+}
+
+div.fionaPublish div {
+  margin: 0 5px 0 69px;
+}
+
+//// 商品の説明
+
+#productDescription {
+  color: #333333;
+  word-wrap: break-word;
+  font-size: small;
+  margin: 0.5em 0px 0em 25px;
+}
+
+#productDescription h3 {
+  font-weight: normal;
+  color: #333333;
+  font-size: 1.23em;
+  clear: left;
+  margin: 0.75em 0px 0.375em -15px;
+  line-height: 1.255;
+  padding-bottom: 4px;
+}
+
+#productDescription p {
+  margin: 0em 0 1em 1em;
+}
+
+//// 登録情報
+
+#detail_bullets_id ul {
+  color: #333;
+  font-size: 13px;
+  font-family: verdana,arial,helvetica,sans-serif;
+}
+
+#detail_bullets_id ul li {
+  margin-bottom: 5.5px;
+}
+
+
+.bucketDivider {
+  background: 0 0!important;
+  border-top: 1px solid #CCC!important;
+  margin-bottom: 9px!important;
+}
+.bucketDivider hr {
+  clear: left;
+}
+
+//// クーポン
+#bamazon_coupon {
+  text-align: center;
+}
+
+.bamazon_coupon {
+  height: 250px;
+  width: 970px;
+}
+
+
+//// カスタマーレビュー
+
+.a-row .a-span8 {
+  width: 66%;
+}
+
+.a-row .a-span10 {
+  width: 99px;
+}
+
+.a-star-medium-4-5 {
+  background-position: -205px -396px;
+}
+
+.a-icon-star-medium {
+  width: 95px;
+  height: 21px;
+  margin-right: 1px;
+  top: -2px;
+}
+
+.a-meter {
+  border-radius: 1px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.4), inset 0 0 0 1px rgba(0,0,0,.1);
+  overflow: hidden;
+  background: linear-gradient(to bottom,#eee,#f6f6f6);
+  background-color: #f3f3f3;
+  height: 17px;
+}
+
+.a-meter .a-meter-bar {
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.05);
+}
+
+.a-meter .a-meter-bar {
+  border-radius: 1px;
+  background: linear-gradient(to bottom,#ffce00,#ffa700);
+  background-color: #ffce00;
+  float: left;
+  height: 100%;
+}
+
+tr.a-histogram-row td {
+  padding: 0 1px 1px 1px;
+}
+
+tr.a-histogram-row {
+  color: #767676;
+}
+
+tr.a-histogram-row:first-child td {
+  padding-top: 0;
+}
+
+tr.a-histogram-row td:first-child {
+  padding-left: 0;
+}
+
+.a-span8 div.a-span11 {
+  width: 92%;
+}
+
+.a-row .a-push1 {
+  left: 8.448%;
+}
+
+a.a-link-emphasis {
+  position: relative;
+  padding-right: 9px;
+}
+
+.a-push1 {
+  position: relative;
+}
+
+.a-fixed-left-grid_review .a-fixed-left-grid-inner_review {
+  position: relative;
+  padding: 0;
+}
+
+//// 最近のカスタマーレビュー
+
+div.a-column.a-span-last {
+  margin-right: 0;
+  float: right;
+}
+
+.a-row .a-span4 {
+  width: 32%;
+}
+
+.a-fixed-left-grid_review .a-fixed-left-grid-inner_review::after {
+  clear: left;
+}
+
+.a-fixed-left-grid_review .a-fixed-left-grid-inner_review:after {
+  clear: both;
+}
+
+.a-fixed-left-grid_review .a-fixed-left-grid-inner_review:after, .a-fixed-left-grid_review .a-fixed-left-grid-inner_review:before {
+  display: table;
+  content: "";
+  line-height: 0;
+  font-size: 0;
+}
+
+a.a-icon-link-emphasis:after, a.a-link-emphasis:after {
+  background-image: url(https://m.media-amazon.com/images/G/01/AUIClients/AmazonUIBaseCSS-sprite_1x-c4a765aedd886dc04d89e7e93b6a02c59ecb7013._V2_.png);
+  background-size: 400px 750px;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  content: "";
+  display: block;
+  position: absolute;
+  width: 3px;
+  right: 1px;
+  top: 50%;
+  height: 6px;
+  margin-top: -3px;
+  background-position: -346px -86px;
+  vertical-align: top;
+}
+
+.a-text-right {
+  text-align: right!important;
+}
+
+.a-text-bold {
+  font-weight: 700!important;
+}
