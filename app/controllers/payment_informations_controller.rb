@@ -2,11 +2,11 @@ class PaymentInformationsController < ApplicationController
 
   def index
     @card = PaymentInformation.new
-    @cards = PaymentInformation.includes(:user)
+    @cards = current_user.payment_informations
   end
 
   def create
-    @card = PaymentInformation.new(payment_information_params.merge(user_id: params[:id]))
+    @card = PaymentInformation.new(payment_information_params)
     if @card.save
       redirect_to user_payment_informations_path(current_user)
     else
@@ -33,7 +33,7 @@ class PaymentInformationsController < ApplicationController
 
   private
     def payment_information_params
-      params.require(:payment_information).permit(:card_name, :card_number, :month, :year, :full_name, :postal_code_one, :postal_code_two, :region, :street_address_one, :street_address_two, :building_name, :phone_number)
+      params.require(:payment_information).permit(:card_name, :card_number, :month, :year, :full_name, :postal_code_one, :postal_code_two, :region, :street_address_one, :street_address_two, :building_name, :phone_number).merge(user_id: params[:user_id])
     end
 
 end
