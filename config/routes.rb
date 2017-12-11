@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   devise_for :users
   root "products#index"
   # resources :products, [:index]
-  resources :products, only: [:show]
-  resources :cart, only: [:new, :show, :edit, :create, :destoy]
+  resources :carts, only: [:new, :show, :edit, :create, :destoy]
+
   resources :users, only: [:index, :edit, :update] do
     member do
       get   'user_info'
@@ -22,4 +22,9 @@ Rails.application.routes.draw do
     resources :addresses, only: [:new, :create, :destroy, :edit, :update]
     resources :payment_informations, only: [:index, :create, :destroy, :edit, :update]
   end
+
+  resources :products, only: [:show] do
+    resources :cart_products, only: [:create, :destroy, :edit, :update]
+  end
+
 end
