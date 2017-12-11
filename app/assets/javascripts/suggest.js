@@ -1,6 +1,8 @@
 $(function() {
     var suggest_field = $(".nav-template.nav-flyout-content");
     var prev_input    = "";
+    var input_width = 0;
+    var suggest_flg = false;
 
     function appendSuggest(suggest) {
         var html =`<div class="s-suggestion"><span>${ suggest.name }</span></div>`;
@@ -23,31 +25,35 @@ $(function() {
                     dataType: 'json'
                 })
 
-                .done(function (suggests) {
-                    if (suggests.length != 0) {
-                        suggest_field.empty();
-                        var html = "<div id=\"suggestions\">";
-                        suggests.forEach(function (suggest) {
-                            html += appendSuggest(suggest);
-                        });
-                        html += "</div>";
-                        suggest_field.append(html);
-                        var width = $("#twotabsearchtextbox").innerWidth();
-                        $("#nav-flyout-searchAjax").attr("style", `display: block; position: absolute; top: 7px; left: 261px; width: ${width}px;`);
-                    }
-                    else {
-                        suggest_field.empty();
-                        $("#nav-flyout-searchAjax").attr("style", "display: none;");
-                    }
-                })
-                .fail(function () {
-                    alert('サジェスト検索に失敗しました');
-                })
+                    .done(function (suggests) {
+                        if (suggests.length != 0) {
+                            suggest_field.empty();
+                            var html = "<div id=\"suggestions\">";
+                            suggests.forEach(function (suggest) {
+                                html += appendSuggest(suggest);
+                            });
+                            html += "</div>";
+                            suggest_field.append(html);
+                            var width = $("#twotabsearchtextbox").innerWidth();
+                            $("#nav-flyout-searchAjax").attr("style", `display: block; position: absolute; top: 7px; left: 261px; width: ${width}px;`);
+                            input_width = width;
+                            suggest_flg = true;
+                        }
+                        else {
+                            suggest_field.empty();
+                            $("#nav-flyout-searchAjax").attr("style", "display: none;");
+                            suggest_flg = false;
+                        }
+                    })
+                    .fail(function () {
+                        alert('サジェスト検索に失敗しました');
+                    })
             }
             // 検索文字列がない場合、前回の検索結果の削除のみ実施
             else {
                 suggest_field.empty();
                 $("#nav-flyout-searchAjax").attr("style", "display: none;");
+                suggest_flg = false;
             }
         }
     });
@@ -57,5 +63,15 @@ $(function() {
         console.log(keyword);
         $("#twotabsearchtextbox").val(keyword);
         $('#search_btn').trigger("click");
+    });
+
+    $(window).resize(function() {
+        if(suggest_flg){
+            if(input_width != $("#twotabsearchtextbox").innerWidth()){
+                suggest_field.empty();
+                $("#nav-flyout-searchAjax").attr("style", "display: none;");
+                suggest_flg = false;
+            }
+        }
     });
 });
