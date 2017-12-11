@@ -8,7 +8,7 @@
       <ul class="a-unordered-list a-horizontal a-size-small">
         <li>
           <span class="a-list-item">
-            <%= link_to "本", root_path, class: "a-link-normal a-color-tertiary" %>
+            <%= link_to @product.product_category.parent.category_name, root_path, class: "a-link-normal a-color-tertiary" %>
           </span>
         </li>
         <li class="a-breadcrumb-divider">
@@ -18,20 +18,7 @@
         </li>
         <li>
           <span  class="a-list-item">
-            <a href="/" class="a-link-normal a-color-tertiary">
-              コンピュータ・IT
-            </a>
-          </span>
-        </li>
-        <li class="a-breadcrumb-divider">
-          <span class="a-list-item a-color-tertiary">
-            >
-          </span>
-        </li>
-        <li>
-          <span class="a-list-item">
-            <a href="/" class="a-link-normal a-color-tertiary">
-              プログラミング
+            <%= link_to @product.product_category.category_name, root_path, class: "a-link-normal a-color-tertiary" %>
             </a>
           </span>
         </li>
@@ -235,7 +222,9 @@
                               <span class="a-declarative">
                                 <a href="javascript:void(0)" class="a-popover-trigger a-declarative">
                                   <span class="a-color-base lux-location-label">
-                                    これがUserの住所だよ
+                                    <% current_user.addresses.each do |address| %>
+                                      <%= current_user.name %> - <%= address.region %> <%= address.postal_code_one %>-<%= address.postal_code_two %>
+                                    <% end %>
                                   </span>
                                   <i class="a-icon a-icon-popover"></i>
                                 </a>
@@ -305,15 +294,20 @@
         <!--「この商品をお持ちですか？」 ひとまず後回し -->
       </div>
     </div>
-    <div id="leftCol" style="width: 200px;">
+    <!-- 左側の商品画像 -->
+    <div id="leftCol">
       <div id="booksImageBlock_feature_div" class="feature">
         <div id="imageBlockOuter" class="a-row">
-          <div id="imageBlock" class="a-row" style="height: 281.667px; width: 200px">
-            <div id="imageBlockContainer" class="a-row a-grid-vertical-align a-grid-center maintain-height" style="height: 267px;">
+          <div id="imageBlock" class="a-row">
+            <div id="imageBlockContainer" class="a-row a-grid-vertical-align a-grid-center maintain-height">
               <div id="main-image-container" class="a-column a-span12 a-text-center maintain-height a-span-last">
-                <div id="img-wrapper" class="maintain-height" style="position: relative;">
-                  <div id="img-canvas" class="maintain-height  image-2d" style="height: 267px; position: absolute; top: 0px; left: 6.0625px; width: 188px;">
-                    <%= image_tag "https://images-na.ssl-images-amazon.com/images/I/51MgH8Jmr3L._SX352_BO1,204,203,200_.jpg", class: "a-dynamic-image image-stretch-vertical frontImage", id: "imgBlkFront" %>
+                <div id="img-wrapper" class="maintain-height">
+                  <div id="img-canvas" class="maintain-height  image-2d"">
+                    <% if @product.product_images.present? %>
+                      <%= image_tag @product.product_images[0].image, class: "a-dynamic-image image-stretch-vertical frontImage", id: "imgBlkFront" %>
+                    <% else %>
+                      <%= image_tag("https://images-fe.ssl-images-amazon.com/images/G/09/icons/books/comingsoon_books._V376986337_BO1,204,203,200_.gif", id: "imgnill") %>
+                    <% end %>
                   </div>
                 </div>
               </div>
@@ -324,26 +318,22 @@
           </div>
           <div id="imageBlockThumbs" class="a-row a-spacing-mini a-spacing-top-micro">
             <span class="a-declarative" id="imgThumbs">
-              <div class="a-column a-span3 a-spacing-micro imageThumb thumb">
-                <%= image_tag "https://images-na.ssl-images-amazon.com/images/I/51MgH8Jmr3L._AC_SX60_CR,0,0,60,60_.jpg" %>
-              </div>
-              <div class="a-column a-span3 a-spacing-micro imageThumb thumb">
-                <%= image_tag "https://images-na.ssl-images-amazon.com/images/I/41MjTupTFrL._AC_SX60_CR,0,0,60,60_.jpg" %>
-              </div>
-              <div class="a-column a-span3 a-spacing-micro imageThumb thumb">
-                <%= image_tag "https://images-na.ssl-images-amazon.com/images/I/51xzvyKj6CL._AC_SX60_CR,0,0,60,60_.jpg" %>
-              </div>
-              <div class="a-column a-span3 a-spacing-micro imageThumb thumb a-span-last">
-                <%= image_tag "https://images-na.ssl-images-amazon.com/images/I/31IbgwvNCML._AC_SX60_CR,0,0,60,60_.jpg" %>
-              </div>
+              <% if @product.product_images.present? %>
+                <% @product.product_images.each do |product_image| %>
+                  <div class="a-column a-span3 a-spacing-micro imageThumb thumb">
+                    <%= image_tag product_image.image %>
+                  </div>
+                <% end %>
+              <% end %>
               <span class="thumb-text thumb">
-                <span class="a-color-link">8点すべてのイメージを見る</span>
+                <span class="a-color-link"><%= @product.product_images.length %>点すべてのイメージを見る</span>
               </span>
             </span>
           </div>
         </div>
       </div>
     </div>
+    <!-- 中央の商品タイトルなど -->
     <div id="centerCol" class="centerColumn">
       <div id="booksTitle" class="feature">
         <div class="a-section a-spacing-none">
