@@ -74,7 +74,7 @@
       </div>
       <div id="buybox_feature_div" class="feature">
         <div id="combinedBuyBox" class="a-section a-spacing-medium">
-          <%= form_for cart_index_path, id: "addToCart", class: "a-content" do |f| %>
+          <%= form_for [@product, @cart_product] do |f| %>
             <div id="buybox" class="a-row a-spacing-medium">
               <div id="rbbContainer" class="a-box-group dp-accordion">
                 <div class="a-box a-first rbbSection selected dp-accordion-active">
