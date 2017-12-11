@@ -8,6 +8,13 @@ class ProductsController < ApplicationController
   end
 
   def search
+    @products = Product.where('name LIKE(?)', "%#{params[:field_keywords]}%")
+  end
 
+  def suggest
+    @suggests = Product.where('name LIKE(?)', "%#{params[:keyword]}%").limit(10)
+    respond_to do |format|
+      format.json
+    end
   end
 end

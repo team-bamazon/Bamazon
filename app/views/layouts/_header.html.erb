@@ -22,7 +22,7 @@
       <div class="nav-fill">
         <div id="nav-search">
           <div id="nav-bar-left">
-          <%#= form_tag ('/#/', method: :get, class: "nav-searchbar") do %>
+          <%= form_tag('/products/search', method: :get) do %>
             <input type="hidden" name= "__mk_ja_JP" value="カタカナ">
             <div class="nav-left">
               <div class="nav-search-scope nav-sprite">
@@ -35,18 +35,18 @@
             <div class="nav-right">
               <div class="nav-search-submit nav-sprite">
                 <span id="nav-search-submit-text" class="nav-search-submit-text nav-sprite">検索</span>
-                <input type="submit" class="nav-input" value="検索" tabindex="7"></input>
+                <input type="submit" class="nav-input" value="検索" tabindex="7">
               </div>
             </div>
             <div class="nav-fill">
               <div class="nav-search-field">
                 <label id="nav-search-label" for="twotabsearchtextbox" class="aok-offscreen">検索</label>
-                <input type="text" id="twotabsearchtextbox" value name="field-keywords" autocomplete="off" class="nav-input" dir="auto" tabindex="6">
+                <input type="text" id="twotabsearchtextbox" name="field_keywords" autocomplete="off" class="nav-input" dir="auto" tabindex="6">
               </div>
               <div id="nav-iss-attach">
               </div>
             </div>
-          <%# end %>
+          <% end %>
           </div>
         </div>
       </div>

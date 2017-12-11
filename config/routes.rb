@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :products, only: [:show] do
     collection do
       get   'search'
+      get   'suggest'
     end
   end
   resources :cart, only: [:new, :show, :edit, :create, :destoy]
