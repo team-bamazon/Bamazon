@@ -369,6 +369,18 @@ input {
 
 
 #nav-flyout-iss-anchor {
+  position: absolute;
+  #nav-flyout-searchAjax {
+    #suggestions-template{
+      #suggestions {
+        .s-suggestion {
+          padding: 7px 10px;
+          font-size: 16px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
 }
 
 .nav-coreFlyout {

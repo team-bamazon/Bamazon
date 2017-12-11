@@ -3,7 +3,7 @@ $(function() {
     var prev_input    = "";
 
     function appendSuggest(suggest) {
-        var html =`<li>${ suggest.name }</li>`;
+        var html =`<div class="s-suggestion"><span>${ suggest.name }</span></div>`;
         return html;
     }
 
@@ -24,23 +24,38 @@ $(function() {
                 })
 
                 .done(function (suggests) {
-                    suggest_field.empty();
-                    var html = "<ul>";
-                    suggests.forEach(function (suggest) {
-                        html += appendSuggest(suggest);
-                    });
-                    html += "</ul>";
-                    suggest_field.append(html);
-                    $("#nav-flyout-searchAjax").attr("style","display: block;")
+                    if (suggests.length != 0) {
+                        suggest_field.empty();
+                        var html = "<div id=\"suggestions\">";
+                        suggests.forEach(function (suggest) {
+                            html += appendSuggest(suggest);
+                        });
+                        html += "</div>";
+                        suggest_field.append(html);
+                        var width = $("#twotabsearchtextbox").innerWidth();
+                        $("#nav-flyout-searchAjax").attr("style", `display: block; position: absolute; top: 7px; left: 261px; width: ${width}px;`);
+                    }
+                    else {
+                        suggest_field.empty();
+                        $("#nav-flyout-searchAjax").attr("style", "display: none;");
+                    }
                 })
                 .fail(function () {
-                    alert('ユーザー検索に失敗しました');
+                    alert('サジェスト検索に失敗しました');
                 })
             }
             // 検索文字列がない場合、前回の検索結果の削除のみ実施
             else {
                 suggest_field.empty();
+                $("#nav-flyout-searchAjax").attr("style", "display: none;");
             }
         }
+    });
+
+    $(document).on("click", ".s-suggestion", function() {
+        var keyword = $(this).text();
+        console.log(keyword);
+        $("#twotabsearchtextbox").val(keyword);
+        $('#search_btn').trigger("click");
     });
 });
