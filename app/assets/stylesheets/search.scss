@@ -184,6 +184,13 @@ button, input, select, textarea {
   margin-left: -210px;
   width: 100%;
 }
+.clearfix:after {
+  content: " ";
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
 
 #rightResultsATF {
   margin-left: 210px;
@@ -214,7 +221,7 @@ ul.s-result-list {
 }
 
 .a-unordered-list li, ul li {
-  list-style: disc;
+  list-style: none;
 }
 
 .s-result-item {
@@ -365,41 +372,143 @@ span#pagnNextString {
   margin-bottom: 20px;
 }
 
- #leftNavContainer, #leftNav #vsimNavContainer {
+#leftNav #leftNavContainer, #leftNav #vsimNavContainer {
   padding: 0 6px 0 9px;
   line-height: normal;
 }
 
-.shoppingEngineSectionHeaders {
+#leftNav .shoppingEngineSectionHeaders {
   color: #999;
   font-size: 17px;
   padding-bottom: 10px;
   padding-top: 6px;
 }
 
-.categoryRefinementsSection, #leftNav ul li#fewDep a {
+#leftNav .categoryRefinementsSection, #leftNav ul li#fewDep a {
   margin-left: 10px;
 }
 
-.categoryRefinementsSection {
+#leftNav .categoryRefinementsSection {
   padding-bottom: 4px;
 }
 
-#smartAPS_content ul,  #vsimNav ul,  ul {
+#leftNav #smartAPS_content ul, #leftNav #vsimNav ul, #leftNav ul {
   font-size: 95%;
   margin: 0 0 6px 0;
   padding: 0 0 6px 20px;
 }
 
-li,  #vsimNav ul,  li,  ul {
+#leftNav #smartAPS_content li, #leftNav #vsimNav li, #leftNav #vsimNav ul, #leftNav li, #leftNav ul {
   list-style-position: outside;
   list-style-type: none;
 }
 
-#leftNavContainer a {
-  color: #333;
-  font-size: 12px;
+#leftNav #attrSubmit, #leftNav #seeAllDepartmentOpen li a, #leftNav li .refinementNotAvailable, #leftNav li ul.refinementNodeChildren, #leftNav li ul.refinementNodeHiddenChildren, #leftNav ul, #leftNav ul li a, #leftNav ul.forExpando li a {
+  padding-left: 0;
   margin-left: 0;
+  text-indent: 0;
+}
+
+#leftNav #smartAPS_content ul.forExpando, #leftNav #vsimNav ul.forExpando, #leftNav ul.forExpando {
+  border-bottom: 0 none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+#leftNav li {
+  padding-bottom: 5px;
+}
+
+#leftNav li {
+  margin-left: 0!important;
+  text-indent: 0;
+}
+
+#leftNav li a {
+  display: block;
+}
+
+#leftNav #leftNavContainer ul {
+  color: #000;
+}
+
+#leftNav div.left_nav ul a:visited, #leftNav ul a {
+  color: #333;
+}
+
+#leftNav #seeAllDepartmentClosed, #leftNav #seeAllDepartmentClosed1, #leftNav .boldRefinementLink {
+  margin-top: 2px;
+  display: inline-block;
+}
+
+#leftNav .seeMore, #leftNav li .boldRefinementLink {
+  color: #000;
+}
+
+#leftNav #smartAPS_content li a .boldRefinementLink, #leftNav #vsimNav li a .boldRefinementLink, #leftNav li a .boldRefinementLink {
+  font-weight: 700;
+}
+
+#leftNav #seeAllDepartmentClosed, #leftNav #seeAllDepartmentClosed1 li, #leftNav .categoryRefinementsSection h2, #leftNav .categoryRefinementsSection strong, #leftNav li a .boldRefinementLink, #leftNav li#fewDep {
+  margin-left: -10px!important;
+}
+
+#leftNav .rightArrow {
+  background-position: -156px -821px;
+  width: 4px;
+  height: 7px;
+  display: inline-block;
+  zoom: 1;
+  margin-top: 4.2px;
+  vertical-align: text-top;
+  padding-right: 0;
+  margin-right: 6px;
+}
+
+#leftNav #smartAPS_content li ul.refinementNodeChildren, #leftNav #vsimNav li ul.refinementNodeChildren, #leftNav li ul.refinementNodeChildren {
+  padding-top: 5px;
+}
+
+#leftNav #fewDep, #leftNav #seeAllDepartmentClosed, #leftNav #seeAllDepartmentClosed1, #leftNav .categoryRefinementsSection strong {
+  font-weight: 700;
+}
+
+#leftNav .expander {
+  font-size: 10px;
+  vertical-align: text-top;
+  color: #000;
+}
+
+#leftNav .seeMore {
+  font-weight: inherit;
+}
+
+#leftNav h2 {
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
+  padding-bottom: 6px;
+}
+
+#leftNav li.refinementImage {
+  overflow: hidden;
+}
+
+#leftNav li.refinementImage a, #leftNav li.refinementImage a:hover, #leftNav li.refinementImage a:visited {
+  display: table;
+}
+
+#leftNav div.refinementWrapper {
+  display: table-row;
+}
+
+#leftNav div.refinementWrapper span.refinementIconWrapper {
+  display: block;
+  margin-bottom: -3px;
+}
+
+#leftNav li.refinementImage a img {
+  max-width: none;
 }
 
 
