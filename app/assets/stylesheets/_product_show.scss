@@ -1,4 +1,5 @@
-// 所属カテゴリー表示
+/*---------------------------------------------------------------------- */
+/*-- 所属カテゴリー表示 ---------------------------------------------------- */
 
 #wayfinding-breadcrumbs_container {
   padding: 0 16px!important;
@@ -54,22 +55,24 @@
   top: -1px;
 }
 
-
-// 商品詳細
+/*---------------------------------------------------------------------- */
+/*-- 商品詳細 ------------------------------------------------------------ */
 #dp .a-container{
   margin: 20px auto 0;
   padding: 0 18px 18px 18px;
   min-width: 996px;
 }
 
-//// rightCol 右側の金額&カートに入れる
+/*---------------------------------------------------------------------- */
+/*-- rightCol 右側の金額&カートに入れる ------------------------------------- */
 
-////// メールツイッターなどのアイコン
 #rightCol {
   float: right;
   margin: 0 0 22px 20px;
   width: 270px;
 }
+
+/*-- メールツイッターなどのアイコン ------------------------------------------ */
 
 .a-text-center {
   text-align: center!important;
@@ -136,9 +139,9 @@
   top: 1px;
 }
 
-////buybox
+/*-- buybox ---------------------------------------------------------- */
 
-//////buyNewSection
+/*-- buyNewSection ------------------------------------------ */
 
 #buybox_feature_div {
   position: relative;
@@ -205,7 +208,6 @@
 .a-icon-radio-active {
   left: 0;
   margin-top: 10px;
-  // position: absolute;////なぜかこれを消したらアイコンが表示された
   top: 50%;
   background-position: -30px -294px;
   vertical-align: middle;
@@ -241,7 +243,7 @@ b, strong {
   color: #B12704!important;
 }
 
-//////buyNewInner
+/*-- buyNewInner -------------------------------------------- */
 
 .dp-accordion .dp-accordion-inner {
   margin-top: -.5em;
@@ -249,6 +251,13 @@ b, strong {
   padding: 0 18px 14px;
 }
 
+.a-native-dropdown {
+  display: inline;
+}
+
+.a-dropdown-container select {
+  height: auto;
+}
 
 .a-unordered-list.a-nostyle, ul.a-nostyle {
   margin-left: 0;
@@ -279,7 +288,8 @@ b, strong {
   margin-bottom: 6px !important;
 }
 
-// js カートに入れた時に表示されるメッセージ
+/*-- js カートに入れた時に表示されるメッセージ ---------------------- */
+
 .a-hidden {
   display: none!important;
   visibility: hidden!important;
@@ -312,7 +322,7 @@ b, strong {
   background-position: -117px -130px;
 }
 
-// js カートに入れた時に表示されるメッセージ ここまで
+/*-- js カートに入れた時に表示されるメッセージ ここまで---------------- */
 
 #bbopAndCartBox #bbop {
   font-size: 12px;
@@ -336,14 +346,6 @@ b, strong {
   text-indent: 0;
 }
 
-input[type=checkbox] {
-  height: 13px;
-  width: 13px;
-  vertical-align:top;
-  position: relative;
-  bottom: -3px;
-}
-
 #bbopCheckboxSection label {
   font-weight: bold;
 }
@@ -356,7 +358,8 @@ input[type=checkbox] {
 #bbop label span.a-checkbox-label{
   display:table-cell;
 }
-//// カートに入れるボタン
+
+/*-- カートに入れるボタン --------------------------------------- */
 
 .a-button-icon .a-icon-cart {
   top: 2px;
@@ -387,7 +390,7 @@ input[type=checkbox] {
   text-align: center;
 }
 
-//// お届け先住所
+/*-- お届け先住所 --------------------------------------------- */
 
 #unifiedLocation_feature_div {
   margin-top: 10px;
@@ -404,12 +407,17 @@ input[type=checkbox] {
   margin-bottom: 4px!important;
 }
 
-
 .a-color-base {
   color: #111!important;
   &:hover {
     text-decoration: underline #f08804;
   }
+}
+
+.a-box.a-last.rbbSection.unselected {
+  border-radius: 0 0 4px 4px;
+  border-top: none;
+  background-image: -webkit-linear-gradient(top,#fcfcfc,#f7f7f7)
 }
 
 .a-icon-popover {
@@ -421,11 +429,30 @@ input[type=checkbox] {
   opacity: .6;
 }
 
+.dp-accordion .dp-accordion-row .a-icon-radio-inactive.new-header {
+  left: 0;
+  margin-top: 10px;
+  position: absolute;
+  top: 50%;
+  background-position: -6px -294px;
+  vertical-align: middle;
+  width: 19px;
+  height: 19px;
+}
 
-//// ほしい物リストに追加する
-// ここはいったん後回し
+/*-- ほしい物リストに追加する ------------------------------------ */
+
 #wishlistButtonStack {
   padding: 0 18px;
+}
+
+#wishListMainButton {
+  border-radius: 3px 0 0 3px;
+}
+
+#wishListDropDown {
+  border-radius: 0 3px 3px 0;
+  border-left-width: 0;
 }
 
 .a-button-group {
@@ -433,12 +460,18 @@ input[type=checkbox] {
   width: 100%;
 }
 .a-button-group .a-button {
-  border-left-width:0;
+  border-left-width: 1px;
 }
 
 .a-button-stack .a-button-group .a-button {
   display: table-cell;
-  width: auto;
+  width: 210px ;
+}
+
+.a-button-group .a-button-dropdown {
+  width: 24px!important;
+  min-width: 24px!important;
+  margin-left: 0!important;
 }
 
 .a-button-inner {
@@ -465,26 +498,81 @@ input[type="submit" i] {
   border-radius: 4px;
   padding: 1px 7px 2px;
 }
-//// leftCol 左側の商品画面
+
+/*---------------------------------------------------------------------- */
+/*-- leftCol 左側の商品画面 ----------------------------------------------- */
 
 #leftCol {
   float: left;
   margin-right: 20px;
 }
 
+@media screen and (max-width: 1150px) {
+  #leftCol {
+    width: 200px;
+  }
+}
+@media screen and (min-width: 1150px) {
+  #leftCol {
+    width: 260px;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  #imageBlock {
+    height: 282px;
+    width: 200px;
+  }
+}
+@media screen and (min-width: 1150px) {
+  #imageBlock {
+    height: 362px;
+    width: 260px;
+  }
+}
+
 #imageBlock {
   margin: 10px 0;
 }
 
-
 #imageBlock .maintain-height {
   display: block!important;
 }
 
 #imageBlock .maintain-height {
   display: block!important;
-  height: 100%;
-  width: 100%;
+}
+
+#img-wrapper {
+  position: relative;
+}
+
+@media screen and (max-width: 1150px) {
+  #img-canvas, #imageBlockContainer {
+    height: 267px;
+    width: 188px;
+  }
+}
+@media screen and (min-width: 1150px) {
+  #img-canvas, #imageBlockContainer {
+    height: 346px;
+    width: 246px;
+  }
+}
+
+#img-canvas {
+  position: absolute;
+  top: 0px;
+  left: 6.0625px;
+}
+
+#imgnill {
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
 }
 
 #imageBlock #flipAndSampleAudio {
@@ -506,19 +594,29 @@ input[type="submit" i] {
   }
 }
 
-// .a-dynamic-image {
-//   max-width: 246px;
-//   max-height: 346px;
-//   overflow: hidden;
-//   position: absolute;
-//   top: 0px;
-//   left: 0px;
-// }
+.thumb-text.thumb {
+  display: block;
+  float: left;
+  width: 100%;
+}
 
-//// centerCol 中央の商品名など
+/*---------------------------------------------------------------------- */
+/*-- centerCol 中央の商品名など ------------------------------------------- */
+
 #centerCol.centerColumn {
-  margin-left: 240px !important;
   margin-right: 320px;
+}
+
+
+@media screen and (max-width: 1150px) {
+  #centerCol.centerColumn {
+    margin-left: 240px !important;
+  }
+}
+@media screen and (min-width: 1150px) {
+  #centerCol.centerColumn {
+    margin-left: 300px !important;
+  }
 }
 
 #productTitle {
@@ -635,6 +733,23 @@ a.a-link-expander {
   margin-top: 0!important;
 }
 
+#tmmSwatches ul.a-unordered-list.a-nostyle.a-button-list.a-horizontal::after {
+  display: none;
+}
+
+#tmmSwatches #a-autoid-2 {
+  display: block;
+}
+
+#extraProductInfoFeatureGroup {
+  display: table;
+}
+
+#universal-hero-quick-promo div.a-fixed-left-grid-inner::after {
+  display: none;
+}
+
+
 .edpIngressIcon {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAMCAYAAABx290PAAAA20lEQVQ4y2Ngzj7oxZF96BVD2oH/hDBIHUg9AxCciGL2OhbF8epIKMN/QhikDqQepI8BZMjWy2//EwO2XHoLthSkD2TIu3NbidL37uwWsKVgC0EuJwWAfQsEIJeTAkDqRy0cJhaCUh0o9ZGVSoGpj+RUijsfHvzXsePxb7iviMyHR0MZ/j3Z0PEb5iuMfIgTZByTBlpwLWHBje+wYCQGHAtlkD4ezXHt9rSE74h4IxaUXORmyzq0nRQLQeBiLAP3sUi27aRbCAIN/5lEi4/OJ1Xb/wYGplPJohj6AGLXLKmrpibWAAAAAElFTkSuQmCC);
   display: inline-block;
@@ -647,10 +762,13 @@ a.a-link-expander {
 
 #edpIngress_feature_div {
   padding-bottom: 6px;
+}
+
+.bucketDivider, #quickPromoBucketContent {
   clear: left;
 }
 
-//// キャンペーン情報
+/*-- キャンペーン情報 ------------------------------------------ */
 
 #quickPromoBucketContent {
   padding: 0 0 26px;
@@ -683,11 +801,11 @@ ul {
   padding: 0;
 }
 
-//// よく一緒に購入されている商品
+/*-- よく一緒に購入されている商品 --------------------------------- */
+/*-- この商品を買った人はこんな商品も買っています --------------------- */
 
-//// この商品を買った人はこんな商品も買っています
+/*-- Kindle化リクエスト ---------------------------------------- */
 
-//// Kindle化リクエスト
 .btfRightRail {
   float: right;
   width: 270px;
@@ -722,7 +840,7 @@ div.fionaPublish div {
   margin: 0 5px 0 69px;
 }
 
-//// 商品の説明
+/*-- 商品の説明 ------------------------------------------------ */
 
 #productDescription {
   color: #333333;
@@ -745,7 +863,7 @@ div.fionaPublish div {
   margin: 0em 0 1em 1em;
 }
 
-//// 登録情報
+/*-- 登録情報 -------------------------------------------------- */
 
 #detail_bullets_id ul {
   color: #333;
@@ -767,7 +885,8 @@ div.fionaPublish div {
   clear: left;
 }
 
-//// クーポン
+/*-- クーポン -------------------------------------------------- */
+
 #bamazon_coupon {
   text-align: center;
 }
@@ -778,13 +897,13 @@ div.fionaPublish div {
 }
 
 
-//// カスタマーレビュー
+/*-- カスタマーレビュー ------------------------------------------ */
 
 .a-row .a-span8 {
   width: 66%;
 }
 
-.a-row .a-span10 {
+#histogramTable .a-span10 {
   width: 99px;
 }
 
@@ -858,7 +977,11 @@ a.a-link-emphasis {
   padding: 0;
 }
 
-//// 最近のカスタマーレビュー
+.writeReviewButton#a-autoid-6 {
+  border-color: #adb1b8 #a2a6ac #8d9096;
+}
+
+/*-- 最近のカスタマーレビュー ------------------------------------- */
 
 div.a-column.a-span-last {
   margin-right: 0;
