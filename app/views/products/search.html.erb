@@ -132,7 +132,7 @@
                 <ul id="s-results-list-atf" class="s-result-list s-col-3 s-result-list-hgrid s-height-equalized s-grid-view s-text-condensed" data-columns="{"0":1,"522":3,"348":2}">
                   <% @products.each do |product|%>
                   <li id="result_0" data-result-rank="0" class="s-result-item  celwidget ">
-                    <div class="s-item-container" style="height: 484px;">
+                    <div class="s-item-container">
                       <div class="a-row a-spacing-top-micro a-spacing-micro">
                         <div class="a-row sx-badge-region">
                           <div class="a-row a-spacing-large">
@@ -141,14 +141,15 @@
                       </div>
                       <div class="a-row a-spacing-base">
                         <div aria-hidden="true" class="a-column a-span12 a-text-left" id="a-colum-hidden" >
-                          <div class="a-section a-spacing-none a-inline-block s-position-relative">
-                            <%= link_to product_path(product), class: "a-link-normal a-text-normal", target: "_blank" do %>
-                              <% if product.product_images.present? %>
+                          <div class="a-section a-spacing-none a-inline-block s-position-relative a-image-block">
+                            <% if product.product_images.present? %>
+                             <%= link_to product_path(product), class: "a-link-normal a-text-normal", target: "_blank" do %>
                                 <%= image_tag product.product_images[0].image, class: "s-access-image cfMarker" %>
-                              <% else %>
+                              <% end %>
+                            <% else %>
+                              <%= link_to product_path(product), class: "a-link-normal a-text-normal a-no-image", target: "_blank" do %>
                                 <%= image_tag "https://images-fe.ssl-images-amazon.com/images/G/09/icons/books/comingsoon_books._V376986337_BO1,204,203,200_.gif", class: "s-access-image cfMarker" %>
                               <% end %>
-                              <!--<img  <%= product.product_images[0].image %> alt="商品の詳細" class="s-access-image cfMarker">-->
                             <% end %>
                           </div>
                         </div>
@@ -158,17 +159,17 @@
                           <%= link_to product_path(product), class: "a-link-normal s-access-detail-page  s-color-twister-title-link a-text-normal", target: "_blank", title: product.name, style: "display: inline-block;" do %>
                             <h2 data-attribute=<%= product.name %> data-max-rows="0" class="a-size-base s-inline  s-access-title  a-text-normal"><%= product.name %></h2>
                           <% end %>
-                          <span class="a-letter-space"></span>
-                          <span class="a-size-small a-color-secondary">2008/9/3</span>
+                          <!--<span class="a-letter-space"></span>-->
+                          <!--<span class="a-size-small a-color-secondary">2008/9/3</span>-->
                         </div>
                         <div class="a-row a-spacing-none">
                           <span class="a-size-small a-color-secondary"></span>
                         </div>
                       </div>
                       <div class="a-row a-spacing-none">
-                        <a class="a-link-normal a-text-normal" target="_blank" title="文庫" href="https://www.amazon.co.jp/%E3%81%9D%E3%81%AE%E6%97%A5%E3%81%AE%E3%81%BE%E3%81%88%E3%81%AB-%E6%96%87%E6%98%A5%E6%96%87%E5%BA%AB-%E9%87%8D%E6%9D%BE-%E6%B8%85/dp/4167669072/ref=sr_1_1_twi_pap_1?s=books&ie=UTF8&qid=1512814320&sr=1-1&keywords=%E6%96%87%E5%BA%AB%E6%9C%AC">
-                          <h3 data-attribute="文庫" data-max-rows="0" data-truncate-by-character="false" class="a-size-small s-inline  a-text-normal" style="font-size: 17px !important;">文庫</h3>
-                        </a>
+                        <%= link_to '#', class: "a-link-normal a-text-normal", target: "_blank", title: product.product_category.category_name do %>
+                          <h3 data-attribute=<%= product.product_category.category_name %> data-max-rows="0" data-truncate-by-character="false" class="a-size-small s-inline  a-text-normal" style="font-size: 17px !important;"><%= product.product_category.category_name %></h3>
+                        <% end %>
                       </div>
                       <div class="a-row a-spacing-none">
                         <a class="a-link-normal a-text-normal" target="_blank" href="https://www.amazon.co.jp/%E3%81%9D%E3%81%AE%E6%97%A5%E3%81%AE%E3%81%BE%E3%81%88%E3%81%AB-%E6%96%87%E6%98%A5%E6%96%87%E5%BA%AB-%E9%87%8D%E6%9D%BE-%E6%B8%85/dp/4167669072/ref=sr_1_1?s=books&ie=UTF8&qid=1512814320&sr=1-1&keywords=%E6%96%87%E5%BA%AB%E6%9C%AC">
@@ -194,32 +195,6 @@
                         </div>
                       </div>
                       <div class="a-row a-spacing-top-mini">
-                        <div class="a-row a-spacing-none">
-                          <span class="a-size-small a-color-secondary">こちらからもご購入いただけます</span>
-                        </div>
-                        <div class="a-row a-spacing-none">
-                          <a class="a-link-normal a-text-normal" target="_blank" href="https://www.amazon.co.jp/%E3%81%9D%E3%81%AE%E6%97%A5%E3%81%AE%E3%81%BE%E3%81%88%E3%81%AB-%E6%96%87%E6%98%A5%E6%96%87%E5%BA%AB-%E9%87%8D%E6%9D%BE-%E6%B8%85-ebook/dp/B009A49AU8/ref=sr_1_2?ie=UTF8&amp;qid=1512877928&amp;sr=8-2&amp;keywords=%E6%96%87%E5%BA%AB%E6%9C%AC">
-                            <span class="a-size-small a-color-secondary"></span>
-                            <span class="a-size-base a-color-price s-price a-text-bold">￥ 640</span>
-                          </a>
-                        </div>
-                        <div class="a-row a-spacing-none">
-                          <div class="a-row a-spacing-none">
-                            <span class="a-size-small a-color-secondary">ポイント:</span>
-                            <span class="a-letter-space"></span>
-                            <span class="a-size-small a-color-price a-text-bold">6 pt</span>
-                            <span class="a-size-small a-color-price">(1%)</span>
-                          </div>
-                        </div>
-                        <hr class="a-spacing-mini a-spacing-top-mini a-divider-normal">
-                        <div class="a-row a-spacing-none">
-                          <span class="a-size-small a-color-secondary">
-                            その他のフォーマット:
-                            <span class="a-letter-space"></span>
-                          </span>
-                          <a class="a-size-small a-link-normal a-text-normal" target="_blank" href="https://www.amazon.co.jp/%E3%81%9D%E3%81%AE%E6%97%A5%E3%81%AE%E3%81%BE%E3%81%88%E3%81%AB-%E9%87%8D%E6%9D%BE-%E6%B8%85/dp/4163242104/ref=sr_1_2_twi_tan_3?ie=UTF8&amp;qid=1512877928&amp;sr=8-2&amp;keywords=%E6%96%87%E5%BA%AB%E6%9C%AC">単行本</a>
-                          <span class="a-size-small a-color-secondary"></span>
-                        </div>
                         <hr class="a-spacing-mini a-spacing-top-mini a-divider-normal">
                         <div class="a-row a-spacing-none">
                           <span name="4167669072">
