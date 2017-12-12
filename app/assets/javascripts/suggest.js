@@ -1,5 +1,5 @@
 $(function() {
-    var suggest_field = $(".nav-template.nav-flyout-content");
+    var suggest_field = $("#suggestions-template");
     var prev_input    = "";
     var input_width = 0;
     var suggest_flg = false;
