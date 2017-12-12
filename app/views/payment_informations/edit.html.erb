@@ -46,136 +46,12 @@
                     <img alt="" src="https://images-na.ssl-images-amazon.com/images/G/01/payments-portal/r1/loading-4x._CB338200758_.gif" class="pmts-loading-async-widget-spinner-viewport-centered">
                   </div>
                 </div>
-                <form method="post" action="https://www.amazon.co.jp:443/cpe/managepaymentmethods" class="a-spacing-none">
-                  <div class="a-section a-spacing-small pmts-instrument-list">
-                    <div class="a-section a-spacing-small pmts-credit-cards">
-                      <div class="a-fixed-right-grid">
-                        <div class="a-fixed-right-grid-inner" style="padding-right:265px">
-                          <div class="a-fixed-right-grid-col a-col-left" style="padding-right:0%;*width:99.6%;float:left;">
-                            <h3>ご登録のクレジットカード</h3>
-                          </div>
-                          <div class="a-fixed-right-grid-col a-col-right" style="width:265px;margin-right:-265px;float:left;">
-                            <h5>有効期限</h5>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="a-row a-spacing-top-mini a-ws-row">
-                        <% @cards.each do |card| %>
-                        <div data-pmts-component-id="pp-51-10" aria-live="polite" class="a-row a-expander-container a-spacing-mini a-expander-section-container pmts-instrument-list-item-expander pmts-portal-component pmts-portal-components-pp-51-10 a-section-expander-container">
-                          <a data-action="a-expander-toggle" class="a-expander-header a-declarative a-expander-section-header a-color-alternate-background a-link-section-expander a-size-medium">
-                            <span class="a-expander-prompt">
-                              <div class="a-fixed-left-grid pmts-instrument-detail-rows">
-                                <div class="a-fixed-left-grid-inner" style="padding-left:44px">
-                                  <div class="a-fixed-left-grid-col a-col-left" style="width:44px;margin-left:-44px;_margin-left:-22px;float:left;">
-                                    <img alt="Visa" src="https://images-na.ssl-images-amazon.com/images/G/01/payments-portal/r1/issuer-images/visa._CB393363241_.png">
-                                  </div>
-                                  <div class="a-fixed-left-grid-col a-col-right" style="padding-left:0%;*width:99.6%;float:left;">
-                                    <div class="a-fixed-right-grid">
-                                      <div class="a-fixed-right-grid-inner" style="padding-right:209px">
-                                        <div class="a-fixed-right-grid-col a-col-left" style="padding-right:0%;*width:99.6%;float:left;">
-                                          <span class="a-size-base pmts-instrument-display-name">Visa</span>
-                                          <span class="a-size-base pmts-instrument-number-tail">
-                                            <span class="a-letter-space"></span>
-                                            <span>下４桁 <%= card.number_method %></span>
-                                          </span>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="a-fixed-right-grid-col a-col-right" style="width:209px;margin-right:-209px;float:left;">
-                                    <div class="a-section pmts-account-expiry-date">
-                                      <span class="a-size-base a-color-secondary"><%= card.month %>/<%= card.year %></span>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </span>
-                          </a>
-                          <div aria-expanded="true" class="a-expander-content pmts-instrument-list-item-expander-content a-expander-section-content a-section-expander-inner a-expander-content-expanded" style="overflow: hidden; display: block;">
-                            <div class="a-row">
-                              <div class="a-column a-span7 pmts-account-holder-name">
-                                <span class="a-text-bold">クレジットカード名義人</span><br><%= card.card_name %>
-                              </div>
-                              <div class="a-column a-span4 a-span-last">
-                                <span class="a-text-bold">請求先住所</span>
-                                <div id="QLRYAAHSBFHMLYY4MWHUG12YNPO8HBJGGA1DGGJBH8OPNYPPXTQ2EIA2OXEMKWMS" class="a-section a-spacing-small">
-                                  <span class="a-size-small pmts-address-field a-text-bold"><%= card.full_name %></span><br>
-                                  <span class="a-size-small pmts-address-field"><%= card.postal_code_one %>-<%= card.postal_code_two %></span><br>
-                                  <span class="a-size-small pmts-address-field"><%= card.region %></span><br>
-                                  <span class="a-size-small pmts-address-field"><%= card.street_address_one %></span><br>
-                                  <span class="a-size-small pmts-address-field"><%= card.building_name %></span><br>
-                                  <span class="a-size-small pmts-address-field">日本</span><br>
-                                  <div class="a-row pmts-address-phoneNumber-field">
-                                    <span class="a-size-small pmts-address-field"><%= card.phone_number %></span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="a-row">
-                            </div>
-                            <div class="a-row a-grid-vertical-align a-grid-bottom">
-                              <div class="a-column a-span7 a-text-left"></div>
-                              <div class="a-column a-span4 a-text-right a-span-last">
-                                <span class="a-button pmts-button-input pmts-instrument-list-item-button-no-js">
-                                  <span class="a-button-inner">
-                                    <%= link_to "削除", user_payment_information_path(current_user, card), method: :delete, class: "a-button-input" %>
-                                    <span class="a-button-text" aria-hidden="true" id="a-autoid-0-announce">削除</span>
-                                  </span>
-                                </span>
-                                <span class="a-button pmts-button-input pmts-instrument-list-item-button-no-js">
-                                  <span class="a-button-inner">
-                                    <%= link_to "編集", edit_user_payment_information_path(current_user, card), class: "a-button-input" %>
-                                    <span class="a-button-text" aria-hidden="true" id="a-autoid-0-announce">編集</span>
-                                  </span>
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <% end %>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="a-section a-spacing-small pmts-balance-list">
-                    <h3>残高</h3>
-                    <div class="a-row a-spacing-top-mini a-ws-row">
-                      <div data-pmts-component-id="pp-51-11" class="a-box a-spacing-mini a-color-alternate-background pmts-portal-component pmts-portal-components-pp-51-11">
-                        <div class="a-box-inner">
-                          <div class="a-fixed-left-grid">
-                            <div class="a-fixed-left-grid-inner" style="padding-left:44px">
-                              <div class="a-fixed-left-grid-col a-col-left" style="width:44px;margin-left:-44px;_margin-left:-22px;float:left;">
-                                <img alt="" src="https://images-na.ssl-images-amazon.com/images/G/09/payments-portal/r1/gc-issuer._CB361713425_.png">
-                              </div>
-                              <div class="a-fixed-left-grid-col a-col-right" style="padding-left:0%;*width:99.6%;float:left;">
-                                <div class="a-fixed-right-grid">
-                                  <div class="a-fixed-right-grid-inner" style="padding-right:165px">
-                                    <div class="a-fixed-right-grid-col a-col-left" style="padding-right:0%;*width:99.6%;float:left;">
-                                      <span class="pmts-portal-mpo-gc-title">Amazon ギフト券</span>
-                                      <div class="a-row">
-                                        <a class="a-link-normal pmts-portal-mpo-gc-reload-link" target="_blank" rel="noopener" href="https://www.amazon.co.jp/gp/gc/create/ref=gc-ya-view">ギフト券を購入</a>
-                                        <span class="a-color-base"> | </span>
-                                        <a class="a-link-normal pmts-portal-mpo-gc-redeem-link" target="_blank" rel="noopener" href="https://www.amazon.co.jp/gc/redeem/ref=gc_redeem_new_exp_DesktopRedirect">ギフト券を登録</a>
-                                      </div>
-                                    </div>
-                                    <div class="a-fixed-right-grid-col a-col-right" style="width:165px;margin-right:-165px;float:left;">
-                                      <span class="a-size-base pmts-portal-mpo-gc-balance">￥0</span>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </form>
                 <div class="a-section a-spacing-base pmts-add-payment-instrument">
-                  <h2 data-pmts-component-id="pp-51-9" class="a-spacing-base pmts-portal-component pmts-portal-components-pp-51-9">新しいお支払い方法を追加</h2>
+                  <h2 data-pmts-component-id="pp-51-9" class="a-spacing-base pmts-portal-component pmts-portal-components-pp-51-9">お支払い方法を編集</h2>
                   <div data-pmts-component-id="pp-51-9" class="a-section a-spacing-base pmts-portal-component pmts-portal-components-pp-51-9">
                     <hr class="a-divider-normal">
                     <div id="pp-51-19" data-pmts-component-id="pp-51-14" class="a-section pmts-portal-component pmts-portal-components-pp-51-14">
-                      <%= form_for [current_user, @card] do |f| %>
+                      <%= form_for [current_user, @card], method: :patch, action: :update do |f| %>
                         <div aria-live="polite" class="a-row a-expander-container a-spacing-base a-expander-inline-container pmts-add-cc add-instrument-form-expander">
                           <div class="a-fixed-right-grid">
                             <div class="a-fixed-right-grid-inner" style="padding-right:147px">
@@ -294,7 +170,7 @@
                                     <span id="pp-51-31" class="a-button a-button-primary pmts-button-input">
                                       <span class="a-button-inner">
                                         <%= f.submit "クレジットカードを追加", class: "a-button-input" %>
-                                        <span id="pp-51-31-announce" class="a-button-text">クレジットカードを追加
+                                        <span id="pp-51-31-announce" class="a-button-text">クレジットカードを編集
                                           <%= f.submit "クレジットカードを追加", class: "a-button-input" %>
                                         </span>
                                       </span>
@@ -306,40 +182,6 @@
                           </div>
                         </div>
                       <% end %>
-                    </div>
-                    <hr class="a-divider-normal">
-                    <div data-pmts-component-id="pp-51-13" aria-live="polite" class="a-row a-expander-container a-spacing-base a-expander-inline-container  add-instrument-form-expander pmts-portal-component pmts-portal-components-pp-51-13">
-                      <div class="a-fixed-right-grid">
-                        <div class="a-fixed-right-grid-inner" style="padding-right:45px">
-                          <div class="a-fixed-right-grid-col a-col-left" style="padding-right:2%;*width:97.6%;float:left;">
-                            <div class="a-row a-spacing-base">
-                              <div class="a-row">
-                                <span class="a-size-medium pmts-portal-add-ba-title a-text-bold">携帯決済</span>
-                              </div>
-                              <div class="a-row">
-                                <div class="a-row a-spacing-small">
-                                  <span>携帯決済がご利用いただけない場合については<a href="https://www.amazon.co.jp/gp/help/customer/display.html/ref=hp_rel_topic?ie=UTF8&amp;nodeId=202108000"> こちら</a>
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                            <a id="pp-51-32" data-action="a-expander-toggle" class="a-expander-header a-declarative a-expander-inline-header a-spacing-none a-link-expander">
-                              <i class="a-icon a-icon-expand"></i>
-                              <span class="a-expander-prompt">
-                                <span class="a-size-base">新しいアカウントを追加</span>
-                              </span>
-                            </a>
-                          </div>
-                          <div class="a-text-right a-fixed-right-grid-col a-col-right" style="width:45px;margin-right:-45px;float:left;">
-                            <div class="a-section a-spacing-none a-text-right pmts-composite-logo-row">
-                              <span class="pmts-indiv-issuer-image" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/09/payments-portal/r1/issuer-images/docomo._CB520979962_.png'); background-position: 0px;"></span>
-                            </div>
-                            <div class="a-section a-spacing-none a-text-right pmts-composite-logo-row">
-                              <span class="pmts-indiv-issuer-image" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/09/payments-portal/r1/issuer-images/kddi._CB520979962_.jpg'); background-position: 0px;"></span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </div>

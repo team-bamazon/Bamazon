@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   root "products#index"
   # resources :products, [:index]
   resources :carts, only: [:new, :show, :edit, :create, :destoy]
-
   resources :users, only: [:index, :edit, :update] do
     member do
       get   'user_info'
@@ -25,6 +24,10 @@ Rails.application.routes.draw do
 
   resources :products, only: [:show] do
     resources :cart_products, only: [:create, :destroy, :edit, :update]
+    collection do
+      get   'search'
+      get   'suggest'
+    end
   end
 
 end
