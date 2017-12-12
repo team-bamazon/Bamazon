@@ -199,6 +199,7 @@
                             </div>
                           </div>
                         </div>
+                        <% unless user_signed_in? %>
                           <div class="a-row a-spacing-none">
                           <div id="oneClickSignIn" class="a-section a-spacing-none">
                             <div class="a-divider a-divider-break a-spacing-micro">
@@ -214,6 +215,7 @@
                         <% end %>
                         <!-- 住所を選べるセレクトボックス -->
                         <div id="unifiedLocation_feature_div" class="a-section feature unifiedLocationMarginBottomClass">
+                          <% if user_signed_in? %>
                             <div class="a-section a-spacing-none">
                               <hr class="a-divider-normal">
                               <div class="a-section a-spacing-mini">
