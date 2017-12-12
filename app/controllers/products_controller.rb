@@ -10,12 +10,12 @@ class ProductsController < ApplicationController
   end
 
   private
-  def cart_params
-    params.merge(cart_id: current_user.cart.id)
-  end
-
   def set_cart
-    @cart = Cart.find(cart_params[:cart_id])
+    if current_user.cart.present?
+      @cart = Cart.find(current_user.cart.id)
+    else
+      @cart = Cart.create(user_id: current_user.id)
+    end
   end
 
   def search
