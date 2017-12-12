@@ -119,7 +119,7 @@
                                       <span class="a-list-item">
                                         <div class="a-row">
                                           <span class="a-color-secondary">ポイント:</span>
-                                          <span class="a-color-price"><%= (@product.price / 10).floor %>pt (10%)</span>
+                                          <span class="a-color-price"><%= number_with_delimiter((@product.price / 10).floor) %>pt (10%)</span>
                                         </div>
                                       </span>
                                     </li>
