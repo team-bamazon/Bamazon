@@ -143,7 +143,12 @@
                         <div aria-hidden="true" class="a-column a-span12 a-text-left" id="a-colum-hidden" >
                           <div class="a-section a-spacing-none a-inline-block s-position-relative">
                             <%= link_to product_path(product), class: "a-link-normal a-text-normal", target: "_blank" do %>
-                              <img  <%= product.product_images[0].image %> alt="商品の詳細" class="s-access-image cfMarker">
+                              <% if product.product_images.present? %>
+                                <%= image_tag product.product_images[0].image, class: "s-access-image cfMarker" %>
+                              <% else %>
+                                <%= image_tag "https://images-fe.ssl-images-amazon.com/images/G/09/icons/books/comingsoon_books._V376986337_BO1,204,203,200_.gif", class: "s-access-image cfMarker" %>
+                              <% end %>
+                              <!--<img  <%= product.product_images[0].image %> alt="商品の詳細" class="s-access-image cfMarker">-->
                             <% end %>
                           </div>
                         </div>
