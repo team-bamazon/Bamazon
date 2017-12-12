@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :set_cart, only: [:index, :show, :search], if: :user_signed_in?
 
   def index
   end
