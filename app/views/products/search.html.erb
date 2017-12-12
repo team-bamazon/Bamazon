@@ -55,18 +55,9 @@
                   <%= page_entries_info @products, entry_name: "検索結果" %>
                   <!--検索結果 1,002 のうち 1-24件-->
                   <span>
-                    <a class="a-link-normal a-color-base a-text-bold a-text-normal" href="/s/ref=sr_hi_1?rh=n%3A465392%2Ck%3A%E6%96%87%E5%BA%AB%E6%9C%AC&amp;keywords=%E6%96%87%E5%BA%AB%E6%9C%AC&amp;ie=UTF8&amp;qid=1512814320">本</a>
-                    <span id="breadcrumbJSnonCompatible" class="s-hidden">
-                      <span class="a-color-state a-text-bold">"文庫本"</span>
-                    </span>
                     <span id="editableBreadcrumbContent" class="s-inline-block">
                       <div class="bcKw bcLotPadding" id="bcNonEdit">
-                        <a id="bcKwText" class="a-link-normal">
-                          <span class="a-color-state a-text-bold">"文庫本"</span>
-                        </a>
-                        <form method="post" action="#" class="s-inline-form a-spacing-none">
-                          <input type="image" alt="キーワードの削除" id="bcRemoveKwButton" src="https://images-fe.ssl-images-amazon.com/images/G/09/nav2/images/gui/SE-x-icon._CB341432700_.png" style="display: none;">
-                        </form>
+                        <span class="a-color-state a-text-bold">"<%= @search_keyword %>"</span>
                       </div>
                     </span>
                   </span>

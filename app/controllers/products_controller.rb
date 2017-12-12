@@ -8,7 +8,8 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @products = Product.where('name LIKE(?)', "%#{params[:field_keywords]}%").page(params[:page])
+    @search_keyword = params[:field_keywords]
+    @products = Product.where('name LIKE(?)', "%#{@search_keyword}%").page(params[:page])
   end
 
   def suggest
