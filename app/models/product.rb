@@ -11,6 +11,10 @@ class Product < ApplicationRecord
 
   paginates_per 24
 
+  def cart_informations(cart)
+    product.cart_products
+  end
+
   def get_star_value
     # productインスタンスに紐づくreviewについたrateの平均値を返すメソッド
     # reviewがない場合はゼロを返す

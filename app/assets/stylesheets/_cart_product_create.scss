@@ -1,0 +1,225 @@
+#huc-page-container {
+  margin: 0 auto;
+  padding: 0 12px;
+  max-width: 1174px;
+  min-width: 1024px;
+}
+
+#huc-page-container * {
+  max-height: 999999px;
+}
+
+#huc-v2-order-row-container {
+  left: -184px;
+  border-radius: 0;
+}
+
+/*-- スクロールでjs表示されるdiv  --------------------------------------- */
+#huc-v2-order-row-placeholder {
+  height: 64px;
+}
+
+.a-hidden {
+  display: none!important;
+}
+
+.huc-v2-pinned-order-row-with-divider {
+  background-color: #FFF;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 26px 12px 0;
+  position: fixed;
+  z-index: 99;
+  margin: 0 auto;
+  width: auto;
+}
+
+.huc-v2-pinned-order-row {
+  max-width: 1150px;
+  min-width: 1000px;
+  margin: 14px auto!important;
+}
+
+/*-- カートの小計 上に表示される部分 --------------------------------------- */
+
+.huc-v2-order-row {
+  border-color: #ccc;
+  margin: 40px 0 16px;
+  min-height: 64px;
+}
+
+.a-color-alternate-background {
+  background-color: #f3f3f3!important;
+}
+
+.huc-v23-order-row>.a-box-inner {
+  padding: 0!important;
+}
+
+.huc-v2-order-row .a-box-inner {
+  display: table;
+  width: 100%;
+}
+
+.huc-v2-order-row .full-width {
+  width: 100%!important;
+}
+
+#huc-v2-order-row-items {
+  background-color: #fafafa;
+  padding: 0 10px;
+}
+
+.huc-v2-order-row .huc-v2-table-col {
+  display: table-cell;
+  width: auto;
+  vertical-align: middle;
+}
+
+.huc-v2-order-row .width-fit-content {
+  width: 1px!important;
+  white-space: nowrap!important;
+}
+
+.huc-v2-order-row .huc-v2-table-row {
+  display: table;
+  width: auto;
+}
+
+#huc-v2-order-row-icon-col {
+  padding-right: 10px;
+  display: inline-block;
+  width: 42px;
+  height: 45px;
+}
+
+.huc-v2-order-row-icon-container {
+  height: 50px;
+}
+
+#huc-v2-order-row-icon {
+  border-color: #7fc87f;
+}
+
+#huc-v2-order-row-icon .a-icon-alert {
+  position: initial!important;
+  top: 18px!important;
+  height: 27px;
+  width: 30px;
+  left: 18px;
+  background-position: -318px -35px;
+}
+
+#huc-v2-order-row-images {
+  margin-top: -2px;
+  display: inline-block;
+}
+
+#huc-v2-order-row-images .a-declarative {
+  display: inline-block;
+  height: 47px;
+}
+
+.huc-v2-order-row-image-box {
+  height: 50px;
+  width: 65px;
+}
+
+.huc-green-border {
+  border-color: #099700;
+  border-radius: 0!important;
+}
+
+.a-box-thumbnail .a-box-inner {
+  padding: 0!important;
+}
+
+.huc-v2-order-row-image {
+  height: 48px;
+}
+
+/*-- 追加されました表示 ---------------------------------- */
+#huc-v2-order-row-messages {
+  background-color: #fafafa;
+  border-right: 1px solid #ccc;
+  padding-right: 14px;
+}
+
+.huc-v2-order-row .huc-v2-color-success {
+  color: #099700!important;
+}
+
+/*-- カートの小計 --------------------------------------- */
+#huc-v2-order-row-center {
+  padding-left: 14px;
+}
+
+
+.huc-v2-order-row .order-row-base-height {
+  height: 64px!important;
+}
+
+
+/*-- カートの編集 --------------------------------------- */
+
+#huc-v2-order-row-buttons {
+  padding-right: 10px;
+}
+
+#huc-v2-subcart-buttons-wrapper {
+  white-space: nowrap;
+}
+
+#huc-v2-subcart-buttons-wrapper.a-text-right {
+  text-align: right!important;
+}
+
+#huc-page-container .huc-v2-view-cart {
+  margin-right: 10px;
+}
+
+#huc-page-container .huc-button-large {
+  height: 40px;
+}
+
+#huc-page-container .huc-v2-view-cart {
+  min-width: 70px;
+}
+
+.huc-button-large .a-button-inner {
+  height: 38px;
+}
+
+.huc-button-large .a-button-text {
+  line-height: 38px;
+  font-size: 14px;
+  padding-top: 0;
+}
+/*-- カートの小計 下に表示される部分 --------------------------------------- */
+
+#huc-v2-bottom-order-row {
+  border-color: #ccc;
+  margin: 44px 0;
+  min-width: 600px;
+  display: inline-block;
+}
+
+#huc-v2-bottom-order-row .a-box-inner {
+  padding: 16px;
+  display: table;
+  width: 100%;
+}
+
+#huc-v2-bottom-order-row .huc-v2-row-col {
+  display: table-cell;
+  vertical-align: middle;
+  width: auto;
+}
+
+
+
+
+
+
+

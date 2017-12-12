@@ -1,0 +1,7 @@
+カート小
+<% @cart.cart_informations(@cart).each do |cart_info| %>
+  <%= cart_info.product.name %>
+  <%= cart_info.product.price.floor.to_s(:delimited) %>円
+  <%= cart_info.product_count.floor.to_s(:delimited) %>個
+<% end %>
+  合計金額：<%= @cart.cart_price_sum(@cart) %>円
