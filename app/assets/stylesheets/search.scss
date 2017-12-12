@@ -304,6 +304,10 @@ div.pagnHy .pagnLA, div.pagnHy .pagnLA1 {
   background-position: -80px -325px;
 }
 
+.lastPageRightArrow {
+  background-position: -100px -325px;
+}
+
 .s-icon, .currencyINR, .srSprite {
   background-image: url(https://images-fe.ssl-images-amazon.com/images/G/09/nav2/images/gui/searchSprite._CB283837215_.png);
   background-repeat: no-repeat;
@@ -354,6 +358,10 @@ span#pagnNextString {
 
 .pagnNextArrow {
   background-position: -20px -325px;
+}
+
+div.pagnHy .pagnLA .pagnPrevArrow {
+  background-position: 0 -325px;
 }
 
 #leftNav {
