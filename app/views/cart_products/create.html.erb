@@ -1,2 +1,140 @@
-合計金額：<%= @cart_product.product_price_sum(@cart_product) %>円
-合計：<%= @cart_product.product_count_sum(@cart_product) %>個
+<%= render partial: 'layouts/header' %>
+
+<!-- カートの小計 -->
+<div id="huc-page-container" class="huc-v2-page-container">
+  <div id="huc-v2-order-row-placeholder" class="a-row huc-v2-order-row a-hidden">
+  </div>
+  <div id="huc-v2-order-row-with-divider" class="a-row">
+    <div id="huc-v2-order-row-container" class="a-box a-onlychild a-color-alternate-background huc-v2-order-row huc-v23-order-row">
+      <div class="a-box-inner">
+        <div id="huc-v2-order-row-inner" class="a-row huc-v2-table-row full-width">
+          <div id="huc-v2-order-row-items" class="a-row huc-v2-table-col width-fit-content">
+            <div class="huc-v2-table-row">
+              <div class="huc-v2-table-col">
+                <div id="huc-v2-order-row-icon-col">
+                  <div class="huc-v2-order-row-icon-container huc-v2-table-row">
+                    <div id="huc-v2-order-row-icon" class="huc-v2-table-col a-alert a-alert-success">
+                      <i class="a-icon a-icon-alert"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="huc-v2-table-col">
+                <div id="huc-v2-order-row-images">
+                  <span class="a-declarative">
+                    <div id="huc-v2-order-row-item-B000Y6F5ZU" class="a-box a-box-thumbnail huc-middle-vertical huc-no-radius huc-v2-order-row-image-box huc-green-border">
+                      <div class="a-box-inner">
+                        <!-- 商品画像1枚だけ -->
+                        <% if @cart_product.product.product_images.present? %>
+                          <%= image_tag @cart_product.product.product_images[0].image, class: "huc-no-radius huc-v2-order-row-image huc-v2-table-col" %>
+                        <% else %>
+                          <%= image_tag("https://images-fe.ssl-images-amazon.com/images/G/09/nav2/dp/no-image-avail-tny._CB192259645_.gif",  class: "huc-no-radius huc-v2-order-row-image huc-v2-table-col") %>
+                        <% end %>
+                        <div class="huc-v2-table-col">
+                          <i class="a-icon a-icon-popover huc-v2-order-row-down-arrow"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="huc-v2-order-row-messages" class="a-row huc-v2-table-col width-fit-content">
+            <div id="huc-v2-order-row-items-msg" class="a-row huc-v2-table-row">
+              <div class="a-row huc-v2-table-col">
+                <div class="a-row">
+                  <div id="huc-v2-confirm-text-container" class="a-row a-inline-block">
+                    <div id="huc-v2-order-row-confirm-text" class="a-row a-size-medium huc-v2-color-success">
+                      <h1 class="a-size-medium a-text-bold">追加されました</h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="huc-v2-order-row-center" class="a-row huc-v2-table-col">
+            <div id="huc-v2-order-row-center-inner" class="a-row full-width">
+              <div class="a-row huc-v2-table-row full-width order-row-base-height">
+                <div class="a-row huc-v2-table-col">
+                  <div id="hlb-subcart" class="a-row huc-v2-subcart a-size-small">
+                    <div class="a-row a-spacing-micro">
+                      <span class="a-size-medium a-align-center huc-subtotal">
+                        <span><b>カートの小計</b>（商品<%= @cart_product.product_count_sum(@cart_product) %>点）: </span>
+                        <span class="a-color-price hlb-price a-inline-block a-text-bold">¥ <%= @cart_product.product_price_sum(@cart_product) %></span>
+                      </span>
+                    </div>
+                    <div class="a-row">
+                      <span>この注文での獲得ポイント:</span>
+                      <span class="hlb-price">
+                        <%= number_with_delimiter(@cart_product.bamazon_point(@cart_product) / 10) %>pt</span>
+                      <span id="hlb-ship-message" class="a-size-small a-inline-block">
+                        <span><b>通常配送無料</b><a href="/"> 詳細</a></span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="huc-v2-order-row-buttons" class="a-row huc-v2-table-col">
+            <div id="huc-v2-subcart-buttons-wrapper" class="a-row a-text-right">
+              <div class="huc-width-fit-content">
+                <div class="a-row">
+                  <span class="a-declarative">
+                    <span id="hlb-view-cart" class="a-button huc-v2-view-cart huc-spacing-right-mini huc-button-large">
+                      <span class="a-button-inner">
+                        <%= link_to "カートの編集", edit_cart_path(@cart), id: "hlb-view-cart-announce", class: "a-button-text" %>
+                      </span>
+                    </span>
+                  </span>
+                  <span id="hlb-ptc-btn" class="a-button a-button-primary hlb-checkout-button huc-v2-primary-button  huc-button-large">
+                    <span class="a-button-inner">
+                      <a href="javascript:void(0);" id="hlb-ptc-btn-native" class="a-button-text a-text-center prefetch-click-bound">レジに進む</a></span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="huc-v2-bottom-order-row-with-divider" class="a-row a-text-center">
+    <div id="huc-v2-bottom-order-row" class="a-box">
+      <div class="a-box-inner">
+        <div id="hlb-bottom-subcart" class="a-row huc-v2-row-col">
+          <span class="a-size-medium a-align-center huc-subtotal">
+            <span><b>カートの小計</b>（商品<%= @cart_product.product_count_sum(@cart_product) %>点）: </span>
+            <span class="a-color-price hlb-price a-inline-block a-text-bold">¥ <%= @cart_product.product_price_sum(@cart_product) %></span>
+          </span>
+        </div>
+        <div class="a-row huc-v2-row-col">
+          <div class="a-row a-text-right">
+            <div class="huc-width-fit-content">
+              <div class="a-row">
+                <span class="a-declarative">
+                  <span id="huc-v2-button-view-cart" class="a-button huc-v2-view-cart huc-spacing-right-mini huc-button-large">
+                    <span class="a-button-inner">
+                      <%= link_to "カートの編集", edit_cart_path(@cart), id: "hlb-view-cart-announce", class: "a-button-text" %>
+                    </span>
+                  </span>
+                </span>
+                <span id="hlb-ptc-btn-bottom" class="a-button a-button-primary hlb-checkout-button huc-v2-primary-button  huc-button-large">
+                  <span class="a-button-inner">
+                    <a href="javascript:void(0);" id="hlb-ptc-btn-native" class="a-button-text a-text-center prefetch-click-bound">レジに進む</a></span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="a-divider a-divider-section huc-lt-ie10-hide">
+      <div class="a-divider-inner">
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render partial: 'layouts/footer' %>
