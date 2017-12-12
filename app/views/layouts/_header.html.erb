@@ -408,7 +408,12 @@
               <span class="nav-icon nav-arrow"></span>
             </span>
             <span class="nav-cart-icon nav-sprite"></span>
-            <span id="nav-cart-count" aria-hidden="true" class="nav-cart-count nav-cart-0"><%= @cart.cart_count_sum(@cart) %></span>
+            <span id="nav-cart-count" aria-hidden="true" class="nav-cart-count nav-cart-0">
+              <% if current_user.cart.present? %>
+                <%= @cart.cart_count_sum(@cart) %>
+              <% else %>0
+              <% end %>
+            </span>
           </a>
         </div>
       </div>
