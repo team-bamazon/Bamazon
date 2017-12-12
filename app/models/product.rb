@@ -15,7 +15,7 @@ class Product < ApplicationRecord
     # 返す値は0-10の範囲の整数値
     if self.reviews
       # countをfloat型で扱わせるために1.0をかけている
-      count = self.reviews.count * 1. 0
+      count = self.reviews.count * 1.0
       star_value_sum = 0;
       self.reviews.each do |r|
         star_value_sum += r.rate;
