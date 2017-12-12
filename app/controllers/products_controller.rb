@@ -1,5 +1,4 @@
 class ProductsController < ApplicationController
-  before_action :set_cart, only: [:index, :show, :search], if: :user_signed_in?
 
   def index
   end
@@ -21,14 +20,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  private
-  def set_cart
-    if current_user.cart.present?
-      @cart = Cart.find(current_user.cart.id)
-    else
-      @cart = Cart.create(user_id: current_user.id)
-    end
-  end
 end
 
 

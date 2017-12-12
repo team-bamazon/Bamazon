@@ -1,5 +1,4 @@
 class CartProductsController < ApplicationController
-  before_action :set_cart
 
   def index
   end
@@ -18,14 +17,6 @@ class CartProductsController < ApplicationController
   end
 
   private
-
-  def set_cart
-    if current_user.cart.present?
-      @cart = Cart.find(current_user.cart.id)
-    else
-      @cart = Cart.create(user_id: current_user.id)
-    end
-  end
 
   def cart_product_params
     params.require(:cart_product).permit(:product_count).merge(cart_id: @cart.id, product_id: params[:product_id] )
