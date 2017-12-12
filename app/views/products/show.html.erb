@@ -199,7 +199,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="a-row a-spacing-none">
+                          <div class="a-row a-spacing-none">
                           <div id="oneClickSignIn" class="a-section a-spacing-none">
                             <div class="a-divider a-divider-break a-spacing-micro">
                               <h5>
@@ -211,26 +211,28 @@
                             </div>
                           </div>
                         </div>
+                        <% end %>
                         <!-- 住所を選べるセレクトボックス -->
                         <div id="unifiedLocation_feature_div" class="a-section feature unifiedLocationMarginBottomClass">
-                          <div class="a-section a-spacing-none">
-                            <hr class="a-divider-normal">
-                            <div class="a-section a-spacing-mini">
-                              <span class="a-text-bold">お届け先住所</span>
-                            </div>
                             <div class="a-section a-spacing-none">
-                              <span class="a-declarative">
-                                <a href="javascript:void(0)" class="a-popover-trigger a-declarative">
-                                  <span class="a-color-base lux-location-label">
-                                    <% current_user.addresses.each do |address| %>
-                                      <%= current_user.name %> - <%= address.region %> <%= address.postal_code_one %>-<%= address.postal_code_two %>
-                                    <% end %>
-                                  </span>
-                                  <i class="a-icon a-icon-popover"></i>
-                                </a>
-                              </span>
+                              <hr class="a-divider-normal">
+                              <div class="a-section a-spacing-mini">
+                                <span class="a-text-bold">お届け先住所</span>
+                              </div>
+                              <div class="a-section a-spacing-none">
+                                <span class="a-declarative">
+                                  <a href="javascript:void(0)" class="a-popover-trigger a-declarative">
+                                    <span class="a-color-base lux-location-label">
+                                      <% current_user.addresses.each do |address| %>
+                                        <%= current_user.name %> - <%= address.region %> <%= address.postal_code_one %>-<%= address.postal_code_two %>
+                                      <% end %>
+                                    </span>
+                                    <i class="a-icon a-icon-popover"></i>
+                                  </a>
+                                </span>
+                              </div>
                             </div>
-                          </div>
+                          <% end %>
                         </div>
                       </div>
                     </div>
