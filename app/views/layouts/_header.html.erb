@@ -398,7 +398,7 @@
               <span class="nav-icon nav-arrow" style="visibility: visible;"></span>
             </span>
           </a>
-        <% if current_user.cart.present? %>
+        <% if signed_in? && current_user.cart.present? %>
           <a href="/carts/<%= current_user.cart.id %>/edit" aria-label="カート内の商品数：0" class="nav-a nav-a-2" id="nav-cart" tabindex="30">
         <% else %>
           <a href="/" aria-label="カート内の商品数：0" class="nav-a nav-a-2" id="nav-cart" tabindex="30">
@@ -409,7 +409,7 @@
             </span>
             <span class="nav-cart-icon nav-sprite"></span>
             <span id="nav-cart-count" aria-hidden="true" class="nav-cart-count nav-cart-0">
-              <% if current_user.cart.present? %>
+              <% if signed_in? && current_user.cart.present? %>
                 <%= @cart.cart_count_sum(@cart) %>
               <% else %>0
               <% end %>
