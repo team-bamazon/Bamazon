@@ -192,8 +192,13 @@
                               <span id="submit.add-to-cart" class="a-button a-spacing-small a-button-primary a-button-icon">
                                 <span class="a-button-inner">
                                   <i class="a-icon a-icon-cart"></i>
-                                  <%= f.submit "カートに入れる", id: "add-to-cart-button", class: "a-button-input"%>
-                                  <span id="submit.add-to-cart-announce" class="a-button-text">カートに入れる</span>
+                                  <% if user_signed_in? %>
+                                    <%= f.submit "カートに入れる", id: "add-to-cart-button", class: "a-button-input" %>
+                                    <span id="submit.add-to-cart-announce" class="a-button-text">カートに入れる</span>
+                                  <% else %>
+                                    <input type="submit" name="commit" value="カートに入れる" id="add-to-cart-button" class="a-button-input" disabled="disabled">
+                                    <span id="submit.add-to-cart-announce" class="a-button-text">サインインをしてください</span>
+                                  <% end %>
                                 </span>
                               </span>
                             </div>
