@@ -130,9 +130,11 @@
             <div id="centerMinus">
               <div id="atfResults" class="a-row s-result-list-parent-container">
                 <ul id="s-results-list-atf" class="s-result-list s-col-3 s-result-list-hgrid s-height-equalized s-grid-view s-text-condensed" data-columns="{"0":1,"522":3,"348":2}">
+                  <% counter = 0 %>
                   <% @products.each do |product|%>
+                  <% counter += 1 %>
                   <li id="result_0" data-result-rank="0" class="s-result-item  celwidget ">
-                    <div class="s-item-container">
+                    <div class="s-item-container" <% if counter > 3 %> style="border-top: 1px solid #DDD;" <% end %>>
                       <div class="a-row a-spacing-top-micro a-spacing-micro">
                         <div class="a-row sx-badge-region">
                           <div class="a-row a-spacing-large">
@@ -195,7 +197,7 @@
                         </div>
                       </div>
                       <div class="a-row a-spacing-top-mini">
-                        <hr class="a-spacing-mini a-spacing-top-mini a-divider-normal">
+                        <!--<hr class="a-spacing-mini a-spacing-top-mini a-divider-normal">-->
                         <div class="a-row a-spacing-none">
                           <span name="4167669072">
                             <span class="a-declarative" data-action="a-popover" data-a-popover="{"max-width":"700","closeButton":"false","position":"triggerBottom","url":"/review/widgets/average-customer-review/popover/ref=acr_search__popover?ie=UTF8&asin=4167669072&contextId=search&ref=acr_search__popover"}">
