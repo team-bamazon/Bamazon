@@ -8,4 +8,8 @@ class Product < ApplicationRecord
   belongs_to :product_category
 
   accepts_nested_attributes_for :product_images
+
+  def cart_informations(cart)
+    product.cart_products
+  end
 end
