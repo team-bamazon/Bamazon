@@ -9,6 +9,8 @@ class Product < ApplicationRecord
 
   accepts_nested_attributes_for :product_images
 
+  paginates_per 24
+
   def get_star_value
     # productインスタンスに紐づくreviewについたrateの平均値を返すメソッド
     # reviewがない場合はゼロを返す
