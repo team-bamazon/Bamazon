@@ -21,4 +21,14 @@ class CartProduct < ApplicationRecord
     return sum.floor.to_s(:delimited)
   end
 
+  def bamazon_point(cart_product)
+    cart_products = CartProduct.where(cart_id: cart_product.cart_id)
+    sum = 0
+    cart_products.each do |cart_item|
+      price_sum =  cart_item.product.price * cart_item.product_count
+      sum += price_sum
+    end
+    return sum.floor
+  end
+
 end
