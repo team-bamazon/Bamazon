@@ -6,3 +6,10 @@ ja:
         email: Eメールアドレス
         password: パスワード
         password_confirmation: もう一度パスワードを入力してください
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "%{entry_name}が存在しません"
+          other: "%{count}件の%{entry_name}"
+      more_pages:
+        display_entries: " %{entry_name} %{total} のうち %{first}-%{last} 件　"
