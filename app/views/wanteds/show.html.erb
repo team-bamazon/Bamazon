@@ -180,12 +180,14 @@
                     </div>
                   </div>
                 </div>
-                <hr class="a-divider-normal">
-                <div id="no-items-section" class="a-section a-spacing-none a-text-center">
-                  <span class="aok-inline-block">
-                    <span class="a-size-medium a-color-base" style="text-decoration: none!important;"> アイテムはありません</span>
-                  </span>
-                </div>
+                <% if @wanted_products.blank? %>
+                  <hr class="a-divider-normal">
+                  <div id="no-items-section" class="a-section a-spacing-none a-text-center">
+                    <span class="aok-inline-block">
+                      <span class="a-size-medium a-color-base" style="text-decoration: none!important;"> アイテムはありません</span>
+                    </span>
+                  </div>
+                <% end %>
               </div>
               <div class="a-popover-preload" id="a-popover-spoil-surprise">
                 <div class="a-section wl-spoiler-popover">
