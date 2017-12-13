@@ -630,7 +630,7 @@
             <h2 class="books">商品の説明</h2>
             <div id="productDescription" class="a-section a-spacing-small">
               <h3>内容紹介</h3>
-              <p><%= @product.detail %><br></p>
+              <p><%= simple_format(@product.detail) %><br></p>
               <h3>内容（「BOOK」データベースより）</h3>
               <p>ここは内容だよ</p>
               <a href="/" class="a-link-normal">商品の説明をすべて表示する</a>
