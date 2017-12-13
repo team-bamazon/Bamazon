@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   end
 
   resources :products, only: [:show] do
+    resources :wanted_products, only: [:create, :destroy, :edit, :update]
     resources :cart_products, only: [:create, :destroy, :edit, :update]
     collection do
       get   'search'
