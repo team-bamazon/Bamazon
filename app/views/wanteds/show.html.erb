@@ -177,6 +177,212 @@
                 <div id="item-page-wrapper" class="a-section">
                   <div class="a-section a-spacing-none">
                     <div id="g-items" class="a-section a-spacing-none g-items-section ui-sortable">
+                      <% @wanted_products.each do |product| %>
+                        <!-- ★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆ -->
+                        <div class="a-section a-spacing-none g-item-sortable">
+                          <hr class="a-spacing-none a-divider-normal">
+                          <div id="item_<%= product.id %>" class="a-fixed-left-grid a-spacing-none">
+                            <div class="a-fixed-left-grid-inner" style="padding-left:220px">
+                              <div class="a-fixed-left-grid-col g-item-sortable-draggable-area a-col-left" style="width:220px;margin-left:-220px;_margin-left:-110px;float:left;">
+                                <div class="a-fixed-left-grid">
+                                  <div class="a-fixed-left-grid-inner" style="padding-left:35px">
+                                    <div id="itemImage_<%= product.id %>" class="a-text-center a-fixed-left-grid-col g-itemImage g-item-sortable-padding a-col-right" style="padding-left:0%;*width:99.6%;float:left;">
+                                      <%= link_to product_path(product), class: "a-link-normal", title: product.name do %>
+                                        <!--画像有無で表示を変える分岐が必要-->
+                                        <%= image_tag product.product_images[0].image, alt: product.name %>
+                                      <% end %>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div id="itemMain_<%= product.id %>" class="a-text-left a-fixed-left-grid-col g-item-sortable-padding a-col-right" style="padding-left:0%;*width:99.6%;float:left;">
+                                <div class="a-fixed-right-grid">
+                                  <div class="a-fixed-right-grid-inner" style="padding-right:220px">
+                                    <div id="itemInfo_<%= product.id %>" class="a-fixed-right-grid-col g-item-details a-col-left" style="padding-right:10%;*width:89.6%;float:left;">
+                                      <div class="a-row">
+                                        <div class="a-column a-span12 g-span12when-narrow g-span7when-wide">
+                                          <div class="a-row a-size-small">
+                                            <h5>
+                                              <%= link_to product.name, product_path(product), class: "a-link-normal a-declarative", title: product.name %>
+                                            </h5>
+                                            <span id="item-byline-<%= product.id %>" class="a-size-base"></span>
+                                          </div>
+                                          <div class="a-row a-spacing-small a-size-small">
+                                            <div class="a-row">
+                                              <i class="a-icon a-icon-star a-star-4-5">
+                                                <span class="a-icon-alt">5つ星のうち 4.6</span>
+                                              </i>
+                                              <span class="a-letter-space"></span>
+                                              <a id="review_count_<%= product.id %>" class="a-link-normal" href="#">(1)</a>
+                                            </div>
+                                            <div class="a-row">
+                                              <div class="a-section price-section">
+                                                <span id="itemPrice_<%= product.id %>" class="a-price">
+                                                  <span class="a-offscreen">￥<%= product.price.floor.to_s(:delimited) %></span>
+                                                  <span aria-hidden="true">
+                                                    <span class="a-price-symbol">￥</span>
+                                                    <span class="a-price-whole"><%= product.price.floor.to_s(:delimited) %></span>
+                                                  </span>
+                                                </span>
+                                                <span class="a-letter-space"></span>
+                                                <i class="a-icon a-icon-jp a-icon-prime-jp a-icon-small"></i>
+                                              </div>
+                                            </div>
+                                            <div class="a-row a-size-small itemAvailability">
+                                              <span id="availability-msg_<%= product.id %>" class="itemAvailMessage">在庫あり。</span>
+                                              <span class="a-letter-space"></span>
+                                              <span id="offered-by_<%= product.id %>" class="itemVailOfferedBy">販売元: Bamazon.co.jp。</span>
+                                            </div>
+                                          </div>
+                                          <span class="a-declarative">
+                                            <a id="itemEditLabel_<%=  product.id%>" class="a-size-small a-link-normal g-touch-hide" href="#">コメント、数量、 優先度を追加する</a>
+                                          </span>
+                                        </div>
+                                        <div class="a-column a-span12 g-span12when-narrow g-span5when-wide  g-item-comment a-hidden a-span-last">
+                                          <div class="a-box a-box-normal a-color-alternate-background quotes-bubble">
+                                            <div class="a-box-inner">
+                                              <div id="itemCommentRow_I2IDZDYY80IQ76" class="a-row a-hidden">
+<span class="wrap-text">
+<span id="itemComment_I2IDZDYY80IQ76" class="g-comment-quote a-text-quote">
+</span>
+</span>
+                                              </div>
+                                              <div class="a-row g-item-comment-row">
+<span id="itemPriorityRow_I2IDZDYY80IQ76" class="a-size-small a-hidden">優先度：<span class="a-letter-space">
+</span>
+<span id="itemPriorityLabel_I2IDZDYY80IQ76" class="a-size-small dropdown-priority item-priority-medium">中</span>
+<span id="itemPriority_I2IDZDYY80IQ76" class="a-hidden">0</span>
+</span>
+                                                <i class="a-icon a-icon-text-separator g-priority-seperator a-hidden">
+                                                </i>
+                                                <span id="itemQuantityRow_I2IDZDYY80IQ76" class="a-size-small a-hidden">
+<span class="aok-inline-block">
+<span id="itemRequestedLabel_I2IDZDYY80IQ76">希望:</span>
+<span class="a-letter-space">
+</span>
+<span id="itemRequested_I2IDZDYY80IQ76">1</span>
+</span>
+<span class="a-letter-space">
+</span>
+<span id="itemPurchasedSection_I2IDZDYY80IQ76" class="aok-inline-block">
+<span id="itemPurchasedLabel_I2IDZDYY80IQ76">所有：</span>
+<span class="a-letter-space">
+</span>
+<span id="itemPurchased_I2IDZDYY80IQ76">0</span>
+</span>
+</span>
+                                              </div>
+                                              <div class="quotes-bubble-arrow">
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div id="itemAction_I2IDZDYY80IQ76" class="a-fixed-right-grid-col dateAddedText a-col-right" style="width:220px;margin-right:-220px;float:left;">
+<span id="itemAddedDate_I2IDZDYY80IQ76" class="a-size-small">追加商品<span class="a-letter-space">
+</span>10月 20, 2017</span>
+                                      <div class="a-button-stack a-spacing-top-small">
+<span class="a-declarative" data-action="add-to-cart" data-add-to-cart="{&quot;listID&quot;:&quot;1L0H15BKJQILN&quot;,&quot;itemID&quot;:&quot;I2IDZDYY80IQ76&quot;,&quot;quantity&quot;:&quot;1&quot;,&quot;merchantID&quot;:&quot;AN1VRQENFRJN5&quot;,&quot;price&quot;:&quot;6338.00&quot;,&quot;productGroupID&quot;:&quot;gl_pc&quot;,&quot;offerID&quot;:&quot;rzrPGZVg4eup3omNdknawXbLrtkAoa5VGpcpoDe6uT948%2BVILeGrPAx9n4C%2FKxhQZVnoDZhOlLM5iWKHEyPkwKkOoRyGhBJCkFcw8Wti5Ro%3D&quot;,&quot;isGift&quot;:&quot;0&quot;,&quot;asin&quot;:&quot;B00JC2DHDO&quot;,&quot;promotionID&quot;:&quot;AFDE3BXJ56KGN&quot;}" id="pab-declarative-I2IDZDYY80IQ76">
+<span id="pab-I2IDZDYY80IQ76" class="a-button a-button-primary wl-info-aa_add_to_cart">
+<span class="a-button-inner">
+<a id="pab-I2IDZDYY80IQ76-announce" href="/gp/item-dispatch/ref=cm_wl_addtocart_o_pC_nS?registryID.1=1L0H15BKJQILN&amp;registryItemID.1=I2IDZDYY80IQ76&amp;offeringID.1=rzrPGZVg4eup3omNdknawXbLrtkAoa5VGpcpoDe6uT948%252BVILeGrPAx9n4C%252FKxhQZVnoDZhOlLM5iWKHEyPkwKkOoRyGhBJCkFcw8Wti5Ro%253D&amp;session-id=358-9869141-7012436&amp;isGift=0&amp;submit.addToCart=1&amp;quantity.1=1" class="a-button-text" role="button">カートに入れる</a>
+</span>
+</span>
+<span>
+</span>
+                            </span>
+                                        <div class="a-row a-spacing-small">
+                                          <div class="a-section g-visible-js">
+                                            <div class="a-column a-span6">
+                                              <input type="hidden" name="" value="ASIN:B00JC2DHDO|A1VC38T7YXB528" id="move_itemExternalId_I2IDZDYY80IQ76">
+                                              <span class="a-dropdown-container">
+<select name="reg-item-move" autocomplete="off" data-a-native-class="g-move-button-native" id="move_I2IDZDYY80IQ76" tabindex="-1" class="a-native-dropdown g-move-button-native">
+<option class="a-prompt" value="" disabled="" selected="selected">移動</option>
+<option value="I2IDZDYY80IQ76:1L0H15BKJQILN:DBYTVA9Z88U:WishList:0:358-9869141-7012436:wishlist" data-a-css-class="move-item-dropdown g-move-option" data-a-id="regItemMove_I2IDZDYY80IQ76_DBYTVA9Z88U" data-a-html-content="<span class=&quot;a-size-base a-text-ellipsis&quot;>保存と比較</span>">保存と比較</option>
+</select>
+<span tabindex="-1" data-id="1L0H15BKJQILN" data-itemid="I2IDZDYY80IQ76" data-a-class="g-move-button" class="a-button a-button-dropdown a-button-small g-move-button" id="a-autoid-11" style="min-width: 0%;">
+<span class="a-button-inner">
+<span class="a-button-text a-declarative" data-action="a-dropdown-button" role="button" tabindex="0" aria-hidden="true" id="a-autoid-11-announce">
+<span class="a-dropdown-prompt">移動</span>
+</span>
+<i class="a-icon a-icon-dropdown">
+</i>
+</span>
+</span>
+</span>
+                                            </div>
+                                            <div class="a-column a-span6 a-span-last">
+                                              <form method="post" action="/gp/registry/wishlist/1L0H15BKJQILN/ref=cm_wl_it_del_hz">
+                                                <input type="hidden" name="id" value="1L0H15BKJQILN">
+                                                <input type="hidden" name="itemId" value="I2IDZDYY80IQ76">
+                                                <input type="hidden" name="sid" value="358-9869141-7012436">
+                                                <span class="a-declarative" data-action="reg-item-delete" data-reg-item-delete="{&quot;layout&quot;:&quot;standard&quot;,&quot;itemId&quot;:&quot;I2IDZDYY80IQ76&quot;,&quot;itemName&quot;:&quot;エルゴトロン 小型PCやシンクライアント 取り付けシステム ブラック 80-107-200&quot;,&quot;itemExternalId&quot;:&quot;ASIN:B00JC2DHDO|A1VC38T7YXB528&quot;,&quot;asin&quot;:&quot;B00JC2DHDO&quot;,&quot;id&quot;:&quot;1L0H15BKJQILN&quot;,&quot;listType&quot;:&quot;wishlist&quot;,&quot;sid&quot;:&quot;358-9869141-7012436&quot;}">
+<span class="a-button a-button-small" id="a-autoid-12">
+<span class="a-button-inner">
+<input name="submit.deleteItem" class="a-button-input a-declarative" type="submit" aria-labelledby="a-autoid-12-announce">
+<span class="a-button-text" aria-hidden="true" id="a-autoid-12-announce">削除</span>
+</span>
+</span>
+</span>
+                                              </form>
+                                            </div>
+                                          </div>
+                                          <div class="a-section g-visible-no-js g-move-delete-buttons">
+                                            <form method="post" action="/gp/registry/wishlist/1L0H15BKJQILN/ref=cm_wl_it_move_hz">
+                                              <input type="hidden" name="id" value="1L0H15BKJQILN">
+                                              <input type="hidden" name="itemId" value="I2IDZDYY80IQ76">
+                                              <input type="hidden" name="sid" value="358-9869141-7012436">
+                                              <div class="a-row a-spacing-mini">
+                                                <div class="a-column a-span12">
+<span class="a-dropdown-container">
+<select name="reg-item-move" autocomplete="off" data-a-native-class="g-move-button-native" id="move_I2IDZDYY80IQ76" tabindex="-1" class="a-native-dropdown g-move-button-native">
+<option class="a-prompt" value="" disabled="" selected="selected">リストを選択してください</option>
+<option value="I2IDZDYY80IQ76:1L0H15BKJQILN:DBYTVA9Z88U:WishList:0:358-9869141-7012436:wishlist:false" data-a-css-class="g-move-option" data-a-id="regItemMove_I2IDZDYY80IQ76_DBYTVA9Z88U">保存と比較</option>
+</select>
+<span tabindex="-1" data-id="1L0H15BKJQILN" data-itemid="I2IDZDYY80IQ76" data-a-class="g-move-button" class="a-button a-button-dropdown a-button-small g-move-button" id="a-autoid-13" style="min-width: 0%;">
+<span class="a-button-inner">
+<span class="a-button-text a-declarative" data-action="a-dropdown-button" role="button" tabindex="0" aria-hidden="true" id="a-autoid-13-announce">
+<span class="a-dropdown-prompt">リストを選択してください</span>
+</span>
+<i class="a-icon a-icon-dropdown">
+</i>
+</span>
+</span>
+</span>
+                                                </div>
+                                              </div>
+                                              <div class="a-row">
+                                                <div class="a-column a-span6">
+<span class="a-button a-button-small" id="a-autoid-14">
+<span class="a-button-inner">
+<input name="submit.moveItem" class="a-button-input" type="submit" aria-labelledby="a-autoid-14-announce">
+<span class="a-button-text" aria-hidden="true" id="a-autoid-14-announce">移動</span>
+</span>
+</span>
+                                                </div>
+                                                <div class="a-column a-span6 a-span-last">
+<span class="a-button a-button-small" id="a-autoid-15">
+<span class="a-button-inner">
+<input name="submit.deleteItem" class="a-button-input" type="submit" aria-labelledby="a-autoid-15-announce">
+<span class="a-button-text" aria-hidden="true" id="a-autoid-15-announce">削除</span>
+</span>
+</span>
+                                                </div>
+                                              </div>
+                                            </form>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- ★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆ -->
+                    <% end %>
                     </div>
                   </div>
                 </div>
