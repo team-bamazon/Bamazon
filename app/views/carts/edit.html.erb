@@ -1,7 +1,7 @@
 <%= render partial: 'layouts/header' %>
 
   <div class = "a-container">
-    <% if current_user.cart.blank? %>
+    <% if current_user.cart.cart_products.blank? %>
     <div id = "sc-active-cart" class = "a-section a-spacing-top-base sc-list">
       <a name = "sc-anchor-active-cart" href="#"></a>
         <div class = "a-row sc-cart-header">
@@ -19,8 +19,9 @@
       </div>
       <% end %>
       <!-- ここまでが商品がない時 -->
-      <% if current_user.cart.present? %>
+      <% if current_user.cart.cart_products.present? %>
       <!-- カートに入れるボタン -->
+      <%= form_for @cart do |f| %>
       <div class = "a-fixed-right-grid-col a-col-right" style ="width: 300px; float:right;">
         <div id = "sc-buy-box" class = "a-section">
           <div class = "a-box-group sc-buy-box-group">
@@ -48,7 +49,7 @@
               <div class="sc-proceed-to-checkout">
                 <span id="sc-buy-box-ptc-button" class="a-button a-button-span12 a-button-primary">
                   <span class="a-button-inner">
-                    <input name="proceedToCheckout" class="a-button-input" type="submit" value="Proceed to checkout" aria-labelledby="sc-buy-box-ptc-button-announce">
+                    <%= f.submit name:"proceedToCheckout", class:"a-button-input", value:"Proceed to checkout" %>
                     <span id="sc-buy-box-ptc-button-announce" class="a-button-text" aria-hidden="true">
                     レジに進む
                   </span>
@@ -94,6 +95,7 @@
         </div>
         <div class = "sc-list-body">
         <% @cart.cart_informations(@cart).each do |cart_info| %>
+        <%= fields_for cart_info do |f| %>
         <div class="a-row sc-list-item  sc-list-item-border">
         <div class = "a-row a-spacing-base a-spacing-top-base">
           <div class = "a-clumn a-span8" style = "float: left;">
@@ -137,8 +139,7 @@
                   <div class = "a-row sc-action-links">
                     <span class = "a-size-small sc-action-delete">
                       <span class = "a-declarative" data-actoin="sc-item-action">
-                        <a href = "/products/<%= cart_info.product_id %>/cart_products/<%= cart_info.id %>" data-method = "delete" class = "carts_delete-buttorn" > 
-                          削除
+                          <%= link_to "削除", product_cart_product_path(@cart,cart_info), method: :delete, class: "carts_delete-buttorn"%>
                         </a>
                       </span>
                     </span>
@@ -179,19 +180,7 @@
               <div class = "sc-invisible-when-no-js">
                 <span class = "a-dropdown-container">
                   <label class = "a-native-dorpdown">
-                    <select name = "product_count" >
-                      <option value = "1">1</option>
-                      <option value = "2">2</option>
-                      <option value = "3">3</option>
-                      <option value = "4">4</option>
-                      <option value = "5">5</option>
-                      <option value = "6">6</option>
-                      <option value = "7">7</option>
-                      <option value = "8">8</option>
-                      <option value = "9">9</option>
-                      <option value = "10+">10+</option>
-                    </select>
-                    <%= cart_info.product_count %>点
+                    <%=f.select :product_count, ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10+"]  %>
                   </label>
                 </span>
               </div>
@@ -199,6 +188,7 @@
         </div>
       </div>
       </div>
+      <% end %>
       <% end %>
       <div class="sc-subtotal a-text-right a-float-right space_bottom">
           <p class="a-spacing-none a-spacing-top-mini">
@@ -221,6 +211,7 @@
       </div>
       </div>
     </div>
+    <% end %>
       <% end %>
       <div id="sc-about" class="a-row a-size-small">
         <div id="cart-about-cart-warning" class="a-row">
