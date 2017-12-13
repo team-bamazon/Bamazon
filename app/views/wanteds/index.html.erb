@@ -49,39 +49,27 @@
                   </div>
                 </form>
                 <div class="a-section a-spacing-top-small">
-                  <!--<a id="wl-list-link-1L0H15BKJQILN" class="a-link-normal a-declarative hover-as-link hover-as-link-wanteds" href="/hz/wishlist/ls/1L0H15BKJQILN">-->
-                  <a id="wl-list-link-1L0H15BKJQILN" class="a-link-normal a-declarative hover-as-link hover-as-link-wanteds" href="/hz/wishlist/ls/1L0H15BKJQILN">
-                    <!-- 下のdivについてるselectedクラスはユーザの操作によって切り替えが必要 -->
-                    <div class="a-fixed-right-grid wl-list selected a-spacing-micro a-spacing-top-micro">
-                      <div class="a-fixed-right-grid-inner" style="padding-right:78px">
-                        <div class="a-fixed-right-grid-col a-col-left" style="padding-right:1%;*width:98.6%;float:left;">
-                          <div class="a-row">
-                            <span id="wl-list-title-1L0H15BKJQILN">ほしい物リスト</span>
+                  <% @wanteds.each do |wanted| %>
+                    <a id="wl-list-link-1L0H15BKJQILN" class="a-link-normal a-declarative hover-as-link hover-as-link-wanteds" href="/hz/wishlist/ls/1L0H15BKJQILN">
+                      <div class="a-fixed-right-grid wl-list <%= 'selected' if wanted.default_flg? %> a-spacing-micro a-spacing-top-micro">
+                        <div class="a-fixed-right-grid-inner" style="padding-right:78px">
+                          <div class="a-fixed-right-grid-col a-col-left" style="padding-right:1%;*width:98.6%;float:left;">
+                            <div class="a-row">
+                              <span id="wl-list-title-1L0H15BKJQILN"><%= wanted.name %></span>
+                            </div>
+                            <% if wanted.default_flg? %>
+                              <div class="a-row a-spacing-top-micro">
+                                <span class="a-size-small a-text-normal">デフォルトのリスト</span>
+                              </div>
+                            <% end %>
                           </div>
-                          <div class="a-row a-spacing-top-micro">
-                            <span class="a-size-small a-text-normal">デフォルトのリスト</span>
+                          <div id="wl-list-privacy-1L0H15BKJQILN" class="a-fixed-right-grid-col wl-list-privacy a-col-right" style="width:78px;margin-right:-78px;float:left;">
+                            <span class="hover-as-link a-text-normal"><% if wanted.open_flg? %>公開<% else %>非公開<% end %></span>
                           </div>
-                        </div>
-                        <div id="wl-list-privacy-1L0H15BKJQILN" class="a-fixed-right-grid-col wl-list-privacy a-col-right" style="width:78px;margin-right:-78px;float:left;">
-                          <span class="hover-as-link a-text-normal">公開</span>
                         </div>
                       </div>
-                    </div>
-                  </a>
-                  <a id="wl-list-link-DBYTVA9Z88U" data-action="reg-nav-link" class="a-link-normal a-declarative hover-as-link" href="/hz/wishlist/ls/DBYTVA9Z88U">
-                    <div class="a-fixed-right-grid wl-list a-spacing-micro a-spacing-top-micro">
-                      <div class="a-fixed-right-grid-inner" style="padding-right:78px">
-                        <div class="a-fixed-right-grid-col a-col-left" style="padding-right:1%;*width:98.6%;float:left;">
-                          <div class="a-row">
-                            <span id="wl-list-title-DBYTVA9Z88U" class="a-color-base">保存と比較</span>
-                          </div>
-                        </div>
-                        <div id="wl-list-privacy-DBYTVA9Z88U" class="a-fixed-right-grid-col wl-list-privacy a-col-right" style="width:78px;margin-right:-78px;float:left;">
-                          <span class="a-color-base hover-as-link a-text-normal">非公開</span>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
+                    </a>
+                  <% end %>
                 </div>
               </div>
             </div>
@@ -193,7 +181,7 @@
                 <hr class="a-divider-normal">
                 <div id="no-items-section" class="a-section a-spacing-none a-text-center">
                   <span class="aok-inline-block">
-                    <span class="a-size-medium a-color-base"> アイテムはありません</span>
+                    <span class="a-size-medium a-color-base" style="text-decoration: none!important;"> アイテムはありません</span>
                   </span>
                 </div>
               </div>
@@ -260,108 +248,4 @@
     <div class="a-arrow"></div>
   </div>
 </div>
-<!--<div class="a-popover a-dropdown a-dropdown-common a-declarative" id="a-popover-4" aria-hidden="false" style="z-index: 299; top: 407.8px; left: 601.45px; display: block; width: auto; visibility: visible;">-->
-  <!--<span tabindex="0" role="dialog" class="a-popover-start a-popover-a11y-offscreen"></span>-->
-  <!--<div class="a-popover-wrapper">-->
-    <!--<div class="a-popover-inner" style="height: auto; overflow-y: auto; min-width: 1px; width: auto;">-->
-      <!--<ul tabindex="-1" class="a-nostyle a-list-link" role="application" aria-multiselectable="false">-->
-        <!--<li tabindex="0" role="option" aria-labelledby="dropdown1_0" class="a-dropdown-item">-->
-          <!--<a tabindex="-1" href="javascript:void(0)" id="dropdown1_0" class="a-dropdown-link">-->
-            <!--<span class="a-text-bold">絞り込み: </span>-->
-          <!--</a>-->
-        <!--</li>-->
-        <!--<li tabindex="0" role="option" aria-checked="true" id="filter-unpurchased" aria-labelledby="dropdown1_1" class="a-dropdown-item g-fr-label">-->
-          <!--<a tabindex="-1" href="javascript:void(0)" id="dropdown1_1" class="a-dropdown-link a-active">-->
-            <!--<div class="a-row">-->
-              <!--<div class="a-column a-span10">-->
-                <!--<span id="fr-unpurchased-label" class="g-fr-label sfr-text-selected">-->
-                  <!--<span class="a-letter-space"></span>-->
-                  <!--<span class="a-letter-space"></span>未購入-->
-                <!--</span>-->
-              <!--</div>-->
-            <!--</div>-->
-          <!--</a>-->
-        <!--</li>-->
-        <!--<li tabindex="0" role="option" id="filter-purchased" aria-labelledby="dropdown1_2" class="a-dropdown-item g-fr-label">-->
-          <!--<a tabindex="-1" href="javascript:void(0)" id="dropdown1_2" class="a-dropdown-link">-->
-            <!--<div class="a-row">-->
-              <!--<div class="a-column a-span10">-->
-                <!--<span id="fr-purchased-label" class="g-fr-label">-->
-                  <!--<span class="a-letter-space"></span>-->
-                  <!--<span class="a-letter-space"></span>購入済み-->
-                <!--</span>-->
-              <!--</div>-->
-            <!--</div>-->
-          <!--</a>-->
-        <!--</li>-->
-        <!--<li tabindex="0" role="option" id="filter-all" aria-labelledby="dropdown1_3" class="a-dropdown-item g-fr-label">-->
-          <!--<a tabindex="-1" href="javascript:void(0)" id="dropdown1_3" class="a-dropdown-link">-->
-            <!--<div class="a-row">-->
-              <!--<div class="a-column a-span10">-->
-                <!--<span id="fr-all-label" class="g-fr-label">-->
-                  <!--<span class="a-letter-space"></span>-->
-                  <!--<span class="a-letter-space"></span>購入済みと未購入-->
-                <!--</span>-->
-              <!--</div>-->
-            <!--</div>-->
-          <!--</a>-->
-        <!--</li>-->
-        <!--<li tabindex="0" role="option" aria-labelledby="dropdown1_4" class="a-dropdown-item">-->
-          <!--<a tabindex="-1" href="javascript:void(0)" id="dropdown1_4" class="a-dropdown-link">-->
-            <!--<span class="a-text-bold">並べ替え: </span>-->
-          <!--</a>-->
-        <!--</li>-->
-        <!--<li tabindex="0" role="option" id="sort-default" aria-labelledby="dropdown1_5" class="a-dropdown-item g-sort-label">-->
-          <!--<a tabindex="-1" href="javascript:void(0)" id="dropdown1_5" class="a-dropdown-link a-active">-->
-            <!--<div class="a-row">-->
-              <!--<div class="a-column a-span10">-->
-                <!--<span id="sort-default-label" class="g-sort-label sfr-text-selected">-->
-                  <!--<span class="a-letter-space"></span>-->
-                  <!--<span class="a-letter-space"></span>デフォルト-->
-                <!--</span>-->
-              <!--</div>-->
-            <!--</div>-->
-          <!--</a>-->
-        <!--</li>-->
-        <!--<li tabindex="0" role="option" id="sort-priority" aria-labelledby="dropdown1_6" class="a-dropdown-item g-sort-label">-->
-          <!--<a tabindex="-1" href="javascript:void(0)" id="dropdown1_6" class="a-dropdown-link">-->
-            <!--<div class="a-row">-->
-              <!--<div class="a-column a-span10">-->
-                <!--<span id="sort-priority-label" class="g-sort-label">-->
-                  <!--<span class="a-letter-space"></span>-->
-                  <!--<span class="a-letter-space"></span>優先度（高→低）-->
-                <!--</span>-->
-              <!--</div>-->
-            <!--</div>-->
-          <!--</a>-->
-        <!--</li>-->
-        <!--<li tabindex="0" role="option" id="sort-price-asc" aria-labelledby="dropdown1_7" class="a-dropdown-item g-sort-label">-->
-          <!--<a tabindex="-1" href="javascript:void(0)" id="dropdown1_7" class="a-dropdown-link">-->
-            <!--<div class="a-row">-->
-              <!--<div class="a-column a-span10">-->
-                <!--<span id="sort-price-asc-label" class="g-sort-label">-->
-                  <!--<span class="a-letter-space"></span>-->
-                  <!--<span class="a-letter-space"></span>価格（昇順）-->
-                <!--</span>-->
-              <!--</div>-->
-            <!--</div>-->
-          <!--</a>-->
-        <!--</li>-->
-        <!--<li tabindex="0" role="option" id="sort-price-desc" aria-labelledby="dropdown1_8" class="a-dropdown-item g-sort-label">-->
-          <!--<a tabindex="-1" href="javascript:void(0)" id="dropdown1_8" class="a-dropdown-link">-->
-            <!--<div class="a-row">-->
-              <!--<div class="a-column a-span10">-->
-                <!--<span id="sort-price-desc-label" class="g-sort-label">-->
-                  <!--<span class="a-letter-space"></span>-->
-                  <!--<span class="a-letter-space"></span>価格（降順）-->
-                <!--</span>-->
-              <!--</div>-->
-            <!--</div>-->
-          <!--</a>-->
-        <!--</li>-->
-      <!--</ul>-->
-    <!--</div>-->
-  <!--</div>-->
-  <!--<span tabindex="0" class="a-popover-end a-popover-a11y-offscreen"></span>-->
-<!--</div>-->
 <%= render partial: 'layouts/footer' %>
