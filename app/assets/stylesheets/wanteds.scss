@@ -22,6 +22,15 @@ ul.a-tabs {
       border-bottom: 0;
       position: relative;
     }
+    a:after {
+      content: "";
+      width: 100%;
+      height: 1px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transition: background-color .1s linear;
+    }
   }
   li.a-active {
     a {
@@ -37,4 +46,24 @@ ul.a-tabs {
       border-left: none;
     }
   }
+}
+
+ul.a-tabs:before {
+  display: table;
+  content: "";
+  line-height: 0;
+  font-size: 0;
+}
+
+ul.a-tabs:after {
+  clear: both;
+  display: table;
+  content: "";
+  line-height: 0;
+  font-size: 0;
+}
+
+.a-box-tab {
+  border-radius: 0 0 4px 4px;
+  margin-top: -1px;
 }
