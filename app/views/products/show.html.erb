@@ -192,14 +192,20 @@
                               <span id="submit.add-to-cart" class="a-button a-spacing-small a-button-primary a-button-icon">
                                 <span class="a-button-inner">
                                   <i class="a-icon a-icon-cart"></i>
-                                  <%= f.submit "カートに入れる", id: "add-to-cart-button", class: "a-button-input"%>
-                                  <span id="submit.add-to-cart-announce" class="a-button-text">カートに入れる</span>
+                                  <% if user_signed_in? %>
+                                    <%= f.submit "カートに入れる", id: "add-to-cart-button", class: "a-button-input" %>
+                                    <span id="submit.add-to-cart-announce" class="a-button-text">カートに入れる</span>
+                                  <% else %>
+                                    <input type="submit" name="commit" value="カートに入れる" id="add-to-cart-button" class="a-button-input" disabled="disabled">
+                                    <span id="submit.add-to-cart-announce" class="a-button-text">サインインをしてください</span>
+                                  <% end %>
                                 </span>
                               </span>
                             </div>
                           </div>
                         </div>
-                        <div class="a-row a-spacing-none">
+                        <% unless user_signed_in? %>
+                          <div class="a-row a-spacing-none">
                           <div id="oneClickSignIn" class="a-section a-spacing-none">
                             <div class="a-divider a-divider-break a-spacing-micro">
                               <h5>
@@ -211,26 +217,29 @@
                             </div>
                           </div>
                         </div>
+                        <% end %>
                         <!-- 住所を選べるセレクトボックス -->
                         <div id="unifiedLocation_feature_div" class="a-section feature unifiedLocationMarginBottomClass">
-                          <div class="a-section a-spacing-none">
-                            <hr class="a-divider-normal">
-                            <div class="a-section a-spacing-mini">
-                              <span class="a-text-bold">お届け先住所</span>
-                            </div>
+                          <% if user_signed_in? %>
                             <div class="a-section a-spacing-none">
-                              <span class="a-declarative">
-                                <a href="javascript:void(0)" class="a-popover-trigger a-declarative">
-                                  <span class="a-color-base lux-location-label">
-                                    <% current_user.addresses.each do |address| %>
-                                      <%= current_user.name %> - <%= address.region %> <%= address.postal_code_one %>-<%= address.postal_code_two %>
-                                    <% end %>
-                                  </span>
-                                  <i class="a-icon a-icon-popover"></i>
-                                </a>
-                              </span>
+                              <hr class="a-divider-normal">
+                              <div class="a-section a-spacing-mini">
+                                <span class="a-text-bold">お届け先住所</span>
+                              </div>
+                              <div class="a-section a-spacing-none">
+                                <span class="a-declarative">
+                                  <a href="javascript:void(0)" class="a-popover-trigger a-declarative">
+                                    <span class="a-color-base lux-location-label">
+                                      <% current_user.addresses.each do |address| %>
+                                        <%= current_user.name %> - <%= address.region %> <%= address.postal_code_one %>-<%= address.postal_code_two %>
+                                      <% end %>
+                                    </span>
+                                    <i class="a-icon a-icon-popover"></i>
+                                  </a>
+                                </span>
+                              </div>
                             </div>
-                          </div>
+                          <% end %>
                         </div>
                       </div>
                     </div>
@@ -621,7 +630,7 @@
             <h2 class="books">商品の説明</h2>
             <div id="productDescription" class="a-section a-spacing-small">
               <h3>内容紹介</h3>
-              <p><%= @product.detail %><br></p>
+              <p><%= simple_format(@product.detail) %><br></p>
               <h3>内容（「BOOK」データベースより）</h3>
               <p>ここは内容だよ</p>
               <a href="/" class="a-link-normal">商品の説明をすべて表示する</a>
