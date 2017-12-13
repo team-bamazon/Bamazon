@@ -9,8 +9,8 @@ class Cart < ApplicationRecord
 
   def cart_price_sum(cart)
     sum = 0
-    cart_informations(cart).each do |cart_infomation|
-      sum  += cart_infomation.product.price * cart_infomation.product_count
+    cart_informations(cart).each do |cart_information|
+      sum  += cart_information.product.price * cart_information.product_count
     end
     return sum.floor.to_s(:delimited)
   end
@@ -26,8 +26,8 @@ class Cart < ApplicationRecord
 
   def cart_point_sum(cart)
     sum = 0
-    cart_informations(cart).each do |cart_infomation|
-      sum  += cart_infomation.product.price * cart_infomation.product_count
+    cart_informations(cart).each do |cart_information|
+      sum  += cart_information.product.price * cart_information.product_count
     end
     return (sum / 10).floor.to_s(:delimited)
 
