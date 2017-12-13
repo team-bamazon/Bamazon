@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     get 'edit_address'
     resources :addresses, only: [:new, :create, :destroy, :edit, :update]
     resources :payment_informations, only: [:index, :create, :destroy, :edit, :update]
-    resources :wanteds, only: [:index, :new, :show, :edit, :create, :destroy]
+    resources :wanteds, only: [:show]
   end
 
   resources :products, only: [:show] do

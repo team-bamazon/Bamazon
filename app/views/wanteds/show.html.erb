@@ -1,0 +1,253 @@
+<%= render partial: 'layouts/header' %>
+<div id="nav-subnav">
+  <a href="/gp/registry/wishlist/ref=topnav_storetab_wl/358-9869141-7012436" class="nav-a nav-b" tabindex="31">
+    <span class="nav-a-content">ほしい物リスト</span>
+  </a>
+  <a href="/gp/gift-central/gift-guides/ref=sv_wl_0/358-9869141-7012436" class="nav-a" tabindex="32">
+    <span class="nav-a-content">ギフトガイド</span>
+  </a>
+  <a href="/gp/gc/ref=sv_wl_1/358-9869141-7012436" class="nav-a" tabindex="33">
+    <span class="nav-a-content">ギフト券</span>
+  </a>
+  <a href="/gp/help/customer/display.html/ref=sv_wl_2/358-9869141-7012436?ie=UTF8&amp;nodeId=642968" class="nav-a" tabindex="34">
+    <span class="nav-a-content">ギフトラッピング</span>
+  </a>
+  <a href="/gp/registry/wishlist/ref=sv_wl_3/358-9869141-7012436" class="nav-a" tabindex="35">
+    <span class="nav-a-content">ほしい物リスト</span>
+  </a>
+  <a href="/gp/help/customer/display.html/ref=sv_wl_4/358-9869141-7012436?ie=UTF8&amp;nodeId=200106390" class="nav-a" tabindex="36">
+    <span class="nav-a-content">ギフトヘルプ</span>
+  </a>
+</div>
+<div class="a-container g-fix-wide-screen">
+  <div id="wishlist-page" class="a-tab-container">
+    <ul data-action="a-tabs" class="a-tabs a-declarative">
+      <li id="my-lists-tab" class="a-tab-heading a-active a-size-large">
+        <a href="/gp/registry/wishlist/ref=cm_wl_your_lists">マイリスト</a>
+      </li>
+      <!--<li id="friends-tab" class="a-tab-heading a-size-large" data-a-tab-name="friends-tab">-->
+      <!--<a href="/gp/registry/search.html/ref=cm_wl_search_wlv_hz?type=wishlist">友達</a>-->
+      <!--</li>-->
+      <div class="a-section a-spacing-top-medium a-text-right">
+        <span class="a-declarative">
+          <a id="createList" class="a-link-normal" href="#">ほしい物リストを作成する</a>
+        </span>
+      </div>
+    </ul>
+    <div id="my-lists-tab" class="a-box a-box-tab a-tab-content">
+      <div class="a-box-inner">
+        <div class="a-fixed-left-grid">
+          <div class="a-fixed-left-grid-inner" style="padding-left:252px">
+            <div id="left-nav" class="a-fixed-left-grid-col a-col-left" style="width:252px;margin-left:-252px;_margin-left:-126px;float:left;">
+              <div id="your-lists-nav" class="a-section">
+                <form id="wl-item-search">
+                  <div class="a-row a-spacing-none g-item-search">
+                    <div class="a-search a-spacing-none">
+                      <!--<i class="a-icon a-icon-search"></i>-->
+                      <input type="search" placeholder="あなたのリストからアイテムを見つける" name="itemSearch" class="a-input-text a-width-large g-search-input">
+                    </div>
+                  </div>
+                </form>
+                <div class="a-section a-spacing-top-small">
+                  <% @wanteds.each do |wanted| %>
+                    <!--<a id="wl-list-link-1L0H15BKJQILN" class="a-link-normal a-declarative hover-as-link hover-as-link-wanteds" href="/hz/wishlist/ls/1L0H15BKJQILN">-->
+                    <%= link_to user_wanted_path(user_id: @user_id, id: wanted.id), id: "wl-list-link-1L0H15BKJQILN", class: "a-link-normal a-declarative hover-as-link hover-as-link-wanteds" do %>
+                      <div class="a-fixed-right-grid wl-list <%= 'selected' if wanted.id == @selected_id %> a-spacing-micro a-spacing-top-micro">
+                        <div class="a-fixed-right-grid-inner" style="padding-right:78px">
+                          <div class="a-fixed-right-grid-col a-col-left" style="padding-right:1%;*width:98.6%;float:left;">
+                            <div class="a-row">
+                              <span id="wl-list-title-1L0H15BKJQILN"><%= wanted.name %></span>
+                            </div>
+                            <% if wanted.default_flg? %>
+                              <div class="a-row a-spacing-top-micro">
+                                <span class="a-size-small a-text-normal">デフォルトのリスト</span>
+                              </div>
+                            <% end %>
+                          </div>
+                          <div id="wl-list-privacy-1L0H15BKJQILN" class="a-fixed-right-grid-col wl-list-privacy a-col-right" style="width:78px;margin-right:-78px;float:left;">
+                            <span class="hover-as-link a-text-normal"><% if wanted.open_flg? %>公開<% else %>非公開<% end %></span>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                    <!--</a>-->
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div id="content-right" class="a-fixed-left-grid-col a-col-right" style="padding-left:3.5%;*width:96.1%;float:left;">
+              <div class="a-section a-spacing-none list-header-container">
+                <div id="list-header" class="a-section a-spacing-small">
+                  <div id="wl-list-info" class="a-row a-spacing-small">
+                    <div class="a-column a-span8 a-spacing-top-small">
+                      <div class="a-row">
+                        <span id="profile-list-name" class="a-size-medium a-text-bold">保存と比較</span>
+                        <span class="a-letter-space"></span>
+                        <span class="a-letter-space"></span>
+                        <span class="aok-nowrap">
+                          <span id="listPrivacy" class="a-color-secondary">非公開</span>
+                          <span class="a-letter-space"></span>
+                          <span class="a-letter-space"></span>
+                          <span class="a-declarative">
+                            <a id="editYourList" class="a-link-normal editYourListTrigger" href="/hz/wishlist/settings/DBYTVA9Z88U?type=wishlist">このリストを編集する</a>
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="wl-item-view" class="a-section a-spacing-none">
+                <div id="control-bar" class="a-fixed-right-grid g-visible-js a-spacing-none">
+                  <div class="a-fixed-right-grid-inner" style="padding-right:240px">
+                    <div class="a-spacing-none a-spacing-top-small a-fixed-right-grid-col a-col-left" style="padding-right:0%;*width:99.6%;float:left;">
+                      <span class="g-touch-hide">
+                        <span class="g-touch-hide">
+                          <div id="wfaAddTeaser" class="a-section a-spacing-small">
+                            <form id="wfaFormHeader">
+                              <img alt="" src="https://m.media-amazon.com/images/G/01/gifts/registries/wishlist/comment01m._CB344939052_.png" id="awl-wfa-text-sticky">
+                              <img alt="" src="https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.gif" class="wfa-photo-icon">
+                              <span class="a-declarative">
+                                <input type="text" id="wfaTextInput" autocomplete="off" placeholder="メモを保存して、あとでお買い物" name="name.0" class="a-input-text snaw-text-input header">
+                              </span>
+                              <span id="wfa-note-add-button-wrapper" class="a-button a-button-disabled">
+                                <span class="a-button-inner">
+                                  <input id="wfa-note-add-button" class="a-button-input a-declarative" type="submit" aria-labelledby="wfa-note-add-button-wrapper-announce" disabled="disabled">
+                                  <span id="wfa-note-add-button-wrapper-announce" class="a-button-text" aria-hidden="true">ほしい物リストに追加する</span>
+                                </span>
+                              </span>
+                              <div id="wfa-generic-error" class="a-box a-alert-inline a-alert-inline-error wfaError a-hidden" aria-live="assertive" role="alert">
+                                <div class="a-box-inner a-alert-container">
+                                  <i class="a-icon a-icon-alert"></i>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                        </span>
+                      </span>
+                    </div>
+                    <div class="a-spacing-medium a-spacing-top-large a-fixed-right-grid-col a-col-right" style="width:240px;margin-right:-240px;float:left;">
+                      <span class="control-bar g-visible-js">
+                        <span class="control-bar-wrapper">
+                          <span class="a-dropdown-container">
+                            <select name="sfr-trigger" autocomplete="off" tabindex="-1" class="a-native-dropdown a-spacing-none a-size-small a-text-normal">
+                              <option value="">絞り込み: </option>
+                              <option value="filter|unpurchased" selected="">未購入</option>
+                              <option value="filter|purchased">購入済み</option>
+                              <option value="filter|all">購入済みと未購入</option>
+                              <option value="">並べ替え: </option>
+                              <option value="sort|default">デフォルト</option>
+                              <option value="sort|priority">優先度（高→低）</option>
+                              <option value="sort|price-asc">価格（昇順）</option>
+                              <option value="sort|price-desc">価格（降順）</option>
+                            </select>
+                          </span>
+                          <span class="a-declarative">
+                            <a id="filter-and-sort" class="a-link-normal g-trigger-label g-sfr-trigger a-declarative g-visible-js" href="#">
+                              <span class="a-color-base">絞込み＆並替え</span>
+                              <i class="a-icon a-icon-dropdown">
+</i>
+                              <span class="a-letter-space">
+</span>
+                            </a>
+                          </span>
+                          <span id="wl-filter-option-unpurchased">
+</span>
+                          <span id="wl-sort-option-default">
+</span>
+                          <a id="wl-print-link" class="a-link-normal a-declarative" href="/hz/wishlist/printview/DBYTVA9Z88U">
+                            <img alt="" src="https://images-na.ssl-images-amazon.com/images/G/01/wishlist/print_icon._CB287382532_.png">
+                          </a>
+                          <span class="a-color-base">シェアする</span>
+                          <span id="shareWidgetContainer" class="a-color-base g-swf-link">
+                            <span class="a-declarative">
+                              <a id="auiswfText" class="a-link-normal emailtext" title="Eメールでシェア" href="#">
+                                <span class="a-letter-space">
+</span>
+                                <i class="a-icon a-icon-share-email">
+</i>
+                              </a>
+                            </span>
+                          </span>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div id="item-page-wrapper" class="a-section">
+                  <div class="a-section a-spacing-none">
+                    <div id="g-items" class="a-section a-spacing-none g-items-section ui-sortable">
+                    </div>
+                  </div>
+                </div>
+                <hr class="a-divider-normal">
+                <div id="no-items-section" class="a-section a-spacing-none a-text-center">
+                  <span class="aok-inline-block">
+                    <span class="a-size-medium a-color-base" style="text-decoration: none!important;"> アイテムはありません</span>
+                  </span>
+                </div>
+              </div>
+              <div class="a-popover-preload" id="a-popover-spoil-surprise">
+                <div class="a-section wl-spoiler-popover">
+                  <div class="a-section a-spacing-none a-padding-medium">
+                    <div class="a-section a-spacing-base">最近どなたかがあなたにこの商品を購入したかもしれません。</div>
+                    <div class="a-section">
+                      <span class="a-declarative">
+                        <a id="blackoutVerifySpoiler" class="a-link-normal" href="#">購入された場合は教えてください。</a>
+                      </span>
+                      <span id="blackoutSpoiler" class="a-hidden">はい、この商品はあなたに対して購入されました。</span>
+                    </div>
+                  </div>
+                  <div class="a-form-actions">
+                    <span class="a-button" id="a-autoid-11">
+                      <span class="a-button-inner">
+                        <button id="blackout_cancel" class="a-button-text a-declarative" type="button">キャンセル</button>
+                      </span>
+                    </span>
+                    <span class="a-button a-button-primary" id="a-autoid-12">
+                      <span class="a-button-inner">
+                        <a id="blackout_continue" href="javascript:void(0)" class="a-button-text" role="button">続ける</a>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="a-popover-preload" id="a-popover-reg-wfa-photo">
+                <div class="a-section a-spacing-base inner-padding">
+                  <div class="a-row a-spacing-large a-grid-vertical-align a-grid-center reg-wfa-photo-image-section" style="height:500px;">
+                    <div class="a-section wl-modal-overlay">
+                      <i class="a-icon a-popover-loading wl-modal-spinner">
+                      </i>
+                    </div>
+                    <div class="a-column a-span12 a-text-center">
+                      <img alt="" src="https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.gif" id="WLWFAP_Image">
+                    </div>
+                  </div>
+                  <div class="a-row">
+                    <div class="a-column a-span12 a-text-center">
+                      <span id="WLWFAP_AddedDate"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a id="schoolSupplyDupLink" href="javascript:void(0)" class="a-popover-trigger a-declarative a-hidden">
+                <i class="a-icon a-icon-popover"></i>
+              </a>
+              <div class="a-popover-preload" id="a-popover-school-list-dup-modal"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="friends-tab" data-a-name="friends-tab" class="a-box a-box-tab a-tab-content a-hidden">
+      <div class="a-box-inner"></div>
+    </div>
+  </div>
+</div>
+<div role="tooltip" class="a-popover a-tooltip a-declarative a-arrow-bottom" id="a-popover-3" style="z-index: 299; visibility: visible; top: 37px; left: 1026px; opacity: 1; display: none;" aria-hidden="true">
+  <div class="a-tooltip-inner">設定</div>
+  <div class="a-arrow-border" style="left: 40.1px;">
+    <div class="a-arrow"></div>
+  </div>
+</div>
+<%= render partial: 'layouts/footer' %>
