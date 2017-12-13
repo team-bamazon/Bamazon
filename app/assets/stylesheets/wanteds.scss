@@ -1,3 +1,40 @@
 // Place all the styles related to the wanteds controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+ul.a-tabs {
+  margin: 0;
+  list-style-type: none;
+  border: 1px solid #ddd;
+  padding: 0;
+  background-color: #f3f3f3;
+  li {
+    float: left;
+    margin-bottom: -1px;
+    margin-top: -1px;
+    list-style-type: none;
+    a {
+      transition: all .1s linear;
+      text-decoration: none;
+      line-height: 1;
+      padding: 15px 17px 15px 18px;
+      display: block;
+      border: 1px solid transparent;
+      border-bottom: 0;
+      position: relative;
+    }
+  }
+  li.a-active {
+    a {
+      border-color: #ddd;
+      background-color: #fff;
+      color: #c45500;
+      border-top-color: #e77600;
+      font-weight: 700;
+    }
+  }
+  li:first-child {
+    a {
+      border-left: none;
+    }
+  }
+}
