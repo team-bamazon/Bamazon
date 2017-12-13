@@ -6,7 +6,7 @@ $(document).on('turbolinks:load', function() {
         var suggest_flg = false;
 
         function appendSuggest(suggest) {
-            var html = `<div class="s-suggestion"><span>${ suggest.name }</span></div>`;
+            var html = '<div class="s-suggestion"><span>' + suggest.name + '</span></div>';
             return html;
         }
 
@@ -29,11 +29,11 @@ $(document).on('turbolinks:load', function() {
                     .done(function (suggests) {
                         if (suggests.length != 0) {
                             suggest_field.empty();
-                            var html = "<div id=\"suggestions\">";
+                            var html = '<div id="suggestions">';
                             suggests.forEach(function (suggest) {
                                 html += appendSuggest(suggest);
                             });
-                            html += "</div>";
+                            html += '</div>';
                             suggest_field.append(html);
                             var width = $("#twotabsearchtextbox").innerWidth();
                             $("#nav-flyout-searchAjax").attr("style", `display: block; position: absolute; top: 7px; left: 261px; width: ${width}px;`);
@@ -61,7 +61,6 @@ $(document).on('turbolinks:load', function() {
 
         $(document).on("click", ".s-suggestion", function () {
             var keyword = $(this).text();
-            console.log(keyword);
             $("#twotabsearchtextbox").val(keyword);
             $('#search_btn').trigger("click");
         });
