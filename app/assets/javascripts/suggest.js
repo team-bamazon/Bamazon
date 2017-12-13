@@ -36,7 +36,8 @@ $(document).on('turbolinks:load', function() {
                             html += '</div>';
                             suggest_field.append(html);
                             var width = $("#twotabsearchtextbox").innerWidth();
-                            $("#nav-flyout-searchAjax").attr("style", `display: block; position: absolute; top: 7px; left: 261px; width: ${width}px;`);
+                            var style_params = "display: block; position: absolute; top: 7px; left: 261px; width: " + width + "px;";
+                            $("#nav-flyout-searchAjax").attr("style", style_params);
                             input_width = width;
                             suggest_flg = true;
                         }
