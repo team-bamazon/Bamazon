@@ -16,6 +16,12 @@ class CartProductsController < ApplicationController
     end
   end
 
+  def destroy
+    @cart_product = CartProduct.find(params[:id])
+    @cart_product.destroy
+    redirect_to edit_cart_path
+  end
+
   private
 
   def cart_product_params
