@@ -249,39 +249,39 @@
                 <div id="item-page-wrapper" class="a-section">
                   <div class="a-section a-spacing-none">
                     <div id="g-items" class="a-section a-spacing-none g-items-section ui-sortable">
-                      <% @selected_wanted_products.each do |product| %>
+                      <% @selected_wanted_products.each do |w_p| %>
                         <div class="a-section a-spacing-none g-item-sortable">
                           <hr class="a-spacing-none a-divider-normal">
-                          <div id="item_<%= product.id %>" class="a-fixed-left-grid a-spacing-none">
+                          <div id="item_<%= w_p.product.id %>" class="a-fixed-left-grid a-spacing-none">
                             <div class="a-fixed-left-grid-inner" style="padding-left:220px">
                               <div class="a-fixed-left-grid-col g-item-sortable-draggable-area a-col-left" style="width:220px;margin-left:-220px;_margin-left:-110px;float:left;">
                                 <div class="a-fixed-left-grid">
                                   <div class="a-fixed-left-grid-inner" style="padding-left:35px">
-                                    <div id="itemImage_<%= product.id %>" class="a-text-center a-fixed-left-grid-col g-itemImage g-item-sortable-padding a-col-right" style="padding-left:0%;*width:99.6%;float:left;">
-                                      <% if product.product_images.present? %>
-                                        <%= link_to product_path(product), class: "a-link-normal", title: product.name do %>
-                                          <%= image_tag product.product_images[0].image, alt: product.name, style: "max-height: 160px;" %>
+                                    <div id="itemImage_<%= w_p.product.id %>" class="a-text-center a-fixed-left-grid-col g-itemImage g-item-sortable-padding a-col-right" style="padding-left:0%;*width:99.6%;float:left;">
+                                      <% if w_p.product.product_images.present? %>
+                                        <%= link_to product_path(w_p.product), class: "a-link-normal", title: w_p.product.name do %>
+                                          <%= image_tag w_p.product.product_images[0].image, alt: w_p.product.name, style: "max-height: 160px;" %>
                                         <% end %>
                                       <% else %>
-                                        <%= link_to product_path(product), class: "a-link-normal", title: product.name do %>
-                                          <%= image_tag "https://images-fe.ssl-images-amazon.com/images/G/09/icons/books/comingsoon_books._V376986337_BO1,204,203,200_.gif", alt: product.name, style: "max-height: 160px;" %>
+                                        <%= link_to product_path(w_p.product), class: "a-link-normal", title: w_p.product.name do %>
+                                          <%= image_tag "https://images-fe.ssl-images-amazon.com/images/G/09/icons/books/comingsoon_books._V376986337_BO1,204,203,200_.gif", alt: w_p.product.name, style: "max-height: 160px;" %>
                                         <% end %>
                                       <% end %>
                                     </div>
                                   </div>
                                 </div>
                               </div>
-                              <div id="itemMain_<%= product.id %>" class="a-text-left a-fixed-left-grid-col g-item-sortable-padding a-col-right" style="padding-left:0%;*width:99.6%;float:left;">
+                              <div id="itemMain_<%= w_p.product.id %>" class="a-text-left a-fixed-left-grid-col g-item-sortable-padding a-col-right" style="padding-left:0%;*width:99.6%;float:left;">
                                 <div class="a-fixed-right-grid">
                                   <div class="a-fixed-right-grid-inner" style="padding-right:220px">
-                                    <div id="itemInfo_<%= product.id %>" class="a-fixed-right-grid-col g-item-details a-col-left" style="padding-right:10%;*width:89.6%;float:left;">
+                                    <div id="itemInfo_<%= w_p.product.id %>" class="a-fixed-right-grid-col g-item-details a-col-left" style="padding-right:10%;*width:89.6%;float:left;">
                                       <div class="a-row">
                                         <div class="a-column a-span12 g-span12when-narrow g-span7when-wide">
                                           <div class="a-row a-size-small">
                                             <h5>
-                                              <%= link_to product.name, product_path(product), class: "a-link-normal a-declarative", title: product.name %>
+                                              <%= link_to w_p.product.name, product_path(w_p.product), class: "a-link-normal a-declarative", title: w_p.product.name %>
                                             </h5>
-                                            <span id="item-byline-<%= product.id %>" class="a-size-base"></span>
+                                            <span id="item-byline-<%= w_p.product.id %>" class="a-size-base"></span>
                                           </div>
                                           <div class="a-row a-spacing-small a-size-small">
                                             <div class="a-row">
@@ -289,15 +289,15 @@
                                                 <span class="a-icon-alt">5つ星のうち 4.6</span>
                                               </i>
                                               <span class="a-letter-space"></span>
-                                              <a id="review_count_<%= product.id %>" class="a-link-normal" href="#">(1)</a>
+                                              <a id="review_count_<%= w_p.product.id %>" class="a-link-normal" href="#">(1)</a>
                                             </div>
                                             <div class="a-row">
                                               <div class="a-section price-section">
-                                                <span id="itemPrice_<%= product.id %>" class="a-price">
-                                                  <span class="a-offscreen">￥<%= product.price.floor.to_s(:delimited) %></span>
+                                                <span id="itemPrice_<%= w_p.product.id %>" class="a-price">
+                                                  <span class="a-offscreen">￥<%= w_p.product.price.floor.to_s(:delimited) %></span>
                                                   <span aria-hidden="true">
                                                     <span class="a-price-symbol">￥</span>
-                                                    <span class="a-price-whole"><%= product.price.floor.to_s(:delimited) %></span>
+                                                    <span class="a-price-whole"><%= w_p.product.price.floor.to_s(:delimited) %></span>
                                                   </span>
                                                 </span>
                                                 <span class="a-letter-space"></span>
@@ -305,43 +305,43 @@
                                               </div>
                                             </div>
                                             <div class="a-row a-size-small itemAvailability">
-                                              <span id="availability-msg_<%= product.id %>" class="itemAvailMessage">在庫あり。</span>
+                                              <span id="availability-msg_<%= w_p.product.id %>" class="itemAvailMessage">在庫あり。</span>
                                               <span class="a-letter-space"></span>
-                                              <span id="offered-by_<%= product.id %>" class="itemVailOfferedBy">販売元: Bamazon.co.jp。</span>
+                                              <span id="offered-by_<%= w_p.product.id %>" class="itemVailOfferedBy">販売元: Bamazon.co.jp。</span>
                                             </div>
                                           </div>
                                           <span class="a-declarative">
-                                            <a id="itemEditLabel_<%=  product.id%>" class="a-size-small a-link-normal g-touch-hide" href="#">コメント、数量、 優先度を追加する</a>
+                                            <a id="itemEditLabel_<%= w_p.product.id%>" class="a-size-small a-link-normal g-touch-hide" href="#">コメント、数量、 優先度を追加する</a>
                                           </span>
                                         </div>
                                         <div class="a-column a-span12 g-span12when-narrow g-span5when-wide  g-item-comment a-hidden a-span-last">
                                           <div class="a-box a-box-normal a-color-alternate-background quotes-bubble">
                                             <div class="a-box-inner">
-                                              <div id="itemCommentRow_<%= product.id %>" class="a-row a-hidden">
+                                              <div id="itemCommentRow_<%= w_p.product.id %>" class="a-row a-hidden">
                                                 <span class="wrap-text">
-                                                  <span id="itemComment_<%= product.id %>" class="g-comment-quote a-text-quote">
+                                                  <span id="itemComment_<%= w_p.product.id %>" class="g-comment-quote a-text-quote">
                                                   </span>
                                                 </span>
                                               </div>
                                               <div class="a-row g-item-comment-row">
-                                                <span id="itemPriorityRow_<%= product.id %>" class="a-size-small a-hidden">優先度：
+                                                <span id="itemPriorityRow_<%= w_p.product.id %>" class="a-size-small a-hidden">優先度：
                                                   <span class="a-letter-space"></span>
-                                                  <span id="itemPriorityLabel_<%= product.id %>" class="a-size-small dropdown-priority item-priority-medium">中</span>
-                                                  <span id="itemPriority_<%= product.id %>" class="a-hidden">0</span>
+                                                  <span id="itemPriorityLabel_<%= w_p.product.id %>" class="a-size-small dropdown-priority item-priority-medium">中</span>
+                                                  <span id="itemPriority_<%= w_p.product.id %>" class="a-hidden">0</span>
                                                 </span>
                                                 <i class="a-icon a-icon-text-separator g-priority-seperator a-hidden">
                                                 </i>
-                                                <span id="itemQuantityRow_<%= product.id %>" class="a-size-small a-hidden">
+                                                <span id="itemQuantityRow_<%= w_p.product.id %>" class="a-size-small a-hidden">
                                                   <span class="aok-inline-block">
-                                                    <span id="itemRequestedLabel_<%= product.id %>">希望:</span>
+                                                    <span id="itemRequestedLabel_<%= w_p.product.id %>">希望:</span>
                                                     <span class="a-letter-space"></span>
-                                                    <span id="itemRequested_<%= product.id %>">1</span>
+                                                    <span id="itemRequested_<%= w_p.product.id %>">1</span>
                                                   </span>
                                                   <span class="a-letter-space"></span>
-                                                  <span id="itemPurchasedSection_<%= product.id %>" class="aok-inline-block">
-                                                    <span id="itemPurchasedLabel_<%= product.id %>">所有：</span>
+                                                  <span id="itemPurchasedSection_<%= w_p.product.id %>" class="aok-inline-block">
+                                                    <span id="itemPurchasedLabel_<%= w_p.product.id %>">所有：</span>
                                                     <span class="a-letter-space"></span>
-                                                    <span id="itemPurchased_<%= product.id %>">0</span>
+                                                    <span id="itemPurchased_<%= w_p.product.id %>">0</span>
                                                   </span>
                                                 </span>
                                               </div>
@@ -351,50 +351,50 @@
                                         </div>
                                       </div>
                                     </div>
-                                    <div id="beforeMoveToCart_<%= product.id %>" class="a-fixed-right-grid-col dateAddedText a-col-right" style="width:220px;margin-right:-220px;float:left;">
-                                      <span id="itemAddedDate_<%= product.id %>" class="a-size-small">追加商品
-                                        <span class="a-letter-space"></span><%= @update_datetimes[product.id] %>
+                                    <div id="beforeMoveToCart_<%= w_p.product.id %>" class="a-fixed-right-grid-col dateAddedText a-col-right" style="width:220px;margin-right:-220px;float:left;">
+                                      <span id="itemAddedDate_<%= w_p.product.id %>" class="a-size-small">追加商品
+                                        <span class="a-letter-space"></span><%= @update_datetimes[w_p.product.id] %>
                                       </span>
                                       <div class="a-button-stack a-spacing-top-small">
-                                        <span class="a-declarative" id="pab-declarative-<%= product.id %>">
-                                          <span id="pab-<%= product.id %>" class="a-button a-button-primary wl-info-aa_add_to_cart">
+                                        <span class="a-declarative" id="pab-declarative-<%= w_p.product.id %>">
+                                          <span id="pab-<%= w_p.product.id %>" class="a-button a-button-primary wl-info-aa_add_to_cart">
                                             <span class="a-button-inner">
-                                              <%= link_to "カートに入れる", product_cart_products_path(product), id: "move-to-cart-#{product.id}", class: "a-button-text", data: {id: product.id}, role: "button", style: "background-color: #f0c14b; background: linear-gradient(to bottom,#f7dfa5,#f0c14b);", method: :post %>
+                                              <%= link_to "カートに入れる", product_cart_products_path(w_p.product), id: "move-to-cart-#{w_p.product.id}", class: "a-button-text", data: {id: w_p.product.id}, role: "button", style: "background-color: #f0c14b; background: linear-gradient(to bottom,#f7dfa5,#f0c14b);", method: :post %>
                                             </span>
                                           </span>
                                           <span></span>
                                         </span>
-                                        <div class="a-row a-spacing-small">
-                                          <!-- 現状高さを何で指定しているかわからない、直に指定しても効かない -->
-                                          <div class="a-section g-visible-js" style="margin-bottom: 22px;">
-                                            <div class="a-column a-span6">
-                                              <input type="hidden" name="" value="ASIN:B00JC2DHDO|A1VC38T7YXB528" id="move_itemExternalId_<%= product.id %>" style="height: auto;">
-                                              <span class="a-dropdown-container">
-                                                <%= form_for [current_user, @tmp_wanted_product] do |ff| %>
-                                                  <%= select :product, :wanted_id, Wanted.pluck(:name, :id).delete_if{|list| list[1] == @selected_wanted.id}, { prompt: '移動' }, class: "a-native-dropdown g-move-button-native" %>
-                                                <% end %>
-                                              </span>
-                                            </div>
-                                            <div class="a-column a-span6 a-span-last">
-                                              <form method="post" action="">
-                                                <input type="hidden" name="id" value="1L0H15BKJQILN">
-                                                <input type="hidden" name="itemId" value="I2IDZDYY80IQ76">
-                                                <input type="hidden" name="sid" value="358-9869141-7012436">
-                                                <span class="a-declarative" data-action="reg-item-delete" data-reg-item-delete="{&quot;layout&quot;:&quot;standard&quot;,&quot;itemId&quot;:&quot;I2IDZDYY80IQ76&quot;,&quot;itemName&quot;:&quot;エルゴトロン 小型PCやシンクライアント 取り付けシステム ブラック 80-107-200&quot;,&quot;itemExternalId&quot;:&quot;ASIN:B00JC2DHDO|A1VC38T7YXB528&quot;,&quot;asin&quot;:&quot;B00JC2DHDO&quot;,&quot;id&quot;:&quot;1L0H15BKJQILN&quot;,&quot;listType&quot;:&quot;wishlist&quot;,&quot;sid&quot;:&quot;358-9869141-7012436&quot;}">
-                                                  <span class="a-button a-button-small" id="a-autoid-12">
-                                                    <span class="a-button-inner">
-                                                      <input name="submit.deleteItem" class="a-button-input a-declarative" type="submit" aria-labelledby="a-autoid-12-announce">
-                                                      <span class="a-button-text" aria-hidden="true" id="a-autoid-12-announce">削除</span>
+                                        <%= form_for [current_user, w_p] do |ff| %>
+                                          <div class="a-row a-spacing-small">
+                                            <!-- 現状高さを何で指定しているかわからない、直に指定しても効かない -->
+                                            <div class="a-section g-visible-js" style="margin-bottom: 22px;">
+                                              <div class="a-column a-span6">
+                                                <span class="a-dropdown-container">
+                                                    <%= ff.label :wanted_id , style: "display: none;" %>
+                                                    <%= ff.select :wanted_id, Wanted.pluck(:name, :id).delete_if{|list| list[1] == @selected_wanted.id}, {prompt: '移動'}, {class: "a-native-dropdown g-move-button-native"} %>
+                                                </span>
+                                              </div>
+                                              <div class="a-column a-span6 a-span-last">
+                                                <form method="post" action="">
+                                                  <input type="hidden" name="id" value="1L0H15BKJQILN">
+                                                  <input type="hidden" name="itemId" value="I2IDZDYY80IQ76">
+                                                  <input type="hidden" name="sid" value="358-9869141-7012436">
+                                                  <span class="a-declarative">
+                                                    <span class="a-button a-button-small" id="a-autoid-12">
+                                                      <span class="a-button-inner">
+                                                        <input name="submit.deleteItem" class="a-button-input a-declarative" type="submit" aria-labelledby="a-autoid-12-announce">
+                                                        <span class="a-button-text" aria-hidden="true" id="a-autoid-12-announce">削除</span>
+                                                      </span>
                                                     </span>
                                                   </span>
-                                                </span>
-                                              </form>
+                                                </form>
+                                              </div>
                                             </div>
                                           </div>
-                                        </div>
+                                        <% end %>
                                       </div>
                                     </div>
-                                    <div id="afterMoveToCart_<%= product.id %>" class="a-fixed-right-grid-col dateAddedText a-col-right" style="width: 220px; margin-right: -220px; float: left; display: none">
+                                    <div id="afterMoveToCart_<%= w_p.product.id %>" class="a-fixed-right-grid-col dateAddedText a-col-right" style="width: 220px; margin-right: -220px; float: left; display: none">
                                       <div class="a-row a-spacing-top-none a-alert g-cart-msg a-alert-success" style="opacity: 1;">
                                         <!-- <i class="a-icon a-icon-alert"></i> -->
                                         <h4 class="a-color-success a-inline-block">追加されました</h4>

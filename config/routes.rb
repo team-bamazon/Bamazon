@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     resources :addresses, only: [:new, :create, :destroy, :edit, :update]
     resources :payment_informations, only: [:index, :create, :destroy, :edit, :update]
     resources :wanteds, only: [:show, :create]
-    resources :wanted_products, only: [:update]
+    resources :wanted_products, only: [:update, :destroy]
   end
 
   resources :products, only: [:show] do
