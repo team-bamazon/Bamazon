@@ -242,3 +242,42 @@ a.hover-as-link-wanteds:hover {
 .a-ordered-list.a-list-link, .a-unordered-list.a-list-link, ol.a-list-link, ul.a-list-link {
   margin: -2px 0 0;
 }
+
+.a-button-stack .a-button {
+  margin-bottom: 10px;
+  display: block;
+}
+
+
+.g-item-sortable {
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+
+.g-item-sortable-padding {
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+
+.a-row .a-span6, .a-ws .a-row .a-ws-span6 {
+  width: 48.948%;
+}
+
+.g-move-button .a-button-text {
+  text-align: center!important;
+}
+
+.a-button.a-button-small .a-button-text {
+  font-size: 11px;
+  height: 20px;
+  line-height: 20px;
+  padding: 0 6px 0 7px;
+}
+
+.a-button-dropdown.a-button-small .a-button-text {
+  padding-right: 17px;
+}
+
+.a-button.a-button-small .a-button-inner {
+  height: 20px!important;
+}
