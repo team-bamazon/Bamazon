@@ -302,7 +302,7 @@ a.hover-as-link-wanteds:hover {
 
 #modal-main {
   display: none;
-  width: 500px;
+  width: 639px;
   height: 300px;
   margin: 0;
   padding: 0;
@@ -323,3 +323,75 @@ a.hover-as-link-wanteds:hover {
   z-index: 200;
 }
 
+.a-popover-header {
+  position: relative;
+  text-align: left;
+  background: linear-gradient(to bottom,#f7f7f7,#eaeaea);
+  border-radius: 4px 4px 0 0;
+  border-bottom: 1px solid #cdcdcd;
+  border-bottom-color: rgba(0,0,0,.2);
+  box-shadow: 0 1px 0 rgba(255,255,255,.5) inset, 0 -1px 0 rgba(255,255,255,.4) inset;
+  padding: 0 14px;
+  margin: 0;
+  z-index: 10;
+}
+
+.a-popover-header .a-popover-header-content {
+  min-height: 35px;
+  line-height: 16px;
+  padding: 10px 0 9px;
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0 20px 0 0;
+}
+
+.a-button-close {
+  display: block;
+  zoom: 1;
+  background-color: transparent;
+  border-radius: 3px;
+  border: none;
+  float: right;
+  padding: 8px;
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  margin: -13px 0 0;
+  line-height: 0;
+}
+
+.pop-create .a-popover-wrapper .a-popover-inner {
+  padding: 14px 0!important;
+}
+
+.a-spacing-none, .a-ws .a-ws-spacing-none {
+  margin-bottom: 0!important;
+}
+
+.a-padding-medium {
+  padding: 14px 18px!important;
+}
+
+.privacy_buttons_margin {
+  margin-left: 0!important;
+  margin-bottom: 5px!important;
+}
+
+.pop-create .a-form-actions {
+  padding-bottom: 0!important;
+}
+
+.a-form-actions {
+  border-top: 1px solid #ddd;
+  background-color: #f3f3f3;
+  background: #f9f9f9;
+  background: -webkit-linear-gradient(top,#f3f3f3,#fff);
+  background: linear-gradient(to bottom,#f3f3f3,#fff);
+  box-shadow: 0 1px 1px rgba(0,0,0,.05) inset;
+  padding: 14px;
+  text-align: right;
+}
+
+.pop-create .reg-create-form {
+  margin-bottom: 0;
+}
