@@ -143,9 +143,11 @@
             <a href="/" class="nav-link nav-item">
               <div class="nav-text">バーチャルダッシュ</div>
             </a>
-            <a href="/" class="nav-link nav-item">
+            <%= link_to user_wanted_path(current_user, @default_wanted), class: "nav-link nav-item" do %>
+            <!--<a href="/" class="nav-link nav-item">-->
               <div class="nav-text">ほしい物リスト</div>
-            </a>
+            <!--</a>-->
+            <% end %>
             <a href="/" class="nav-link nav-item">
               <div class="nav-text">おすすめ商品</div>
             </a>
