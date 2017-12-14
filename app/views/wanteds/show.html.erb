@@ -50,7 +50,6 @@
                 </form>
                 <div class="a-section a-spacing-top-small">
                   <% @wanteds.each do |wanted| %>
-                    <!--<a id="wl-list-link-1L0H15BKJQILN" class="a-link-normal a-declarative hover-as-link hover-as-link-wanteds" href="/hz/wishlist/ls/1L0H15BKJQILN">-->
                     <%= link_to user_wanted_path(user_id: @user_id, id: wanted.id), id: "wl-list-link-1L0H15BKJQILN", class: "a-link-normal a-declarative hover-as-link hover-as-link-wanteds" do %>
                       <div class="a-fixed-right-grid wl-list <%= 'selected' if wanted.id == @selected_id %> a-spacing-micro a-spacing-top-micro">
                         <div class="a-fixed-right-grid-inner" style="padding-right:78px">
@@ -70,7 +69,6 @@
                         </div>
                       </div>
                     <% end %>
-                    <!--</a>-->
                   <% end %>
                 </div>
               </div>
@@ -172,7 +170,6 @@
                   <div class="a-section a-spacing-none">
                     <div id="g-items" class="a-section a-spacing-none g-items-section ui-sortable">
                       <% @selected_wanted_products.each do |product| %>
-                        <!-- ★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆ -->
                         <div class="a-section a-spacing-none g-item-sortable">
                           <hr class="a-spacing-none a-divider-normal">
                           <div id="item_<%= product.id %>" class="a-fixed-left-grid a-spacing-none">
@@ -274,7 +271,7 @@
                                         </div>
                                       </div>
                                     </div>
-                                    <div id="itemAction_<%= product.id %>" class="a-fixed-right-grid-col dateAddedText a-col-right" style="width:220px;margin-right:-220px;float:left;">
+                                    <div id="beforeMoveToCart_<%= product.id %>" class="a-fixed-right-grid-col dateAddedText a-col-right" style="width:220px;margin-right:-220px;float:left;">
                                       <span id="itemAddedDate_<%= product.id %>" class="a-size-small">追加商品
                                         <span class="a-letter-space"></span><%= @update_datetimes[product.id] %>
                                       </span>
@@ -282,8 +279,7 @@
                                         <span class="a-declarative" id="pab-declarative-<%= product.id %>">
                                           <span id="pab-<%= product.id %>" class="a-button a-button-primary wl-info-aa_add_to_cart">
                                             <span class="a-button-inner">
-                                              <!--<a id="pab-<%= product.id %>-announce" href="/" class="a-button-text" role="button" style="background-color: #f0c14b; background: linear-gradient(to bottom,#f7dfa5,#f0c14b);">カートに入れる</a>-->
-                                              <%= link_to "カートに入れる", product_cart_products_path(product, cart_product: {product_count: 1}), id: "pab-#{product.id}-announce", class: "a-button-text", role: "button", style: "background-color: #f0c14b; background: linear-gradient(to bottom,#f7dfa5,#f0c14b);", method: :post %>
+                                              <%= link_to "カートに入れる", product_cart_products_path(product), id: "move-to-cart-#{product.id}", class: "a-button-text", data: {id: product.id}, role: "button", style: "background-color: #f0c14b; background: linear-gradient(to bottom,#f7dfa5,#f0c14b);", method: :post %>
                                             </span>
                                           </span>
                                           <span></span>
@@ -327,13 +323,37 @@
                                         </div>
                                       </div>
                                     </div>
+                                    <div id="afterMoveToCart_<%= product.id %>" class="a-fixed-right-grid-col dateAddedText a-col-right" style="width: 220px; margin-right: -220px; float: left; display: none">
+                                      <div class="a-row a-spacing-top-none a-alert g-cart-msg a-alert-success" style="opacity: 1;">
+                                        <i class="a-icon a-icon-alert"></i><h4 class="a-color-success a-inline-block">追加されました</h4>
+                                      </div>
+                                      <div class="a-button-stack a-spacing-mini a-spacing-top-micro">
+                                        <span class="a-button a-button-primary g-cart-checkout-btn">
+                                          <span class="a-button-inner">
+                                            <a href="/gp/cart/view.html/ref=cm_wl_co_?ie=UTF8&amp;hasWorkingJavascript=1&amp;proceedToCheckout.x=1" class="a-button-text" role="button">レジに進む</a>
+                                          </span>
+                                        </span>
+                                        <span class="a-button a-button-small g-cart-view-btn">
+                                          <span class="a-button-inner">
+                                            <a href="/gp/cart/view.html/ref=cm_wl_vc_" class="a-button-text" role="button">カートを見る</a>
+                                          </span>
+                                        </span>
+                                      </div>
+                                      <div class="a-row">
+                                        <div id="itemGiftOption_C1129AAGIGUM0Z" class="a-checkbox a-declarative">
+                                          <label>
+                                            <input type="checkbox" name="item-is-gift" value="">
+                                            <i class="a-icon a-icon-checkbox"></i><span class="a-label a-checkbox-label">ギフトの設定</span>
+                                          </label>
+                                        </div>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                        <!-- ★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆ -->
                     <% end %>
                     </div>
                   </div>
