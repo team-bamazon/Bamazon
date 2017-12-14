@@ -181,9 +181,14 @@
                                 <div class="a-fixed-left-grid">
                                   <div class="a-fixed-left-grid-inner" style="padding-left:35px">
                                     <div id="itemImage_<%= product.id %>" class="a-text-center a-fixed-left-grid-col g-itemImage g-item-sortable-padding a-col-right" style="padding-left:0%;*width:99.6%;float:left;">
-                                      <%= link_to product_path(product), class: "a-link-normal", title: product.name do %>
-                                        <!--画像有無で表示を変える分岐が必要-->
-                                        <%= image_tag product.product_images[0].image, alt: product.name, style: "max-height: 160px;" %>
+                                      <% if product.product_images.present? %>
+                                        <%= link_to product_path(product), class: "a-link-normal", title: product.name do %>
+                                          <%= image_tag product.product_images[0].image, alt: product.name, style: "max-height: 160px;" %>
+                                        <% end %>
+                                      <% else %>
+                                        <%= link_to product_path(product), class: "a-link-normal", title: product.name do %>
+                                          <%= image_tag "https://images-fe.ssl-images-amazon.com/images/G/09/icons/books/comingsoon_books._V376986337_BO1,204,203,200_.gif", alt: product.name, style: "max-height: 160px;" %>
+                                        <% end %>
                                       <% end %>
                                     </div>
                                   </div>
