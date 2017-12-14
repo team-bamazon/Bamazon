@@ -7,6 +7,8 @@ class WantedsController < ApplicationController
     @selected_id = @selected_wanted.id
     @user_id = params[:user_id]
 
-    @update_datetimes = Hash[@selected_wanted.wanted_products.map{|wp| [wp.product_id, wp.updated_at.strftime("%m月 %d %Y")]}]
+    if @selected_wanted.wanted_products.present?
+      @update_datetimes = Hash[@selected_wanted.wanted_products.map{|wp| [wp.product_id, wp.updated_at.strftime("%m月 %d %Y")]}]
+    end
   end
 end

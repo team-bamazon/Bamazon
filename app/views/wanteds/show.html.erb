@@ -282,7 +282,8 @@
                                         <span class="a-declarative" id="pab-declarative-<%= product.id %>">
                                           <span id="pab-<%= product.id %>" class="a-button a-button-primary wl-info-aa_add_to_cart">
                                             <span class="a-button-inner">
-                                              <a id="pab-<%= product.id %>-announce" href="/" class="a-button-text" role="button" style="background-color: #f0c14b; background: linear-gradient(to bottom,#f7dfa5,#f0c14b);">カートに入れる</a>
+                                              <!--<a id="pab-<%= product.id %>-announce" href="/" class="a-button-text" role="button" style="background-color: #f0c14b; background: linear-gradient(to bottom,#f7dfa5,#f0c14b);">カートに入れる</a>-->
+                                              <%= link_to "カートに入れる", product_cart_products_path(product), id: "pab-#{product.id}-announce", class: "a-button-text", role: "button", style: "background-color: #f0c14b; background: linear-gradient(to bottom,#f7dfa5,#f0c14b);", method: :post, cart_product: {product_count: 1} %>
                                             </span>
                                           </span>
                                           <span></span>
