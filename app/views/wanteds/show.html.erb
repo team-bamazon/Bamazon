@@ -65,7 +65,7 @@
                             <% end %>
                           </div>
                           <div id="wl-list-privacy-1L0H15BKJQILN" class="a-fixed-right-grid-col wl-list-privacy a-col-right" style="width:78px;margin-right:-78px;float:left;">
-                            <span class="hover-as-link a-text-normal"><% if wanted.open_flg? %>公開<% else %>非公開<% end %></span>
+                            <span class="hover-as-link a-text-normal"><%= wanted.open_flg? ? "公開" : "非公開" %></span>
                           </div>
                         </div>
                       </div>
@@ -81,11 +81,11 @@
                   <div id="wl-list-info" class="a-row a-spacing-small">
                     <div class="a-column a-span8 a-spacing-top-small">
                       <div class="a-row">
-                        <span id="profile-list-name" class="a-size-medium a-text-bold">保存と比較</span>
+                        <span id="profile-list-name" class="a-size-medium a-text-bold"><%= @selected_wanted.name %></span>
                         <span class="a-letter-space"></span>
                         <span class="a-letter-space"></span>
                         <span class="aok-nowrap">
-                          <span id="listPrivacy" class="a-color-secondary">非公開</span>
+                          <span id="listPrivacy" class="a-color-secondary"><%= @selected_wanted.open_flg? ? "公開" : "非公開" %></span>
                           <span class="a-letter-space"></span>
                           <span class="a-letter-space"></span>
                           <span class="a-declarative">
