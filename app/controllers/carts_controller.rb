@@ -1,5 +1,4 @@
 class CartsController < ApplicationController
-  def show
-
+  def edit
   end
 end
