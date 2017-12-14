@@ -4,7 +4,6 @@ class CartProductsController < ApplicationController
   end
 
   def create
-    binding.pry
     if CartProduct.find_by(product_id: cart_product_params[:product_id], cart_id: cart_product_params[:cart_id]).present?
 
       @cart_product = CartProduct.find_by(product_id: cart_product_params[:product_id], cart_id: cart_product_params[:cart_id])
