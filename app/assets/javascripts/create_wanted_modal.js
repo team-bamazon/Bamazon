@@ -1,21 +1,21 @@
 $(document).on('turbolinks:load', function () {
     $(function(){
         //テキストリンクをクリックしたら
-        $("#modal-open").click(function(){
-            //body内の最後に<div id="modal-bg"></div>を挿入
-            $("body").append('<div id="modal-bg"></div>');
+        $("#create-wanted-modal-open").click(function(){
+            //body内の最後に<div id="create-wanted-modal-bg"></div>を挿入
+            $("body").append('<div id="create-wanted-modal-bg"></div>');
 
             //画面中央を計算する関数を実行
             modalResize_firsttime();
 
             //モーダルウィンドウを表示
-            $("#modal-bg,#modal-main").fadeIn("slow");
+            $("#create-wanted-modal-bg,#create-wanted-modal-main").fadeIn("slow");
 
             //背景のどこか、またはキャンセルボタンをクリックしたらモーダルを閉じる
-            $("#modal-bg,#cancel_button").click(function(){
-                $("#modal-main,#modal-bg").fadeOut("slow",function(){
+            $("#create-wanted-modal-bg,#cancel_button").click(function(){
+                $("#create-wanted-modal-main,#create-wanted-modal-bg").fadeOut("slow",function(){
                     //挿入した<div id="modal-bg"></div>を削除
-                    $('#modal-bg').remove() ;
+                    $('#create-wanted-modal-bg').remove() ;
                 });
             });
 
@@ -26,7 +26,7 @@ $(document).on('turbolinks:load', function () {
                 var w = $(window).width();
                 var h = $(window).height();
                 var tgt = $("#a-popover-1");
-                var tgt_parent = $("#modal-main");
+                var tgt_parent = $("#create-wanted-modal-main");
 
                 tgt_parent.css({
                     'display':'block',
@@ -52,7 +52,7 @@ $(document).on('turbolinks:load', function () {
                 var w = $(window).width();
                 var h = $(window).height();
                 var tgt = $("#a-popover-1");
-                var tgt_parent = $("#modal-main");
+                var tgt_parent = $("#create-wanted-modal-main");
 
                 var cw = tgt.outerWidth();
                 var ch = tgt.outerHeight();

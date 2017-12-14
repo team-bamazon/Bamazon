@@ -1,5 +1,5 @@
 <%= render partial: 'layouts/header' %>
-<div id="modal-main">
+<div id="create-wanted-modal-main">
   <div class="a-popover a-popover-modal a-declarative pop-create" id="a-popover-1" aria-hidden="false" style="width: 639px; max-width: none; visibility: visible; margin: 0px; opacity: 1; display: block; padding: 0;">
     <span tabindex="0" role="dialog" class="a-popover-start a-popover-a11y-offscreen" aria-labelledby="a-popover-header-1"></span>
     <div class="a-popover-wrapper" aria-busy="false">
@@ -103,14 +103,14 @@
   <div id="wishlist-page" class="a-tab-container">
     <ul data-action="a-tabs" class="a-tabs a-declarative">
       <li id="my-lists-tab" class="a-tab-heading a-active a-size-large">
-        <a href="/gp/registry/wishlist/ref=cm_wl_your_lists">マイリスト</a>
+        <a href="#">マイリスト</a>
       </li>
       <!--<li id="friends-tab" class="a-tab-heading a-size-large" data-a-tab-name="friends-tab">-->
       <!--<a href="/gp/registry/search.html/ref=cm_wl_search_wlv_hz?type=wishlist">友達</a>-->
       <!--</li>-->
       <div class="a-section a-spacing-top-medium a-text-right">
         <span class="a-declarative">
-          <a id="modal-open" class="a-link-normal">ほしい物リストを作成する</a>
+          <a id="create-wanted-modal-open" class="a-link-normal">ほしい物リストを作成する</a>
         </span>
       </div>
     </ul>
@@ -167,7 +167,7 @@
                           <span class="a-letter-space"></span>
                           <span class="a-letter-space"></span>
                           <span class="a-declarative">
-                            <a id="editYourList" class="a-link-normal editYourListTrigger" href="/hz/wishlist/settings/DBYTVA9Z88U?type=wishlist">このリストを編集する</a>
+                            <a id="editYourList" class="a-link-normal editYourListTrigger" href="#">このリストを編集する</a>
                           </span>
                         </span>
                       </div>
@@ -370,18 +370,9 @@
                                             <div class="a-column a-span6">
                                               <input type="hidden" name="" value="ASIN:B00JC2DHDO|A1VC38T7YXB528" id="move_itemExternalId_<%= product.id %>" style="height: auto;">
                                               <span class="a-dropdown-container">
-                                                <select name="reg-item-move" autocomplete="off" id="move_<%= product.id %>" class="a-native-dropdown g-move-button-native">
-                                                  <option class="a-prompt" value="" disabled="" selected="selected">移動</option>
-                                                  <option value="<%= product.id %>:1L0H15BKJQILN:DBYTVA9Z88U:WishList:0:358-9869141-7012436:wishlist" data-a-css-class="move-item-dropdown g-move-option"  data-a-html-content="<span class=&quot;a-size-base a-text-ellipsis&quot;>保存と比較</span>">保存と比較</option>
-                                                </select>
-                                                <span class="a-button a-button-dropdown a-button-small g-move-button" id="a-autoid-11" style="min-width: 0%;">
-                                                  <span class="a-button-inner">
-                                                    <span class="a-button-text a-declarative" role="button" id="a-autoid-11-announce">
-                                                      <span class="a-dropdown-prompt">移動</span>
-                                                    </span>
-                                                    <i class="a-icon a-icon-dropdown"></i>
-                                                  </span>
-                                                </span>
+                                                <%= form_for [current_user, @tmp_wanted_product] do |ff| %>
+                                                  <%= select :product, :wanted_id, Wanted.pluck(:name, :id).delete_if{|list| list[1] == @selected_wanted.id}, { prompt: '移動' }, class: "a-native-dropdown g-move-button-native" %>
+                                                <% end %>
                                               </span>
                                             </div>
                                             <div class="a-column a-span6 a-span-last">

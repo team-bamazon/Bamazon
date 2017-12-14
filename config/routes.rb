@@ -21,10 +21,10 @@ Rails.application.routes.draw do
     resources :addresses, only: [:new, :create, :destroy, :edit, :update]
     resources :payment_informations, only: [:index, :create, :destroy, :edit, :update]
     resources :wanteds, only: [:show, :create]
+    resources :wanted_products, only: [:update]
   end
 
   resources :products, only: [:show] do
-    resources :wanted_products, only: [:create, :destroy, :edit, :update]
     resources :cart_products, only: [:create, :destroy, :edit, :update]
     collection do
       get   'search'
