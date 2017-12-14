@@ -364,34 +364,35 @@
                                           </span>
                                           <span></span>
                                         </span>
-                                        <%= form_for [current_user, w_p] do |ff| %>
-                                          <div class="a-row a-spacing-small">
-                                            <!-- 現状高さを何で指定しているかわからない、直に指定しても効かない -->
-                                            <div class="a-section g-visible-js" style="margin-bottom: 22px;">
-                                              <div class="a-column a-span6">
-                                                <span class="a-dropdown-container">
-                                                    <%= ff.label :wanted_id , style: "display: none;" %>
-                                                    <%= ff.select :wanted_id, Wanted.pluck(:name, :id).delete_if{|list| list[1] == @selected_wanted.id}, {prompt: '移動'}, {class: "a-native-dropdown g-move-button-native"} %>
-                                                </span>
-                                              </div>
-                                              <div class="a-column a-span6 a-span-last">
-                                                <form method="post" action="">
-                                                  <input type="hidden" name="id" value="1L0H15BKJQILN">
-                                                  <input type="hidden" name="itemId" value="I2IDZDYY80IQ76">
-                                                  <input type="hidden" name="sid" value="358-9869141-7012436">
-                                                  <span class="a-declarative">
-                                                    <span class="a-button a-button-small" id="a-autoid-12">
-                                                      <span class="a-button-inner">
-                                                        <input name="submit.deleteItem" class="a-button-input a-declarative" type="submit" aria-labelledby="a-autoid-12-announce">
-                                                        <span class="a-button-text" aria-hidden="true" id="a-autoid-12-announce">削除</span>
-                                                      </span>
+                                        <div class="a-row a-spacing-small">
+                                          <!-- 現状高さを何で指定しているかわからない、直に指定しても効かない -->
+                                          <div class="a-section g-visible-js" style="margin-bottom: 22px;">
+                                            <div class="a-column a-span6">
+                                              <span class="a-dropdown-container">
+                                                <%= form_for [current_user, w_p] do |ff| %>
+                                                  <%= ff.label :wanted_id , style: "display: none;" %>
+                                                  <%= ff.hidden_field :selected_wanted_id, value: @selected_wanted.id %>
+                                                  <%= ff.select :wanted_id, Wanted.pluck(:name, :id).delete_if{|list| list[1] == @selected_wanted.id}, {include_blank: '移動', selected: '移動'}, {id: "wanted-selector-#{w_p.id}", class: "a-native-dropdown g-move-button-native", data: {wpid: w_p.id}} %>
+                                                <% end %>
+                                              </span>
+                                            </div>
+                                            <div class="a-column a-span6 a-span-last">
+                                              <form method="post" action="">
+                                                <input type="hidden" name="id" value="1L0H15BKJQILN">
+                                                <input type="hidden" name="itemId" value="I2IDZDYY80IQ76">
+                                                <input type="hidden" name="sid" value="358-9869141-7012436">
+                                                <span class="a-declarative">
+                                                  <span class="a-button a-button-small" id="a-autoid-12">
+                                                    <span class="a-button-inner">
+                                                      <input name="submit.deleteItem" class="a-button-input a-declarative" type="submit" aria-labelledby="a-autoid-12-announce">
+                                                      <span class="a-button-text" aria-hidden="true" id="a-autoid-12-announce">削除</span>
                                                     </span>
                                                   </span>
-                                                </form>
-                                              </div>
+                                                </span>
+                                              </form>
                                             </div>
                                           </div>
-                                        <% end %>
+                                        </div>
                                       </div>
                                     </div>
                                     <div id="afterMoveToCart_<%= w_p.product.id %>" class="a-fixed-right-grid-col dateAddedText a-col-right" style="width: 220px; margin-right: -220px; float: left; display: none">
