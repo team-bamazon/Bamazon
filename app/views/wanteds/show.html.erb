@@ -171,7 +171,7 @@
                 <div id="item-page-wrapper" class="a-section">
                   <div class="a-section a-spacing-none">
                     <div id="g-items" class="a-section a-spacing-none g-items-section ui-sortable">
-                      <% @wanted_products.each do |product| %>
+                      <% @selected_wanted_products.each do |product| %>
                         <!-- ★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆ -->
                         <div class="a-section a-spacing-none g-item-sortable">
                           <hr class="a-spacing-none a-divider-normal">
@@ -276,7 +276,7 @@
                                     </div>
                                     <div id="itemAction_<%= product.id %>" class="a-fixed-right-grid-col dateAddedText a-col-right" style="width:220px;margin-right:-220px;float:left;">
                                       <span id="itemAddedDate_<%= product.id %>" class="a-size-small">追加商品
-                                        <span class="a-letter-space"></span>10月 20, 2017
+                                        <span class="a-letter-space"></span><%= @update_datetimes[product.id] %>
                                       </span>
                                       <div class="a-button-stack a-spacing-top-small">
                                         <span class="a-declarative" id="pab-declarative-<%= product.id %>">
@@ -337,7 +337,7 @@
                     </div>
                   </div>
                 </div>
-                <% if @wanted_products.blank? %>
+                <% if @selected_wanted_products.blank? %>
                   <hr class="a-divider-normal">
                   <div id="no-items-section" class="a-section a-spacing-none a-text-center">
                     <span class="aok-inline-block">
