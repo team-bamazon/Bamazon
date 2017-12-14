@@ -302,8 +302,8 @@ a.hover-as-link-wanteds:hover {
 
 #modal-main {
   display: none;
-  width: 639px;
-  height: 300px;
+  //width: 639px;
+  //height: 300px;
   margin: 0;
   padding: 0;
   background-color: #ffffff;
@@ -394,4 +394,14 @@ a.hover-as-link-wanteds:hover {
 
 .pop-create .reg-create-form {
   margin-bottom: 0;
+}
+
+.a-button-primary .a-button-inner {
+  background: #f4d078;
+  background: -webkit-linear-gradient(top,#f7dfa5,#f0c14b);
+  background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
+}
+
+.pop-create .fix-width-x-large {
+  width: 293px!important;
 }

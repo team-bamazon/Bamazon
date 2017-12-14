@@ -1,6 +1,6 @@
 <%= render partial: 'layouts/header' %>
 <div id="modal-main">
-  <div class="a-popover a-popover-modal a-declarative pop-create" id="a-popover-1" aria-hidden="false" style="width: 100%; max-width: none; visibility: visible; margin: 0px; opacity: 1; display: block; padding: 0;">
+  <div class="a-popover a-popover-modal a-declarative pop-create" id="a-popover-1" aria-hidden="false" style="width: 639px; max-width: none; visibility: visible; margin: 0px; opacity: 1; display: block; padding: 0;">
     <span tabindex="0" role="dialog" class="a-popover-start a-popover-a11y-offscreen" aria-labelledby="a-popover-header-1"></span>
     <div class="a-popover-wrapper" aria-busy="false">
       <div class="a-popover-header" style="">
@@ -10,31 +10,38 @@
         <h4 class="a-popover-header-content" id="a-popover-header-1">ほしい物リストを作成する</h4>
       </div>
       <div class="a-popover-inner a-padding-none" id="a-popover-content-1" style="height: auto; overflow-y: auto;">
-        <form method="post" action="/gp/registry/wishlist" class="reg-create-form">
+        <%= form_for [current_user, @new_wanted], html: {class: "reg-create-form"} do |f| %>
           <div class="a-section a-spacing-none a-padding-medium inner-padding">
             <div id="WLNEW_section_wlName" class="a-row a-spacing-none">
               <div class="a-row">
                 <div class="a-column a-span6 a-spacing-medium">
-                  <label for="WLNEW_list_name" class="a-form-label">リストの名前</label>
-                  <input type="text" value="ほしい物リスト" id="WLNEW_list_name" name="create-name" class="a-input-text fix-width-x-large">
+                  <%= f.label :name, "リストの名前", class: "a-form-label" %>
+                  <%= f.text_field :name, class: "a-input-text fix-width-x-large" %>
                 </div>
                 <div class="a-column a-span6 a-spacing-medium a-span-last">
-                  <label for="WLNEW_list_name" class="a-form-label">公開/非公開の設定</label>
+                  <%= f.label :open_flg, "公開/非公開の設定", class: "a-form-label" %>
                   <ul class="a-unordered-list a-nostyle a-button-list a-declarative a-button-toggle-group a-horizontal privacy_buttons_margin" role="radiogroup">
                     <span class="a-declarative">
-                      <span id="WLNEW_privacy_private" class="a-button a-button-selected a-button-toggle">
+                      <span id="privacy_button_private" class="a-button a-button-selected a-button-toggle">
                         <span class="a-button-inner">
-                          <input class="a-button-input a-declarative" type="submit" aria-labelledby="WLNEW_privacy_private-announce">
-                          <span id="WLNEW_privacy_private-announce" class="a-button-text" aria-hidden="true">非公開</span>
+                          <%= button_tag "", type: 'button',id: "privacy_button_private_btn", class: "a-button-input a-declarative" %>
+                          <%= f.radio_button :open_flg, false, id: "radio_privacy_private", style: "display: none;", checked: "checked" %>
+                          <%= f.label :open_flg, class: "radio" do %>
+                            <span class="a-button-text">非公開</span>
+                          <% end %>
                         </span>
                       </span>
                     </span>
                     <span class="a-letter-space"></span>
                     <span class="a-declarative">
-                      <span id="WLNEW_privacy_public" class="a-button a-button-toggle">
+                      <span id="privacy_button_public" class="a-button a-button-toggle">
                         <span class="a-button-inner">
-                          <input class="a-button-input a-declarative" type="submit" aria-labelledby="WLNEW_privacy_public-announce">
-                          <span id="WLNEW_privacy_public-announce" class="a-button-text" aria-hidden="true">公開</span>
+                          <%= button_tag "", type: 'button', id: "privacy_button_public_btn", class: "a-button-input a-declarative" %>
+                          <!--<input class="a-button-input a-declarative" type="submit">-->
+                          <%= f.radio_button :open_flg, true, id: "radio_privacy_public", style: "display: none;" %>
+                          <%= f.label :open_flg, class: "radio" do %>
+                            <span class="a-button-text">公開</span>
+                          <% end %>
                         </span>
                       </span>
                     </span>
@@ -51,7 +58,7 @@
             <span class="a-declarative">
               <span id="WLNEW_cancel" class="a-button">
                 <span class="a-button-inner">
-                  <input class="a-button-input a-declarative" type="submit" aria-labelledby="WLNEW_cancel-announce">
+                  <%= button_tag type: 'button', id: "cancel_button", class: "a-button-input a-declarative" %>
                   <span id="WLNEW_cancel-announce" class="a-button-text" aria-hidden="true">キャンセル</span>
                 </span>
               </span>
@@ -60,13 +67,13 @@
             <span class="a-declarative">
               <span class="a-button a-button-primary">
                 <span class="a-button-inner">
-                  <input class="a-button-input a-declarative" type="submit">
+                  <%= f.submit class: "a-button-input a-declarative" %>
                   <span class="a-button-text" aria-hidden="true">リストを作成</span>
                 </span>
               </span>
             </span>
           </div>
-        </form>
+        <% end %>
       </div>
     </div>
     <span tabindex="0" class="a-popover-end a-popover-a11y-offscreen"></span>

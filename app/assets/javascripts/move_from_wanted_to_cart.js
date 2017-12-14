@@ -4,7 +4,6 @@ $(document).on('turbolinks:load', function () {
        e.stopPropagation();
        var url = $(this).attr("href");
        var product_id = $(this).data("id");
-       var link_button = $(this);
 
        $.ajax({
            type:     'POST',

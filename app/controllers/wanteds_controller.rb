@@ -1,5 +1,8 @@
 class WantedsController < ApplicationController
   def show
+    # create用のフォームがあるのでここでnewする。
+    @new_wanted = Wanted.new(name:"ほしい物リスト")
+
     @wanteds = User.find(params[:user_id]).wanteds
     @selected_wanted = Wanted.find(params[:id])
 
