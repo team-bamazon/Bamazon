@@ -10,7 +10,12 @@ class WantedProductsController < ApplicationController
   end
 
   def destroy
-    # 削除機能を作りたい
+    target_w_p = WantedProduct.find(params[:id])
+    target_w_p.delete
+
+    # もともと開いていた欲しいものリストに戻る処理
+    selected_wanted = Wanted.find(params[:selected_wanted_id])
+    redirect_to user_wanted_path(current_user, selected_wanted)
   end
 
   private

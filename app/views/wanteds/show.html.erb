@@ -369,10 +369,10 @@
                                           <div class="a-section g-visible-js" style="margin-bottom: 22px;">
                                             <div class="a-column a-span6">
                                               <span class="a-dropdown-container">
-                                                <%= form_for [current_user, w_p] do |ff| %>
-                                                  <%= ff.label :wanted_id , style: "display: none;" %>
-                                                  <%= ff.hidden_field :selected_wanted_id, value: @selected_wanted.id %>
-                                                  <%= ff.select :wanted_id, Wanted.pluck(:name, :id).delete_if{|list| list[1] == @selected_wanted.id}, {include_blank: '移動', selected: '移動'}, {id: "wanted-selector-#{w_p.id}", class: "a-native-dropdown g-move-button-native", data: {wpid: w_p.id}} %>
+                                                <%= form_for [current_user, w_p] do |f2| %>
+                                                  <%= f2.label :wanted_id , style: "display: none;" %>
+                                                  <%= f2.hidden_field :selected_wanted_id, value: @selected_wanted.id %>
+                                                  <%= f2.select :wanted_id, Wanted.pluck(:name, :id).delete_if{|list| list[1] == @selected_wanted.id}, {include_blank: '移動', selected: '移動'}, {id: "wanted-selector-#{w_p.id}", class: "a-native-dropdown g-move-button-native", data: {wpid: w_p.id}} %>
                                                 <% end %>
                                               </span>
                                             </div>
@@ -384,8 +384,10 @@
                                                 <span class="a-declarative">
                                                   <span class="a-button a-button-small" id="a-autoid-12">
                                                     <span class="a-button-inner">
-                                                      <input name="submit.deleteItem" class="a-button-input a-declarative" type="submit" aria-labelledby="a-autoid-12-announce">
-                                                      <span class="a-button-text" aria-hidden="true" id="a-autoid-12-announce">削除</span>
+                                                      <%= link_to  user_wanted_product_path(current_user, w_p, selected_wanted_id: @selected_wanted.id), method: :delete do %>
+                                                        <input name="submit.deleteItem" class="a-button-input a-declarative" type="submit" aria-labelledby="a-autoid-12-announce">
+                                                        <span class="a-button-text" aria-hidden="true" id="a-autoid-12-announce">削除</span>
+                                                      <% end %>
                                                     </span>
                                                   </span>
                                                 </span>
