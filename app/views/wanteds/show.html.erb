@@ -1,5 +1,76 @@
 <%= render partial: 'layouts/header' %>
-<div id="modal-main">モーダルウィンドウ
+<div id="modal-main">
+  <div class="a-popover a-popover-modal a-declarative pop-create" id="a-popover-1" aria-hidden="false" style="width: 639px; max-width: none; visibility: visible; position: absolute; margin: 0px; top: 77.5px; left: 448.5px; opacity: 1; display: block;">
+    <span tabindex="0" role="dialog" class="a-popover-start a-popover-a11y-offscreen" aria-labelledby="a-popover-header-1"></span>
+    <div class="a-popover-wrapper" aria-busy="false">
+      <div class="a-popover-header" style="">
+        <button class=" a-button-close a-declarative" aria-label="Close">
+          <i class="a-icon a-icon-close"></i>
+        </button>
+        <h4 class="a-popover-header-content" id="a-popover-header-1">ほしい物リストを作成する</h4>
+      </div>
+      <div class="a-popover-inner a-padding-none" id="a-popover-content-1" style="height: auto; overflow-y: auto;">
+        <form method="post" action="/gp/registry/wishlist" class="reg-create-form">
+          <div class="a-section a-spacing-none a-padding-medium inner-padding">
+            <div id="WLNEW_section_wlName" class="a-row a-spacing-none">
+              <div class="a-row">
+                <div class="a-column a-span6 a-spacing-medium">
+                  <label for="WLNEW_list_name" class="a-form-label">リストの名前</label>
+                  <input type="text" value="ほしい物リスト" id="WLNEW_list_name" name="create-name" class="a-input-text fix-width-x-large">
+                </div>
+                <div class="a-column a-span6 a-spacing-medium a-span-last">
+                  <label for="WLNEW_list_name" class="a-form-label">公開/非公開の設定</label>
+                  <ul class="a-unordered-list a-nostyle a-button-list a-declarative a-button-toggle-group a-horizontal privacy_buttons_margin" role="radiogroup">
+                    <span class="a-declarative">
+                      <span id="WLNEW_privacy_private" class="a-button a-button-selected a-button-toggle">
+                        <span class="a-button-inner">
+                          <input class="a-button-input a-declarative" type="submit" aria-labelledby="WLNEW_privacy_private-announce">
+                          <span id="WLNEW_privacy_private-announce" class="a-button-text" aria-hidden="true">非公開</span>
+                        </span>
+                      </span>
+                    </span>
+                    <span class="a-letter-space"></span>
+                    <span class="a-declarative">
+                      <span id="WLNEW_privacy_public" class="a-button a-button-toggle">
+                        <span class="a-button-inner">
+                          <input class="a-button-input a-declarative" type="submit" aria-labelledby="WLNEW_privacy_public-announce">
+                          <span id="WLNEW_privacy_public-announce" class="a-button-text" aria-hidden="true">公開</span>
+                        </span>
+                      </span>
+                    </span>
+                  </ul>
+                  <div class="a-row">
+                    <span id="private_blurb" class="a-size-small a-color-tertiary">ほかの人が閲覧することはできません</span>
+                    <span id="public_blurb" class="a-size-small a-color-tertiary a-hidden">ユーザーはあなたの公開リストを検索でき、あなたの公開プロフィール上で公開リストを閲覧できます。</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="a-form-actions">
+            <span class="a-declarative">
+              <span id="WLNEW_cancel" class="a-button">
+                <span class="a-button-inner">
+                  <input class="a-button-input a-declarative" type="submit" aria-labelledby="WLNEW_cancel-announce">
+                  <span id="WLNEW_cancel-announce" class="a-button-text" aria-hidden="true">キャンセル</span>
+                </span>
+              </span>
+            </span>
+            <span class="a-letter-space"></span>
+            <span class="a-declarative">
+              <span class="a-button a-button-primary">
+                <span class="a-button-inner">
+                  <input class="a-button-input a-declarative" type="submit">
+                  <span class="a-button-text" aria-hidden="true">リストを作成</span>
+                </span>
+              </span>
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+    <span tabindex="0" class="a-popover-end a-popover-a11y-offscreen"></span>
+  </div>
 </div>
 <div id="nav-subnav">
   <a href="/gp/registry/wishlist/ref=topnav_storetab_wl/358-9869141-7012436" class="nav-a nav-b" tabindex="31">
