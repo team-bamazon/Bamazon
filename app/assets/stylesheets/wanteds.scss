@@ -291,3 +291,13 @@ a.hover-as-link-wanteds:hover {
   margin-left: 35px;
   margin-right: 5px;
 }
+
+.a-button-stack .a-button:last-child {
+  margin-bottom: 0;
+}
+
+.a-button-stack .a-button+.a-button {
+  margin-left: 0;
+}
+
+

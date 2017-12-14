@@ -325,26 +325,25 @@
                                     </div>
                                     <div id="afterMoveToCart_<%= product.id %>" class="a-fixed-right-grid-col dateAddedText a-col-right" style="width: 220px; margin-right: -220px; float: left; display: none">
                                       <div class="a-row a-spacing-top-none a-alert g-cart-msg a-alert-success" style="opacity: 1;">
-                                        <i class="a-icon a-icon-alert"></i><h4 class="a-color-success a-inline-block">追加されました</h4>
+                                        <!-- <i class="a-icon a-icon-alert"></i> -->
+                                        <h4 class="a-color-success a-inline-block">追加されました</h4>
                                       </div>
                                       <div class="a-button-stack a-spacing-mini a-spacing-top-micro">
                                         <span class="a-button a-button-primary g-cart-checkout-btn">
                                           <span class="a-button-inner">
-                                            <a href="/gp/cart/view.html/ref=cm_wl_co_?ie=UTF8&amp;hasWorkingJavascript=1&amp;proceedToCheckout.x=1" class="a-button-text" role="button">レジに進む</a>
+                                            <%= link_to "レジに進む", "/", class: "a-button-text", role: "button", style: "background-color: #f0c14b; background: linear-gradient(to bottom,#f7dfa5,#f0c14b)" %>
                                           </span>
                                         </span>
-                                        <span class="a-button a-button-small g-cart-view-btn">
+                                        <span class="a-button a-button-small g-cart-view-btn" style="width: 100%; float: auto;">
                                           <span class="a-button-inner">
-                                            <a href="/gp/cart/view.html/ref=cm_wl_vc_" class="a-button-text" role="button">カートを見る</a>
+                                            <%= link_to "カートを見る", edit_cart_path(current_user.cart), class: "a-button-text", role: "button" %>
                                           </span>
                                         </span>
                                       </div>
                                       <div class="a-row">
                                         <div id="itemGiftOption_C1129AAGIGUM0Z" class="a-checkbox a-declarative">
-                                          <label>
-                                            <input type="checkbox" name="item-is-gift" value="">
-                                            <i class="a-icon a-icon-checkbox"></i><span class="a-label a-checkbox-label">ギフトの設定</span>
-                                          </label>
+                                          <input type="checkbox" name="item-is-gift" value="">
+                                          <i class="a-icon a-icon-checkbox"></i><span class="a-label a-checkbox-label">ギフトの設定</span>
                                         </div>
                                       </div>
                                     </div>
