@@ -1,0 +1,814 @@
+<%= render partial: 'layouts/header' %>
+<div id="create-wanted-modal-main">
+  <div class="a-popover a-popover-modal a-declarative pop-create" id="a-popover-1" aria-hidden="false" style="width: 639px; max-width: none; visibility: visible; margin: 0px; opacity: 1; display: block; padding: 0;">
+    <span tabindex="0" role="dialog" class="a-popover-start a-popover-a11y-offscreen" aria-labelledby="a-popover-header-1"></span>
+    <div class="a-popover-wrapper" aria-busy="false">
+      <div class="a-popover-header" style="">
+        <button class=" a-button-close a-declarative" aria-label="Close">
+          <i class="a-icon a-icon-close"></i>
+        </button>
+        <h4 class="a-popover-header-content" id="a-popover-header-1">ほしい物リストを作成する</h4>
+      </div>
+      <div class="a-popover-inner a-padding-none" id="a-popover-content-1" style="height: auto; overflow-y: auto;">
+        <%= form_for [current_user, @new_wanted], html: {class: "reg-create-form"} do |f| %>
+          <div class="a-section a-spacing-none a-padding-medium inner-padding">
+            <div id="WLNEW_section_wlName" class="a-row a-spacing-none">
+              <div class="a-row">
+                <div class="a-column a-span6 a-spacing-medium">
+                  <%= f.label :name, "リストの名前", class: "a-form-label" %>
+                  <%= f.text_field :name, class: "a-input-text fix-width-x-large" %>
+                </div>
+                <div class="a-column a-span6 a-spacing-medium a-span-last">
+                  <%= f.label :open_flg, "公開/非公開の設定", class: "a-form-label" %>
+                  <ul class="a-unordered-list a-nostyle a-button-list a-declarative a-button-toggle-group a-horizontal privacy_buttons_margin" role="radiogroup">
+                    <span class="a-declarative">
+                      <span id="privacy_button_private" class="a-button a-button-selected a-button-toggle">
+                        <span class="a-button-inner">
+                          <%= button_tag "", type: 'button',id: "privacy_button_private_btn", class: "a-button-input a-declarative" %>
+                          <%= f.radio_button :open_flg, false, id: "radio_privacy_private", style: "display: none;", checked: "checked" %>
+                          <%= f.label :open_flg, class: "radio" do %>
+                            <span class="a-button-text">非公開</span>
+                          <% end %>
+                        </span>
+                      </span>
+                    </span>
+                    <span class="a-letter-space"></span>
+                    <span class="a-declarative">
+                      <span id="privacy_button_public" class="a-button a-button-toggle">
+                        <span class="a-button-inner">
+                          <%= button_tag "", type: 'button', id: "privacy_button_public_btn", class: "a-button-input a-declarative" %>
+                          <%= f.radio_button :open_flg, true, id: "radio_privacy_public", style: "display: none;" %>
+                          <%= f.label :open_flg, class: "radio" do %>
+                            <span class="a-button-text">公開</span>
+                          <% end %>
+                        </span>
+                      </span>
+                    </span>
+                  </ul>
+                  <div class="a-row">
+                    <span id="private_blurb" class="a-size-small a-color-tertiary">ほかの人が閲覧することはできません</span>
+                    <span id="public_blurb" class="a-size-small a-color-tertiary a-hidden">ユーザーはあなたの公開リストを検索でき、あなたの公開プロフィール上で公開リストを閲覧できます。</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="a-form-actions">
+            <span class="a-declarative">
+              <span id="WLNEW_cancel" class="a-button">
+                <span class="a-button-inner">
+                  <%= button_tag type: 'button', id: "cancel_button", class: "a-button-input a-declarative" %>
+                  <span id="WLNEW_cancel-announce" class="a-button-text" aria-hidden="true">キャンセル</span>
+                </span>
+              </span>
+            </span>
+            <span class="a-letter-space"></span>
+            <span class="a-declarative">
+              <span class="a-button a-button-primary">
+                <span class="a-button-inner">
+                  <%= f.submit class: "a-button-input a-declarative" %>
+                  <span class="a-button-text" aria-hidden="true">リストを作成</span>
+                </span>
+              </span>
+            </span>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <span tabindex="0" class="a-popover-end a-popover-a11y-offscreen"></span>
+  </div>
+</div>
+<div id="edit-wanted-modal-main">
+  <div class="a-modal-scroller a-declarative" data-action="a-popover-floating-close" style="padding-bottom: 1px; visibility: visible;">
+    <div class="a-popover a-popover-modal a-declarative pop-list-settings" data-action="a-popover-a11y" id="a-popover-3" data-tr="4" aria-hidden="false" style="width: 500px; max-width: none; visibility: visible; position: relative; margin: 39.1px 0px 39.1px 470px; top: 0px; left: 0px; opacity: 1; display: block;">
+      <span tabindex="0" role="dialog" class="a-popover-start a-popover-a11y-offscreen" aria-labelledby="a-popover-header-3"></span>
+        <div class="a-popover-wrapper" aria-busy="false">
+          <div class="a-popover-header" style="">
+            <button data-action="a-popover-close" class=" a-button-close a-declarative" aria-label="Close">
+              <i class="a-icon a-icon-close"></i>
+            </button>
+            <h4 class="a-popover-header-content" id="a-popover-header-3">
+              <span class="a-text-ellipsis a-nowrap">お客様のリストを編集する
+                <span class="a-letter-space"></span>
+                <span class="a-text-normal">ほしい物リスト</span>
+              </span>
+            </h4>
+          </div>
+          <div class="a-popover-inner a-padding-none" id="a-popover-content-3" style="height: auto; overflow-y: auto;">
+            <div id="list-settings" class="a-section" style="margin-bottom: 22px;">
+              <form id="list-settings-form" method="post" action="" class="list-settings-form">
+                <input type="hidden" name="sid" value="356-9096377-7491123">
+                <input type="hidden" name="vendorId" value="hz/wishlist/settings">
+                <input type="hidden" name="listExternalId" value="3IZU1G6XV8783">
+                <input type="hidden" name="listType" value="WishList">
+                <div id="list-settings-scroller-parent" class="a-section a-spacing-none">
+                  <div class="a-scroller a-scroller-vertical">
+                    <div id="list-settings-container" class="a-section a-spacing-none a-padding-base">
+                      <!-- List Name  -->
+                      <div class="a-row a-spacing-base">
+                        <div class="a-column a-span3 a-spacing-top-micro">
+                          <label for="list-settings-name" class="a-form-label">リスト名</label>
+                        </div>
+                        <div class="a-column a-span9 a-span-last">
+                          <input type="text" value="ほしい物リスト" id="list-settings-name" name="listName" class="a-input-text a-span12">
+                        </div>
+                      </div><!-- Privacy -->
+                      <div class="a-row a-spacing-base">
+                        <div class="a-column a-span3 a-spacing-top-micro">
+                          <label for="list-settings-privacy" class="a-form-label">公開/非公開の設定</label>
+                        </div>
+                        <div class="a-column a-span9 a-span-last">
+                          <span class="a-dropdown-container">
+                            <select name="privacyStatus" autocomplete="off" tabindex="-1" class="a-native-dropdown a-button-span12" style="position: absolute;">
+                              <option value="PUBLIC" data-a-id="editYourList_ListPrivacyDropdown_PUBLIC">公開</option>
+                              <option value="PRIVATE" data-a-id="editYourList_ListPrivacyDropdown_PRIVATE" selected="">非公開</option>
+                              <option value="SHARED" data-a-id="editYourList_ListPrivacyDropdown_SHARED">リンクをシェア</option>
+                            </select>
+                            <span tabindex="-1" id="list-settings-privacy" class="a-button a-button-dropdown a-button-span12">
+                              <span class="a-button-inner">
+                                <span class="a-button-text a-declarative" data-action="a-dropdown-button" role="button" tabindex="0" aria-hidden="true">
+                                  <span class="a-dropdown-prompt">非公開</span>
+                                </span>
+                                <i class="a-icon a-icon-dropdown"></i>
+                              </span>
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                      <!-- List is for You/Organization -->
+                      <div class="a-row a-spacing-base">
+                        <div class="a-column a-span3 a-spacing-top-micro">
+                          <label for="list-settings-listisfor" class="a-form-label">リストの用途</label>
+                        </div>
+                        <div class="a-column a-span9 a-span-last">
+                          <span class="a-dropdown-container">
+                            <select name="listIsFor" autocomplete="off" id="list-settings-listisfor" tabindex="-1" class="a-native-dropdown a-button-span12" style="position: absolute;">
+                              <option value="self" data-a-id="editYourList_ListIsFor_self" selected="">自分</option>
+                              <option value="org" data-a-id="editYourList_ListIsFor_org">団体</option>
+                            </select>
+                            <span tabindex="-1" id="list-settings-listisfor-dropdown" class="a-button a-button-dropdown a-button-span12">
+                              <span class="a-button-inner">
+                                <span class="a-button-text a-declarative" data-action="a-dropdown-button" role="button" tabindex="0" aria-hidden="true">
+                                  <span class="a-dropdown-prompt">自分</span>
+                                </span>
+                                <i class="a-icon a-icon-dropdown"></i>
+                              </span>
+                            </span>
+                          </span>
+                        </div>
+                      </div><!-- Recipient -->
+                      <div class="a-row a-spacing-base">
+                        <div class="a-column a-span3 a-spacing-top-micro">
+                          <label for="list-settings-recipient" class="a-form-label">受取人</label>
+                        </div>
+                        <div class="a-column a-span9 a-span-last">
+                          <input type="text" value="" id="list-settings-recipient" name="recipientName" class="a-input-text a-span12">
+                        </div>
+                      </div>
+                      <!-- Email -->
+                      <div class="a-row a-spacing-base">
+                        <div class="a-column a-span3 a-spacing-top-micro">
+                          <label for="list-settings-email" class="a-form-label">Eメールアドレス</label>
+                        </div>
+                        <div class="a-column a-span9 a-span-last">
+                          <input type="text" value="" id="list-settings-email" name="email" class="a-input-text a-span12">
+                        </div>
+                      </div>
+                      <!-- Website -->
+                      <div id="list-settings-section-website" class="a-section a-hidden">
+                        <div class="a-row a-spacing-base">
+                          <div class="a-column a-span3 a-spacing-top-micro">
+                            <label for="list-settings-website" class="a-form-label">ウェブサイト</label>
+                          </div>
+                          <div class="a-column a-span9 a-span-last">
+                            <input type="text" id="list-settings-website" name="website" class="a-input-text a-span12">
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Birthday -->
+                      <div id="list-settings-section-birthday" class="a-section">
+                        <div class="a-row a-spacing-base">
+                          <div class="a-column a-span3 a-spacing-top-micro">
+                            <label for="list-settings-birthday-month" class="a-form-label">誕生日</label>
+                          </div>
+                          <div class="a-column a-span9 a-span-last">
+                            <div class="a-row">
+                              <div class="a-column a-span8">
+                                <span class="a-dropdown-container">
+                                  <select name="birthdayMonth" autocomplete="off" id="list-settings-birthday-month" tabindex="-1" class="a-native-dropdown a-button-span12" style="position: absolute;">
+                                    <option class="a-prompt" value="">月</option>
+                                    <option value="0" selected="">月</option>
+                                    <option value="1">1月</option>
+                                    <option value="2">2月</option>
+                                    <option value="3">3月</option>
+                                    <option value="4">4月</option>
+                                    <option value="5">5月</option>
+                                    <option value="6">6月</option>
+                                    <option value="7">7月</option>
+                                    <option value="8">8月</option>
+                                    <option value="9">9月</option>
+                                    <option value="10">10月</option>
+                                    <option value="11">11月</option>
+                                    <option value="12">12月</option>
+                                  </select>
+                                  <span tabindex="-1" class="a-button a-button-dropdown a-button-span12">
+                                    <span class="a-button-inner">
+                                      <span class="a-button-text a-declarative" data-action="a-dropdown-button" role="button" tabindex="0" aria-hidden="true">
+                                        <span class="a-dropdown-prompt">月</span>
+                                      </span>
+                                      <i class="a-icon a-icon-dropdown"></i>
+                                    </span>
+                                  </span>
+                                </span>
+                              </div>
+                              <div class="a-column a-span4 a-span-last">
+                                <span class="a-dropdown-container">
+                                  <select name="birthdayDay" autocomplete="off" id="list-settings-birthday-day" tabindex="-1" class="a-native-dropdown a-button-span12" style="position: absolute;">
+                                    <option class="a-prompt" value="">日</option>
+                                    <option value="0" selected="">日</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                  </select>
+                                  <span tabindex="-1" class="a-button a-button-dropdown a-button-span12">
+                                    <span class="a-button-inner">
+                                      <span class="a-button-text a-declarative" data-action="a-dropdown-button" role="button" tabindex="0" aria-hidden="true">
+                                        <span class="a-dropdown-prompt">日</span>
+                                      </span>
+                                      <i class="a-icon a-icon-dropdown"></i>
+                                    </span>
+                                  </span>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Description -->
+                      <div class="a-row a-spacing-base">
+                        <div class="a-column a-span3 a-spacing-top-micro">
+                          <label for="list-settings-description" class="a-form-label">内容</label>
+                        </div>
+                        <div class="a-column a-span9 a-span-last">
+                          <span id="list-settings-description-self-placeholder" class="a-hidden">誰かがあなたの持っているリストを探しやすくするために、このリストの受取人についての情報記載をお願い致します。</span>
+                          <span id="list-settings-description-org-placeholder" class="a-hidden"></span>
+                          <div class="a-input-text-wrapper a-span12">
+                            <textarea placeholder="誰かがあなたの持っているリストを探しやすくするために、このリストの受取人についての情報記載をお願い致します。" id="list-settings-description" rows="3" name="description" style="height: auto;">
+                            </textarea>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Shipping Address -->
+                      <div class="a-row a-spacing-base">
+                        <div class="a-column a-span3 a-spacing-top-micro">
+                          <label for="list-settings-address" class="a-form-label">お届け先住所</label>
+                        </div>
+                        <div id="select-address-widget-container" class="a-column a-span9 a-span-last">
+                          <span class="a-dropdown-container">
+                            <select name="addressId" autocomplete="off" id="list-settings-address" tabindex="-1" class="a-native-dropdown a-button-span12" style="position: absolute;">
+                              <option class="a-prompt" value="">None</option>
+                              <option value="">登録しない</option>
+                              <option value="7770272945">本, 111-0000, 東京都, 渋谷区, フォンティスビル, Japan</option>
+                              <option value="create">新規作成する</option>
+                            </select>
+                            <span tabindex="-1" class="a-button a-button-dropdown a-button-span12">
+                              <span class="a-button-inner">
+                                <span class="a-button-text a-declarative" data-action="a-dropdown-button" role="button" tabindex="0" aria-hidden="true">
+                                  <span class="a-dropdown-prompt">None</span>
+                                </span>
+                                <i class="a-icon a-icon-dropdown"></i>
+                              </span>
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                      <!-- Persistence -->
+                      <!-- Blackout -->
+                      <div class="a-row a-spacing-base">
+                        <div class="a-column a-span3 a-spacing-top-micro"></div>
+                        <div class="a-column a-span9 a-span-last">
+                          <div id="list-settings-blackout-outer" data-a-input-name="enableBlackoutFilter" class="a-checkbox">
+                            <label>
+                              <input type="checkbox" name="enableBlackoutFilter" value="" checked="">
+                              <i class="a-icon a-icon-checkbox"></i>
+                              <span class="a-label a-checkbox-label">サプライズにする
+                                <span class="a-letter-space"></span>
+                                <span class="a-declarative" data-action="a-popover">
+                                  <a href="javascript:void(0)" class="a-popover-trigger a-declarative">
+                                    <i class="a-icon a-icon-popover"></i>
+                                  </a>
+                                </span>
+                              </span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Default List -->
+                      <div class="a-row a-spacing-base">
+                        <div class="a-column a-span3 a-spacing-top-micro"></div>
+                        <div class="a-column a-span9 a-span-last">
+                          <div data-a-input-name="defaultList" class="a-checkbox">
+                            <label>
+                              <input type="checkbox" name="defaultList" value="checked" checked="">
+                              <i class="a-icon a-icon-checkbox"></i>
+                              <span class="a-label a-checkbox-label">デフォルトのリスト</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="a-form-actions">
+                  <div class="a-column a-span6 a-spacing-base">
+                    <span class="a-declarative" data-action="a-modal" data-a-modal="{&quot;padding&quot;:&quot;none&quot;,&quot;name&quot;:&quot;wl-delete-confirmation&quot;,&quot;width&quot;:&quot;300&quot;,&quot;header&quot;:&quot;削除の確認&quot;}">
+                      <span class="a-button">
+                        <span class="a-button-inner">
+                          <input class="a-button-input" type="submit">
+                          <span class="a-button-text" aria-hidden="true">リストを削除する</span>
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                  <div class="a-column a-span6 a-spacing-base a-span-last" style="width: auto;">
+                    <span class="a-declarative" data-action="a-popover-close" data-a-popover-close="{}">
+                      <span id="list-settings-cancel" class="a-button">
+                        <span class="a-button-inner">
+                          <button name="button" type="button" id="cancel_button" class="a-button-input a-declarative">{:type=&gt;"button", :id=&gt;"cancel_button", :class=&gt;"a-button-input a-declarative"}</button>
+                          <span id="list-settings-cancel-announce" class="a-button-text" aria-hidden="true">キャンセル</span>
+                        </span>
+                      </span>
+                    </span>
+                    <span class="a-letter-space"></span>
+                    <span class="a-declarative" data-action="save-list-settings" data-save-list-settings="{&quot;sid&quot;:&quot;356-9096377-7491123&quot;}">
+                      <span id="list-settings-save" class="a-button a-button-primary">
+                        <span class="a-button-inner">
+                          <input class="a-button-input" type="submit" aria-labelledby="list-settings-save-announce">
+                          <span id="list-settings-save-announce" class="a-button-text" aria-hidden="true">変更を保存</span>
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span tabindex="0" class="a-popover-end a-popover-a11y-offscreen"></span>
+    </div>
+  </div>
+</div>
+<!-- ここまでーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
+<div id="nav-subnav">
+  <a href="#" class="nav-a nav-b" tabindex="31">
+    <span class="nav-a-content">ほしい物リスト</span>
+  </a>
+  <a href="#" class="nav-a" tabindex="32">
+    <span class="nav-a-content">ギフトガイド</span>
+  </a>
+  <a href="#" class="nav-a" tabindex="33">
+    <span class="nav-a-content">ギフト券</span>
+  </a>
+  <a href="#" class="nav-a" tabindex="34">
+    <span class="nav-a-content">ギフトラッピング</span>
+  </a>
+  <a href="#" class="nav-a" tabindex="35">
+    <span class="nav-a-content">ほしい物リスト</span>
+  </a>
+  <a href="#" class="nav-a" tabindex="36">
+    <span class="nav-a-content">ギフトヘルプ</span>
+  </a>
+</div>
+<div class="a-container g-fix-wide-screen">
+  <div id="wishlist-page" class="a-tab-container">
+    <ul data-action="a-tabs" class="a-tabs a-declarative">
+      <li id="my-lists-tab" class="a-tab-heading a-active a-size-large">
+        <a href="#">マイリスト</a>
+      </li>
+      <div class="a-section a-spacing-top-medium a-text-right">
+        <span class="a-declarative">
+          <a id="create-wanted-modal-open" class="a-link-normal">ほしい物リストを作成する</a>
+        </span>
+      </div>
+    </ul>
+    <div id="my-lists-tab" class="a-box a-box-tab a-tab-content">
+      <div class="a-box-inner">
+        <div class="a-fixed-left-grid">
+          <div class="a-fixed-left-grid-inner" style="padding-left:252px">
+            <div id="left-nav" class="a-fixed-left-grid-col a-col-left" style="width:252px;margin-left:-252px;_margin-left:-126px;float:left;">
+              <div id="your-lists-nav" class="a-section">
+                <form id="wl-item-search">
+                  <div class="a-row a-spacing-none g-item-search">
+                    <div class="a-search a-spacing-none">
+                      <input type="search" placeholder="あなたのリストからアイテムを見つける" name="itemSearch" class="a-input-text a-width-large g-search-input">
+                    </div>
+                  </div>
+                </form>
+                <div class="a-section a-spacing-top-small">
+                  <% @wanteds.each do |wanted| %>
+                    <%= link_to user_wanted_path(user_id: @user_id, id: wanted.id), id: "wl-list-link-1L0H15BKJQILN", class: "a-link-normal a-declarative hover-as-link hover-as-link-wanteds" do %>
+                      <div class="a-fixed-right-grid wl-list <%= 'selected' if wanted.id == @selected_id %> a-spacing-micro a-spacing-top-micro">
+                        <div class="a-fixed-right-grid-inner" style="padding-right:78px">
+                          <div class="a-fixed-right-grid-col a-col-left" style="padding-right:1%;*width:98.6%;float:left;">
+                            <div class="a-row">
+                              <span id="wl-list-title-1L0H15BKJQILN"><%= wanted.name %></span>
+                            </div>
+                            <% if wanted.default_flg? %>
+                              <div class="a-row a-spacing-top-micro">
+                                <span class="a-size-small a-text-normal">デフォルトのリスト</span>
+                              </div>
+                            <% end %>
+                          </div>
+                          <div id="wl-list-privacy-1L0H15BKJQILN" class="a-fixed-right-grid-col wl-list-privacy a-col-right" style="width:78px;margin-right:-78px;float:left;">
+                            <span class="hover-as-link a-text-normal"><%= wanted.open_flg? ? "公開" : "非公開" %></span>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div id="content-right" class="a-fixed-left-grid-col a-col-right" style="padding-left:3.5%;*width:96.1%;float:left;">
+              <div class="a-section a-spacing-none list-header-container">
+                <div id="list-header" class="a-section a-spacing-small">
+                  <div id="wl-list-info" class="a-row a-spacing-small">
+                    <div class="a-column a-span8 a-spacing-top-small">
+                      <div class="a-row">
+                        <span id="profile-list-name" class="a-size-medium a-text-bold"><%= @selected_wanted.name %></span>
+                        <span class="a-letter-space"></span>
+                        <span class="a-letter-space"></span>
+                        <span class="aok-nowrap">
+                          <span id="listPrivacy" class="a-color-secondary"><%= @selected_wanted.open_flg? ? "公開" : "非公開" %></span>
+                          <span class="a-letter-space"></span>
+                          <span class="a-letter-space"></span>
+                          <span class="a-declarative">
+                            <a id="editYourList" class="a-link-normal editYourListTrigger">このリストを編集する</a>
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="wl-item-view" class="a-section a-spacing-none">
+                <div id="control-bar" class="a-fixed-right-grid g-visible-js a-spacing-none">
+                  <div class="a-fixed-right-grid-inner" style="padding-right:240px">
+                    <div class="a-spacing-none a-spacing-top-small a-fixed-right-grid-col a-col-left" style="padding-right:0%;*width:99.6%;float:left;">
+                      <span class="g-touch-hide">
+                        <span class="g-touch-hide">
+                          <div id="wfaAddTeaser" class="a-section a-spacing-small">
+                            <form id="wfaFormHeader">
+                              <img alt="" src="https://m.media-amazon.com/images/G/01/gifts/registries/wishlist/comment01m._CB344939052_.png" id="awl-wfa-text-sticky">
+                              <img alt="" src="https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.gif" class="wfa-photo-icon">
+                              <span class="a-declarative">
+                                <input type="text" id="wfaTextInput" autocomplete="off" placeholder="メモを保存して、あとでお買い物" name="name.0" class="a-input-text snaw-text-input header">
+                              </span>
+                              <span id="wfa-note-add-button-wrapper" class="a-button a-button-disabled">
+                                <span class="a-button-inner">
+                                  <input id="wfa-note-add-button" class="a-button-input a-declarative" type="submit" aria-labelledby="wfa-note-add-button-wrapper-announce" disabled="disabled">
+                                  <span id="wfa-note-add-button-wrapper-announce" class="a-button-text" aria-hidden="true">ほしい物リストに追加する</span>
+                                </span>
+                              </span>
+                              <div id="wfa-generic-error" class="a-box a-alert-inline a-alert-inline-error wfaError a-hidden" aria-live="assertive" role="alert">
+                                <div class="a-box-inner a-alert-container">
+                                  <i class="a-icon a-icon-alert"></i>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                        </span>
+                      </span>
+                    </div>
+                    <div class="a-spacing-medium a-spacing-top-large a-fixed-right-grid-col a-col-right" style="width:240px;margin-right:-240px;float:left;">
+                      <span class="control-bar g-visible-js">
+                        <span class="control-bar-wrapper">
+                          <span class="a-dropdown-container">
+                            <select name="sfr-trigger" autocomplete="off" tabindex="-1" class="a-native-dropdown a-spacing-none a-size-small a-text-normal">
+                              <option value="">絞り込み: </option>
+                              <option value="filter|unpurchased" selected="">未購入</option>
+                              <option value="filter|purchased">購入済み</option>
+                              <option value="filter|all">購入済みと未購入</option>
+                              <option value="">並べ替え: </option>
+                              <option value="sort|default">デフォルト</option>
+                              <option value="sort|priority">優先度（高→低）</option>
+                              <option value="sort|price-asc">価格（昇順）</option>
+                              <option value="sort|price-desc">価格（降順）</option>
+                            </select>
+                          </span>
+                          <span class="a-declarative">
+                            <a id="filter-and-sort" class="a-link-normal g-trigger-label g-sfr-trigger a-declarative g-visible-js" href="#">
+                              <span class="a-color-base">絞込み＆並替え</span>
+                              <i class="a-icon a-icon-dropdown"></i>
+                              <span class="a-letter-space"></span>
+                            </a>
+                          </span>
+                          <span id="wl-filter-option-unpurchased"></span>
+                          <span id="wl-sort-option-default"></span>
+                          <a id="wl-print-link" class="a-link-normal a-declarative" href="/hz/wishlist/printview/DBYTVA9Z88U">
+                            <img alt="" src="https://images-na.ssl-images-amazon.com/images/G/01/wishlist/print_icon._CB287382532_.png">
+                          </a>
+                          <span class="a-color-base">シェアする</span>
+                          <span id="shareWidgetContainer" class="a-color-base g-swf-link">
+                            <span class="a-declarative">
+                              <a id="auiswfText" class="a-link-normal emailtext" title="Eメールでシェア" href="#">
+                                <span class="a-letter-space"></span>
+                                <i class="a-icon a-icon-share-email"></i>
+                              </a>
+                            </span>
+                          </span>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div id="item-page-wrapper" class="a-section">
+                  <div class="a-section a-spacing-none">
+                    <div id="g-items" class="a-section a-spacing-none g-items-section ui-sortable">
+                      <% @selected_wanted_products.each do |w_p| %>
+                        <div class="a-section a-spacing-none g-item-sortable">
+                          <hr class="a-spacing-none a-divider-normal">
+                          <div id="item_<%= w_p.product.id %>" class="a-fixed-left-grid a-spacing-none">
+                            <div class="a-fixed-left-grid-inner" style="padding-left:220px">
+                              <div class="a-fixed-left-grid-col g-item-sortable-draggable-area a-col-left" style="width:220px;margin-left:-220px;_margin-left:-110px;float:left;">
+                                <div class="a-fixed-left-grid">
+                                  <div class="a-fixed-left-grid-inner" style="padding-left:35px">
+                                    <div id="itemImage_<%= w_p.product.id %>" class="a-text-center a-fixed-left-grid-col g-itemImage g-item-sortable-padding a-col-right" style="padding-left:0%;*width:99.6%;float:left;">
+                                      <% if w_p.product.product_images.present? %>
+                                        <%= link_to product_path(w_p.product), class: "a-link-normal", title: w_p.product.name do %>
+                                          <%= image_tag w_p.product.product_images[0].image, alt: w_p.product.name, style: "max-height: 160px;" %>
+                                        <% end %>
+                                      <% else %>
+                                        <%= link_to product_path(w_p.product), class: "a-link-normal", title: w_p.product.name do %>
+                                          <%= image_tag "https://images-fe.ssl-images-amazon.com/images/G/09/icons/books/comingsoon_books._V376986337_BO1,204,203,200_.gif", alt: w_p.product.name, style: "max-height: 160px;" %>
+                                        <% end %>
+                                      <% end %>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div id="itemMain_<%= w_p.product.id %>" class="a-text-left a-fixed-left-grid-col g-item-sortable-padding a-col-right" style="padding-left:0%;*width:99.6%;float:left;">
+                                <div class="a-fixed-right-grid">
+                                  <div class="a-fixed-right-grid-inner" style="padding-right:220px">
+                                    <div id="itemInfo_<%= w_p.product.id %>" class="a-fixed-right-grid-col g-item-details a-col-left" style="padding-right:10%;*width:89.6%;float:left;">
+                                      <div class="a-row">
+                                        <div class="a-column a-span12 g-span12when-narrow g-span7when-wide">
+                                          <div class="a-row a-size-small">
+                                            <h5>
+                                              <%= link_to w_p.product.name, product_path(w_p.product), class: "a-link-normal a-declarative", title: w_p.product.name %>
+                                            </h5>
+                                            <span id="item-byline-<%= w_p.product.id %>" class="a-size-base"></span>
+                                          </div>
+                                          <div class="a-row a-spacing-small a-size-small">
+                                            <div class="a-row">
+                                              <i class="a-icon a-icon-star a-star-4-5">
+                                                <span class="a-icon-alt">5つ星のうち 4.6</span>
+                                              </i>
+                                              <span class="a-letter-space"></span>
+                                              <a id="review_count_<%= w_p.product.id %>" class="a-link-normal" href="#">(1)</a>
+                                            </div>
+                                            <div class="a-row">
+                                              <div class="a-section price-section">
+                                                <span id="itemPrice_<%= w_p.product.id %>" class="a-price">
+                                                  <span class="a-offscreen">￥<%= w_p.product.price.floor.to_s(:delimited) %></span>
+                                                  <span aria-hidden="true">
+                                                    <span class="a-price-symbol">￥</span>
+                                                    <span class="a-price-whole"><%= w_p.product.price.floor.to_s(:delimited) %></span>
+                                                  </span>
+                                                </span>
+                                                <span class="a-letter-space"></span>
+                                                <i class="a-icon a-icon-jp a-icon-prime-jp a-icon-small"></i>
+                                              </div>
+                                            </div>
+                                            <div class="a-row a-size-small itemAvailability">
+                                              <span id="availability-msg_<%= w_p.product.id %>" class="itemAvailMessage">在庫あり。</span>
+                                              <span class="a-letter-space"></span>
+                                              <span id="offered-by_<%= w_p.product.id %>" class="itemVailOfferedBy">販売元: Bamazon.co.jp。</span>
+                                            </div>
+                                          </div>
+                                          <span class="a-declarative">
+                                            <a id="itemEditLabel_<%= w_p.product.id%>" class="a-size-small a-link-normal g-touch-hide" href="#">コメント、数量、 優先度を追加する</a>
+                                          </span>
+                                        </div>
+                                        <div class="a-column a-span12 g-span12when-narrow g-span5when-wide  g-item-comment a-hidden a-span-last">
+                                          <div class="a-box a-box-normal a-color-alternate-background quotes-bubble">
+                                            <div class="a-box-inner">
+                                              <div id="itemCommentRow_<%= w_p.product.id %>" class="a-row a-hidden">
+                                                <span class="wrap-text">
+                                                  <span id="itemComment_<%= w_p.product.id %>" class="g-comment-quote a-text-quote">
+                                                  </span>
+                                                </span>
+                                              </div>
+                                              <div class="a-row g-item-comment-row">
+                                                <span id="itemPriorityRow_<%= w_p.product.id %>" class="a-size-small a-hidden">優先度：
+                                                  <span class="a-letter-space"></span>
+                                                  <span id="itemPriorityLabel_<%= w_p.product.id %>" class="a-size-small dropdown-priority item-priority-medium">中</span>
+                                                  <span id="itemPriority_<%= w_p.product.id %>" class="a-hidden">0</span>
+                                                </span>
+                                                <i class="a-icon a-icon-text-separator g-priority-seperator a-hidden">
+                                                </i>
+                                                <span id="itemQuantityRow_<%= w_p.product.id %>" class="a-size-small a-hidden">
+                                                  <span class="aok-inline-block">
+                                                    <span id="itemRequestedLabel_<%= w_p.product.id %>">希望:</span>
+                                                    <span class="a-letter-space"></span>
+                                                    <span id="itemRequested_<%= w_p.product.id %>">1</span>
+                                                  </span>
+                                                  <span class="a-letter-space"></span>
+                                                  <span id="itemPurchasedSection_<%= w_p.product.id %>" class="aok-inline-block">
+                                                    <span id="itemPurchasedLabel_<%= w_p.product.id %>">所有：</span>
+                                                    <span class="a-letter-space"></span>
+                                                    <span id="itemPurchased_<%= w_p.product.id %>">0</span>
+                                                  </span>
+                                                </span>
+                                              </div>
+                                              <div class="quotes-bubble-arrow"></div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div id="beforeMoveToCart_<%= w_p.product.id %>" class="a-fixed-right-grid-col dateAddedText a-col-right" style="width:220px;margin-right:-220px;float:left;">
+                                      <span id="itemAddedDate_<%= w_p.product.id %>" class="a-size-small">追加商品
+                                        <span class="a-letter-space"></span><%= @update_datetimes[w_p.product.id] %>
+                                      </span>
+                                      <div class="a-button-stack a-spacing-top-small">
+                                        <span class="a-declarative" id="pab-declarative-<%= w_p.product.id %>">
+                                          <span id="pab-<%= w_p.product.id %>" class="a-button a-button-primary wl-info-aa_add_to_cart">
+                                            <span class="a-button-inner">
+                                              <%= link_to "カートに入れる", product_cart_products_path(w_p.product), id: "move-to-cart-#{w_p.product.id}", class: "a-button-text", data: {id: w_p.product.id}, role: "button", style: "background-color: #f0c14b; background: linear-gradient(to bottom,#f7dfa5,#f0c14b);", method: :post %>
+                                            </span>
+                                          </span>
+                                          <span></span>
+                                        </span>
+                                        <div class="a-row a-spacing-small">
+                                          <div class="a-section g-visible-js" style="margin-bottom: 22px;">
+                                            <div class="a-column a-span6">
+                                              <span class="a-dropdown-container">
+                                                <%= form_for [current_user, w_p] do |f2| %>
+                                                  <%= f2.label :wanted_id , style: "display: none;" %>
+                                                  <%= f2.hidden_field :selected_wanted_id, value: @selected_wanted.id %>
+                                                  <%= f2.select :wanted_id, Wanted.pluck(:name, :id).delete_if{|list| list[1] == @selected_wanted.id}, {include_blank: '移動', selected: '移動'}, {id: "wanted-selector-#{w_p.id}", class: "a-native-dropdown g-move-button-native", data: {wpid: w_p.id}, style: "height: 23px;width: 140px;text-align: center!important;font-size: 11px;"} %>
+                                                <% end %>
+                                              </span>
+                                            </div>
+                                            <div class="a-column a-span6 a-span-last">
+                                              <form method="post" action="">
+                                                <input type="hidden" name="id" value="1L0H15BKJQILN">
+                                                <input type="hidden" name="itemId" value="I2IDZDYY80IQ76">
+                                                <input type="hidden" name="sid" value="358-9869141-7012436">
+                                                <span class="a-declarative">
+                                                  <span class="a-button a-button-small" id="a-autoid-12">
+                                                    <span class="a-button-inner">
+                                                      <%= link_to  user_wanted_product_path(current_user, w_p, selected_wanted_id: @selected_wanted.id), method: :delete do %>
+                                                        <input name="submit.deleteItem" class="a-button-input a-declarative" type="submit" aria-labelledby="a-autoid-12-announce">
+                                                        <span class="a-button-text" aria-hidden="true" id="a-autoid-12-announce">削除</span>
+                                                      <% end %>
+                                                    </span>
+                                                  </span>
+                                                </span>
+                                              </form>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div id="afterMoveToCart_<%= w_p.product.id %>" class="a-fixed-right-grid-col dateAddedText a-col-right" style="width: 220px; margin-right: -220px; float: left; display: none">
+                                      <div class="a-row a-spacing-top-none a-alert g-cart-msg a-alert-success" style="opacity: 1;">
+                                        <h4 class="a-color-success a-inline-block">追加されました</h4>
+                                      </div>
+                                      <div class="a-button-stack a-spacing-mini a-spacing-top-micro">
+                                        <span class="a-button a-button-primary g-cart-checkout-btn">
+                                          <span class="a-button-inner">
+                                            <%= link_to "レジに進む", "/", class: "a-button-text", role: "button", style: "background-color: #f0c14b; background: linear-gradient(to bottom,#f7dfa5,#f0c14b)" %>
+                                          </span>
+                                        </span>
+                                        <span class="a-button a-button-small g-cart-view-btn" style="width: 100%; float: auto;">
+                                          <span class="a-button-inner">
+                                            <%= link_to "カートを見る", edit_cart_path(current_user.cart), class: "a-button-text", role: "button" %>
+                                          </span>
+                                        </span>
+                                      </div>
+                                      <div class="a-row">
+                                        <div id="itemGiftOption_C1129AAGIGUM0Z" class="a-checkbox a-declarative">
+                                          <input type="checkbox" name="item-is-gift" value="">
+                                          <i class="a-icon a-icon-checkbox"></i><span class="a-label a-checkbox-label">ギフトの設定</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      <% end %>
+                      <div id="endOfListMarker" class="a-section a-spacing-none">
+                        <div class="a-divider a-divider-break a-spacing-top-small">
+                          <h5>リスト最後</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <% if @selected_wanted_products.blank? %>
+                  <hr class="a-divider-normal">
+                  <div id="no-items-section" class="a-section a-spacing-none a-text-center">
+                    <span class="aok-inline-block">
+                      <span class="a-size-medium a-color-base" style="text-decoration: none!important;"> アイテムはありません</span>
+                    </span>
+                  </div>
+                <% end %>
+              </div>
+              <div class="a-popover-preload" id="a-popover-spoil-surprise">
+                <div class="a-section wl-spoiler-popover">
+                  <div class="a-section a-spacing-none a-padding-medium">
+                    <div class="a-section a-spacing-base">最近どなたかがあなたにこの商品を購入したかもしれません。</div>
+                    <div class="a-section">
+                      <span class="a-declarative">
+                        <a id="blackoutVerifySpoiler" class="a-link-normal" href="#">購入された場合は教えてください。</a>
+                      </span>
+                      <span id="blackoutSpoiler" class="a-hidden">はい、この商品はあなたに対して購入されました。</span>
+                    </div>
+                  </div>
+                  <div class="a-form-actions">
+                    <span class="a-button" id="a-autoid-11">
+                      <span class="a-button-inner">
+                        <button id="blackout_cancel" class="a-button-text a-declarative" type="button">キャンセル</button>
+                      </span>
+                    </span>
+                    <span class="a-button a-button-primary" id="a-autoid-12">
+                      <span class="a-button-inner">
+                        <a id="blackout_continue" href="javascript:void(0)" class="a-button-text" role="button">続ける</a>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="a-popover-preload" id="a-popover-reg-wfa-photo">
+                <div class="a-section a-spacing-base inner-padding">
+                  <div class="a-row a-spacing-large a-grid-vertical-align a-grid-center reg-wfa-photo-image-section" style="height:500px;">
+                    <div class="a-section wl-modal-overlay">
+                      <i class="a-icon a-popover-loading wl-modal-spinner">
+                      </i>
+                    </div>
+                    <div class="a-column a-span12 a-text-center">
+                      <img alt="" src="https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.gif" id="WLWFAP_Image">
+                    </div>
+                  </div>
+                  <div class="a-row">
+                    <div class="a-column a-span12 a-text-center">
+                      <span id="WLWFAP_AddedDate"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a id="schoolSupplyDupLink" href="javascript:void(0)" class="a-popover-trigger a-declarative a-hidden">
+                <i class="a-icon a-icon-popover"></i>
+              </a>
+              <div class="a-popover-preload" id="a-popover-school-list-dup-modal"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="friends-tab" data-a-name="friends-tab" class="a-box a-box-tab a-tab-content a-hidden">
+      <div class="a-box-inner"></div>
+    </div>
+  </div>
+</div>
+<div role="tooltip" class="a-popover a-tooltip a-declarative a-arrow-bottom" id="a-popover-3" style="z-index: 299; visibility: visible; top: 37px; left: 1026px; opacity: 1; display: none;" aria-hidden="true">
+  <div class="a-tooltip-inner">設定</div>
+  <div class="a-arrow-border" style="left: 40.1px;">
+    <div class="a-arrow"></div>
+  </div>
+</div>
+<%= render partial: 'layouts/footer' %>

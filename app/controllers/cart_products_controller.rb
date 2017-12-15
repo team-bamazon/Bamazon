@@ -14,6 +14,11 @@ class CartProductsController < ApplicationController
       @cart_product = CartProduct.new(cart_product_params)
       @cart_product.save
     end
+
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def destroy
