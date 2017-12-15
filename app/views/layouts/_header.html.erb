@@ -247,9 +247,9 @@
           </div>
           <div class="nav-template nav-tpl-itemList" id="nav-flyout-wl-items">
             <div class="nav-panel">
-              <a href="/" class="nav-link nav-item">
+              <%= link_to user_wanted_path(current_user, @default_wanted), class: "nav-link nav-item" do %>
                 <div class="nav-text">新しいほしい物リスト</div>
-              </a>
+              <% end %>
               <a href="/" class="nav-link nav-item">
                 <div class="nav-text"><%= current_user.name %>さんのほしい物リスト</div>
                 <div class="nav-divider"></div>
@@ -382,7 +382,6 @@
             <% else %>
               <span class="nav-line-1">こんにちは。サインイン</span>
             <% end %>
-
             <span class="nav-line-2">アカウントサービス
               <span class="nav-icon nav-arrow" style="visibility: visible;"></span>
             </span>
@@ -394,12 +393,12 @@
               <span class="nav-icon nav-arrow" style="visibility: visible;"></span>
             </span>
           </a>
-          <a href="/" class="nav-a nav-a-2" data-ux-mouseover="true" id="nav-link-wishlist" tabindex="29">
+          <%= link_to user_wanted_path(current_user, @default_wanted), class: "nav-a nav-a-2", id: "nav-link-wishlist" do %>
             <span class="nav-line-1">ほしい物</span>
             <span class="nav-line-2">リスト
               <span class="nav-icon nav-arrow" style="visibility: visible;"></span>
             </span>
-          </a>
+          <% end %>
         <% if user_signed_in? && current_user.cart.present? %>
           <a href="/carts/<%= current_user.cart.id %>/edit" aria-label="カート内の商品数：0" class="nav-a nav-a-2" id="nav-cart" tabindex="30">
         <% else %>
