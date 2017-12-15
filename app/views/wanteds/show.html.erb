@@ -37,7 +37,6 @@
                       <span id="privacy_button_public" class="a-button a-button-toggle">
                         <span class="a-button-inner">
                           <%= button_tag "", type: 'button', id: "privacy_button_public_btn", class: "a-button-input a-declarative" %>
-                          <!--<input class="a-button-input a-declarative" type="submit">-->
                           <%= f.radio_button :open_flg, true, id: "radio_privacy_public", style: "display: none;" %>
                           <%= f.label :open_flg, class: "radio" do %>
                             <span class="a-button-text">公開</span>
@@ -79,7 +78,6 @@
     <span tabindex="0" class="a-popover-end a-popover-a11y-offscreen"></span>
   </div>
 </div>
-<!-- ここからーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
 <div id="edit-wanted-modal-main">
   <div class="a-modal-scroller a-declarative" data-action="a-popover-floating-close" style="padding-bottom: 1px; visibility: visible;">
     <div class="a-popover a-popover-modal a-declarative pop-list-settings" data-action="a-popover-a11y" id="a-popover-3" data-tr="4" aria-hidden="false" style="width: 500px; max-width: none; visibility: visible; position: relative; margin: 39.1px 0px 39.1px 470px; top: 0px; left: 0px; opacity: 1; display: block;">
@@ -416,9 +414,6 @@
       <li id="my-lists-tab" class="a-tab-heading a-active a-size-large">
         <a href="#">マイリスト</a>
       </li>
-      <!--<li id="friends-tab" class="a-tab-heading a-size-large" data-a-tab-name="friends-tab">-->
-      <!--<a href="/gp/registry/search.html/ref=cm_wl_search_wlv_hz?type=wishlist">友達</a>-->
-      <!--</li>-->
       <div class="a-section a-spacing-top-medium a-text-right">
         <span class="a-declarative">
           <a id="create-wanted-modal-open" class="a-link-normal">ほしい物リストを作成する</a>
@@ -434,7 +429,6 @@
                 <form id="wl-item-search">
                   <div class="a-row a-spacing-none g-item-search">
                     <div class="a-search a-spacing-none">
-                      <!--<i class="a-icon a-icon-search"></i>-->
                       <input type="search" placeholder="あなたのリストからアイテムを見つける" name="itemSearch" class="a-input-text a-width-large g-search-input">
                     </div>
                   </div>
@@ -709,7 +703,6 @@
                                     </div>
                                     <div id="afterMoveToCart_<%= w_p.product.id %>" class="a-fixed-right-grid-col dateAddedText a-col-right" style="width: 220px; margin-right: -220px; float: left; display: none">
                                       <div class="a-row a-spacing-top-none a-alert g-cart-msg a-alert-success" style="opacity: 1;">
-                                        <!-- <i class="a-icon a-icon-alert"></i> -->
                                         <h4 class="a-color-success a-inline-block">追加されました</h4>
                                       </div>
                                       <div class="a-button-stack a-spacing-mini a-spacing-top-micro">
