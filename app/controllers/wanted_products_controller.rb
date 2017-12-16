@@ -1,4 +1,14 @@
 class WantedProductsController < ApplicationController
+  def create
+    @params = params
+
+    if WantedProduct.find_by(product_id: params[:product_id], wanted_id: @default_wanted.id).blank?
+      WantedProduct.create(product_id: params[:product_id], wanted_id: @default_wanted.id)
+    end
+
+    redirect_to user_wanted_path(current_user, @default_wanted)
+  end
+
   def update
     # wanted1からwanted2に移動する処理
     target_w_p = WantedProduct.find(params[:id])
