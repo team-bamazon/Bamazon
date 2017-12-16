@@ -242,7 +242,7 @@
                                   </div>
                                   <div class="a-row">
                                     <span class="a-color-price a-spacing-micro">
-                                      <strong>¥ <%= order_product.price %></strong>
+                                      <strong>¥ <%= order_product.price.floor.to_s(:delimited) %></strong>
                                     </span>
                                   </div>
                                   <div class="a-row a-size-small">
