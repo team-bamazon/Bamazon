@@ -4,6 +4,12 @@ class WantedsController < ApplicationController
     redirect_to user_wanted_path(current_user, @default_wanted)
   end
 
+  def destroy
+    @selected_wanted = Wanted.find(params[:id])
+    @selected_wanted.destroy
+    redirect_to user_wanted_path(current_user, @default_wanted)
+  end
+
   def show
     # create用のフォームがあるのでここでnewする。
     @new_wanted = Wanted.new(name:"ほしい物リスト")

@@ -393,12 +393,21 @@
               <span class="nav-icon nav-arrow" style="visibility: visible;"></span>
             </span>
           </a>
-          <%= link_to user_wanted_path(current_user, @default_wanted), class: "nav-a nav-a-2", id: "nav-link-wishlist" do %>
+        <% if user_signed_in? && current_user.wanteds.present? %>
+          <a href="/users/<%= current_user.id %>/wanteds/<%= @default_wanted.id %>/", class="nav-a nav-a-2" id="nav-link-wishlist" %>
             <span class="nav-line-1">ほしい物</span>
             <span class="nav-line-2">リスト
               <span class="nav-icon nav-arrow" style="visibility: visible;"></span>
             </span>
-          <% end %>
+          </a>
+        <% else %>
+          <a href="/", class="nav-a nav-a-2" id="nav-link-wishlist" %>
+            <span class="nav-line-1">ほしい物</span>
+            <span class="nav-line-2">リスト
+              <span class="nav-icon nav-arrow" style="visibility: visible;"></span>
+            </span>
+          </a>
+        <% end %>
         <% if user_signed_in? && current_user.cart.present? %>
           <a href="/carts/<%= current_user.cart.id %>/edit" aria-label="カート内の商品数：0" class="nav-a nav-a-2" id="nav-cart" tabindex="30">
         <% else %>
