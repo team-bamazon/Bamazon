@@ -12,7 +12,7 @@ class OrderProductsController < ApplicationController
   private
 
   def set_order_product(i)
-      ActionController::Parameters.new(params[:order_product].require(:order_info).values[i]).permit(:product_name, :price, :product_image, :count).merge(order_id: @order.id)
+      ActionController::Parameters.new(params[:order_product].require(:order_info).values[i]).permit(:product_name, :price, :product_image, :count, :product_id).merge(order_id: @order.id)
   end
 
   def times_number
@@ -22,10 +22,9 @@ class OrderProductsController < ApplicationController
 
   def set_order
     if current_user.orders.present?
-      @order = Order.find(current_user.order.id)
-    else
-      @order = Order.create(user_id: current_user.id)
+      @order = Order.find_by(user_id: current_user.id, status: 0)
+      @order.destroy
     end
+    @order = Order.create(user_id: current_user.id, status: 0)
   end
-
 end
