@@ -393,7 +393,7 @@
               <span class="nav-icon nav-arrow" style="visibility: visible;"></span>
             </span>
           </a>
-        <% if user_signed_in? && current_user.wanteds.present? %>
+        <% if user_signed_in? && @default_wanted.present? %>
           <a href="/users/<%= current_user.id %>/wanteds/<%= @default_wanted.id %>/", class="nav-a nav-a-2" id="nav-link-wishlist" %>
             <span class="nav-line-1">ほしい物</span>
             <span class="nav-line-2">リスト

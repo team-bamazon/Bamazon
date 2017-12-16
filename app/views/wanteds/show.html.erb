@@ -676,7 +676,7 @@
                                                 <%= form_for [current_user, w_p] do |f2| %>
                                                   <%= f2.label :wanted_id , style: "display: none;" %>
                                                   <%= f2.hidden_field :selected_wanted_id, value: @selected_wanted.id %>
-                                                  <%= f2.select :wanted_id, Wanted.pluck(:name, :id).delete_if{|list| list[1] == @selected_wanted.id}, {include_blank: '移動', selected: '移動'}, {id: "wanted-selector-#{w_p.id}", class: "a-native-dropdown g-move-button-native", data: {wpid: w_p.id}, style: "height: 23px;width: 140px;text-align: center!important;font-size: 11px;"} %>
+                                                  <%= f2.select :wanted_id, @wanteds.pluck(:name, :id).delete_if{|list| list[1] == @selected_wanted.id}, {include_blank: '移動', selected: '移動'}, {id: "wanted-selector-#{w_p.id}", class: "a-native-dropdown g-move-button-native", data: {wpid: w_p.id}, style: "height: 23px;width: 140px;text-align: center!important;font-size: 11px;"} %>
                                                 <% end %>
                                               </span>
                                             </div>
