@@ -12,7 +12,7 @@ $(document).on('turbolinks:load', function () {
             $("#create-wanted-modal-bg,#create-wanted-modal-main").fadeIn("slow");
 
             //背景のどこか、またはキャンセルボタンをクリックしたらモーダルを閉じる
-            $("#create-wanted-modal-bg,#cancel_button,.a-button-close a-declarative,.a-icon-close").click(function(){
+            $("#create-wanted-modal-bg,#cancel_button,.a-button-close.a-declarative,.a-icon-close").click(function(){
                 $("#create-wanted-modal-main,#create-wanted-modal-bg").fadeOut("slow",function(){
                     //挿入した<div id="modal-bg"></div>を削除
                     $('#create-wanted-modal-bg').remove() ;
