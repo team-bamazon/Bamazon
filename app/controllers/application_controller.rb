@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     if current_user.wanteds.present?
       @default_wanted = Wanted.find_by(default_flg: true)
     else
-      Wanted.create(name: "ほしい物リスト", default_flg: true, open_flg: true, user_id: current_user.id)
+      @default_wanted = Wanted.create(name: "ほしい物リスト", default_flg: true, open_flg: true, user_id: current_user.id)
     end
   end
 end
