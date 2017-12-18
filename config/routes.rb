@@ -36,6 +36,6 @@ Rails.application.routes.draw do
       get   'search'
       get   'suggest'
     end
-    resources :reviews, only: [:create]
+    resources :reviews, only: [:new, :create]
   end
 end
