@@ -896,7 +896,7 @@
                   <div class="a-row">
                     <span class="a-button writeReviewButton" id="a-autoid-6">
                       <span class="a-button-inner">
-                        <a href="/" class="a-button-text" role="button" id="a-autoid-6-announce">カスタマーレビューを書く</a>
+                        <%= link_to "カスタマーレビューを書く", new_product_review_path(@product), class: "a-button-text", id: "a-autoid-6-announce" %>
                       </span>
                     </span>
                   </div>
@@ -922,7 +922,7 @@
             <div class="a-row">
               <span class="a-button writeReviewButton" id="a-autoid-23">
                 <span class="a-button-inner">
-                  <a href="/" class="a-button-text" id="a-autoid-23-announce" role="button">カスタマーレビューを書く</a>
+                  <%=link_to "カスタマーレビューを書く", new_product_review_path(@product), class: "a-button-text", id: "a-autoid-23-announce" %>
                 </span>
               </span>
             </div>
