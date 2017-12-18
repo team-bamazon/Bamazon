@@ -154,8 +154,6 @@
                           <%= link_to product_path(product), class: "a-link-normal s-access-detail-page  s-color-twister-title-link a-text-normal", target: "_blank", title: product.name, style: "display: inline-block;" do %>
                             <h2 data-attribute=<%= product.name %> data-max-rows="0" class="a-size-base s-inline  s-access-title  a-text-normal"><%= product.name %></h2>
                           <% end %>
-                          <!--<span class="a-letter-space"></span>-->
-                          <!--<span class="a-size-small a-color-secondary">2008/9/3</span>-->
                         </div>
                         <div class="a-row a-spacing-none">
                           <span class="a-size-small a-color-secondary"></span>
@@ -192,10 +190,10 @@
                       <div class="a-row a-spacing-top-mini">
                         <div class="a-row a-spacing-none">
                           <span name="4167669072">
-                            <span class="a-declarative" data-action="a-popover" data-a-popover="{"max-width":"700","closeButton":"false","position":"triggerBottom","url":"/review/widgets/average-customer-review/popover/ref=acr_search__popover?ie=UTF8&asin=4167669072&contextId=search&ref=acr_search__popover"}">
+                            <span class="a-declarative">
                               <a href="javascript:void(0)" class="a-popover-trigger a-declarative">
-                                <i class="a-icon a-icon-star a-star-4-5">
-                                  <span class="a-icon-alt">5つ星のうち 4.4</span>
+                                <i class="a-icon a-icon-star a-star-<%= product.get_star_value[:star_value_css] / 2 %>-<%= (product.get_star_value[:star_value_css] % 2) * 5 %>">
+                                  <span class="a-icon-alt">5つ星のうち <%= product.get_star_value[:star_value] %></span>
                                 </i>
                                 <i class="a-icon a-icon-popover"></i>
                               </a>

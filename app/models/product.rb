@@ -22,16 +22,18 @@ class Product < ApplicationRecord
     if self.reviews
       # countをfloat型で扱わせるために1.0をかけている
       count = self.reviews.count * 1.0
-      star_value_sum = 0;
+      star_value_sum = 0
       self.reviews.each do |r|
         star_value_sum += r.rate;
       end
-      # 戻り値は平均値の切り上げ
-      star_value = (star_value_sum / count).ceil
+
+      star_value     = (star_value_sum / count) / 2.0
+      star_value_css = (star_value_sum / count).ceil
     else
-      star_value = 0
+      star_value     = 0.0
+      star_value_css = 0
     end
 
-    return star_value
+    return {star_value: star_value, star_value_css: star_value_css}
   end
 end
