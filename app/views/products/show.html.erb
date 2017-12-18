@@ -280,24 +280,20 @@
                 </div>
               </div>
             </div>
-            <div id="wishlistButtonStack" class="a-button-stack">
-              <div id="add-to-wishlist-button-group" class="a-button-group a-declarative a-spacing-none">
-                <%= link_to user_wanted_products_path(current_user, product_id: @product.id), method: :post do %>
-                  <span id="wishListMainButton" class="a-button a-button-group-first a-spacing-none a-declarative">
-                    <span class="a-button-inner">
-                      <input id="add-to-wishlist-button-submit" title="ほしい物リストに追加する" class="a-button-input a-declarative">
-                      <span id="wishListMainButton-announce" class="a-button-text a-text-left"><%= @default_wanted.name %>に追加する</span>
+            <% if user_signed_in? %>
+              <div id="wishlistButtonStack" class="a-button-stack">
+                <div id="add-to-wishlist-button-group" class="a-button-group a-declarative a-spacing-none">
+                  <%= link_to user_wanted_products_path(current_user, product_id: @product.id), method: :post do %>
+                    <span id="wishListMainButton" class="a-button a-button-group-first a-spacing-none a-declarative">
+                      <span class="a-button-inner">
+                        <input id="add-to-wishlist-button-submit" title="ほしい物リストに追加する" class="a-button-input a-declarative">
+                        <span id="wishListMainButton-announce" class="a-button-text a-text-left"><%= @default_wanted.name %>に追加する</span>
+                      </span>
                     </span>
-                  </span>
-                <% end %>
-                <span id="wishListDropDown" class="a-button a-button-dropdown a-button-group-last a-spacing-none wishlist-dropdown-button">
-                  <span class="a-button-inner">
-                    <i class="a-icon a-icon-dropdown"></i>
-                    <input id="add-to-wishlist-button" class="a-button-input a-declarative" type="submit">
-                  </span>
-                </span>
+                  <% end %>
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
         </div>
       </div>
