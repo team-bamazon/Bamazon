@@ -49,6 +49,7 @@
                   </div>
                   <div class="a-section a-spacing-base a-spacing-top-mini disableSelect fl">
                     <div class="a-section starsContainer fl">
+                      <input type="hidden" id="fixed_star_rate", value="0">
                       <div class="a-section a-spacing-none starSprite bigStar clickable rating_1 fl" tabindex="0" role="button" aria-label="星1つを与える商品を選択します。" data-star-value="1"></div>
                       <div class="a-section a-spacing-none starSprite bigStar clickable rating_2 fl" tabindex="0" role="button" aria-label="星2つを与える商品を選択します。" data-star-value="2"></div>
                       <div class="a-section a-spacing-none starSprite bigStar clickable rating_3 fl" tabindex="0" role="button" aria-label="星3つを与える商品を選択します。" data-star-value="3"></div>
@@ -70,7 +71,7 @@
                     </div>
                   </div>
                   <div style="clear:both;"></div>
-                  <div aria-live="polite" class="a-row a-expander-container a-expander-extend-container">
+                  <div id="input_area" aria-live="polite" class="a-row a-expander-container a-expander-extend-container" style="display: none;">
                     <div aria-expanded="false" class="a-expander-content collapsibleContent overflow a-expander-extend-content" style="overflow: hidden;">
                       <div class="tipsSlider"></div>
                       <div class="a-section a-spacing-none a-spacing-top-mini reviewInputFields overflow">
