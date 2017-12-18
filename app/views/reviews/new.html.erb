@@ -44,14 +44,13 @@
               </div>
               <div class="a-text-left a-spacing-none a-spacing-top-mini a-fixed-left-grid-col a-col-right" style="padding-left:0%;float:left;">
                 <div class="a-section a-spacing-none a-spacing-top-large reviewHeader relative">
-                  <div class="a-section a-spacing-none a-spacing-top-none a-padding-none">
+                  <div id="title_field" class="a-section a-spacing-none a-spacing-top-none a-padding-none">
                     <a class="a-size-base a-link-normal title" target="_blank" href="https://www.amazon.co.jp/dp/B002JCDSS8/ref=cm_cr_ryp_prd_ttl_sol_5"><%= @product.name %></a>
                     <div style="clear:both;"></div>
                   </div>
                   <div class="a-section a-spacing-base a-spacing-top-mini disableSelect fl">
                     <div class="a-section starsContainer fl">
                       <%= f.hidden_field :rate, id: "fixed_star_rate", value: "0" %>
-                      <!--<input type="hidden" id="fixed_star_rate", value="0">-->
                       <div class="a-section a-spacing-none starSprite bigStar clickable rating_1 fl" tabindex="0" role="button" aria-label="星1つを与える商品を選択します。" data-star-value="1"></div>
                       <div class="a-section a-spacing-none starSprite bigStar clickable rating_2 fl" tabindex="0" role="button" aria-label="星2つを与える商品を選択します。" data-star-value="2"></div>
                       <div class="a-section a-spacing-none starSprite bigStar clickable rating_3 fl" tabindex="0" role="button" aria-label="星3つを与える商品を選択します。" data-star-value="3"></div>
@@ -78,7 +77,6 @@
                       <div class="tipsSlider"></div>
                       <div class="a-section a-spacing-none a-spacing-top-mini reviewInputFields overflow">
                         <%= f.text_field :title, maxlength: "128", class: "a-input-text titleField reviewTitle fillWidth", placeholder: "レビューの見出し（必須） ※ページの右上に記載されている「公開名」で投稿されます。" %>
-                        <!--<input type="text" maxlength="128" class="a-input-text titleField reviewTitle fillWidth" placeholder="レビューの見出し（必須） ※ページの右上に記載されている「公開名」で投稿されます。" role="textbox">-->
                       </div>
                       <div class="a-section a-spacing-mini a-spacing-top-base reviewInputFields overflow">
                         <div data-hook="review-body-textbox" class="a-input-text-wrapper bigTextArea textField reviewText expandingTextSectionHeight" title="ここにレビューを記入してください">
@@ -86,10 +84,6 @@
 
 
 出品者についての評価は記入しないでください。" %>
-                          <!--<textarea id="review-body-text-area" style="height: 318px; margin-top: 0px; margin-bottom: 0px;" placeholder="ここに商品のレビューを記入（必須）-->
-
-
-<!--出品者についての評価は記入しないでください。"></textarea>-->
                         </div>
                       </div>
                       <div class="a-section a-spacing-small a-spacing-top-none minLenReviewNotificationHidden hidden">
@@ -103,8 +97,7 @@
                             <div class="a-section a-spacing-none a-padding-none buttonSection fr">
                               <span class="a-button a-button-normal a-spacing-none a-button-primary submitButton">
                                 <span class="a-button-inner">
-                                  <%= f.submit class: "a-button-input" %>
-                                  <!--<input  class="a-button-input" type="submit" value="submit">-->
+                                  <%= f.submit id: "post_review_button", class: "a-button-input" %>
                                   <span class="a-button-text a-text-center" aria-hidden="true">
                                     <span class="submitText">送信</span>
                                   </span>

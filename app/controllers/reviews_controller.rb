@@ -5,6 +5,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    @name = Product.find(params[:product_id]).name
     Review.create(review_params)
 
     respond_to do |format|
