@@ -123,16 +123,18 @@
                 </div>
               </div>
               <div class="a-form-actions">
-                <div class="a-column a-span6 a-spacing-base">
-                  <span class="a-declarative" data-action="a-modal" data-a-modal="{&quot;padding&quot;:&quot;none&quot;,&quot;name&quot;:&quot;wl-delete-confirmation&quot;,&quot;width&quot;:&quot;300&quot;,&quot;header&quot;:&quot;削除の確認&quot;}">
-                    <span class="a-button">
-                      <span class="a-button-inner">
-                        <%= link_to "リストを削除する", user_wanted_path(current_user, params[:id]), method: :delete, class: "a-button-input" %>
-                        <span class="a-button-text" aria-hidden="true">リストを削除する</span>
+                <% if !@selected_wanted.default_flg %>
+                  <div class="a-column a-span6 a-spacing-base">
+                    <span class="a-declarative" data-action="a-modal" data-a-modal="{&quot;padding&quot;:&quot;none&quot;,&quot;name&quot;:&quot;wl-delete-confirmation&quot;,&quot;width&quot;:&quot;300&quot;,&quot;header&quot;:&quot;削除の確認&quot;}">
+                      <span class="a-button">
+                        <span class="a-button-inner">
+                          <%= link_to "リストを削除する", user_wanted_path(current_user, params[:id]), method: :delete, class: "a-button-input" %>
+                          <span class="a-button-text" aria-hidden="true">リストを削除する</span>
+                        </span>
                       </span>
                     </span>
-                  </span>
-                </div>
+                  </div>
+                <% end %>
                 <div class="a-column a-span6 a-spacing-base a-span-last" style="width: auto;">
                   <span class="a-declarative" data-action="a-popover-close" data-a-popover-close="{}">
                     <span id="list-settings-cancel" class="a-button">
