@@ -1,0 +1,62 @@
+.centerContainer {
+  margin: 0 auto;
+  min-width: 750px;
+  max-width: 1050px;
+}
+
+.reviews {
+  .fr {
+    float: right;
+  }
+  .fl {
+    float: left;
+  }
+  .clickable {
+    cursor: pointer;
+  }
+  input.fillWidth {
+    width: 100%;
+  }
+  a, a:link, div, input, label, span, textarea {
+    font-family: arial,verdana,helvetica,sans-serif;
+  }
+  .bigStar, .blueStar, .starSpriteSheet, .yellowStar {
+    background: url(https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/customer-reviews/RYP_mobile_spritex2-v8._V316463287_.png) no-repeat;
+    width: 46px;
+    height: 45px;
+    background-size: 163px 275px;
+  }
+  .bigStar {
+    background-position: -6px -387px;
+    outline-width: 0;
+    background-size: 326px 550px;
+  }
+  .yellowStar {
+     background-position: -96px -387px;
+     background-size: 326px 550px;
+  }
+  .blueStar {
+    background-position: -51px -387px;
+    background-size: 326px 550px;
+  }
+}
+
+.a-alert-inline .a-alert-container {
+  padding: 0;
+}
+
+.a-alert-inline-success .a-alert-container {
+  padding-left: 22px;
+  color: #007600;
+}
+
+.a-alert-inline {
+  display: inline-block;
+  border: none;
+  vertical-align: middle;
+  background-color: transparent;
+}
+
+.a-input-text:focus, input[type-text]:focus {
+  border-color: #e77600;
+}
