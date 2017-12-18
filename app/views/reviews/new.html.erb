@@ -30,7 +30,7 @@
   </div>
   <hr class="a-spacing-none a-spacing-top-small a-divider-text">
   <!-- ここから商品ごとに繰り返し -->
-  <%= form_for [@product, @review] do |f| %>
+  <%= form_for [@product, @review], html: {id: "review_post_form"} do |f| %>
     <div id="solicitPurchases" class="a-section solicitPurchases reviews">
     <div id="reviewProductsViewport" class="a-section a-spacing-none mobileOverflow">
       <div id="reviewSection5" class="a-section a-spacing-none desktop overflow" style="">

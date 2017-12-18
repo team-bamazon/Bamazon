@@ -99,7 +99,7 @@ $(document).on('turbolinks:load', function () {
     });
 
     // ここからレビュー送信処理
-    $("form").submit(function(e) {
+    $("#review_post_form").submit(function(e) {
         e.preventDefault();
         e.stopPropagation();
 
