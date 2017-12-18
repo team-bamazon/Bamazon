@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'reviews/create'
+
+  get 'review/create'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
@@ -32,6 +36,6 @@ Rails.application.routes.draw do
       get   'search'
       get   'suggest'
     end
+    resources :reviews, only: [:create]
   end
-
 end
