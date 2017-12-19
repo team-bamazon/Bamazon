@@ -29,11 +29,6 @@ class CartProductsController < ApplicationController
   private
 
   def cart_product_params
-    # if user_signed_in?
-    #   params.require(:cart_product).permit(:product_count).merge(cart_id: current_user.cart.id, product_id: params[:product_id])
-    # else
-    #   params.require(:cart_product).permit(:product_count).merge(cart_id: get_current_cart.id, product_id: params[:product_id])
-    # end
     params.require(:cart_product).permit(:product_count).merge(cart_id: @cart.id, product_id: params[:product_id])
   end
 
