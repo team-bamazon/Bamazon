@@ -408,24 +408,14 @@
             </span>
           </a>
         <% end %>
-        <% if user_signed_in? && current_user.cart.present? %>
-          <a href="/carts/<%= current_user.cart.id %>/edit" aria-label="カート内の商品数：0" class="nav-a nav-a-2" id="nav-cart" tabindex="30">
-        <% else %>
-          <a href="/carts/<%= get_current_cart.id %>/edit" aria-label="カート内の商品数：0" class="nav-a nav-a-2" id="nav-cart" tabindex="30">
-        <% end %>
+          <a href="/carts/<%= @cart.id %>/edit" aria-label="カート内の商品数：0" class="nav-a nav-a-2" id="nav-cart" tabindex="30">
             <span aria-hidden="true" class="nav-line-1"> </span>
             <span aria-hidden="true" class="nav-line-2">カート
               <span class="nav-icon nav-arrow"></span>
             </span>
             <span class="nav-cart-icon nav-sprite"></span>
             <span id="nav-cart-count" aria-hidden="true" class="nav-cart-count nav-cart-0">
-              <% if user_signed_in? && current_user.cart.present? %>
-                <%= @cart.cart_count_sum(current_user.cart) %>
-              <% elsif get_current_cart.cart_products.present? %>
-                <%= get_current_cart.cart_count_sum(get_current_cart) %>
-              <% else %>
-                0
-              <% end %>
+              <%= @cart.cart_count_sum(@cart) %>
             </span>
           </a>
         </div>
