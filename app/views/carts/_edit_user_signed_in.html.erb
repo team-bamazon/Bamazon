@@ -1,5 +1,5 @@
 <div class = "a-container">
-  <% if current_user.cart.cart_products.blank? %>
+  <% if @cart.cart_products.blank? %>
   <div id = "sc-active-cart" class = "a-section a-spacing-top-base sc-list">
     <a name = "sc-anchor-active-cart" href="#"></a>
       <div class = "a-row sc-cart-header">
@@ -17,7 +17,7 @@
     </div>
     <% end %>
     <!-- ここまでが商品がない時 -->
-    <% if current_user.cart.cart_products.present? %>
+    <% if @cart.cart_products.present? %>
     <!-- カートに入れるボタン -->
     <%= form_for @order_product do |f| %>
     <div class = "a-fixed-right-grid-col a-col-right" style ="width: 300px; float:right;">
@@ -29,9 +29,9 @@
                 <p class="a-spacing-none a-spacing-top-none">
                   <span class="a-size-medium a-text-bold">
                     <span>
-                      小計 (<%= @cart.cart_count_sum(current_user.cart) %>点):
+                      小計 (<%= @cart.cart_count_sum(@cart) %>点):
                     </span>
-                    <span class="a-size-medium a-color-price sc-price sc-white-space-nowrap  sc-price-sign">￥ <%= @cart.cart_price_sum(current_user.cart) %>
+                    <span class="a-size-medium a-color-price sc-price sc-white-space-nowrap  sc-price-sign">￥ <%= @cart.cart_price_sum(@cart) %>
                     </span>
                   </span>
                 </p>
@@ -39,7 +39,7 @@
                   <span class="a-size-base">
                     この注文での獲得ポイント:
                     <span class="a-color-price">
-                    <%= @cart.cart_point_sum(current_user.cart) %>pt
+                    <%= @cart.cart_point_sum(@cart) %>pt
                   </span>
                 </span>
               </p>
@@ -96,7 +96,7 @@
       </div>
       </div>
       <div class = "sc-list-body">
-      <% @cart.cart_informations(current_user.cart).each do |cart_info| %>
+      <% @cart.cart_informations(@cart).each do |cart_info| %>
       <%= f.fields_for "order_info[]", cart_info do |f| %>
       <div class="a-row sc-list-item  sc-list-item-border">
       <div class = "a-row a-spacing-base a-spacing-top-base">
@@ -141,7 +141,7 @@
                 <div class = "a-row sc-action-links">
                   <span class = "a-size-small sc-action-delete">
                     <span class = "a-declarative" data-actoin="sc-item-action">
-                        <%= link_to "削除", product_cart_product_path(current_user.cart, cart_info), method: :delete, class: "carts_delete-buttorn"%>
+                        <%= link_to "削除", product_cart_product_path(@cart, cart_info), method: :delete, class: "carts_delete-buttorn"%>
                       </a>
                     </span>
                   </span>
@@ -200,10 +200,10 @@
     <div class="sc-subtotal a-text-right a-float-right space_bottom">
         <p class="a-spacing-none a-spacing-top-mini">
           <span class="a-size-medium a-text-bold">
-            小計 ( <div class = "cart_sum_count"><%= @cart.cart_count_sum(current_user.cart) %> </div>点):
+            小計 ( <div class = "cart_sum_count"><%= @cart.cart_count_sum(@cart) %> </div>点):
             <span class="a-color-price a-text-bold">
               <span class="a-size-medium a-color-price sc-price sc-white-space-nowrap  sc-price-sign">
-              ￥ <%= @cart.cart_price_sum(current_user.cart) %>
+              ￥ <%= @cart.cart_price_sum(@cart) %>
             </span>
           </span>
         </span>
@@ -211,7 +211,7 @@
       <p class="a-spacing-none a-spacing-top-medium a-text-right">
         <span class="a-size-base">
           この注文での獲得ポイント:
-          <span class="a-color-price"><%= @cart.cart_point_sum(current_user.cart) %>pt</span>
+          <span class="a-color-price"><%= @cart.cart_point_sum(@cart) %>pt</span>
         </span>
       </p>
     </div>
