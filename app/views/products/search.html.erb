@@ -167,7 +167,7 @@
                       <div class="a-row a-spacing-none">
                         <%= link_to product_path(product), class: "a-link-normal a-text-normal", target: "_blank", title: product.name do %>
                           <span class="a-size-small a-color-secondary"></span>
-                          <span class="a-size-base a-color-price s-price a-text-bold">¥ <%= product.price %></span>
+                          <span class="a-size-base a-color-price s-price a-text-bold">¥ <%= product.price.floor %></span>
                         <% end %>
                         <span class="a-letter-space"></span>
                         <i class="a-icon a-icon-jp a-icon-prime-jp a-icon-small s-align-text-bottom" aria-label="プライム">
@@ -178,8 +178,8 @@
                         <div class="a-row a-spacing-none">
                           <span class="a-size-small a-color-secondary">ポイント:</span>
                           <span class="a-letter-space"></span>
-                          <span class="a-size-small a-color-price a-text-bold">21 pt</span>
-                          <span class="a-size-small a-color-price">(3%)</span>
+                          <span class="a-size-small a-color-price a-text-bold"><%= (product.price * 0.1).floor %> pt</span>
+                          <span class="a-size-small a-color-price">(10%)</span>
                         </div>
                         <div class="a-row a-spacing-none">
                           <span class="a-size-small a-color-secondary">
