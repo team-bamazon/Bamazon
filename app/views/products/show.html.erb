@@ -192,13 +192,13 @@
                               <span id="submit.add-to-cart" class="a-button a-spacing-small a-button-primary a-button-icon">
                                 <span class="a-button-inner">
                                   <i class="a-icon a-icon-cart"></i>
-                                  <% if user_signed_in? %>
+                                  <%# if user_signed_in? %>
                                     <%= f.submit "カートに入れる", id: "add-to-cart-button", class: "a-button-input" %>
                                     <span id="submit.add-to-cart-announce" class="a-button-text">カートに入れる</span>
-                                  <% else %>
-                                    <input type="submit" name="commit" value="カートに入れる" id="add-to-cart-button" class="a-button-input" disabled="disabled">
-                                    <span id="submit.add-to-cart-announce" class="a-button-text">サインインをしてください</span>
-                                  <% end %>
+                                  <%# else %>
+                                    <!-- <input type="submit" name="commit" value="カートに入れる" id="add-to-cart-button" class="a-button-input" disabled="disabled">
+                                    <span id="submit.add-to-cart-announce" class="a-button-text">サインインをしてください</span> -->
+                                  <%# end %>
                                 </span>
                               </span>
                             </div>
@@ -282,14 +282,14 @@
             </div>
             <div id="wishlistButtonStack" class="a-button-stack">
               <div id="add-to-wishlist-button-group" class="a-button-group a-declarative a-spacing-none">
-                <%= link_to user_wanted_products_path(current_user, product_id: @product.id), method: :post do %>
+                <%#= link_to user_wanted_products_path(current_user, product_id: @product.id), method: :post do %>
                   <span id="wishListMainButton" class="a-button a-button-group-first a-spacing-none a-declarative">
                     <span class="a-button-inner">
                       <input id="add-to-wishlist-button-submit" title="ほしい物リストに追加する" class="a-button-input a-declarative">
-                      <span id="wishListMainButton-announce" class="a-button-text a-text-left"><%= @default_wanted.name %>に追加する</span>
+                      <span id="wishListMainButton-announce" class="a-button-text a-text-left"><%#= @default_wanted.name %>に追加する</span>
                     </span>
                   </span>
-                <% end %>
+                <%# end %>
                 <span id="wishListDropDown" class="a-button a-button-dropdown a-button-group-last a-spacing-none wishlist-dropdown-button">
                   <span class="a-button-inner">
                     <i class="a-icon a-icon-dropdown"></i>
