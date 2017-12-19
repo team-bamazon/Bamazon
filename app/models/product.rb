@@ -34,6 +34,66 @@ class Product < ApplicationRecord
       star_value_css = 0
     end
 
-    return {star_value: star_value, star_value_css: star_value_css}
+    return {star_value: star_value.round(1), star_value_css: star_value_css}
+  end
+
+  def rate_average_five
+    if self.reviews.present?
+      count = self.reviews.count
+      # rateが10のものがいくつあるか探す処理
+      star_value_sum = self.reviews.where(rate: 10).count
+      # rate10のレビューの%をだす処理
+      star_value = (star_value_sum * 100) / count
+    else
+      star_value = 0
+    end
+  end
+
+  def rate_average_four
+    if self.reviews.present?
+      count = self.reviews.count
+      # rateが8のものがいくつあるか探す処理
+      star_value_sum = self.reviews.where(rate: 8).count
+      # rate8のレビューの%をだす処理
+      star_value = (star_value_sum * 100) / count
+    else
+      star_value = 0
+    end
+  end
+
+  def rate_average_three
+    if self.reviews.present?
+      count = self.reviews.count
+      # rateが6のものがいくつあるか探す処理
+      star_value_sum = self.reviews.where(rate: 6).count
+      # rate6のレビューの%をだす処理
+      star_value = (star_value_sum * 100) / count
+    else
+      star_value = 0
+    end
+  end
+
+  def rate_average_two
+    if self.reviews.present?
+      count = self.reviews.count
+      # rateが4のものがいくつあるか探す処理
+      star_value_sum = self.reviews.where(rate: 4).count
+      # rate4のレビューの%をだす処理
+      star_value = (star_value_sum * 100) / count
+    else
+      star_value = 0
+    end
+  end
+
+  def rate_average_one
+    if self.reviews.present?
+      count = self.reviews.count
+      # rateが2のものがいくつあるか探す処理
+      star_value_sum = self.reviews.where(rate: 2).count
+      # rate2のレビューの%をだす処理
+      star_value = (star_value_sum * 100) / count
+    else
+      star_value = 0
+    end
   end
 end

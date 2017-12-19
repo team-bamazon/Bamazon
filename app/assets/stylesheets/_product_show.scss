@@ -1071,3 +1071,75 @@ a.a-icon-link-emphasis:after, a.a-link-emphasis:after {
 .a-text-bold {
   font-weight: 700!important;
 }
+
+
+.reviews-content {
+  min-height: 100px;
+  word-wrap: break-word;
+}
+
+
+.a-profile-avatar-wrapper {
+  display: table-cell;
+  width: 66px;
+  padding-right: 10px;
+  position: relative;
+  z-index: 0;
+}
+
+.a-profile[data-a-size=small] .a-profile-avatar-wrapper {
+  padding-right: 9px;
+  width: 43px;
+}
+
+[data-a-size=small] .a-profile-avatar {
+  height: 34px;
+  width: 34px;
+}
+
+.a-profile-content {
+  display: table-cell;
+  vertical-align: middle;
+  min-height: 56px;
+}
+
+.a-profile[data-a-size=small] .a-profile-content {
+  min-height: 34px;
+}
+
+.a-profile-name {
+  position: relative;
+  color: #111;
+  font-size: 17px;
+  line-height: 1.255;
+}
+
+.a-profile[data-a-size=small] .a-profile-name {
+  font-size: 13px;
+  line-height: 19px;
+}
+
+.a-expander-partial-collapse-container, .a-expander-partial-collapse-content {
+  overflow: hidden;
+  position: relative;
+}
+
+.a-expander-content-fade {
+  height: 16px;
+  width: 100%;
+  position: absolute;
+  top: -16px;
+  left: 0;
+  background: -webkit-linear-gradient(top,rgba(255,255,255,0),#fff);
+  background: linear-gradient(to bottom,rgba(255,255,255,0),#fff);
+}
+
+.cr-vote {
+  display: inline-block;
+  min-width: 20em;
+}
+
+.cr-vote-button-margin {
+  margin-top: -1px;
+  display: inline-block;
+}

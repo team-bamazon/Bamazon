@@ -762,7 +762,7 @@
                   </div>
                   <div class="a-fixed-left-grid-col a-col-right" style="padding-left:0%;*width:99.6%;float:left;">
                     <div class="a-row">
-                      <span class="a-size-medium totalReviewCount">67だよ</span>
+                      <span class="a-size-medium totalReviewCount"><%= @product.reviews.count %>だよ</span>
                     </div>
                   </div>
                 </div>
@@ -787,20 +787,20 @@
                         <tbody>
                           <tr class="a-histogram-row">
                             <td class="aok-nowrap">
-                              <a href="/" class="a-size-base a-link-normal 5star" title="星5つ">
+                              <a class="a-size-base a-link-normal 5star" title="星5つ">
                               星5つ</a>
                               <span class="a-letter-space"></span>
                             </td>
                             <td aria-hidden="true" class="a-span10">
-                              <a href="/" class="a-size-base a-link-normal">
+                              <a class="a-size-base a-link-normal">
                                 <div class="a-meter 5star">
-                                  <div class="a-meter-bar" style="width: 69%;">
+                                  <div class="a-meter-bar" style="width: <%= @product.rate_average_five %>%;">
                                   </div>
                                 </div>
                               </a>
                             </td>
                             <td aria-hidden="true" class="a-text-right aok-nowrap">
-                              <a href="/" class="a-size-base a-link-normal 5star histogram-review-count">69%</a>
+                              <a class="a-size-base a-link-normal 5star histogram-review-count"><%= @product.rate_average_five %>%</a>
                               <span class="a-letter-space"></span>
                             </td>
                           </tr>
@@ -811,53 +811,53 @@
                               <span class="a-letter-space"></span>
                             </td>
                             <td aria-hidden="true" class="a-span10">
-                              <a href="/" class="a-size-base a-link-normal">
+                              <a class="a-size-base a-link-normal">
                                 <div class="a-meter 4star">
-                                  <div class="a-meter-bar" style="width: 27%;">
+                                  <div class="a-meter-bar" style="width: <%= @product.rate_average_four %>%;">
                                   </div>
                                 </div>
                               </a>
                             </td>
                             <td aria-hidden="true" class="a-text-right aok-nowrap">
-                              <a href="/" class="a-size-base a-link-normal 3star histogram-review-count">27%</a>
+                              <a class="a-size-base a-link-normal 3star histogram-review-count"><%= @product.rate_average_four %>%</a>
                               <span class="a-letter-space"></span>
                             </td>
                           </tr>
                           <tr class="a-histogram-row">
                             <td class="aok-nowrap">
-                              <a href="/" class="a-size-base a-link-normal 3star" title="星3つ">
+                              <a class="a-size-base a-link-normal 3star" title="星3つ">
                               星3つ</a>
                               <span class="a-letter-space"></span>
                             </td>
                             <td aria-hidden="true" class="a-span10">
-                              <a href="/" class="a-size-base a-link-normal">
+                              <a class="a-size-base a-link-normal">
                                 <div class="a-meter 3star">
-                                  <div class="a-meter-bar" style="width: 3%;">
+                                  <div class="a-meter-bar" style="width: <%= @product.rate_average_three %>%;">
                                   </div>
                                 </div>
                               </a>
                             </td>
                             <td aria-hidden="true" class="a-text-right aok-nowrap">
-                              <a href="/" class="a-size-base a-link-normal 5star histogram-review-count">3%</a>
+                              <a class="a-size-base a-link-normal 5star histogram-review-count"><%= @product.rate_average_three %>%</a>
                               <span class="a-letter-space"></span>
                             </td>
                           </tr>
                           <tr class="a-histogram-row">
                             <td class="aok-nowrap">
-                              <a href="/" class="a-size-base a-link-normal 2star" title="星5つ">
+                              <a class="a-size-base a-link-normal 2star" title="星5つ">
                               星2つ</a>
                               <span class="a-letter-space"></span>
                             </td>
                             <td aria-hidden="true" class="a-span10">
-                              <a href="/" class="a-size-base a-link-normal">
+                              <a class="a-size-base a-link-normal">
                                 <div class="a-meter 2star">
-                                  <div class="a-meter-bar" style="width: 1%;">
+                                  <div class="a-meter-bar" style="width: <%= @product.rate_average_two %>%;">
                                   </div>
                                 </div>
                               </a>
                             </td>
                             <td aria-hidden="true" class="a-text-right aok-nowrap">
-                              <a href="/" class="a-size-base a-link-normal 2star histogram-review-count">1%</a>
+                              <a class="a-size-base a-link-normal 2star histogram-review-count"><%= @product.rate_average_two %>%</a>
                               <span class="a-letter-space"></span>
                             </td>
                           </tr>
@@ -869,12 +869,12 @@
                             </td>
                             <td aria-hidden="true" class="a-span10">
                               <div class="a-meter">
-                                <div class="a-meter-bar" style="width: 0%;">
+                                <div class="a-meter-bar" style="width: <%= @product.rate_average_one %>%;">
                                 </div>
                               </div>
                             </td>
                             <td aria-hidden="true" class="a-text-right aok-nowrap">
-                              <span class="a-size-base">0%</span>
+                              <span class="a-size-base"><%= @product.rate_average_one %>%</span>
                               <span class="a-letter-space"></span>
                             </td>
                           </tr>
@@ -900,21 +900,66 @@
               </div>
             </div>
           </div>
-          <a href="/" id="dp-summary-see-all-reviews" class="a-link-emphasis">
-            すべてのカスタマーレビューを見る(67だよ)
-          </a>
         </div>
         <div id="cr-medley-top-reviews-wrapper" class="a-row">
           <div id="cm-cr-dp-review-header" class="a-section a-spacing-small">
             <h3>トップカスタマーレビュー</h3>
           </div>
           <div class="a-row">
-
+            <!-- ここから -->
+            <% @reviews.each do |review| %>
+              <div class="a-section reviews-content filterable-reviews-content celwidget" style="margin-bottom: 22px;">
+                <div id="cm-cr-dp-review-list" class="a-section review-views celwidget">
+                  <div id="<%= @product.id %>" class="a-section review">
+                    <div id="customer_review-<%= review.id %>" class="a-section celwidget">
+                      <div class="a-row a-spacing-mini">
+                        <a href="/" class="a-profile" data-a-size="small">
+                          <div aria-hidden="true" class="a-profile-avatar-wrapper">
+                            <div class="a-profile-avatar">
+                              <img src="https://images-fe.ssl-images-amazon.com/images/S/amazon-avatars/default._CR0,0,1024,1024_SX48_.png">
+                            </div>
+                          </div>
+                          <div class="a-profile-content">
+                            <span class="a-profile-name"><%= review.user.name %></span>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="a-row">
+                        <a class="a-link-normal" title="5つ星のうち<%= @product.get_star_value[:star_value] %>" href="/products/<%= @product.id %>">
+                          <i data-hook="review-star-rating" class="a-icon a-icon-star a-star-<%= review.get_star[:star_value_css] / 2 %>-<%= (review.get_star[:star_value_css] % 2) * 5 %> review-rating">
+                            <span class="a-icon-alt">5つ星のうち<%= @product.get_star_value[:star_value] %></span>
+                          </i>
+                        </a>
+                        <span class="a-letter-space"></span>
+                        <a class="a-size-base a-link-normal review-title a-color-base a-text-bold"><%= review.title %></a>
+                      </div>
+                      <span data-hook="review-date" class="a-size-base a-color-secondary review-date">2017年12月14日</span>
+                      <div class="a-row review-data">
+                        <span data-hook="review-body" class="a-size-base review-text">
+                          <div class="a-expander-collapsed-height a-row a-expander-container a-spacing-base a-expander-partial-collapse-container" style="max-height:300px; _height:300px">
+                            <div class="a-expander-content a-expander-partial-collapse-content">
+                              <%= review.body %>
+                            </div>
+                            <div class="a-expander-header a-expander-partial-collapse-header" style="opacity: 0; display: none;">
+                              <div class="a-expander-content-fade"></div>
+                              <a href="javascript:void(0)" class="a-declarative">
+                                <i class="a-icon a-icon-extender-expand"></i>
+                                <span class="a-expander-prompt">続きを読む</span>
+                              </a>
+                            </div>
+                          </div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+            <!-- ここまで -->
             <!-- ここにいろんな人のレビューがくるよ -->
           </div>
           <div id="reviews-medley-footer" class="a-section">
             <div class="a-row a-spacing-large">
-              <a href="/" class="a-link-emphasis a-text-bold">すべての67レビューを表示するよ</a>
             </div>
             <div class="a-row">
               <span class="a-button writeReviewButton" id="a-autoid-23">
