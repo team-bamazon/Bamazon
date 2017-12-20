@@ -785,99 +785,27 @@
                     <span class="a-declarative">
                       <table id="histogramTable" class="a-normal a-align-middle a-spacing-base">
                         <tbody>
+                        <% 5.downto(1) do |index| %>
                           <tr class="a-histogram-row">
                             <td class="aok-nowrap">
-                              <a class="a-size-base a-link-normal 5star" title="星5つ">
-                              星5つ</a>
+                              <a class="a-size-base a-link-normal <%= index  %>star" title="星<%= index %>つ">
+                              星<%= index %>つ</a>
                               <span class="a-letter-space"></span>
                             </td>
                             <td aria-hidden="true" class="a-span10">
                               <a class="a-size-base a-link-normal">
-                                <div class="a-meter 5star">
-                                  <div class="a-meter-bar" style="width: <%= @product.rate_average_five %>%;">
+                                <div class="a-meter <%= index %>star">
+                                  <div class="a-meter-bar" style="width: <%= @product.rate_average(index * 2) %>%;">
                                   </div>
                                 </div>
                               </a>
                             </td>
                             <td aria-hidden="true" class="a-text-right aok-nowrap">
-                              <a class="a-size-base a-link-normal 5star histogram-review-count"><%= @product.rate_average_five %>%</a>
+                              <a class="a-size-base a-link-normal 5star histogram-review-count"><%= @product.rate_average(index * 2) %>%</a>
                               <span class="a-letter-space"></span>
                             </td>
                           </tr>
-                          <tr class="a-histogram-row">
-                            <td class="aok-nowrap">
-                              <a  class="a-size-base a-link-normal 4star" title="星4つ">
-                              星4つ</a>
-                              <span class="a-letter-space"></span>
-                            </td>
-                            <td aria-hidden="true" class="a-span10">
-                              <a class="a-size-base a-link-normal">
-                                <div class="a-meter 4star">
-                                  <div class="a-meter-bar" style="width: <%= @product.rate_average_four %>%;">
-                                  </div>
-                                </div>
-                              </a>
-                            </td>
-                            <td aria-hidden="true" class="a-text-right aok-nowrap">
-                              <a class="a-size-base a-link-normal 3star histogram-review-count"><%= @product.rate_average_four %>%</a>
-                              <span class="a-letter-space"></span>
-                            </td>
-                          </tr>
-                          <tr class="a-histogram-row">
-                            <td class="aok-nowrap">
-                              <a class="a-size-base a-link-normal 3star" title="星3つ">
-                              星3つ</a>
-                              <span class="a-letter-space"></span>
-                            </td>
-                            <td aria-hidden="true" class="a-span10">
-                              <a class="a-size-base a-link-normal">
-                                <div class="a-meter 3star">
-                                  <div class="a-meter-bar" style="width: <%= @product.rate_average_three %>%;">
-                                  </div>
-                                </div>
-                              </a>
-                            </td>
-                            <td aria-hidden="true" class="a-text-right aok-nowrap">
-                              <a class="a-size-base a-link-normal 5star histogram-review-count"><%= @product.rate_average_three %>%</a>
-                              <span class="a-letter-space"></span>
-                            </td>
-                          </tr>
-                          <tr class="a-histogram-row">
-                            <td class="aok-nowrap">
-                              <a class="a-size-base a-link-normal 2star" title="星5つ">
-                              星2つ</a>
-                              <span class="a-letter-space"></span>
-                            </td>
-                            <td aria-hidden="true" class="a-span10">
-                              <a class="a-size-base a-link-normal">
-                                <div class="a-meter 2star">
-                                  <div class="a-meter-bar" style="width: <%= @product.rate_average_two %>%;">
-                                  </div>
-                                </div>
-                              </a>
-                            </td>
-                            <td aria-hidden="true" class="a-text-right aok-nowrap">
-                              <a class="a-size-base a-link-normal 2star histogram-review-count"><%= @product.rate_average_two %>%</a>
-                              <span class="a-letter-space"></span>
-                            </td>
-                          </tr>
-                          <tr class="a-histogram-row">
-                            <td class="aok-nowrap">
-                              <span class="a-size-base">星1つ</span>
-                              <span class="a-offscreen">星1つ (0%)</span>
-                              <span class="a-letter-space"></span>
-                            </td>
-                            <td aria-hidden="true" class="a-span10">
-                              <div class="a-meter">
-                                <div class="a-meter-bar" style="width: <%= @product.rate_average_one %>%;">
-                                </div>
-                              </div>
-                            </td>
-                            <td aria-hidden="true" class="a-text-right aok-nowrap">
-                              <span class="a-size-base"><%= @product.rate_average_one %>%</span>
-                              <span class="a-letter-space"></span>
-                            </td>
-                          </tr>
+                        <% end %>
                         </tbody>
                       </table>
                     </span>
