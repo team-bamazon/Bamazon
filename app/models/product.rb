@@ -36,7 +36,7 @@ class Product < ApplicationRecord
 
     return {star_value: star_value.round(1), star_value_css: star_value_css}
   end
-
+# 星が5の時の全体の割合を返す処理
   def rate_average_five
     if self.reviews.present?
       count = self.reviews.count
@@ -48,7 +48,7 @@ class Product < ApplicationRecord
       star_value = 0
     end
   end
-
+# 星が4の時の全体の割合を返す処理
   def rate_average_four
     if self.reviews.present?
       count = self.reviews.count
@@ -60,7 +60,7 @@ class Product < ApplicationRecord
       star_value = 0
     end
   end
-
+# 星が3の時の全体の割合を返す処理
   def rate_average_three
     if self.reviews.present?
       count = self.reviews.count
@@ -72,7 +72,7 @@ class Product < ApplicationRecord
       star_value = 0
     end
   end
-
+# 星が2の時の全体の割合を返す処理
   def rate_average_two
     if self.reviews.present?
       count = self.reviews.count
@@ -84,7 +84,7 @@ class Product < ApplicationRecord
       star_value = 0
     end
   end
-
+# 星が1の時の全体の割合を返す処理
   def rate_average_one
     if self.reviews.present?
       count = self.reviews.count
