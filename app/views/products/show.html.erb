@@ -889,13 +889,15 @@
                   <div id="dp-summary-share-your-thoughts" class="a-row a-spacing-medium">
                     他のお客様にも意見を伝えましょう
                   </div>
-                  <div class="a-row">
-                    <span class="a-button writeReviewButton" id="a-autoid-6">
-                      <span class="a-button-inner">
-                        <%= link_to "カスタマーレビューを書く", new_product_review_path(@product), class: "a-button-text", id: "a-autoid-6-announce" %>
+                  <% if user_signed_in? %>
+                    <div class="a-row">
+                      <span class="a-button writeReviewButton" id="a-autoid-6">
+                        <span class="a-button-inner">
+                          <%= link_to "カスタマーレビューを書く", new_product_review_path(@product), class: "a-button-text", id: "a-autoid-6-announce" %>
+                        </span>
                       </span>
-                    </span>
-                  </div>
+                    </div>
+                  <% end %>
                 </div>
               </div>
             </div>
@@ -961,13 +963,15 @@
           <div id="reviews-medley-footer" class="a-section">
             <div class="a-row a-spacing-large">
             </div>
-            <div class="a-row">
-              <span class="a-button writeReviewButton" id="a-autoid-23">
-                <span class="a-button-inner">
-                  <%=link_to "カスタマーレビューを書く", new_product_review_path(@product), class: "a-button-text", id: "a-autoid-23-announce" %>
+            <% if user_signed_in? %>
+              <div class="a-row">
+                <span class="a-button writeReviewButton" id="a-autoid-23">
+                  <span class="a-button-inner">
+                    <%=link_to "カスタマーレビューを書く", new_product_review_path(@product), class: "a-button-text", id: "a-autoid-23-announce" %>
+                  </span>
                 </span>
-              </span>
-            </div>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
