@@ -117,7 +117,7 @@ $(document).on('turbolinks:load', function () {
         .done(function(message){
             sendFlag = true;
             $("#title_field").empty();
-            $("#title_field").append('<span class="a-size-large a-color-success a-text-bold">レビューをお書きいただきありがとうございました。商品名：' + message.name + '</span>');
+            $("#title_field").append('<span class="a-size-large a-color-success a-text-bold">レビューをお書きいただきありがとうございました。商品名：' + message.name + '</span><br><a href="/products/' + message.id + '" style="cursor: pointer">戻ってレビューを確認しましょう。</a>');
             $("#input_area").remove();
             $("#user_info_area").remove();
             $("#post_review_button").attr('disabled',false);
