@@ -12,7 +12,7 @@ $(document).on('turbolinks:load', function () {
             $("#edit-wanted-modal-bg,#edit-wanted-modal-main").fadeIn("slow");
 
             //背景のどこか、またはキャンセルボタンをクリックしたらモーダルを閉じる
-            $("#edit-wanted-modal-bg,#edit-wanted-modal-main").click(function(){
+            $("#edit-wanted-modal-bg,.a-icon-close,.list_edit_cancel").click(function(){
                 $("#edit-wanted-modal-main,#edit-wanted-modal-bg").fadeOut("slow",function(){
                     //挿入した<div id="modal-bg"></div>を削除
                     $('#edit-wanted-modal-bg').remove() ;
@@ -25,7 +25,7 @@ $(document).on('turbolinks:load', function () {
             function modalResize_firsttime(){
                 var w = $(window).width();
                 var h = $(window).height();
-                var tgt = $("#a-popover-1");
+                var tgt = $("#a-popover-3");
                 var tgt_parent = $("#edit-wanted-modal-main");
 
                 tgt_parent.css({
@@ -51,7 +51,7 @@ $(document).on('turbolinks:load', function () {
             function modalResize(){
                 var w = $(window).width();
                 var h = $(window).height();
-                var tgt = $("#a-popover-1");
+                var tgt = $("#a-popover-3");
                 var tgt_parent = $("#edit-wanted-modal-main");
 
                 var cw = tgt.outerWidth();

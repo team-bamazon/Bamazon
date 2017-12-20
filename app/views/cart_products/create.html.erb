@@ -91,7 +91,7 @@
                   <span id="hlb-ptc-btn" class="a-button a-button-primary hlb-checkout-button huc-v2-primary-button  huc-button-large">
                     <span class="a-button-inner">
                       <% if user_signed_in? %>
-                        <a href="javascript:void(0);" id="hlb-ptc-btn-native" class="a-button-text a-text-center prefetch-click-bound">レジに進む</a>
+                        <%= link_to "レジに進む", order_products_path , id: "hlb-ptc-btn-native", class: "a-button-text a-text-center prefetch-click-bound", method: :post  %>
                       <% else %>
                         <%= link_to "レジに進む", user_session_path, class: "a-button-text a-text-center prefetch-click-bound", id: "hlb-ptc-btn-native" %>
                       <% end %>

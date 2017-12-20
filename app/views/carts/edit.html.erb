@@ -83,19 +83,19 @@
         </div>
       </div>
       <div class = "sc-list-head">
-      <div class="a-row">
-        <div class="a-column a-span8"></div>
-        <div class="a-column a-span2 a-text-left a-spacing-top-micro">
-          <span class="a-color-secondary">
-            価格
-          </span>
+        <div class="a-row">
+          <div class="a-column a-span8"></div>
+          <div class="a-column a-span2 a-text-left a-spacing-top-micro">
+            <span class="a-color-secondary">
+              価格
+            </span>
+          </div>
+          <div class="a-column a-span2 a-text-right a-spacing-top-micro a-span-last">
+            <span class="a-color-secondary">
+              数量
+            </span>
+          </div>
         </div>
-        <div class="a-column a-span2 a-text-right a-spacing-top-micro a-span-last">
-          <span class="a-color-secondary">
-            数量
-          </span>
-        </div>
-      </div>
       </div>
       <div class = "sc-list-body">
       <% @cart.cart_informations(@cart).each do |cart_info| %>
@@ -108,7 +108,7 @@
               <div class="a-fixed-left-grid-col a-float-left a-col-left" style="width:115px;margin-left:-115px;float:none;">
                 <div class = "sc-item-product-image">
                   <a class = "a-link-normal sc-product-link" href = "/">
-                    <img src="<%= cart_info.product.product_images[0].image %>" width="100">
+                    <img src="<%= cart_info.product.product_images.present? ? cart_info.product.product_images[0].image : "https://images-fe.ssl-images-amazon.com/images/G/09/icons/books/comingsoon_books._V376986337_BO1,204,203,200_.gif" %>" width="100">
                   </a>
                 </div>
               </div>
@@ -185,17 +185,12 @@
               <span class = "a-dropdown-container">
                 <label class = "a-native-dorpdown">
                   <%=f.select :product_count, ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "100"],{}, {class: "cart_prodcut_count_buttorn  data-cart_prodcut_count" } %>
-                  <%= f.hidden_field :product_name, :value => cart_info.product.name%>
-                  <%= f.hidden_field :price, :value => cart_info.product.price %>
-                  <%= f.hidden_field :product_image, :value => cart_info.product.product_images[0].image%>
-                  <%= f.hidden_field :count, :value => cart_info.product_count %>
-                  <%= f.hidden_field :product_id, :value => cart_info.product_id %>
                 </label>
               </span>
             </div>
           </div>
+        </div>
       </div>
-    </div>
     </div>
     <% end %>
     <% end %>

@@ -19,15 +19,32 @@ class Product < ApplicationRecord
     # productインスタンスに紐づくreviewについたrateの平均値を返すメソッド
     # reviewがない場合はゼロを返す
     # 返す値は0-10の範囲の整数値
-    if self.reviews
+    if self.reviews.present?
       # countをfloat型で扱わせるために1.0をかけている
       count = self.reviews.count * 1.0
-      star_value_sum = 0;
+      star_value_sum = 0
       self.reviews.each do |r|
         star_value_sum += r.rate;
       end
-      # 戻り値は平均値の切り上げ
-      star_value = (star_value_sum / count).ceil
+
+      star_value     = (star_value_sum / count) / 2.0
+      star_value_css = (star_value_sum / count).ceil
+    else
+      star_value     = 0.0
+      star_value_css = 0
+    end
+
+    return {star_value: star_value.round(1), star_value_css: star_value_css}
+  end
+
+  # 星がrateの時の全体の割合を返す処理
+  def rate_average(rate)
+    if self.reviews.present?
+      count = self.reviews.count
+      # rateが2のものがいくつあるか探す処理
+      star_value_sum = self.reviews.where(rate: rate).count
+      # rate2のレビューの%をだす処理
+      star_value = (star_value_sum * 100) / count
     else
       star_value = 0
     end
