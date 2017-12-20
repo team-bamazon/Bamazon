@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
@@ -32,7 +33,7 @@ Rails.application.routes.draw do
       get   'search'
       get   'suggest'
     end
+    resources :reviews, only: [:new, :create]
   end
   resources :product_categories, only: [:index]
-
 end
