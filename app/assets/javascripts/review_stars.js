@@ -42,19 +42,19 @@ $(document).on('turbolinks:load', function () {
             clearUserInfoArea();
 
             switch (this_star_val) {
-                case 1 :
+                case 2 :
                     $("#how_is_this_product").text("ん～…まあ…");
                     break;
-                case 2 :
+                case 4 :
                     $("#how_is_this_product").text("悪くはない");
                     break;
-                case 3 :
+                case 6 :
                     $("#how_is_this_product").text("普通");
                     break;
-                case 4 :
+                case 8 :
                     $("#how_is_this_product").text("なかなか良い");
                     break;
-                case 5 :
+                case 10 :
                     $("#how_is_this_product").text("とても良い");
                     break;
                 default :
