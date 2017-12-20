@@ -14,8 +14,6 @@ class ProductsController < ApplicationController
     @products = Product.where('name LIKE(?)', "%#{@search_keyword}%").page(params[:page])
   end
 
-  def
-
   def suggest
     @suggests = Product.where('name LIKE(?)', "%#{params[:keyword]}%").limit(10)
     respond_to do |format|

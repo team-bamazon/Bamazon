@@ -21,7 +21,7 @@ $(document).on('turbolinks:load', function () {
         });
     }
 
-    function clearHowIdThisProduct() {
+    function clearHowIsThisProduct() {
         $("#how_is_this_product").text("");
     }
 
@@ -72,7 +72,7 @@ $(document).on('turbolinks:load', function () {
 
     $(".bigStar").on("mouseleave", function() {
         if (!sendFlag) {
-            clearHowIdThisProduct();
+            clearHowIsThisProduct();
             resetUserInfoArea();
             clearStarClass();
             appendYellowStarClass();
@@ -86,7 +86,7 @@ $(document).on('turbolinks:load', function () {
             $("#fixed_star_rate").attr("value", this_star_val);
             fixedStarValue = this_star_val;
 
-            clearHowIdThisProduct();
+            clearHowIsThisProduct();
             resetUserInfoArea();
             clearStarClass();
             appendYellowStarClass();
