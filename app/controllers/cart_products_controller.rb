@@ -22,10 +22,21 @@ class CartProductsController < ApplicationController
     redirect_to edit_cart_path
   end
 
+  def update
+    @cart_product = CartProduct.find(params[:id])
+    @cart_product.update(product_count: params[:product_count])
+    @cart = Cart.find(params[:cart_id])
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   private
 
   def cart_product_params
     params.require(:cart_product).permit(:product_count).merge(cart_id: @cart.id, product_id: params[:product_id] )
   end
+
 
 end
