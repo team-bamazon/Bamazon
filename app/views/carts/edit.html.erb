@@ -1,3 +1,5 @@
+<%= render partial: 'layouts/header' %>
+
 <div class = "a-container">
   <% if @cart.cart_products.blank? %>
   <div id = "sc-active-cart" class = "a-section a-spacing-top-base sc-list">
@@ -31,7 +33,8 @@
                     <span>
                       小計 (<%= @cart.cart_count_sum(@cart) %>点):
                     </span>
-                    <span class="a-size-medium a-color-price sc-price sc-white-space-nowrap  sc-price-sign">￥ <%= @cart.cart_price_sum(@cart) %></span>
+                    <span class="a-size-medium a-color-price sc-price sc-white-space-nowrap  sc-price-sign">￥ <%= @cart.cart_price_sum(@cart) %>
+                    </span>
                   </span>
                 </p>
                 <p class="a-spacing-none a-spacing-top-small">
@@ -231,3 +234,6 @@
     </div>
   </div>
 </div>
+
+<%= render partial: 'layouts/footer' %>
+
