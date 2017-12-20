@@ -33,5 +33,6 @@ Rails.application.routes.draw do
       get   'suggest'
     end
   end
+  resources :product_categories, only: [:index]
 
 end
