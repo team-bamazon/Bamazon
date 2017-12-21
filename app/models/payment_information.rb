@@ -14,8 +14,6 @@ class PaymentInformation < ApplicationRecord
   validates :full_name, presence: true
 
   def number_method
-    # number = card_number.split("")
-    # return  number[12] + number[13] + number[14] + number[15]
     return card_number[card_number.length-4, 4]
   end
 end

@@ -1,4 +1,51 @@
 <div id="checkoutDisplayPage">
+<div id="create-address-modal-main">
+  <div class="a-popover a-popover-modal a-declarative pop-create" id="a-popover-1" aria-hidden="false" style="width: 639px; max-width: none; visibility: visible; margin: 0px; opacity: 1; display: block; padding: 0;">
+    <span tabindex="0" role="dialog" class="a-popover-start a-popover-a11y-offscreen" aria-labelledby="a-popover-header-1"></span>
+    <div class="a-popover-wrapper" aria-busy="false">
+      <div class="a-popover-header" style="">
+        <button class=" a-button-close a-declarative" aria-label="Close">
+          <i class="a-icon a-icon-close"></i>
+        </button>
+        <h4 class="a-popover-header-content" id="a-popover-header-1">住所を登録する</h4>
+      </div>
+      <div class="a-popover-inner a-padding-none" id="a-popover-content-1" style="height: auto; overflow-y: auto;">
+        <%= form_for @order, method: :patch, action: :update,  html: {class: "reg-create-form"} do |f| %>
+          <div class="a-column a-span4">
+            <div class="a-row a-spacing-base">
+              <div class="a-row">
+                <strong>お届け先住所</strong>
+                <span class="change-address-popover-span">
+                  <a id="create-address-modal-open" class="a-link-normal">登録</a>
+                </span>
+              </div>
+              <div class="a-row">
+                <div class="a-row">
+                  <div class="a-row" id="desktop-shipping-address-div">
+                    <div class="displayAddressDiv">
+                      <div class="displayAddressUL">
+                        <%= f.text_field :full_name, id: "text_form", placeholder: "名前を入力してください" %>
+                        <%= f.text_field :postal_code_one, id: "text_form_a", placeholder: "郵便番号を" %>-<%= f.text_field :postal_code_two, id: "text_form_a", placeholder: "入力してください" %>
+                        <%= f.text_field :region, id: "text_form", placeholder: "県庁所在地を入力してください", style: "margin-top: 10px!important;" %>
+                        <%= f.text_field :street_address_one, id: "text_form", placeholder: "住所を入力してください" %>
+                        <%= f.text_field :building_name, id: "text_form", placeholder: "建物名を入力してください" %>
+                        <%= f.text_field :phone_number, id: "text_form", placeholder: "電話番号を入力してください" %>
+                        <%= f.submit "アドレス登録", style: "background-color: yellow;" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="a-row a-spacing-base  a-fixed-left-grid">
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <span tabindex="0" class="a-popover-end a-popover-a11y-offscreen"></span>
+  </div>
+</div>
   <div id="spc-desktop" class="checkout spc desktop locale-jp  spc-desktop">
     <div class="a-container">
       <div class="a-row a-spacing-large">
@@ -51,48 +98,95 @@
                 </div>
                 <div id="spc-top" class="a-row a-box a-spacing-small">
                   <div class="a-box-inner">
-                    <div class="a-column a-span4">
-                      <div class="a-row a-spacing-base">
-                        <div class="a-row">
-                          <strong>お届け先住所</strong>
-                          <span class="change-address-popover-span">
-                            <a href="javascript:void(0);">変更</a>
-                          </span>
-                        </div>
-                        <div class="a-row">
+                    <!-- アドレスがある人のビュー -->
+                    <% if @order.user.addresses.present? %>
+                      <div class="a-column a-span4">
+                        <div class="a-row a-spacing-base">
                           <div class="a-row">
-                            <div class="a-row" id="desktop-shipping-address-div">
-                              <div class="displayAddressDiv">
-                                <ul class="displayAddressUL">
-                                  <li><%= @order.user.addresses[0].full_name %></li>
-                                  <li><%= @order.user.addresses[0].postal_code_one %>-<%= @order.user.addresses[0].postal_code_two %></li>
-                                  <li><%= @order.user.addresses[0].region %> <%= @order.user.addresses[0].street_address_one %><%= @order.user.addresses[0].street_address_two %><%= @order.user.addresses[0].building_name %></li>
-                                  <li>電話番号:<%= @order.user.addresses[0].phone_number %></li>
-                                </ul>
+                            <strong>お届け先住所</strong>
+                            <span class="change-address-popover-span">
+                              <a id="editYourAddress" class="a-link-normal">変更</a>
+                            </span>
+                          </div>
+                          <div class="a-row">
+                            <div class="a-row">
+                              <div class="a-row" id="desktop-shipping-address-div">
+                                <div class="displayAddressDiv">
+                                  <ul class="displayAddressUL">
+                                    <li><%= @order.user.addresses[0].full_name %></li>
+                                    <li><%= @order.user.addresses[0].postal_code_one %>-<%= @order.user.addresses[0].postal_code_two %></li>
+                                    <li><%= @order.user.addresses[0].region %> <%= @order.user.addresses[0].street_address_one %><%= @order.user.addresses[0].street_address_two %><%= @order.user.addresses[0].building_name %></li>
+                                    <li>電話番号:<%= @order.user.addresses[0].phone_number %></li>
+                                  </ul>
+                                </div>
                               </div>
                             </div>
+                            <div class="a-row a-declarative">
+                              <a href="javascript:void(0);" class="pipeline-link a-size-mini">
+                              複数のお届け先を指定する</a>
+                            </div>
                           </div>
-                          <div class="a-row a-declarative">
-                            <a href="javascript:void(0);" class="pipeline-link a-size-mini">
-                            複数のお届け先を指定する</a>
+                        </div>
+                        <div class="a-row a-spacing-base  a-fixed-left-grid">
+                          <div class="a-fixed-left-grid-inner spc-promo-fixed-width-padding">
+                            <div class="a-fixed-left-grid-col a-col-left aok-float-left spc-promo-image">
+                              <a href="javascript:void(0);" id="locker-search-link" class="a-declarative a-col-left">
+                                <%= image_tag("https://images-fe.ssl-images-amazon.com/images/G/09/x-locale/checkout/locker._CB323963444_.png" ,class: "a-spacing-top-micro",id: "locker-promo-img") %>
+                              </a>
+                            </div>
+                            <div class="a-fixed-left-grid-col a-col-right aok-float-left">
+                              <span class="a-color-state">店頭受取もご利用いただけます店頭受取</span>
+                              <br><strong>20 </strong>店舗が近くにあります。
+                              <a href="javascript:void(0);" id="locker-search-link" class="a-declarative a-size-mini">選択</a>
+                            </div>
                           </div>
                         </div>
                       </div>
-                      <div class="a-row a-spacing-base  a-fixed-left-grid">
-                        <div class="a-fixed-left-grid-inner spc-promo-fixed-width-padding">
-                          <div class="a-fixed-left-grid-col a-col-left aok-float-left spc-promo-image">
-                            <a href="javascript:void(0);" id="locker-search-link" class="a-declarative a-col-left">
-                              <%= image_tag("https://images-fe.ssl-images-amazon.com/images/G/09/x-locale/checkout/locker._CB323963444_.png" ,class: "a-spacing-top-micro",id: "locker-promo-img") %>
-                            </a>
+                      <!-- アドレスがない人用のビュー -->
+                    <% else %>
+                      <div class="a-column a-span4">
+                        <div class="a-row a-spacing-base">
+                          <div class="a-row">
+                            <strong>お届け先住所</strong>
+                            <span class="change-address-popover-span">
+                              <a id="editYourAddress" class="a-link-normal">変更</a>
+                            </span>
                           </div>
-                          <div class="a-fixed-left-grid-col a-col-right aok-float-left">
-                            <span class="a-color-state">店頭受取もご利用いただけます店頭受取</span>
-                            <br><strong>20 </strong>店舗が近くにあります。
-                            <a href="javascript:void(0);" id="locker-search-link" class="a-declarative a-size-mini">選択</a>
+                          <div class="a-row">
+                            <div class="a-row">
+                              <div class="a-row" id="desktop-shipping-address-div">
+                                <div class="displayAddressDiv">
+                                  <ul class="displayAddressUL">
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="a-row a-declarative">
+                              <a href="javascript:void(0);" class="pipeline-link a-size-mini">
+                              複数のお届け先を指定する</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="a-row a-spacing-base  a-fixed-left-grid">
+                          <div class="a-fixed-left-grid-inner spc-promo-fixed-width-padding">
+                            <div class="a-fixed-left-grid-col a-col-left aok-float-left spc-promo-image">
+                              <a href="javascript:void(0);" id="locker-search-link" class="a-declarative a-col-left">
+                                <%= image_tag("https://images-fe.ssl-images-amazon.com/images/G/09/x-locale/checkout/locker._CB323963444_.png" ,class: "a-spacing-top-micro",id: "locker-promo-img") %>
+                              </a>
+                            </div>
+                            <div class="a-fixed-left-grid-col a-col-right aok-float-left">
+                              <span class="a-color-state">店頭受取もご利用いただけます店頭受取</span>
+                              <br><strong>20 </strong>店舗が近くにあります。
+                              <a href="javascript:void(0);" id="locker-search-link" class="a-declarative a-size-mini">選択</a>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    <% end %>
                     <div class="a-column a-span8 a-span-last">
                       <div class="a-row">
                         <div class="a-column a-span6">
@@ -109,7 +203,7 @@
                                     <span>
                                       <%= image_tag("https://images-fe.ssl-images-amazon.com/images/G/09/checkout/payselect/card-logos-small/visa._CB196101479_.gif") %>
                                     </span>
-                                    <span>下4桁 ここに番号</span>
+                                    <span>下4桁 </span>
                                   </span>
                                 </li>
                               </ul>
@@ -193,8 +287,10 @@
                                   <span class="emphasisedPopoverLauncher">今回のご注文から適用可能: </span>
                                 </a>
                               </span>
-                              <span style="color: black;"><%= @order.user.addresses[0].full_name %>さん、右下の配送方法より「Amazonプライムで、お急ぎ便が無料に」を選択すると、この注文の配送料（¥ 360分）が無料になります。
-                              </span>
+                              <% if @order.user.addresses.present? %>
+                                <span style="color: black;"><%= @order.user.addresses[0].full_name %>さん、右下の配送方法より「Amazonプライムで、お急ぎ便が無料に」を選択すると、この注文の配送料（¥ 360分）が無料になります。
+                                </span>
+                              <% end %>
                               <br>
                               <span id="beforeLearnMore">» </span>
                               <span class="a-declarative">
