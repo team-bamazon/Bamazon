@@ -23,7 +23,19 @@ class CartProductsController < ApplicationController
   def destroy
     @cart_product = CartProduct.find(params[:id])
     @cart_product.destroy
-    redirect_to edit_cart_path
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
+  def update
+    @cart_product = CartProduct.find(params[:id])
+    @cart_product.update(product_count: params[:product_count])
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   private
@@ -31,5 +43,6 @@ class CartProductsController < ApplicationController
   def cart_product_params
     params.require(:cart_product).permit(:product_count).merge(cart_id: @cart.id, product_id: params[:product_id])
   end
+
 
 end
