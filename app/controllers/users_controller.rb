@@ -57,9 +57,9 @@ class UsersController < ApplicationController
   def update_password
     respond_to do |format|
       if @user.id == current_user.id
-        @user.update_with_password(users_params)
+        @user.update(users_params)
         sign_in(current_user, bypass: true)
-          format.html {redirect_to user_info_user_path}
+          format.html {redirect_to new_user_session_path}
       else
         format.html  {render :edit_password}
       end
