@@ -33,8 +33,8 @@ class CartProduct < ApplicationRecord
   end
 
 
-  def products_point_sum(cart_info)
-    product_point_sum = cart_info.product.price * cart_info.product_count / 10
+  def product_point(cart_info)
+    product_point_sum = cart_info.product.price / 10
     return product_point_sum.floor.to_s(:delimited)
   end
 
