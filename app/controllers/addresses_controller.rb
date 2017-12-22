@@ -5,7 +5,15 @@ class AddressesController < ApplicationController
 
   def create
     @address = Address.create(address_params)
-    redirect_to user_edit_address_path
+    path = Rails.application.routes.recognize_path(request.referer)
+    if path[:controller] == "addresses"
+      redirect_to user_edit_address_path
+    else
+      respond_to do |format|
+        format.html
+        format.json
+      end
+    end
   end
 
   def destroy
