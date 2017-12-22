@@ -19,7 +19,11 @@ class CartProductsController < ApplicationController
   def destroy
     @cart_product = CartProduct.find(params[:id])
     @cart_product.destroy
-    redirect_to edit_cart_path
+    @cart = Cart.find(params[:cart_id])
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def update
