@@ -23,7 +23,6 @@ class CartProductsController < ApplicationController
   def destroy
     @cart_product = CartProduct.find(params[:id])
     @cart_product.destroy
-    @cart = Cart.find(params[:cart_id])
     respond_to do |format|
       format.html
       format.json
@@ -33,7 +32,6 @@ class CartProductsController < ApplicationController
   def update
     @cart_product = CartProduct.find(params[:id])
     @cart_product.update(product_count: params[:product_count])
-    @cart = Cart.find(params[:cart_id])
     respond_to do |format|
       format.html
       format.json
