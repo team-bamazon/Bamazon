@@ -205,6 +205,12 @@
                     </div>
                   </li>
                   <% end %>
+                  <!-- 以下、水平線を引くためだけの処理。繰り返しli&divを挿入し、border-topで水平線を引いている。繰り返し回数は検索結果が3の倍数なら0、3の倍数+1なら2、3の倍数+2なら1にしている。 -->
+                  <% ((3 - (counter % 3)) % 3).times do %>
+                  <li id="result_0" data-result-rank="0" class="s-result-item  celwidget " style="height: 1px;">
+                    <div class="s-item-container" style="border-top: 1px solid #DDD;"></div>
+                  </li>
+                  <% end %>
                 </ul>
               </div>
             </div>
