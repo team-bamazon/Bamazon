@@ -10,7 +10,7 @@
         <h4 class="a-popover-header-content" id="a-popover-header-1">住所を登録する</h4>
       </div>
       <div class="a-popover-inner a-padding-none" id="a-popover-content-1" style="height: auto; overflow-y: auto;">
-        <%= form_for @order, method: :patch, action: :update,  html: {class: "reg-create-form"} do |f| %>
+        <%= form_for [current_user, @address] , remote: true do |f| %>
           <div class="a-column a-span4">
             <div class="a-row a-spacing-base">
               <div class="a-row">
@@ -26,11 +26,12 @@
                       <div class="displayAddressUL">
                         <%= f.text_field :full_name, id: "text_form", placeholder: "名前を入力してください" %>
                         <%= f.text_field :postal_code_one, id: "text_form_a", placeholder: "郵便番号を" %>-<%= f.text_field :postal_code_two, id: "text_form_a", placeholder: "入力してください" %>
-                        <%= f.text_field :region, id: "text_form", placeholder: "県庁所在地を入力してください", style: "margin-top: 10px!important;" %>
+                        <%= f.text_field :country, id: "text_form", placeholder: "国を入力してください", style: "margin-top: 10px!important;" %>
+                        <%= f.text_field :region, id: "text_form", placeholder: "都道府県を入力してください", style: "margin-top: 10px!important;" %>
                         <%= f.text_field :street_address_one, id: "text_form", placeholder: "住所を入力してください" %>
                         <%= f.text_field :building_name, id: "text_form", placeholder: "建物名を入力してください" %>
                         <%= f.text_field :phone_number, id: "text_form", placeholder: "電話番号を入力してください" %>
-                        <%= f.submit "住所を登録する", style: "background-color: #FFCC00; border-color: #a88734 #9c7e31 #846a29; background: linear-gradient(to bottom,#f7dfa5,#f0c14b);" %>
+                        <%= f.submit "住所を登録する", style: "background-color: #FFCC00; border-color: #a88734 #9c7e31 #846a29; background: linear-gradient(to bottom,#f7dfa5,#f0c14b);", id: "order_address" %>
                       </div>
                     </div>
                   </div>
