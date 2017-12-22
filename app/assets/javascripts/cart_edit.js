@@ -52,7 +52,7 @@ $(document).on('turbolinks:load', function () {
 
   // カートから商品削除後のメッセージ
   function buildDestroyCartProductHTML(product){
-    var html = '<div id ="deleted_product">'+'<a href = "/products/'+product.product_id+' calss: "deleted_link ">'
+    var html = '<div class ="deleted_product">'+'<a href = "/products/'+product.product_id+' calss: "deleted_link ">'
     +product.product_name+'</a>'+'は削除されました'+'</div>'
     return html;
     }
@@ -131,13 +131,14 @@ $(document).on('turbolinks:load', function () {
         $("#nav-cart-count").text(headerCartHtml);
       });
 
+      $(".deleted_product").closest(".sc-list-item-border").fadeOut(800);
+
       if($(cart_products).length == 0){
         $(".cart_head").delay(800).queue(function(){
           $(".cart_head").html(cartHeadHtml);
           $("#sc-buy-box").remove();
         })
       };
-      $("#deleted_product").closest(".sc-list-item-border").fadeOut(800);
     });
   });
 });
