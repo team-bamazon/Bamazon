@@ -1,0 +1,260 @@
+#checkoutDisplayPage {
+  font-family: Arial,sans-serif;
+}
+
+.checkout {
+  text-align: left;
+}
+
+#spc-desktop .a-container {
+  max-width: 1150px!important;
+  min-width: 996px;
+  padding: 20px 24px;
+  margin: 0 auto;
+}
+
+.spc-desktop a {
+  color: #05A;
+}
+
+.spc-desktop a:link {
+  color: #0066C0;
+}
+
+
+.spc-desktop .spc-center-row {
+  position: relative;
+}
+
+.spc-desktop .spc-grid {
+  padding-right: 275px;
+}
+
+
+/*-- 左側上「お届け先住所」など ---------------------------------------------------- */
+.spc-desktop #left-grid{
+  padding-right: 1.5%;
+  float: left;
+  width: 100%;
+}
+
+.checkout .displayAddressDiv .displayAddressUL {
+  list-style-type: none;
+  margin-left: 0;
+  color: inherit;
+  vertical-align: baseline!important;
+}
+
+.spc-desktop .spc-promo-fixed-width-padding {
+  padding-left: 40px;
+}
+
+.spc-desktop .spc-promo-image {
+  padding-right: 0;
+  width: 40px;
+  margin-left: -40px;
+}
+
+.spc-desktop .a-color-state {
+  color: #e47911!important;
+}
+
+.spc .no-bullet-list {
+  margin-left: 0!important;
+}
+
+.spc-desktop .a-button .a-button-text {
+  outline: 0;
+  text-align: center;
+  font-family: Arial,sans-serif;
+  background-color: transparent;
+  margin: 0;
+  border: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0 10px 0 11px;
+}
+
+#loyalty-points-applied {
+  position: relative;
+  right: 14px;
+}
+.spc-desktop .redeem-gc-grid {
+  padding-right: 82px;
+}
+
+.spc-desktop .redeem-gc-right {
+  width: 82px;
+  margin-right: -82px;
+  float: left;
+}
+
+.spc-desktop .redeem-gc-left {
+  float: left;
+}
+/*-- 左側下「お届け日」など ---------------------------------------------------- */
+
+.adStripe2 {
+    color: #009900;
+    font-weight: bold;
+    background-color: #FFFFFF;
+    width: 100%;
+    border: 0px;
+    border-spacing: 0px;
+}
+.adStripe2 td {
+    padding: 4px;
+}
+.adStripe2 #stripeImage {
+    vertical-align: top;
+}
+
+.adStripe2 tr:first-child td {
+  padding-top: 0;
+}
+
+.adStripe2 tr:last-child td {
+  padding-bottom: 0;
+}
+
+.checkout form td img {
+  max-width: none!important;
+}
+
+.adStripe2 .emphasisedPopoverLauncher {
+    color: #cc6600;
+    text-decoration: underline;
+}
+
+.adStripe2 span#beforeLearnMore {
+    color: #000000;
+}
+
+.adStripe2 .learnMore {
+    text-decoration: underline;
+}
+
+.a-row .a-span6 div.a-span3 {
+  width: 20%;
+}
+
+input[type="radio"] {
+  margin: 0;
+  padding: 0;
+  height: 14px;
+  width: 14px;
+  vertical-align: middle;
+  position: relative;
+  bottom: -1px;
+  overflow: hidden;
+}
+
+.spc.desktop.spc-desktop .prime-ship-speed {
+  position: relative;
+  left: 23px;
+  text-indent: -23px;
+}
+
+.spc.desktop.spc-desktop .prime-ship-speed img {
+  margin-top: 4px;
+}
+
+.checkout .a-radio {
+  position: relative;
+  font-weight: 400;
+  color: #333;
+  padding-left: 19px!important;
+  text-indent: -18px;
+  margin-left: 3px;
+  top: -2px;
+  padding-bottom: 0;
+}
+
+.checkout .a-radio-label {
+  top: 2px;
+  left: 5px;
+  padding-left: 0!important;
+  display: inline;
+}
+.spc.desktop.spc-desktop .prime-fake-radio {
+  margin-right: 5px;
+  margin-bottom: 3px;
+  margin-left: 1px;
+}
+.spc.desktop.spc-desktop .ship-option {
+  padding-right: 10px;
+  padding-left: 3px;
+}
+
+.spc-desktop .sd-option-radio-button-container {
+  padding-right: 6px!important;
+  width: 21px;
+  vertical-align: top;
+  padding-left: 1px;
+}
+
+td {
+  padding: 3px;
+}
+
+.sd-calendar-button-container {
+  padding-top: 5px;
+}
+
+.sd-calendar-button {
+  width: 205px;
+}
+
+/*-- 右側 「注文を確定する」---------------------------------------------------- */
+.spc-desktop #right-grid{
+  width: 275px;
+  margin-right: -275px;
+  float: left;
+}
+
+h3.a-size-base {
+  padding-bottom: 0;
+  font-family: Arial,sans-serif;
+}
+
+.spc-desktop .small-line-height {
+  line-height: 14px;
+}
+
+.spc-desktop table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.spc-desktop tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+
+.cell-separator {
+  padding-right: 0!important;
+  padding-left: 0!important;
+}
+
+tr:first-child td {
+  padding-top: 0;
+}
+
+td:first-child {
+  padding-left: 0;
+}
+
+.spc-desktop ul {
+  color: #aaa;
+}
+
+.spc .bullet-list li {
+  list-style-type: disc!important;
+}
+
+.spc-desktop #second-buy-button {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
