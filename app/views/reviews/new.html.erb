@@ -1,0 +1,123 @@
+<%= render partial: 'layouts/header' %>
+<div class="centerContainer">
+  <div class="a-section a-spacing-none a-spacing-top-base reviews motivationPanel">
+    <div class="a-section a-spacing-none a-spacing-top-none desktop">
+      <div class="a-section a-spacing-none a-padding-none fl pageTitle">
+        <div class="a-section a-spacing-none a-spacing-top-small a-padding-none">
+          <div role="main">
+            <h1>
+              お客様のレビュー
+            </h1>
+          </div>
+        </div>
+      </div>
+      <div class="a-section">
+        <div id="crMotPanAuthNameContainer" class="a-section a-spacing-none a-padding-none fr">
+          <div>
+            <div class="a-section a-spacing-none">
+              <div class="a-section a-spacing-none authorNameSection">
+                <span class="a-size-large a-color-secondary authorName a-nowrap"><%= current_user.name %></span>
+                <p class="small">
+                  <span class="a-size-small a-color-secondary reducedLineHeight">お客様の公開名<br></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="clear:both;"></div>
+  </div>
+  <hr class="a-spacing-none a-spacing-top-small a-divider-text">
+  <!-- ここから商品ごとに繰り返し -->
+  <%= form_for [@product, @review], html: {id: "review_post_form"} do |f| %>
+    <div id="solicitPurchases" class="a-section solicitPurchases reviews">
+    <div id="reviewProductsViewport" class="a-section a-spacing-none mobileOverflow">
+      <div id="reviewSection5" class="a-section a-spacing-none desktop overflow" style="">
+        <div class="a-section a-spacing-none a-padding-none reviewCandidate content">
+          <div class="a-fixed-left-grid a-spacing-top-none">
+            <div class="a-fixed-left-grid-inner" style="padding-left:180px">
+              <div class="a-text-left a-spacing-none a-fixed-left-grid-col a-col-left" style="width:180px;margin-left:-180px;float:left;">
+                <div class="a-section a-spacing-none a-spacing-top-none a-padding-none">
+                  <%= image_tag @product.product_images.first.image, style: "max-width: 180px; max-height: 180px;", border: "0", title: @product.name, alt: @product.name %>
+                </div>
+              </div>
+              <div class="a-text-left a-spacing-none a-spacing-top-mini a-fixed-left-grid-col a-col-right" style="padding-left:0%;float:left;">
+                <div class="a-section a-spacing-none a-spacing-top-large reviewHeader relative">
+                  <div id="title_field" class="a-section a-spacing-none a-spacing-top-none a-padding-none">
+                    <a class="a-size-base a-link-normal title" target="_blank" href="/"><%= @product.name %></a>
+                    <div style="clear:both;"></div>
+                  </div>
+                  <div class="a-section a-spacing-base a-spacing-top-mini disableSelect fl">
+                    <div class="a-section starsContainer fl">
+                      <%= f.hidden_field :rate, id: "fixed_star_rate", value: "0" %>
+                      <div class="a-section a-spacing-none starSprite bigStar clickable rating_1 fl" tabindex="0" role="button" aria-label="星1つを与える商品を選択します。" data-star-value="2"></div>
+                      <div class="a-section a-spacing-none starSprite bigStar clickable rating_2 fl" tabindex="0" role="button" aria-label="星2つを与える商品を選択します。" data-star-value="4"></div>
+                      <div class="a-section a-spacing-none starSprite bigStar clickable rating_3 fl" tabindex="0" role="button" aria-label="星3つを与える商品を選択します。" data-star-value="6"></div>
+                      <div class="a-section a-spacing-none starSprite bigStar clickable rating_4 fl" tabindex="0" role="button" aria-label="星4つを与える商品を選択します。" data-star-value="8"></div>
+                      <div class="a-section a-spacing-none starSprite bigStar clickable rating_5 fl" tabindex="0" role="button" aria-label="星5つを与える商品を選択します。" data-star-value="10"></div>
+                    </div>
+                  </div>
+                  <div class="a-section a-spacing-base a-spacing-top-large starCommentSection fl starCommentSpacing">
+                    <span id="how_is_this_product" class="a-size-base a-color-base starComment a-text-bold"></span>
+                  </div>
+                  <div id="user_info_area" class="a-section a-spacing-base a-spacing-top-large ratingsConfirmation fl" style="display: block;">
+                    <div class="postedPublicly fl" style="margin-top:0px;" role="alert" aria-live="off" aria-hidden="false">
+                      <div class="a-box a-alert-inline a-alert-inline-success a-spacing-none">
+                        <div class="a-box-inner a-alert-container">
+                          <i class="a-icon a-icon-alert"></i>
+                          <div class="a-alert-content">公開される投稿者名：<span class="a-size-base a-color-link authorName" tabindex="-1"><%= current_user.name %></span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div style="clear:both;"></div>
+                  <div id="input_area" aria-live="polite" class="a-row a-expander-container a-expander-extend-container" style="display: none;">
+                    <div aria-expanded="false" class="a-expander-content collapsibleContent overflow a-expander-extend-content" style="overflow: hidden;">
+                      <div class="tipsSlider"></div>
+                      <div class="a-section a-spacing-none a-spacing-top-mini reviewInputFields overflow">
+                        <%= f.text_field :title, maxlength: "128", class: "a-input-text titleField reviewTitle fillWidth", placeholder: "レビューの見出し（必須） ※ページの右上に記載されている「公開名」で投稿されます。" %>
+                      </div>
+                      <div class="a-section a-spacing-mini a-spacing-top-base reviewInputFields overflow">
+                        <div data-hook="review-body-textbox" class="a-input-text-wrapper bigTextArea textField reviewText expandingTextSectionHeight" title="ここにレビューを記入してください">
+                          <%= f.text_area :body, id: "review-body-text-area", style: "height: 318px; margin-top: 0px; margin-bottom: 0px;", placeholder: "ここに商品のレビューを記入（必須）
+
+
+出品者についての評価は記入しないでください。" %>
+                        </div>
+                      </div>
+                      <div class="a-section a-spacing-small a-spacing-top-none minLenReviewNotificationHidden hidden">
+                        <div class="a-section a-spacing-small a-spacing-top-none reviewLengthInfo overflow fl">
+                          <span class="a-size-base a-color-secondary minLenReviewError" role="log" aria-live="polite" aria-hidden="false">見出し &amp; 30文字以上のテキストを入力する必要があります。（必須）</span>
+                        </div>
+                      </div>
+                      <div class="a-fixed-right-grid">
+                        <div class="a-fixed-right-grid-inner" style="padding-right:360px">
+                          <div class="a-text-left a-spacing-none a-fixed-right-grid-col a-col-right" style="width:360px;margin-right:-360px;float:right;">
+                            <div class="a-section a-spacing-none a-padding-none buttonSection fr">
+                              <span class="a-button a-button-normal a-spacing-none a-button-primary submitButton">
+                                <span class="a-button-inner">
+                                  <%= f.submit id: "post_review_button", class: "a-button-input" %>
+                                  <span class="a-button-text a-text-center" aria-hidden="true">
+                                    <span class="submitText">送信</span>
+                                  </span>
+                                </span>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="a-spacing-none a-spacing-top-none a-divider-text divider" style="margin: 5px!important;">
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+<%= render partial: 'layouts/footer' %>

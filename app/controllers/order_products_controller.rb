@@ -2,30 +2,29 @@ class OrderProductsController < ApplicationController
   before_action :set_order, only: [:create]
 
   def create
-    times_number.times do |i|
-    @order_product = OrderProduct.new(set_order_product(i))
-    @order_product.save
+    cart_products = current_user.cart.cart_products
+
+    cart_products.each do |cart_product|
+      product = cart_product.product
+      product_image = product.product_images.present? ? product.product_images.first.image : "https://images-fe.ssl-images-amazon.com/images/G/09/icons/books/comingsoon_books._V376986337_BO1,204,203,200_.gif"
+      OrderProduct.create(order_id:      @order.id,
+                          product_name:  product.name,
+                          price:         product.price,
+                          product_image: product_image,
+                          count:         cart_product.product_count,
+                          product_id:    product.id)
     end
+
     redirect_to order_path(@order)
   end
 
   private
 
-  def set_order_product(i)
-      ActionController::Parameters.new(params[:order_product].require(:order_info).values[i]).permit(:product_name, :price, :product_image, :count).merge(order_id: @order.id)
-  end
-
-  def times_number
-    n = params[:order_product][:order_info].values.length
-    return n
-  end
-
   def set_order
     if current_user.orders.present?
-      @order = Order.find(current_user.order.id)
-    else
-      @order = Order.create(user_id: current_user.id)
+      @order = Order.find_by(user_id: current_user.id, status: 0)
+      @order.destroy
     end
+    @order = Order.create(user_id: current_user.id, status: 0)
   end
-
 end

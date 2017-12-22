@@ -1,0 +1,50 @@
+// Place all the styles related to the product_categories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#siteDirectory {
+  min-width: 960px;
+  margin: 15px;
+}
+
+#shopAllLinks {
+  width: 100%;
+}
+
+#siteDirectory h2 {
+  padding: 0;
+  margin: 17px 0 5px 5px;
+}
+
+#siteDirectory h2, #siteDirectory h2 a {
+  font-family: Tahoma,sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: #E47911;
+  text-decoration: none;
+}
+
+#shopAllLinks ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 5px 10px 15px;
+}
+
+#shopAllLinks ul li {
+  padding: 2px 0;
+  margin: 0;
+  font-size: 13px;
+  list-style-type: none;
+}
+
+#shopAllLinks .nav_cat_links span, #shopAllLinks .nav_cat_links a {
+  color: #004B91;
+}
+
+#shopAllLinks .nav_cat_links a {
+  border-bottom: 1px solid #004B91;
+  text-decoration: none;
+}
+
+td, th {
+  vertical-align: top;
+}
