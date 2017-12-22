@@ -66,3 +66,42 @@ $(document).on('turbolinks:load', function () {
         });
     });
 });
+
+$(document).on('turbolinks:load', function () {
+    function buildHTML(address) {
+        var html = '<div class="displayAddressDiv">' +
+                     '<ul class="displayAddressUL">' +
+                        '<li>' + address.full_name + '</li>' +
+                        '<li>' + address.postal_code_one + '-' + address.postal_code_two + '</li>' +
+                        '<li>' + address.region + address.street_address_one + [address.street_address_two] + address.building_name + '</li>' +
+                        '<li>' + '電話番号:' + address.phone_number + '</li>' +
+                     '</ul>'+
+                    '</div>'
+        return html;
+    }
+    $('#new_address').on('submit', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        $("#create-address-modal-main,#create-address-modal-bg").fadeOut("slow",function(){
+            //挿入した<div id="modal-bg"></div>を削除
+            $('#create-address-modal-bg').remove() ;
+        });
+        var formData = new FormData(this);
+        var href = $(this).attr('action');
+        $.ajax ({
+            url: href,
+            type: 'POST',
+            data: formData,
+            dataType: 'json',
+            processData: false,
+            contentType: false
+        })
+        .done(function(data){
+            var html = buildHTML(data);
+            $('.displayAddressDiv').html(html)
+        })
+        .fail(function(){
+            alert('error');
+        })
+    });
+});
