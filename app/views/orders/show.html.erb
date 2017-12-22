@@ -30,7 +30,7 @@
                         <%= f.text_field :street_address_one, id: "text_form", placeholder: "住所を入力してください" %>
                         <%= f.text_field :building_name, id: "text_form", placeholder: "建物名を入力してください" %>
                         <%= f.text_field :phone_number, id: "text_form", placeholder: "電話番号を入力してください" %>
-                        <%= f.submit "アドレス登録", style: "background-color: yellow;" %>
+                        <%= f.submit "住所を登録する", style: "background-color: #FFCC00; border-color: #a88734 #9c7e31 #846a29; background: linear-gradient(to bottom,#f7dfa5,#f0c14b);" %>
                       </div>
                     </div>
                   </div>
@@ -193,7 +193,7 @@
                           <div class="a-row a-spacing-base">
                             <div class="a-row">
                               <strong>支払い方法</strong>
-                              <a href="javascript:void(0);" id="payment-change-link" class="a-size-mini pipeline-link">変更
+                              <a href="/users/<%= current_user.id %>/payment_informations" id="payment-change-link" class="a-size-mini pipeline-link">変更
                               </a>
                             </div>
                             <div id="payment-information" class="a-row">
