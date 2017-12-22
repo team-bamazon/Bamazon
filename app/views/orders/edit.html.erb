@@ -68,7 +68,7 @@
           </div>
         </div>
       </div>
-      <%= form_for order_path(@order) do |f| %>
+      <%= form_for @order, method: :patch do |f| %>
         <div class="a-row spc-center-row">
           <div class="a-fixed-right-grid">
             <div class="a-fixed-right-grid-inner spc-grid">
