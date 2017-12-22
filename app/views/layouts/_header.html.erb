@@ -353,7 +353,7 @@
     <div id="nav-main" class="nav-sprite">
       <div class="nav-left">
         <div id="nav-shop">
-          <a href="/" class="nav-a nav-a-2" data-ux-mouseover="true" id="nav-link-shopall" tabindex="10">
+          <a href="/product_categories" class="nav-a nav-a-2" data-ux-mouseover="true" id="nav-link-shopall" tabindex="10">
             <span class="nav-line-1"></span>
             <span class="nav-line-2">カテゴリー
               <span class="nav-icon nav-arrow" style="visibility: visible;"></span>
@@ -393,7 +393,7 @@
               <span class="nav-icon nav-arrow" style="visibility: visible;"></span>
             </span>
           </a>
-        <% if user_signed_in? && current_user.wanteds.present? %>
+        <% if user_signed_in? && @default_wanted.present? %>
           <a href="/users/<%= current_user.id %>/wanteds/<%= @default_wanted.id %>/", class="nav-a nav-a-2" id="nav-link-wishlist" %>
             <span class="nav-line-1">ほしい物</span>
             <span class="nav-line-2">リスト
@@ -408,22 +408,13 @@
             </span>
           </a>
         <% end %>
-        <% if user_signed_in? && current_user.cart.present? %>
-          <a href="/carts/<%= current_user.cart.id %>/edit" aria-label="カート内の商品数：0" class="nav-a nav-a-2" id="nav-cart" tabindex="30">
-        <% else %>
-          <a href="/" aria-label="カート内の商品数：0" class="nav-a nav-a-2" id="nav-cart" tabindex="30">
-        <% end %>
+          <a href="/carts/<%= @cart.id %>/edit" aria-label="カート内の商品数：0" class="nav-a nav-a-2" id="nav-cart" tabindex="30">
             <span aria-hidden="true" class="nav-line-1"> </span>
             <span aria-hidden="true" class="nav-line-2">カート
               <span class="nav-icon nav-arrow"></span>
             </span>
             <span class="nav-cart-icon nav-sprite"></span>
-            <span id="nav-cart-count" aria-hidden="true" class="nav-cart-count nav-cart-0">
-              <% if user_signed_in? && current_user.cart.present? %>
-                <%= @cart.cart_count_sum(@cart) %>
-              <% else %>0
-              <% end %>
-            </span>
+            <span id="nav-cart-count" aria-hidden="true" class="nav-cart-count nav-cart-0"><%= @cart.cart_count_sum(@cart) %></span>
           </a>
         </div>
       </div>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
     get 'edit_address'
     resources :addresses, only: [:new, :create, :destroy, :edit, :update]
     resources :payment_informations, only: [:index, :create, :destroy, :edit, :update]
-    resources :wanteds, only: [:show, :create, :destroy]
+    resources :wanteds, only: [:show, :create, :destroy, :update]
     resources :wanted_products, only: [:create, :update, :destroy]
   end
 
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
       get   'search'
       get   'suggest'
     end
+    resources :reviews, only: [:new, :create]
   end
-
+  resources :product_categories, only: [:index]
 end

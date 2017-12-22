@@ -97,7 +97,7 @@
                     </div>
                   </span>
                   <span class="s-layout-toggle-picker">
-                    <a href="/s/ref=sr_il_ti_stripbooks?rh=n%3A465392%2Ck%3A%E6%96%87%E5%BA%AB%E6%9C%AC&keywords=%E6%96%87%E5%BA%AB%E6%9C%AC&ie=UTF8&qid=1512814320&lo=stripbooks" title="画像ビュー">
+                    <a title="画像ビュー">
                       <div class="s-layout-picker s-image-layout-picker">
                         <div class="s-layout-picker-inner "></div>
                         <div class="s-layout-picker-inner s-layout-picker-last-col"></div>
@@ -154,8 +154,6 @@
                           <%= link_to product_path(product), class: "a-link-normal s-access-detail-page  s-color-twister-title-link a-text-normal", target: "_blank", title: product.name, style: "display: inline-block;" do %>
                             <h2 data-attribute=<%= product.name %> data-max-rows="0" class="a-size-base s-inline  s-access-title  a-text-normal"><%= product.name %></h2>
                           <% end %>
-                          <!--<span class="a-letter-space"></span>-->
-                          <!--<span class="a-size-small a-color-secondary">2008/9/3</span>-->
                         </div>
                         <div class="a-row a-spacing-none">
                           <span class="a-size-small a-color-secondary"></span>
@@ -169,7 +167,7 @@
                       <div class="a-row a-spacing-none">
                         <%= link_to product_path(product), class: "a-link-normal a-text-normal", target: "_blank", title: product.name do %>
                           <span class="a-size-small a-color-secondary"></span>
-                          <span class="a-size-base a-color-price s-price a-text-bold">¥ <%= product.price %></span>
+                          <span class="a-size-base a-color-price s-price a-text-bold">¥ <%= product.price.floor %></span>
                         <% end %>
                         <span class="a-letter-space"></span>
                         <i class="a-icon a-icon-jp a-icon-prime-jp a-icon-small s-align-text-bottom" aria-label="プライム">
@@ -180,8 +178,8 @@
                         <div class="a-row a-spacing-none">
                           <span class="a-size-small a-color-secondary">ポイント:</span>
                           <span class="a-letter-space"></span>
-                          <span class="a-size-small a-color-price a-text-bold">21 pt</span>
-                          <span class="a-size-small a-color-price">(3%)</span>
+                          <span class="a-size-small a-color-price a-text-bold"><%= (product.price * 0.1).floor %> pt</span>
+                          <span class="a-size-small a-color-price">(10%)</span>
                         </div>
                         <div class="a-row a-spacing-none">
                           <span class="a-size-small a-color-secondary">
@@ -192,16 +190,16 @@
                       <div class="a-row a-spacing-top-mini">
                         <div class="a-row a-spacing-none">
                           <span name="4167669072">
-                            <span class="a-declarative" data-action="a-popover" data-a-popover="{"max-width":"700","closeButton":"false","position":"triggerBottom","url":"/review/widgets/average-customer-review/popover/ref=acr_search__popover?ie=UTF8&asin=4167669072&contextId=search&ref=acr_search__popover"}">
+                            <span class="a-declarative">
                               <a href="javascript:void(0)" class="a-popover-trigger a-declarative">
-                                <i class="a-icon a-icon-star a-star-4-5">
-                                  <span class="a-icon-alt">5つ星のうち 4.4</span>
+                                <i class="a-icon a-icon-star a-star-<%= product.get_star_value[:star_value_css] / 2 %>-<%= (product.get_star_value[:star_value_css] % 2) * 5 %>">
+                                  <span class="a-icon-alt">5つ星のうち <%= product.get_star_value[:star_value] %></span>
                                 </i>
                                 <i class="a-icon a-icon-popover"></i>
                               </a>
                             </span>
                           </span>
-                          <a class="a-size-small a-link-normal a-text-normal" target="_blank" href="https://www.amazon.co.jp/%E3%81%9D%E3%81%AE%E6%97%A5%E3%81%AE%E3%81%BE%E3%81%88%E3%81%AB-%E6%96%87%E6%98%A5%E6%96%87%E5%BA%AB-%E9%87%8D%E6%9D%BE-%E6%B8%85/dp/4167669072/ref=sr_1_2?ie=UTF8&amp;qid=1512877928&amp;sr=8-2&amp;keywords=%E6%96%87%E5%BA%AB%E6%9C%AC#customerReviews">224</a>
+                          <%= product.reviews.count %>
                         </div>
                       </div>
                     </div>
@@ -271,7 +269,7 @@
                   <div class="a-row">
                     <span>
                       ご質問、ご不明な点がある場合は、
-                      <a class="a-link-normal a-text-normal" href="/gp/help/customer/display.html/ref=sr_hms_help?nodeId=642942&amp;ie=UTF8&amp;qid=1512882057">ヘルプページ</a>
+                      <a class="a-link-normal a-text-normal">ヘルプページ</a>
                       をご確認ください。
                     </span>
                   </div>

@@ -16,6 +16,11 @@ $(document).on('turbolinks:load', function () {
            var after_tag  = "#afterMoveToCart_" + product_id;
            $(before_tag).css("display", "none");
            $(after_tag).css("display", "block");
+
+           // カートに入れた時にヘッダのカート内の品数をインクリメント
+           var num_items = parseInt($('#nav-cart-count').text().replace(/,/g,""), 10) + 1;
+           num_items = String(num_items).replace( /(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+           $('#nav-cart-count').text(num_items);
        })
        .fail(function() {
            alert('カートに移動できませんでした');

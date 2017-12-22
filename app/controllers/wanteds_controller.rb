@@ -1,12 +1,18 @@
 class WantedsController < ApplicationController
   def create
-    @wanted = Wanted.create(wanted_params)
+    @wanted = Wanted.create(wanted_params.merge(default_flg: false))
     redirect_to user_wanted_path(current_user, @default_wanted)
   end
 
   def destroy
     @selected_wanted = Wanted.find(params[:id])
     @selected_wanted.destroy
+    redirect_to user_wanted_path(current_user, @default_wanted)
+  end
+
+  def update
+    @selected_wanted = Wanted.find(params[:id])
+    @selected_wanted.update(wanted_params)
     redirect_to user_wanted_path(current_user, @default_wanted)
   end
 
@@ -29,7 +35,7 @@ class WantedsController < ApplicationController
   private
 
   def wanted_params
-    params.require(:wanted).permit(:name, :open_flg).merge(default_flg: false).merge(user_id: current_user.id)
+    params.require(:wanted).permit(:name, :open_flg).merge(user_id: current_user.id)
   end
 
 end

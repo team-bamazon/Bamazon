@@ -21,9 +21,9 @@
           <div class="a-section leftNavbarSection">
             <div class="a-row leftNavbarRow">
               <div class="a-column a-span12 leftNavbarColumn linkSection first">
-                <a data-testid="cpe-mpo-leftNav-1Click" class="a-link-normal" href="/gp/css/account/address/view.html?ref_=cpe_wlt_ln_1click&amp;OneClickSettingsQuery=1">1-Click設定の管理</a><br>
-                <a data-testid="cpe-mpo-leftNav-KindlePaymentSetting" class="a-link-normal" href="https://www.amazon.co.jp/mn/dcw/myx.html?ref_=cpe_wlt_ln_kps#/home/settings/payment">Kindle の支払い設定を管理</a><br>
-                <a data-testid="cpe-mpo-leftNav-EditOrderPayMethod" class="a-link-normal" href="https://www.amazon.co.jp/gp/css/order-history/ref=cpe_wlt_ln_od_pm">現在のご注文のお支払い方法を編集</a><br>
+                <a data-testid="cpe-mpo-leftNav-1Click" class="a-link-normal">1-Click設定の管理</a><br>
+                <a data-testid="cpe-mpo-leftNav-KindlePaymentSetting" class="a-link-normal">Kindle の支払い設定を管理</a><br>
+                <a data-testid="cpe-mpo-leftNav-EditOrderPayMethod" class="a-link-normal">現在のご注文のお支払い方法を編集</a><br>
               </div>
             </div>
           </div>
@@ -79,12 +79,12 @@
                                             <span>下４桁 <%= card.number_method %></span>
                                           </span>
                                         </div>
+                                        <div class="a-fixed-right-grid-col a-col-right" style="width:209px;margin-right:-209px;float:left;">
+                                          <div class="a-section pmts-account-expiry-date">
+                                            <span class="a-size-base a-color-secondary"><%= card.month %>/<%= card.year %></span>
+                                          </div>
+                                        </div>
                                       </div>
-                                    </div>
-                                  </div>
-                                  <div class="a-fixed-right-grid-col a-col-right" style="width:209px;margin-right:-209px;float:left;">
-                                    <div class="a-section pmts-account-expiry-date">
-                                      <span class="a-size-base a-color-secondary"><%= card.month %>/<%= card.year %></span>
                                     </div>
                                   </div>
                                 </div>
@@ -152,9 +152,9 @@
                                     <div class="a-fixed-right-grid-col a-col-left" style="padding-right:0%;*width:99.6%;float:left;">
                                       <span class="pmts-portal-mpo-gc-title">Amazon ギフト券</span>
                                       <div class="a-row">
-                                        <a class="a-link-normal pmts-portal-mpo-gc-reload-link" target="_blank" rel="noopener" href="https://www.amazon.co.jp/gp/gc/create/ref=gc-ya-view">ギフト券を購入</a>
+                                        <a class="a-link-normal pmts-portal-mpo-gc-reload-link" target="_blank" rel="noopener">ギフト券を購入</a>
                                         <span class="a-color-base"> | </span>
-                                        <a class="a-link-normal pmts-portal-mpo-gc-redeem-link" target="_blank" rel="noopener" href="https://www.amazon.co.jp/gc/redeem/ref=gc_redeem_new_exp_DesktopRedirect">ギフト券を登録</a>
+                                        <a class="a-link-normal pmts-portal-mpo-gc-redeem-link" target="_blank" rel="noopener">ギフト券を登録</a>
                                       </div>
                                     </div>
                                     <div class="a-fixed-right-grid-col a-col-right" style="width:165px;margin-right:-165px;float:left;">
@@ -318,7 +318,7 @@
                               </div>
                               <div class="a-row">
                                 <div class="a-row a-spacing-small">
-                                  <span>携帯決済がご利用いただけない場合については<a href="https://www.amazon.co.jp/gp/help/customer/display.html/ref=hp_rel_topic?ie=UTF8&amp;nodeId=202108000"> こちら</a>
+                                  <span>携帯決済がご利用いただけない場合については<a> こちら</a>
                                   </span>
                                 </div>
                               </div>
