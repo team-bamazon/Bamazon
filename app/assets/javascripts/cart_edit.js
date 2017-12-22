@@ -65,7 +65,7 @@ $(document).on('turbolinks:load', function () {
   }
 
   // 数量変更のイベント
-  $(".cart_prodcut_count_buttorn").on('change', function(){
+  $(".cart_prodcut_count_button").on('change', function(){
     var changed_count = $(this).val();
     var cart_id = $(this).attr('cart_id')
     var product_id = $(this).attr('product_id');
@@ -90,14 +90,15 @@ $(document).on('turbolinks:load', function () {
         $(".a-spacing-none").remove();
         $(".bottom-sum").append(sumHtml);
         $(".registar-area").append(registarHtml);
-        $("#nav-cart-count").text(headerCartHtml)
+        $("#nav-cart-count").text(headerCartHtml);
       });
     });
 
   });
   // 削除ボタンのイベント
-  $(".carts_delete_buttorn").on('click', function(e){
+  $(".cart_delete_button").on('click', function(e){
     e.preventDefault();
+    e.stopPropagation();
     var cart_id = $(this).attr('cart_id');
     var product_id = $(this).attr('product_id');
     var cart_product_id = $(this).attr('cart_product_id');
@@ -134,7 +135,7 @@ $(document).on('turbolinks:load', function () {
         $(".cart_head").delay(800).queue(function(){
           $(".cart_head").html(cartHeadHtml);
           $("#sc-buy-box").remove();
-        });
+        })
       };
       $("#deleted_product").closest(".sc-list-item-border").fadeOut(800);
     });
