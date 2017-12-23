@@ -73,7 +73,7 @@ $(document).on('turbolinks:load', function () {
                      '<ul class="displayAddressUL">' +
                         '<li>' + address.full_name + '</li>' +
                         '<li>' + address.postal_code_one + '-' + address.postal_code_two + '</li>' +
-                        '<li>' + address.region + address.street_address_one + [address.street_address_two] + address.building_name + '</li>' +
+                        '<li>' + address.region + " " + address.street_address_one + [address.street_address_two] + address.building_name + '</li>' +
                         '<li>' + '電話番号:' + address.phone_number + '</li>' +
                      '</ul>'+
                     '</div>'
