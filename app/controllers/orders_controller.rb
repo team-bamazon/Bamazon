@@ -15,7 +15,9 @@ class OrdersController < ApplicationController
 
   def edit
     @order = Order.find(params[:id])
-    @address = Address.new(user_id: current_user.id)
+    @address = Address.new
+    @card = PaymentInformation.new
+
     # @new_order = Order.new
   end
 
