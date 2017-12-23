@@ -1,17 +1,9 @@
 class OrdersController < ApplicationController
-
-  # def create
-  #   # @order = Order.find(params[:id])
-  #   Address.create(full_name:          @order.full_name,
-  #                  postal_code_one:    @order.postal_code_one,
-  #                  postal_code_two:    @order.postal_code_two,
-  #                  region:             @order.region,
-  #                  street_address_one: @order.street_address_one,
-  #                  building_name:      @order.building_name,
-  #                  phone_number:       @order.phone_number)
-  #   binding.pry
-  #   redirect_to order_path
-  # end
+　　　　before_action :authenticate_user!
+  
+  def index
+    @orders = Order.where(user_id: current_user.id)
+  end
 
   def edit
     @order = Order.find(params[:id])
@@ -28,7 +20,6 @@ class OrdersController < ApplicationController
   end
 
   private
-
   def order_params
     params.require(:order).permit(:full_name, :postal_code_one, :postal_code_two, :region, :street_address_one, :building_name, :phone_number).merge(user_id: current_user.id)
   end
