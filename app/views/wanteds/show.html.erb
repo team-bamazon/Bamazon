@@ -365,11 +365,11 @@
                                           </div>
                                           <div class="a-row a-spacing-small a-size-small">
                                             <div class="a-row">
-                                              <i class="a-icon a-icon-star a-star-4-5">
-                                                <span class="a-icon-alt">5つ星のうち 4.6</span>
+                                              <i class="a-icon a-icon-star a-star-<%= w_p.product.get_star_value[:star_value_css] / 2 %>-<%= (w_p.product.get_star_value[:star_value_css] % 2) * 5 %>">
+                                                <span class="a-icon-alt">5つ星のうち <%= w_p.product.get_star_value[:star_value] %></span>
                                               </i>
                                               <span class="a-letter-space"></span>
-                                              <a id="review_count_<%= w_p.product.id %>" class="a-link-normal" href="#">(1)</a>
+                                              <a id="review_count_<%= w_p.product.id %>" class="a-link-normal" href="#">(<%= w_p.product.reviews.count %>)</a>
                                             </div>
                                             <div class="a-row">
                                               <div class="a-section price-section">
