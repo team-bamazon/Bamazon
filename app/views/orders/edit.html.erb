@@ -1,0 +1,785 @@
+<div id="checkoutDisplayPage">
+  <div id="create-address-modal-main">
+    <div class="a-popover a-popover-modal a-declarative pop-create" id="a-popover-1" aria-hidden="false" style="width: 639px; max-width: none; visibility: visible; margin: 0px; opacity: 1; display: block; padding: 0;">
+      <span tabindex="0" role="dialog" class="a-popover-start a-popover-a11y-offscreen" aria-labelledby="a-popover-header-1"></span>
+      <div class="a-popover-wrapper" aria-busy="false">
+        <div class="a-popover-header" style="">
+          <button class=" a-button-close a-declarative" aria-label="Close">
+            <i class="a-icon a-icon-close"></i>
+          </button>
+          <h4 class="a-popover-header-content" id="a-popover-header-1">住所を登録する</h4>
+        </div>
+        <div class="a-popover-inner a-padding-none" id="a-popover-content-1" style="height: auto; overflow-y: auto;">
+          <%= form_for [current_user, @address] , remote: true do |f| %>
+            <div class="a-column a-span4">
+              <div class="a-row a-spacing-base">
+                <div class="a-row">
+                  <strong>お届け先住所</strong>
+                  <span class="change-address-popover-span">
+                    <a id="create-address-modal-open" class="a-link-normal">登録</a>
+                  </span>
+                </div>
+                <div class="a-row">
+                  <div class="a-row">
+                    <div class="a-row" id="desktop-shipping-address-div">
+                      <div class="displayAddressDiv">
+                        <div class="displayAddressUL">
+                          <div class = "a-section a-spcing-large address-ui-widgets-form-field-container address-ui-widgets-desktop-form-field">
+                            <span class ="a-dropdown-container">
+                              <%= f.select :country, ["Japan", "USA", "Italy", "China", "Clombia", "Poland", "Senegal"],{},{ id:'address-ui-widgets-countryCode-dropdown-nativeId', class: 'a-native-dropdown select_form' } %>
+                            </span>
+                          </div>
+                          <div class="a-section a-spacing-none adddress-ui-widgets-form-field-label-container address-ui-widgets-desktop-form-label">
+                            <div class="a-section a-spacing-none aok-inline-block">
+                              <label for="address-ui-widgets-enterAddressFullName" class="a-form-label address-ui-widgets-desktop-form-field-full-width a-nowrap">
+                              氏名
+                              </label>
+                            </div>
+                          </div>
+                          <div class = "a-section a-spcing-large address-ui-widgets-form-field-container address-ui-widgets-desktop-form-field">
+                            <%= f.text_field :full_name, {id: "text_form" }%>
+                          </div>
+                          <div class="a-section a-spacing-none adddress-ui-widgets-form-field-label-container address-ui-widgets-desktop-form-label">
+                            <div class="a-section a-spacing-none aok-inline-block">
+                              <label class="a-form-label address-ui-widgets-desktop-form-field-full-width a-nowrap">
+                              郵便番号
+                              </label>
+                            </div>
+                          </div>
+                          <div class = "a-section a-spcing-large address-ui-widgets-form-field-container address-ui-widgets-desktop-form-field">
+                            <%= f.text_field :postal_code_one, {id: "postal_form"}%><span> - </span><%= f.text_field :postal_code_two, {id: "postal_form"} %>
+                          </div>
+                          <%= f.select :region,[ "北海道","青森県","岩手県","宮城県","秋田県","山形県","福島県","茨城県","栃木県","群馬県","埼玉県","千葉県","東京都","神奈川県","新潟県","富山県","石川県","福井県","山梨県","長野県","岐阜県","静岡県","愛知県","三重県","滋賀県","京都府","大阪府","兵庫県","奈良県","和歌山県","鳥取県","島根県","岡山県","広島県","山口県","徳島県","香川県","愛媛県","高知県","福岡県","佐賀県","長崎県","熊本県","大分県","宮崎県","鹿児島県","沖縄県",],{},{ id:'address-ui-widgets-countryCode-dropdown-nativeId', class: 'a-native-dropdown select_form' }  %>
+                          <div class="a-section a-spacing-none adddress-ui-widgets-form-field-label-container address-ui-widgets-desktop-form-label">
+                            <div class="a-section a-spacing-none aok-inline-block"><label for="address-ui-widgets-enterAddressLine1" class="a-form-label address-ui-widgets-desktop-form-field-full-width a-nowrap">
+                            住所
+                            </label>
+                            </div>
+                          </div>
+                          <%= f.text_field :street_address_one, {id: "text_form" } %>
+                          <%= f.text_field :street_address_two, {id: "text_form" } %>
+                          <div class="a-section a-spacing-none adddress-ui-widgets-form-field-label-container address-ui-widgets-desktop-form-label">
+                            <div class="a-section a-spacing-none aok-inline-block"><label for="address-ui-widgets-enterAddressLine1" class="a-form-label address-ui-widgets-desktop-form-field-full-width a-nowrap">
+                            アパート名・マンション名、または建物名
+                            </label>
+                            </div>
+                          </div>
+                          <%= f.text_field :building_name, {id: "text_form" } %>
+                          <div class="a-section a-spacing-none adddress-ui-widgets-form-field-label-container address-ui-widgets-desktop-form-label">
+                            <div class="a-section a-spacing-none aok-inline-block">
+                              <label for="address-ui-widgets-enterAddressLine1" class="a-form-label address-ui-widgets-desktop-form-field-full-width a-nowrap">
+                              電話番号
+                              </label>
+                            </div>
+                            <%= f.text_field :phone_number, {id: "text_form" }%>
+                          </div>
+                          <%= f.submit "住所を登録する", style: "background-color: #FFCC00; border-color: #a88734 #9c7e31 #846a29; background: linear-gradient(to bottom,#f7dfa5,#f0c14b);", id: "order_address" %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="a-row a-spacing-base  a-fixed-left-grid">
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <span tabindex="0" class="a-popover-end a-popover-a11y-offscreen"></span>
+    </div>
+  </div>
+  <div id="create-payment-modal-main">
+    <div class="a-popover a-popover-modal a-declarative pop-create" id="a-popover-2" aria-hidden="false" style="width: 639px; max-width: none; visibility: visible; margin: 0px; opacity: 1; display: block; padding: 0;">
+      <span tabindex="0" role="dialog" class="a-popover-start a-popover-a11y-offscreen" aria-labelledby="a-popover-header-1"></span>
+      <div class="a-popover-wrapper" aria-busy="false">
+        <div class="a-popover-header" style="">
+          <button class=" a-button-close a-declarative" aria-label="Close">
+            <i class="a-icon a-icon-close"></i>
+          </button>
+          <h4 class="a-popover-header-content" id="a-popover-header-1">カード情報を登録する</h4>
+        </div>
+        <div class="a-popover-inner a-padding-none" id="a-popover-content-1" style="height: auto; overflow-y: auto;">
+          <%= form_for [current_user, @card] , remote: true do |f| %>
+            <div aria-live="polite" class="a-row a-expander-container a-spacing-base a-expander-inline-container pmts-add-cc add-instrument-form-expander">
+              <div class="a-fixed-right-grid">
+                <div class="a-fixed-right-grid-inner" style="padding-right:147px">
+                  <div class="a-fixed-right-grid-col a-col-left" style="padding-right:2%;*width:97.6%;float:left;">
+                    <div class="a-row a-spacing-base">
+                      <div class="a-row">
+                        <span class="a-size-medium pmts-portal-add-ba-title a-text-bold">クレジットカード</span>
+                      </div>
+                      <div class="a-row">
+                        <div class="a-row">以下のクレジットカードをご利用いただけます</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="a-text-right a-fixed-right-grid-col a-col-right" style="width:147px;margin-right:-147px;float:left;">
+                    <div class="a-section a-spacing-none a-text-right pmts-composite-logo-row">
+                      <span class="pmts-indiv-issuer-image" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/09/payments-portal/r1/issuer-images/sprite-map._CB345015564_.png'); background-position: -225px; margin-right: 6px;"></span>
+                      <span class="pmts-indiv-issuer-image" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/09/payments-portal/r1/issuer-images/sprite-map._CB345015564_.png'); background-position: 0px; margin-right: 6px;"></span>
+                      <span class="pmts-indiv-issuer-image" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/09/payments-portal/r1/issuer-images/sprite-map._CB345015564_.png'); background-position: -45px;"></span>
+                    </div>
+                    <div class="a-section a-spacing-none a-text-right pmts-composite-logo-row">
+                      <span class="pmts-indiv-issuer-image" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/09/payments-portal/r1/issuer-images/sprite-map._CB345015564_.png'); background-position: -90px; margin-right: 6px;"></span>
+                      <span class="pmts-indiv-issuer-image" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/09/payments-portal/r1/issuer-images/sprite-map._CB345015564_.png'); background-position: -135px; margin-right: 6px;"></span>
+                      <span class="pmts-indiv-issuer-image" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/09/payments-portal/r1/issuer-images/sprite-map._CB345015564_.png'); background-position: -270px;"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div aria-expanded="true" class="a-expander-content a-spacing-base a-expander-inline-content a-expander-inner a-expander-content-expanded" style="overflow: hidden; display: block;">
+                <div id="pp-51-21" data-pmts-component-id="pp-51-15" class="a-section pmts-portal-component pmts-portal-components-pp-51-15">
+                  <form id="pp-51-22" method="post" action="https://www.amazon.co.jp:443/cpe/managepaymentmethods" class="pmts-add-credit-card-form a-spacing-none">
+                    <div id="pp-51-23" class="a-row a-spacing-base a-hidden aok-hidden">
+                      <div class="a-column a-span10">
+                        <div  class="a-box a-alert a-alert-error" aria-live="assertive">
+                          <div class="a-box-inner a-alert-container">
+                            <h4 class="a-alert-heading">問題が発生しました。</h4>
+                            <i class="a-icon a-icon-alert"></i>
+                            <div class="a-alert-content">
+                              <ul class="a-unordered-list a-vertical"></ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="a-row a-spacing-base">カード情報を入力してください</div>
+                    <div class="a-row a-spacing-base">
+                      <div class="a-section a-spacing-none pmts-inline-field-block">
+                        <label for="pp-51-24" class="a-form-label">カード名義人（半角ローマ字）</label>
+                        <%= f.text_field :card_name, id: "pp-51-24", autocomplete: "off", class: "a-input-text a-form-normal a-width-base" %>
+                      </div>
+                      <div class="a-section a-spacing-none pmts-inline-field-block">
+                        <label for="pp-51-25" class="a-form-label">カード番号</label>
+                        <%= f.text_field :card_number, id: "pp-51-25", autocomplete: "off", class: "a-input-text a-form-normal a-width-medium" %>
+                      </div>
+                      <div class="a-section a-spacing-none a-spacing-top-large pmts-inline-field-block">
+                        <div data-pmts-component-id="pp-51-17" class="a-section a-spacing-none pmts-portal-component pmts-portal-components-pp-51-17">
+                          <img alt="" src="https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.gif" class="a-hidden aok-hidden" id="pp-51-26">
+                        </div>
+                      </div>
+                      <div class="a-section a-spacing-none pmts-inline-field-block">
+                        <div class="a-section a-spacing-none pmts-expiry pmts-date-width">
+                          <label for="pp-51-27" class="a-form-label">有効期限</label>
+                          <span class="a-dropdown-container">
+                            <%= f.select :month, ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"], {}, id: "pp-51-27", class: "a-native-dropdown pmts-native-dropdown" %>
+                          </span>
+                          <span class="a-letter-space"></span>
+                          <span class="a-dropdown-container">
+                            <%= f.select :year, ["2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037"], {}, id: "pp-51-28", class: "a-native-dropdown pmts-native-dropdown" %>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="a-row a-spacing-top-base">
+                      </div>
+                      <div class="a-row a-spacing-top-base">
+                        <label class="a-form-label">氏名</label>
+                        <%= f.text_field :full_name, maxlength: "50", id: "pp-mm-23", class: "a-input-text a-form-normal a-width-extra-large" %>
+                      </div>
+                      <div class="a-row a-spacing-top-base">
+                        <label class="a-form-label">郵便番号</label>
+                      </div>
+                      <div class="a-row">
+                        <%= f.text_field :postal_code_one, maxlength: "3", id: "pp-mm-24", class: "a-input-text a-form-normal a-width-small"%>-<%= f.text_field :postal_code_two, maxlength: "4", id: "pp-mm-25", class: "a-input-text a-form-normal a-width-small" %>
+                      </div>
+                      <div class="a-row a-spacing-top-base">
+                        <label class="a-form-label">都道府県</label>
+                      </div>
+                      <div class="a-row">
+                        <span class="a-dropdown-container">
+                          <%= f.select :region, ["北海道", "青森県", "岩手県", "宮城県", "秋田県", "山形県", "福島県", "茨城県", "栃木県", "群馬県", "埼玉県", "千葉県", "東京都", "神奈川県", "新潟県", "富山県", "石川県", "福井県", "山梨県", "長野県", "岐阜県", "静岡県", "愛知県", "三重県", "滋賀県", "京都府", "大阪府", "兵庫県", "奈良県", "和歌山県", "鳥取県", "島根県", "岡山県", "広島県", "山口県", "徳島県", "香川県", "愛媛県", "高知県", "福岡県", "佐賀県", "長崎県", "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県"], {}, id: "pp-mm-26", class: "a-native-dropdown" %>
+                        </span>
+                      </div>
+                      <div id="line1" class="a-row">
+                        <div class="a-row a-spacing-top-base">
+                          <label class="a-form-label">住所1</label>
+                        </div>
+                        <%= f.text_field :street_address_one, maxlength: "60", id: "pp-mm-28", class: "a-input-text a-form-normal a-width-extra-large" %>
+                      </div>
+                      <div id="line2" class="a-row">
+                        <div class="a-row a-spacing-top-base">
+                          <label class="a-form-label">住所2</label>
+                        </div>
+                        <%= f.text_field :street_address_two, maxlength: "60", id: "pp-mm-29", class: "a-input-text a-form-normal a-width-extra-large" %>
+                      </div>
+                      <div id="buildingName" class="a-row">
+                        <div class="a-row a-spacing-top-base">
+                          <label class="a-form-label">建物名</label>
+                        </div>
+                        <%= f.text_field :building_name, maxlength: "50", id: "pp-mm-30", class: "a-input-text a-form-normal a-width-extra-large" %>
+                      </div>
+                      <div id="phoneNumber" class="a-row">
+                        <div class="a-row a-spacing-top-base">
+                          <label class="a-form-label">電話番号</label>
+                        </div>
+                        <%= f.text_field :phone_number, maxlength: "20", id: "pp-mm-31", class: "a-input-text a-form-normal a-width-extra-large" %>
+                      </div>
+                      <div class="a-section a-spacing-none pmts-inline-field-block pmts-inline-add-button-spacing-top">
+                        <span id="pp-51-31" class="a-button a-button-primary pmts-button-input">
+                          <span class="a-button-inner">
+                            <%= f.submit "クレジットカードを追加", class: "a-button-input" %>
+                            <span id="pp-51-31-announce" class="a-button-text">クレジットカードを登録
+                              <%= f.submit "クレジットカードを追加", class: "a-button-input" %>
+                            </span>
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <span tabindex="0" class="a-popover-end a-popover-a11y-offscreen"></span>
+    </div>
+  </div>
+  <div id="spc-desktop" class="checkout spc desktop locale-jp  spc-desktop">
+    <div class="a-container">
+      <div class="a-row a-spacing-large">
+         <%= image_tag("https://images-fe.ssl-images-amazon.com/images/G/09/x-locale/checkout/confirm-banner._CB382237590_.gif") %>
+      </div>
+      <div class="a-row">
+        <div class="spc-left">
+          <div class="a-row a-size-large a-text-bold a-spacing-mini">
+            注文内容を確認・変更する
+          </div>
+          <div class="a-row a-spacing-small a-size-mini">
+            下の「注文を確定する」ボタンを押してご注文いただくことで、お客様は当サイトの
+            <a href="javascript:void(0);">プライバシー規約</a>および
+            <a href="javascript:void(0);">利用規約</a> に同意の上、商品をご注文されたことになります。 <br><br>
+            Amazonマーケットプレイスの商品をご注文された場合、お客様は出品者の返品・交換の条件およびプライバシーポリシー、その他の販売条件、および一部の出品者から商品やサービスのご案内が届くことについても同意されたことになります。国内外の出品者の会社情報および所在並びに各条件・ポリシーの詳細は、出品者のページでご確認ください。<br><br>
+            Amazonマーケットプレイスの商品を購入する場合は、所定の
+            <a href="javascript:void(0);">配送料</a>がかかります。「注文を確定する」ボタンをクリックする前に、
+            <a href="javascript:void(0);">配送料</a>と注文合計をご確認ください。
+          </div>
+        </div>
+      </div>
+      <%= form_for @order, method: :patch do |f| %>
+        <div class="a-row spc-center-row">
+          <div class="a-fixed-right-grid">
+            <div class="a-fixed-right-grid-inner spc-grid">
+              <div id="left-grid" class="a-fixed-right-grid-col a-col-left spc-left" style="min-height: 707px;">
+                <div class="a-row a-spacing-small">
+                  <div class="a-column a-span12 a-box a-alert a-alert-info">
+                    <div id="spc-imb" class="a-box-inner">
+                      <i class="a-icon a-icon-alert a-icon-info"></i>
+                      <h4>ご注文の商品について重要なメッセージが2件あります。</h4>
+                      <div class="a-row a-spacing-small">
+                        <p>
+                          <label class="a-checkbox">
+                            <input type="checkbox" id="setOrderingPrefsCheckbox">
+                            <span class="a-checkbox-label">
+                              選択したお届け先住所と支払い方法を初期設定にする場合は、チェックを入れてください。
+                            </span>
+                          </label>
+                        </p>
+                      </div>
+                      <div class="a-row">
+                        <a href="javascript:void(0);" class="a-link-expander imb-message-link a-declarative">
+                          <i class="a-icon a-icon-expand no-js-hide"></i>
+                          本商品を購入するとBamazonビデオで使える100円分のクーポンプレゼントキャンペーン実施中。（お一人様1回限り：2017/12/28まで）商品発送後、クーポン...
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="spc-top" class="a-row a-box a-spacing-small">
+                  <div class="a-box-inner">
+                    <!-- アドレスがある人のビュー -->
+                    <% if @order.user.addresses.present? %>
+                      <div class="a-column a-span4">
+                        <div class="a-row a-spacing-base">
+                          <div class="a-row">
+                            <strong>お届け先住所</strong>
+                            <span class="change-address-popover-span">
+                              <a id="editYourAddress" class="a-link-normal">変更</a>
+                            </span>
+                          </div>
+                          <div class="a-row">
+                            <div class="a-row">
+                              <div class="a-row" id="desktop-shipping-address-div">
+                                <div class="displayAddressDiv">
+                                  <ul class="displayAddressUL">
+                                    <li><%= @order.user.addresses[0].full_name %></li>
+                                    <li><%= @order.user.addresses[0].postal_code_one %>-<%= @order.user.addresses[0].postal_code_two %></li>
+                                    <li><%= @order.user.addresses[0].region %> <%= @order.user.addresses[0].street_address_one %><%= @order.user.addresses[0].street_address_two %><%= @order.user.addresses[0].building_name %></li>
+                                    <li>電話番号:<%= @order.user.addresses[0].phone_number %></li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="a-row a-declarative">
+                              <a href="javascript:void(0);" class="pipeline-link a-size-mini">
+                              複数のお届け先を指定する</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="a-row a-spacing-base  a-fixed-left-grid">
+                          <div class="a-fixed-left-grid-inner spc-promo-fixed-width-padding">
+                            <div class="a-fixed-left-grid-col a-col-left aok-float-left spc-promo-image">
+                              <a href="javascript:void(0);" id="locker-search-link" class="a-declarative a-col-left">
+                                <%= image_tag("https://images-fe.ssl-images-amazon.com/images/G/09/x-locale/checkout/locker._CB323963444_.png" ,class: "a-spacing-top-micro",id: "locker-promo-img") %>
+                              </a>
+                            </div>
+                            <div class="a-fixed-left-grid-col a-col-right aok-float-left">
+                              <span class="a-color-state">店頭受取もご利用いただけます店頭受取</span>
+                              <br><strong>20 </strong>店舗が近くにあります。
+                              <a href="javascript:void(0);" id="locker-search-link" class="a-declarative a-size-mini">選択</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- アドレスがない人用のビュー -->
+                    <% else %>
+                      <div class="a-column a-span4">
+                        <div class="a-row a-spacing-base">
+                          <div class="a-row">
+                            <strong>お届け先住所</strong>
+                            <span class="change-address-popover-span">
+                              <a id="editYourAddress" class="a-link-normal">登録</a>
+                            </span>
+                          </div>
+                          <div class="a-row">
+                            <div class="a-row">
+                              <div class="a-row" id="desktop-shipping-address-div">
+                                <div class="displayAddressDiv">
+                                  <ul class="displayAddressUL">
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="a-row a-declarative">
+                              <a href="javascript:void(0);" class="pipeline-link a-size-mini">
+                              複数のお届け先を指定する</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="a-row a-spacing-base  a-fixed-left-grid">
+                          <div class="a-fixed-left-grid-inner spc-promo-fixed-width-padding">
+                            <div class="a-fixed-left-grid-col a-col-left aok-float-left spc-promo-image">
+                              <a href="javascript:void(0);" id="locker-search-link" class="a-declarative a-col-left">
+                                <%= image_tag("https://images-fe.ssl-images-amazon.com/images/G/09/x-locale/checkout/locker._CB323963444_.png" ,class: "a-spacing-top-micro",id: "locker-promo-img") %>
+                              </a>
+                            </div>
+                            <div class="a-fixed-left-grid-col a-col-right aok-float-left">
+                              <span class="a-color-state">店頭受取もご利用いただけます店頭受取</span>
+                              <br><strong>20 </strong>店舗が近くにあります。
+                              <a href="javascript:void(0);" id="locker-search-link" class="a-declarative a-size-mini">選択</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                    <div class="a-column a-span8 a-span-last">
+                      <div class="a-row">
+                        <div class="a-column a-span6">
+                          <!-- 支払い情報登録済みの人のビュー -->
+                          <% if @order.user.payment_informations.present? %>
+                          <div class="a-row a-spacing-base">
+                            <div class="a-row">
+                              <strong>支払い方法</strong>
+                              <a href="/users/<%= current_user.id %>/payment_informations" id="payment-change-link" class="a-size-mini pipeline-link">変更
+                              </a>
+                            </div>
+                            <div id="payment-information" class="a-row">
+                              <ul class="no-bullet-list">
+                                <li class="a-spacing-micro">
+                                  <span class="a-list-item">
+                                    <span>
+                                      <%= image_tag("https://images-fe.ssl-images-amazon.com/images/G/09/checkout/payselect/card-logos-small/visa._CB196101479_.gif") %>
+                                    </span>
+                                    <span id="card_number">下4桁 <%= current_user.payment_informations[0].number_method %></span>
+                                  </span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <!-- 支払い情報未登録の人のビュー -->
+                          <% else %>
+                          <div class="a-row a-spacing-base">
+                            <div class="a-row">
+                              <strong>支払い方法</strong>
+                              <a id="payment-change-link" class="a-size-mini pipeline-link">登録
+                              </a>
+                            </div>
+                            <div id="payment-information" class="a-row">
+                              <ul class="no-bullet-list">
+                                <li class="a-spacing-micro">
+                                  <span class="a-list-item">
+                                    <span>
+                                      <%= image_tag("https://images-fe.ssl-images-amazon.com/images/G/09/checkout/payselect/card-logos-small/visa._CB196101479_.gif") %>
+                                    </span>
+                                    <span id="card_number"></span>
+                                  </span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <% end %>
+                          <!-- ここまで -->
+                          <div id="billing-address">
+                            <div class="a-row a-spacing-base">
+                              <div class="a-row">
+                                <strong>請求先住所</strong>
+                                <span class="change-address-popover-span">
+                                  <a href="javascript:void(0);" class="a-size-mini a-declarative change-address-popover-link">
+                                    変更
+                                  </a>
+                                </span>
+                              </div>
+                              <div class="a-row billing-address-content">
+                                <span class="duplicate-address">発送先住所と同じ</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="a-column a-span6 a-span-last">
+                          <div class="a-row a-spacing-base">
+                            <div class="a-row a-spacing-mini">
+                              <div><strong>Bamazonポイント:</strong></div>
+                              <div>200000pt( ￥ 200000相当) 利用可能</div>
+                            </div>
+                            <div class="a-row a-color-secondary a-size-small a-spacing-top-micro">
+                              <div class="a-column a-span12 a-span-last" id="spc-loyalty-points-display">
+                                <input type="text" class="a-input-text" id="spc-loyalty-points-input">
+                                <span class="a-button a-padding-none" id="loyalty-points-button">
+                                  <span class="a-button-inner">
+                                    <input type="submit" class="a-declarative a-button-text changePoints">
+                                  </span>
+                                </span>
+                                <span class="a-button-text a-color-success" id="loyalty-points-applied" style="display:none">適用済み
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="a-row a-spacing-base">
+                            <div class="a-row a-spacing-mini">
+                              <span><strong>Bamazonギフト券・Bamazonショッピングカードまたはクーポン:</strong>
+                            </div>
+                            <div class="a-row">
+                              <div class="a-column a-span12 a-span-last">
+                                <div class="a-fixed-right-grid">
+                                  <div class="a-fixed-right-grid-inner redeem-gc-grid">
+                                    <div class="a-fixed-right-grid-col a-col-left redeem-gc-left">
+                                      <input type="text" class="a-input-text a-spacing-micro a-span12" id="spc-gcpromoinput" placeholder="コードを入力">
+                                    </div>
+                                    <div class="a-fixed-right-grid-col a-col-right redeem-gc-right">
+                                      <span class="a-button a-spacing-micro">
+                                        <span class="a-button-inner">
+                                          <input type="submit" class="a-declarative a-button-text">
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="spc-orders">
+                  <div class="a-box-inner">
+                    <div class="a-row prime-ad-banner-content a-spacing-small">
+                      <table class="adStripe2">
+                        <tbody>
+                          <tr>
+                            <td id="stripeImage">
+                              <%= image_tag("https://images-na.ssl-images-amazon.com/images/G/09/marketing/prime/free_shipping_9._CB192259159_.gif") %>
+                            </td>
+                            <td>
+                              <span class="a-declarative">
+                                <a href="javascript:void(0);" class="prime-popover-link a-declarative">
+                                  <span class="emphasisedPopoverLauncher">今回のご注文から適用可能: </span>
+                                </a>
+                              </span>
+                                <span style="color: black;"><%= @order.user.name %>さん、右下の配送方法より「Amazonプライムで、お急ぎ便が無料に」を選択すると、この注文の配送料（¥ 360分）が無料になります。
+                                </span>
+                              <br>
+                              <span id="beforeLearnMore">» </span>
+                              <span class="a-declarative">
+                                <a href="javascript:void(0);" class="prime-popover-link a-declarative">
+                                  <span class="learnMore">詳細はこちら</span>
+                                </a>
+                              </span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="shipment">
+                      <div class="a-row">
+                        <div class="shipping-group">
+                          <div class="a-row">
+                            <div class="a-row a-color-success a-text-bold a-size-medium a-spacing-small">
+                              <span>お届け日:</span>
+                              <span>2017</span>
+                              <span>年</span>
+                              <span>12月</span>
+                              <span>24日</span>
+                              <span class="fasttrack-span a-color-secondary a-text-normal a-size-base">
+                                <span class="fasttrackavailable a-text-normal">
+                                  <span class="fasttrackcountdown">
+                                    <span>7 時間 と 44 分</span>
+                                    以内に確定されたご注文が対象です。
+                                    <span>
+                                      <a href="javascript:void(0);" class="a-size-mini">詳細</a>
+                                    </span>
+                                  </span>
+                                </span>
+                              </span>
+                          </div>
+                          <div class="a-row">
+                            <div class="a-column a-span6">
+                            <% @order.order_products.each do |order_product| %>
+                              <div class="a-row a-spacing-base">
+                                <div class="a-column a-span3">
+                                  <%= image_tag(order_product.product_image) %>
+                                </div>
+                                <div class="a-column a-span9 a-span-last">
+                                  <div class="a-row">
+                                    <strong class="asin-title"><%= order_product.product_name %></strong>
+                                  </div>
+                                  <div class="a-row">
+                                    <span class="a-color-price a-spacing-micro">
+                                      <strong>¥ <%= order_product.price.floor.to_s(:delimited) %></strong>
+                                    </span>
+                                  </div>
+                                  <div class="a-row a-size-small">
+                                    Bamazon プライムの対象
+                                    <span class="a-declarative">
+                                      <a href="javascript:void(0);" class="prime-popover-link a-declarative a-size-mini">今すぐ申し込む</a>
+                                    </span>
+                                  </div>
+                                  <div class="a-row a-size-small">
+                                    次回用ビデオクーポン
+                                  </div>
+                                  <div class="a-row">
+                                    <div class="a-row quantity-block">
+                                      <strong>数量: </strong>
+                                      <span class="quantity-display"><%= order_product.count %></span>
+                                      <a href="javascript:void(0);" class="a-declarative change-quantity-button a-size-mini">変更</a>
+                                    </div>
+                                  </div>
+                                  <div class="a-row a-color-secondary a-size-small">
+                                    販売： Bamazon Japan
+                                  </div>
+                                  <div class="a-row">
+                                    <div class="a-row">
+                                      <a href="javascript:void(0);" class="a-size-mini aok-align-center gift-popover-link a-declarative">
+                                      ギフトの設定（贈り主名の表示に必要です）</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            <% end %>
+                            </div>
+                            <div class="a-column a-span6 a-span-last">
+                              <div class="a-row shipping-speeds">
+                                <fieldset>
+                                  <legend>
+                                    <span class="shipping-speeds-title">配送オプション:</span>
+                                  </legend>
+                                  <div class=" a-spacing-mini shipping-speed ship-option pointer no-scheduled-delivery">
+                                    <div class="prime-ship-speed">
+                                      <input type="radio" class="prime-fake-radio">
+                                      <span class="a-declarative">
+                                        <a href="javascript:void(0);" class="prime-popover-link a-declarative">
+                                          <%= image_tag("https://images-na.ssl-images-amazon.com/images/G/09/marketing/prime/amazon_prime_sm._CB505585156_.png") %>
+                                        </a>
+                                      </span>
+                                      でお急ぎ便が無料に
+                                    </div>
+                                  </div>
+                                  <div class="a-radio a-spacing-mini shipping-speed ship-option pointer no-scheduled-delivery">
+                                    <input type="radio" class="radio-standard no-js-hide">
+                                    <span class="a-radio-label">
+                                      通常配送 ※コンビニ・ATM・ネットバンキング・電子マネー払いの場合は、通常配送を選択してください。
+                                    </span>
+                                  </div>
+                                  <div class="a-radio a-spacing-mini shipping-speed ship-option pointer no-scheduled-delivery">
+                                    <input type="radio" class="radio-standard no-js-hide">
+                                    <span class="a-radio-label">
+                                      お急ぎ便(<a href="javascript:void(0);">詳細を見る</a>
+                                    </span>
+                                  </div>
+                                  <div class="a-accordion-row a-spacing-mini shipping-speed ship-option pointer is-scheduled-delivery">
+                                    <table>
+                                      <tbody>
+                                        <tr>
+                                          <td class="sd-option-radio-button-container">
+                                            <input type="radio" class="radio-standard no-js-hide">
+                                          </td>
+                                          <td>
+                                            <span>お届け日時指定便</span>
+                                            <span>
+                                              <div id="sd_no_widgets_1513326359966944" style="display: block;">
+                                                <div class="sd-calendar-button-container">
+                                                  <span id="calendarButton_dummy" class="sd-calendar-button a-button a-padding-none">
+                                                    <span class="a-button-inner">
+                                                      <input type="button" class="a-button-text" value="時間を選択">
+                                                    </span>
+                                                  </span>
+                                                </div>
+                                              </div>
+                                            </span>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </fieldset>
+                              </div>
+                              <div class="a-row a-spacing-top-base ship-split-preferences">
+                                <fieldset>
+                                  <legend>発送オプションの選択：</legend>
+                                  <div class="a-radio a-spacing-mini ship-split-pref ship-option no-scheduled-delivery pointer">
+                                    <input type="radio" class="radio-standard no-js-hide">
+                                    <span class="a-radio-label">できる限り商品をまとめて発送（最小限の配送料・手数料がかかります）
+                                    </span>
+                                  </div>
+                                  <div class="a-radio a-spacing-mini ship-split-pref ship-option no-scheduled-delivery pointer">
+                                    <input type="radio" class="radio-standard no-js-hide">
+                                    <span class="a-radio-label">
+                                      準備ができた商品から順に発送（発送ごとに配送料・手数料がかかります）<br>
+                                      <a href="javascript:void(0);">詳細を見る</a>
+                                    </span>
+                                  </div>
+                                </fieldset>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="right-grid" class="a-fixed-right-grid-col a-col-right spc-right" style="min-height: 899px;">
+              <div class="a-box-group" id="order-summary-box">
+                <div class="a-box a-first">
+                  <div class="a-box-inner">
+                    <div class="a-row a-spacing-base">
+                      <div>
+                        <span class="a-button a-button-primary continue-button place-order-button-link a-button-span12 ">
+                          <span class="a-button-inner a-button-span12">
+                            <%= f.submit name:"placeYourOrder1", class:"a-button-text place-your-order-button", value:"注文を確定する" %>
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="a-row">
+                      <h3 class="a-spacing-micro a-size-base">注文内容</h3>
+                      <div id="spc-order-summary">
+                        <div id="subtotals-marketplace-table" class="a-size-small">
+                          <table class="small-line-height">
+                            <tbody>
+                              <tr class=" order-summary-unidenfitied-style">
+                                <td class="a-text-left">商品の小計：</td>
+                                <td class="aok-align-bottom aok-nowrap a-text-right">ここは合計金額をメソッドを使うよ</td>
+                              </tr>
+                              <tr class=" order-summary-unidenfitied-style">
+                                <td class="a-text-left">配送料・手数料：</td>
+                                <td class="aok-align-bottom aok-nowrap a-text-right">￥ 360</td>
+                              </tr>
+                              <tr class="order-summary-grand-total">
+                                <td class="a-padding-small cell-separator">
+                                  <hr class="a-spacing-none">
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="a-size-medium a-color-price a-text-left">
+                                  <strong>ご請求額：</strong>
+                                </td>
+                                <td class="a-size-medium a-color-price aok-align-bottom aok-nowrap grand-total-price a-text-right">
+                                  <strong>ここも計算するよ</strong>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="a-box a-last a-color-alternate-background">
+                  <div class="a-box-inner">
+                    <div class="a-size-mini">
+                      <div class="a-row a-spacing-mini">
+                        適用された割引：
+                        <ul class="bullet-list">
+                          <li>
+                            <span class="a-list-item">Bamazonビデオクーポン</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="a-row a-spacing-mini">
+                        <a href="javascript:void(0);">配送料・手数料について</a>
+                      </div>
+                      <div class="a-row a-spacing-mini">
+                        <a href="javascript:void(0);">通常配送料について</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="second-buy-button" class="a-box a-spacing-bottom-none">
+                <div class="a-box-inner">
+                  <div>
+                    <span class="a-button a-button-primary continue-button place-order-button-link a-button-span12">
+                      <span class="a-button-inner a-button-span12">
+                        <%= f.submit name:"placeYourOrder1", class:"a-button-text place-your-order-button", value:"注文を確定する" %>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <div class="a-row a-spacing-small a-spacing-top-small">
+        <div id="footer">
+          <p class="a-color-secondary a-size-mini">
+            ご不明な点は<a href="javascript:void(0);">カスタマーサービス</a>までお問い合わせください。
+          </p>
+          <p class="a-color-secondary a-size-mini">
+            Bmazon.co.jpに注文する商品について: [注文を確定する]ボタンをクリックすると、注文の受領を通知するEメールが送信されます。商品の購入契約は、商品の配送を通知するEメールをお送りすることで初めて完了します。
+          </p>
+          <div class="a-color-secondary a-size-mini">
+            <p class="a-color-secondary a-size-mini">
+              【Bamazon.co.jp が販売する商品の返品について】
+              <br>
+              原則として、商品到着後30日以内であれば、未使用かつ未開封の商品の返品に関しては商品代金の全額をお返しします（返品不可の商品を除く）。詳しくは
+              <a href="javascript:void(0);">返品</a>をご覧ください。
+              <br>
+              <br>
+              【Bamazon.co.jp以外の第三者出品者が販売する商品の返品について】
+              <br>
+              出品者の商品の返品および返金について詳しくは、
+              <a href="javascript:void(0);">Bamazonマーケットプレイス商品の返品について</a>をご覧ください。
+              <br>
+              <br>
+              <%= link_to "Bamazon.co.jpに戻る", root_path %> （注文は確定されません）
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="a-row a-text-center a-size-mini">
+        <hr class="a-spacing-small">
+        <a href="javascript:void(0);">利用規約</a> | <a href="javascript:void(0);">プライバシー規約</a>
+        ©2017-2017, Bamazon.com, Inc.
+      </div>
+    </div>
+  </div>
+</div>

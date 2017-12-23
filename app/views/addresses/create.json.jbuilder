@@ -1,0 +1,11 @@
+json.id                  @address.id
+json.country             @address.country
+json.full_name           @address.full_name
+json.postal_code_one     @address.postal_code_one
+json.postal_code_two     @address.postal_code_two
+json.region              @address.region
+json.street_address_one  @address.street_address_one
+json.street_address_two  @address.street_address_two
+json.building_name       @address.building_name
+json.phone_number        @address.phone_number
+json.user_id             @address.user_id

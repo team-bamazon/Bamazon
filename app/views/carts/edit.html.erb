@@ -50,6 +50,7 @@
               <span id="sc-buy-box-ptc-button" class="a-button a-button-span12 a-button-primary">
                 <span class="a-button-inner">
                   <% if user_signed_in? %>
+                    <%  %>
                     <%= f.submit name:"proceedToCheckout", class:"a-button-input", value:"Proceed to checkout" %>
                     <span id="sc-buy-box-ptc-button-announce" class="a-button-text" aria-hidden="true">
                     レジに進む

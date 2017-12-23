@@ -15,7 +15,7 @@ class OrderProductsController < ApplicationController
                           product_id:    product.id)
     end
 
-    redirect_to order_path(@order)
+    redirect_to edit_order_path(@order)
   end
 
   private
