@@ -7,11 +7,20 @@ class PaymentInformationsController < ApplicationController
 
   def create
     @card = PaymentInformation.new(payment_information_params)
-    if @card.save
-      redirect_to user_payment_informations_path(current_user)
+    path = Rails.application.routes.recognize_path(request.referer)
+    if path[:controller] == "payment_informations"
+      if @card.save
+        redirect_to user_payment_informations_path(current_user)
+      else
+        flash.now[:alert] = "項目を全て記入してください"
+        render :index
+      end
     else
-      flash.now[:alert] = "項目を全て記入してください"
-      render :index
+      @card.save
+      respond_to do |format|
+        format.html
+        format.json
+      end
     end
   end
 
