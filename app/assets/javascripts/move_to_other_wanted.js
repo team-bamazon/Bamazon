@@ -1,5 +1,6 @@
 $(document).on('turbolinks:load', function () {
-    $("[id^=wanted-selector-]").on("click",function() {
+// 挙動が変だったのでオンclickをオンchangeに変更しました
+    $("[id^=wanted-selector-]").on("change",function() {
         var value = $(this).prop('value');
         var wpid = $(this).data("wpid");
 
