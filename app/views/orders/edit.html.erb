@@ -361,7 +361,7 @@
                           <div class="a-row a-spacing-base">
                             <div class="a-row">
                               <strong>支払い方法</strong>
-                              <a href="/users/<%= current_user.id %>/payment_informations" id="payment-change-link" class="a-size-mini pipeline-link">変更
+                              <a id="payment-change-link" class="a-size-mini pipeline-link">変更
                               </a>
                             </div>
                             <div id="payment-information" class="a-row">
@@ -464,173 +464,175 @@
                   </div>
                 </div>
                 <div id="spc-orders">
-                  <div class="a-box-inner">
-                    <div class="a-row prime-ad-banner-content a-spacing-small">
-                      <table class="adStripe2">
-                        <tbody>
-                          <tr>
-                            <td id="stripeImage">
-                              <%= image_tag("https://images-na.ssl-images-amazon.com/images/G/09/marketing/prime/free_shipping_9._CB192259159_.gif") %>
-                            </td>
-                            <td>
-                              <span class="a-declarative">
-                                <a href="javascript:void(0);" class="prime-popover-link a-declarative">
-                                  <span class="emphasisedPopoverLauncher">今回のご注文から適用可能: </span>
-                                </a>
-                              </span>
-                                <span style="color: black;"><%= @order.user.name %>さん、右下の配送方法より「Amazonプライムで、お急ぎ便が無料に」を選択すると、この注文の配送料（¥ 360分）が無料になります。
+                  <div class="a-box">
+                    <div class="a-box-inner">
+                      <div class="a-row prime-ad-banner-content a-spacing-small">
+                        <table class="adStripe2">
+                          <tbody>
+                            <tr>
+                              <td id="stripeImage">
+                                <%= image_tag("https://images-na.ssl-images-amazon.com/images/G/09/marketing/prime/free_shipping_9._CB192259159_.gif") %>
+                              </td>
+                              <td>
+                                <span class="a-declarative">
+                                  <a href="javascript:void(0);" class="prime-popover-link a-declarative">
+                                    <span class="emphasisedPopoverLauncher">今回のご注文から適用可能: </span>
+                                  </a>
                                 </span>
-                              <br>
-                              <span id="beforeLearnMore">» </span>
-                              <span class="a-declarative">
-                                <a href="javascript:void(0);" class="prime-popover-link a-declarative">
-                                  <span class="learnMore">詳細はこちら</span>
-                                </a>
-                              </span>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    <div class="shipment">
-                      <div class="a-row">
-                        <div class="shipping-group">
-                          <div class="a-row">
-                            <div class="a-row a-color-success a-text-bold a-size-medium a-spacing-small">
-                              <span>お届け日:</span>
-                              <span>2017</span>
-                              <span>年</span>
-                              <span>12月</span>
-                              <span>24日</span>
-                              <span class="fasttrack-span a-color-secondary a-text-normal a-size-base">
-                                <span class="fasttrackavailable a-text-normal">
-                                  <span class="fasttrackcountdown">
-                                    <span>7 時間 と 44 分</span>
-                                    以内に確定されたご注文が対象です。
-                                    <span>
-                                      <a href="javascript:void(0);" class="a-size-mini">詳細</a>
+                                  <span style="color: black;"><%= @order.user.name %>さん、右下の配送方法より「Amazonプライムで、お急ぎ便が無料に」を選択すると、この注文の配送料（¥ 360分）が無料になります。
+                                  </span>
+                                <br>
+                                <span id="beforeLearnMore">» </span>
+                                <span class="a-declarative">
+                                  <a href="javascript:void(0);" class="prime-popover-link a-declarative">
+                                    <span class="learnMore">詳細はこちら</span>
+                                  </a>
+                                </span>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="shipment">
+                        <div class="a-row">
+                          <div class="shipping-group">
+                            <div class="a-row">
+                              <div class="a-row a-color-success a-text-bold a-size-medium a-spacing-small">
+                                <span>お届け日:</span>
+                                <span>2017</span>
+                                <span>年</span>
+                                <span>12月</span>
+                                <span>24日</span>
+                                <span class="fasttrack-span a-color-secondary a-text-normal a-size-base">
+                                  <span class="fasttrackavailable a-text-normal">
+                                    <span class="fasttrackcountdown">
+                                      <span>7 時間 と 44 分</span>
+                                      以内に確定されたご注文が対象です。
+                                      <span>
+                                        <a href="javascript:void(0);" class="a-size-mini">詳細</a>
+                                      </span>
                                     </span>
                                   </span>
                                 </span>
-                              </span>
-                          </div>
-                          <div class="a-row">
-                            <div class="a-column a-span6">
-                            <% @order.order_products.each do |order_product| %>
-                              <div class="a-row a-spacing-base">
-                                <div class="a-column a-span3">
-                                  <%= image_tag(order_product.product_image) %>
-                                </div>
-                                <div class="a-column a-span9 a-span-last">
-                                  <div class="a-row">
-                                    <strong class="asin-title"><%= order_product.product_name %></strong>
-                                  </div>
-                                  <div class="a-row">
-                                    <span class="a-color-price a-spacing-micro">
-                                      <strong>¥ <%= order_product.price.floor.to_s(:delimited) %></strong>
-                                    </span>
-                                  </div>
-                                  <div class="a-row a-size-small">
-                                    Bamazon プライムの対象
-                                    <span class="a-declarative">
-                                      <a href="javascript:void(0);" class="prime-popover-link a-declarative a-size-mini">今すぐ申し込む</a>
-                                    </span>
-                                  </div>
-                                  <div class="a-row a-size-small">
-                                    次回用ビデオクーポン
-                                  </div>
-                                  <div class="a-row">
-                                    <div class="a-row quantity-block">
-                                      <strong>数量: </strong>
-                                      <span class="quantity-display"><%= order_product.count %></span>
-                                      <a href="javascript:void(0);" class="a-declarative change-quantity-button a-size-mini">変更</a>
-                                    </div>
-                                  </div>
-                                  <div class="a-row a-color-secondary a-size-small">
-                                    販売： Bamazon Japan
-                                  </div>
-                                  <div class="a-row">
-                                    <div class="a-row">
-                                      <a href="javascript:void(0);" class="a-size-mini aok-align-center gift-popover-link a-declarative">
-                                      ギフトの設定（贈り主名の表示に必要です）</a>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            <% end %>
                             </div>
-                            <div class="a-column a-span6 a-span-last">
-                              <div class="a-row shipping-speeds">
-                                <fieldset>
-                                  <legend>
-                                    <span class="shipping-speeds-title">配送オプション:</span>
-                                  </legend>
-                                  <div class=" a-spacing-mini shipping-speed ship-option pointer no-scheduled-delivery">
-                                    <div class="prime-ship-speed">
-                                      <input type="radio" class="prime-fake-radio">
-                                      <span class="a-declarative">
-                                        <a href="javascript:void(0);" class="prime-popover-link a-declarative">
-                                          <%= image_tag("https://images-na.ssl-images-amazon.com/images/G/09/marketing/prime/amazon_prime_sm._CB505585156_.png") %>
-                                        </a>
+                            <div class="a-row">
+                              <div class="a-column a-span6">
+                              <% @order.order_products.each do |order_product| %>
+                                <div class="a-row a-spacing-base">
+                                  <div class="a-column a-span3">
+                                    <%= image_tag(order_product.product_image) %>
+                                  </div>
+                                  <div class="a-column a-span9 a-span-last">
+                                    <div class="a-row">
+                                      <strong class="asin-title"><%= order_product.product_name %></strong>
+                                    </div>
+                                    <div class="a-row">
+                                      <span class="a-color-price a-spacing-micro">
+                                        <strong>¥ <%= order_product.price.floor.to_s(:delimited) %></strong>
                                       </span>
-                                      でお急ぎ便が無料に
+                                    </div>
+                                    <div class="a-row a-size-small">
+                                      Bamazon プライムの対象
+                                      <span class="a-declarative">
+                                        <a href="javascript:void(0);" class="prime-popover-link a-declarative a-size-mini">今すぐ申し込む</a>
+                                      </span>
+                                    </div>
+                                    <div class="a-row a-size-small">
+                                      次回用ビデオクーポン
+                                    </div>
+                                    <div class="a-row">
+                                      <div class="a-row quantity-block">
+                                        <strong>数量: </strong>
+                                        <span class="quantity-display"><%= order_product.count %></span>
+                                        <a href="javascript:void(0);" class="a-declarative change-quantity-button a-size-mini">変更</a>
+                                      </div>
+                                    </div>
+                                    <div class="a-row a-color-secondary a-size-small">
+                                      販売： Bamazon Japan
+                                    </div>
+                                    <div class="a-row">
+                                      <div class="a-row">
+                                        <a href="javascript:void(0);" class="a-size-mini aok-align-center gift-popover-link a-declarative">
+                                        ギフトの設定（贈り主名の表示に必要です）</a>
+                                      </div>
                                     </div>
                                   </div>
-                                  <div class="a-radio a-spacing-mini shipping-speed ship-option pointer no-scheduled-delivery">
-                                    <input type="radio" class="radio-standard no-js-hide">
-                                    <span class="a-radio-label">
-                                      通常配送 ※コンビニ・ATM・ネットバンキング・電子マネー払いの場合は、通常配送を選択してください。
-                                    </span>
-                                  </div>
-                                  <div class="a-radio a-spacing-mini shipping-speed ship-option pointer no-scheduled-delivery">
-                                    <input type="radio" class="radio-standard no-js-hide">
-                                    <span class="a-radio-label">
-                                      お急ぎ便(<a href="javascript:void(0);">詳細を見る</a>
-                                    </span>
-                                  </div>
-                                  <div class="a-accordion-row a-spacing-mini shipping-speed ship-option pointer is-scheduled-delivery">
-                                    <table>
-                                      <tbody>
-                                        <tr>
-                                          <td class="sd-option-radio-button-container">
-                                            <input type="radio" class="radio-standard no-js-hide">
-                                          </td>
-                                          <td>
-                                            <span>お届け日時指定便</span>
-                                            <span>
-                                              <div id="sd_no_widgets_1513326359966944" style="display: block;">
-                                                <div class="sd-calendar-button-container">
-                                                  <span id="calendarButton_dummy" class="sd-calendar-button a-button a-padding-none">
-                                                    <span class="a-button-inner">
-                                                      <input type="button" class="a-button-text" value="時間を選択">
-                                                    </span>
-                                                  </span>
-                                                </div>
-                                              </div>
-                                            </span>
-                                          </td>
-                                        </tr>
-                                      </tbody>
-                                    </table>
-                                  </div>
-                                </fieldset>
+                                </div>
+                              <% end %>
                               </div>
-                              <div class="a-row a-spacing-top-base ship-split-preferences">
-                                <fieldset>
-                                  <legend>発送オプションの選択：</legend>
-                                  <div class="a-radio a-spacing-mini ship-split-pref ship-option no-scheduled-delivery pointer">
-                                    <input type="radio" class="radio-standard no-js-hide">
-                                    <span class="a-radio-label">できる限り商品をまとめて発送（最小限の配送料・手数料がかかります）
-                                    </span>
-                                  </div>
-                                  <div class="a-radio a-spacing-mini ship-split-pref ship-option no-scheduled-delivery pointer">
-                                    <input type="radio" class="radio-standard no-js-hide">
-                                    <span class="a-radio-label">
-                                      準備ができた商品から順に発送（発送ごとに配送料・手数料がかかります）<br>
-                                      <a href="javascript:void(0);">詳細を見る</a>
-                                    </span>
-                                  </div>
-                                </fieldset>
+                              <div class="a-column a-span6 a-span-last">
+                                <div class="a-row shipping-speeds">
+                                  <fieldset>
+                                    <legend>
+                                      <span class="shipping-speeds-title">配送オプション:</span>
+                                    </legend>
+                                    <div class=" a-spacing-mini shipping-speed ship-option pointer no-scheduled-delivery">
+                                      <div class="prime-ship-speed">
+                                        <input type="radio" name="order0" class="prime-fake-radio">
+                                        <span class="a-declarative">
+                                          <a href="javascript:void(0);" class="prime-popover-link a-declarative">
+                                            <%= image_tag("https://images-na.ssl-images-amazon.com/images/G/09/marketing/prime/amazon_prime_sm._CB505585156_.png") %>
+                                          </a>
+                                        </span>
+                                        でお急ぎ便が無料に
+                                      </div>
+                                    </div>
+                                    <div class="a-radio a-spacing-mini shipping-speed ship-option pointer no-scheduled-delivery">
+                                      <input type="radio" name="order0" class="radio-standard no-js-hide">
+                                      <span class="a-radio-label">
+                                        通常配送 ※コンビニ・ATM・ネットバンキング・電子マネー払いの場合は、通常配送を選択してください。
+                                      </span>
+                                    </div>
+                                    <div class="a-radio a-spacing-mini shipping-speed ship-option pointer no-scheduled-delivery">
+                                      <input type="radio" name="order0" class="radio-standard no-js-hide">
+                                      <span class="a-radio-label">
+                                        お急ぎ便(<a href="javascript:void(0);">詳細を見る</a>)
+                                      </span>
+                                    </div>
+                                    <div class="a-accordion-row a-spacing-mini shipping-speed ship-option pointer is-scheduled-delivery">
+                                      <table>
+                                        <tbody>
+                                          <tr>
+                                            <td class="sd-option-radio-button-container">
+                                              <input type="radio" name="order0" class="radio-standard no-js-hide">
+                                            </td>
+                                            <td>
+                                              <span>お届け日時指定便</span>
+                                              <span>
+                                                <div id="sd_no_widgets_1513326359966944" style="display: block;">
+                                                  <div class="sd-calendar-button-container">
+                                                    <span id="calendarButton_dummy" class="sd-calendar-button a-button a-padding-none">
+                                                      <span class="a-button-inner">
+                                                        <input type="button" class="a-button-text" value="時間を選択">
+                                                      </span>
+                                                    </span>
+                                                  </div>
+                                                </div>
+                                              </span>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </fieldset>
+                                </div>
+                                <div class="a-row a-spacing-top-base ship-split-preferences">
+                                  <fieldset>
+                                    <legend>発送オプションの選択：</legend>
+                                    <div class="a-radio a-spacing-mini ship-split-pref ship-option no-scheduled-delivery pointer">
+                                      <input type="radio" name="order1" class="radio-standard no-js-hide">
+                                      <span class="a-radio-label">できる限り商品をまとめて発送（最小限の配送料・手数料がかかります）
+                                      </span>
+                                    </div>
+                                    <div class="a-radio a-spacing-mini ship-split-pref ship-option no-scheduled-delivery pointer">
+                                      <input type="radio" name="order1" class="radio-standard no-js-hide">
+                                      <span class="a-radio-label">
+                                        準備ができた商品から順に発送（発送ごとに配送料・手数料がかかります）<br>
+                                        <a href="javascript:void(0);">詳細を見る</a>
+                                      </span>
+                                    </div>
+                                  </fieldset>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -662,7 +664,7 @@
                             <tbody>
                               <tr class=" order-summary-unidenfitied-style">
                                 <td class="a-text-left">商品の小計：</td>
-                                <td class="aok-align-bottom aok-nowrap a-text-right">ここは合計金額をメソッドを使うよ</td>
+                                <td class="aok-align-bottom aok-nowrap a-text-right">￥ <%= @order.order_price_sum(@order).to_s(:delimited) %></td>
                               </tr>
                               <tr class=" order-summary-unidenfitied-style">
                                 <td class="a-text-left">配送料・手数料：</td>
@@ -678,7 +680,7 @@
                                   <strong>ご請求額：</strong>
                                 </td>
                                 <td class="a-size-medium a-color-price aok-align-bottom aok-nowrap grand-total-price a-text-right">
-                                  <strong>ここも計算するよ</strong>
+                                  <strong>￥ <%= @order.order_total_price_sum(@order).to_s(:delimited) %></strong>
                                 </td>
                               </tr>
                             </tbody>
