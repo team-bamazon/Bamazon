@@ -6,7 +6,6 @@ class OrdersController < ApplicationController
   end
 
   def edit
-    binding.pry
     @order = Order.find(params[:id])
     @address = Address.new
     @card = PaymentInformation.new
