@@ -1,7 +1,7 @@
 $(document).on('turbolinks:load', function () {
     $(function(){
         //テキストリンクをクリックしたら
-        $("#editYourAddress").click(function(){
+        $("#order-address-add-link").click(function(){
             //body内の最後に<div id="create-address-modal-bg"></div>を挿入
             $("body").append('<div id="create-address-modal-bg"></div>');
 
