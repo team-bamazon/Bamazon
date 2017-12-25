@@ -21,7 +21,11 @@ Rails.application.routes.draw do
       patch 'update_password'
     end
     get 'edit_address'
-    resources :addresses, only: [:new, :create, :destroy, :edit, :update]
+    resources :addresses, only: [:new, :create, :destroy, :edit, :update] do
+      member do
+        patch 'update_status'
+      end
+    end
     resources :payment_informations, only: [:index, :create, :destroy, :edit, :update]
     resources :wanteds, only: [:show, :create, :destroy, :update]
     resources :wanted_products, only: [:create, :update, :destroy]
