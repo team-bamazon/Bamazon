@@ -1,6 +1,14 @@
 class AddressesController < ApplicationController
   def new
-    @address = Address.new
+    path = Rails.application.routes.recognize_path(request.referer)
+    if path[:controller] == "addresses"
+      @address = Address.new
+    else
+      respond_to do |format|
+        format.html
+        format.json
+      end
+    end
   end
 
   def create
@@ -30,6 +38,22 @@ class AddressesController < ApplicationController
     @address = Address.find(params[:id])
     @address.update(address_params)
     redirect_to user_edit_address_path
+  end
+
+  def update_status
+    @address = Address.find(params[:id])
+    @change_address = Address.find_by(status: 1)
+    @address.update(status: 1)
+    @change_address.update(status: 0)
+    path = Rails.application.routes.recognize_path(request.referer)
+    if path[:controller] == "addresses"
+      redirect_to user_edit_address_path
+    else
+      respond_to do |format|
+        format.html
+        format.json
+      end
+    end
   end
 
   private
