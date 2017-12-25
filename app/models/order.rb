@@ -13,7 +13,7 @@ class Order < ApplicationRecord
     order.order_products.each do |order_product|
       sum += order_product.price.to_i
     end
-    return sum
+    return sum.floor.to_s(:delimited)
   end
 
   def order_number(order)
