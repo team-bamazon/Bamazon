@@ -29,32 +29,6 @@
         注文履歴
       </h1>
     </div>
-    <div class="a-column a-span6 a-span-last">
-      <div class="a-row a-spacing-medium search-bar">
-        <form id="searchForm" method="get" action="/gp/your-account/order-history/ref=oh_aui_search" class="form-container">
-          <input type="hidden" name="opt" value="ab">
-          <input type="hidden" name="__mk_ja_JP" value="カタカナ">
-          <div class="a-row field-container">
-            <label for="searchOrdersInput" class="a-form-label label">注文を検索：
-            </label>
-            <div class="a-search">
-              <i class="a-icon a-icon-search"></i>
-              <input type="search" id="searchOrdersInput" placeholder="タイトル、カテゴリー、またはお届け先で検索" name="search" class="a-input-text field">
-            </div>
-          </div>
-          <div class="a-row button-container">
-            <span class="a-button a-button-search search-order-input" id="a-autoid-7">
-              <span class="a-button-inner">
-                <input class="a-button-input" type="submit" aria-labelledby="a-autoid-7-announce">
-                <span class="a-button-text" aria-hidden="true" id="a-autoid-7-announce">
-                  注文を検索
-                </span>
-              </span>
-            </span>
-          </div>
-        </form>
-      </div>
-    </div>
   </div>
   <div id="controlsContainer">
     <div id="orderTypeMenuContainer" class="a-row a-spacing-medium custom-view-options">
@@ -63,67 +37,17 @@
           <span class="a-list-item">
           </span>
         </li>
-        <li class="selected" role="tab">
+        <li role="tab">
           <span class="a-list-item">
             <span class="item">
               注文
             </span>
           </span>
         </li>
-        <li role="tab">
-          <span class="a-list-item">
-            <a class="a-link-normal item" href="/gp/your-account/order-history/ref=oh_aui_menu_open?ie=UTF8&amp;orderFilter=open">未発送の注文
-            </a>
-          </span>
-        </li>
-        <li role="tab"><span class="a-list-item">
-          <a class="a-link-normal item" href="/gp/your-account/order-history/ref=oh_aui_menu_cancelled?ie=UTF8&amp;orderFilter=cancelled">
-            キャンセルされた注文
-          </a>
-        </span>
-      </li>
     </ul>
   </div>
   <div class="a-row a-spacing-base top-controls">
-    <span class="a-declarative" data-action="time-period-change" data-time-period-change="{}">
-      <form id="timePeriodForm" method="get" action="/gp/your-account/order-history" class="time-period-chooser a-spacing-none">
-        <input type="hidden" name="opt" value="ab">
-        <input type="hidden" name="digitalOrders" value="1">
-        <input type="hidden" name="unifiedOrders" value="1">
-        <input type="hidden" name="returnTo">
-        <input type="hidden" name="__mk_ja_JP" value="カタカナ">
-        <span class="a-dropdown-container">
-          <select name="orderFilter" autocomplete="off" id="orderFilter" tabindex="-1" class="a-native-dropdown">
-            <option value="last30" id="orderFilterEntry-last30">過去30日間
-            </option>
-            <option value="months-6" id="orderFilterEntry-months-6">過去6カ月間
-            </option>
-            <option value="year-2017" id="orderFilterEntry-year-2017" selected="">
-              2017年
-            </option>
-            <option value="year-2016" id="orderFilterEntry-year-2016">
-                2016年
-            </option>
-            <option value="year-2015" id="orderFilterEntry-year-2015">
-                2015年
-            </option>
-            <option value="year-2014" id="orderFilterEntry-year-2014">
-                2014年
-            </option>
-            <option value="year-2013" id="orderFilterEntry-year-2013">
-                2013年
-            </option>
-            <option value="year-2012" id="orderFilterEntry-year-2012">
-                2012年
-            </option>
-            <option value="year-2011" id="orderFilterEntry-year-2011">
-                2011年
-            </option>
-          </select>
-        </span>
-      </form>
-    </span>
-    <label for="orderFilter" class="a-form-label num-orders-for-orders-by-date aok-inline-block a-text-normal">に確定された<span class="num-orders">9件</span>の注文
+    <label for="orderFilter" class="a-form-label num-orders-for-orders-by-date aok-inline-block a-text-normal">確定された<span class="num-orders"><%= @orders.length %>件</span>の注文
     </label>
   </div>
   </div>
@@ -213,7 +137,7 @@
     <div class="a-row shipment-top-row js-shipment-info-container">
       <div style="margin-right:250px; padding-right:20px">
         <div class="a-row">
-          <span data-yoedd="{&quot;date&quot;:1512880740,&quot;type&quot;:&quot;date&quot;}" data-yoshortstatus="DELIVERED" class="js-shipment-info aok-hidden">
+          <span data-yoedd="" data-yoshortstatus="DELIVERED" class="js-shipment-info aok-hidden">
           </span>
           <span class="a-size-medium a-color-base a-text-bold">
           配達しました
@@ -225,125 +149,68 @@
         </div>
         </div>
       </div>
-      <div class="actions" style="width:250px;">
-        <div class="a-row">
-          <div class="a-button-stack">
-            <span class="a-declarative" data-action="set-shipment-info-cookies" data-set-shipment-info-cookies="{}">
-              <span class="a-button a-button-primary track-package-button" id="a-autoid-10">
-                <span class="a-button-inner">
-                  <a href="/orders" class="a-button-text" role="button" id="a-autoid-10-announce">
-                    配送状況を確認
-                  </a>
-                </span>
+    </div>
+    <div class="a-fixed-right-grid a-spacing-top-medium">
+      <div class="a-fixed-right-grid-inner a-grid-vertical-align a-grid-top">
+        <div class="a-fixed-right-grid-col a-col-left" style="padding-right:3.2%;float:left;">
+          <div class="a-row">
+            <div class="a-fixed-left-grid a-spacing-none">
+              <div class="a-fixed-left-grid-inner" style="padding-left:100px">
+                <div class="a-text-center a-fixed-left-grid-col a-col-left" style="width:100px;margin-left:-100px;float:left;">
+                  <div class="item-view-left-col-inner">
+                    <a class="a-link-normal" href="/products/<%= order_product.product_id %>">
+                      <img alt="" src="<%= order_product.product_image %>" aria-hidden="true" onload="if (typeof uet == 'function') { uet('cf');}" class="yo-critical-feature" height="" width="64" title="退屈なことはPythonにやらせよう" data-a-hires="https://images-fe.ssl-images-amazon.com/images/I/51hk%2B5bKNrL._SY180_.jpg">
+                    </a>
+                  </div>
+                </div>
+                <div class="a-fixed-left-grid-col a-col-right" style="padding-left:1.5%;float:left;">
+                  <div class="a-row">
+                    <a class="a-link-normal" href="/products/<%= order_product.product_id %>">
+                      <%= order_product.product_name %>
+                    </a>
+                  </div>
+                  <div class="a-row">
+                    <span class="a-size-small">
+                      Al Sweigart
+                    </span>
+                  </div>
+                  <div class="a-row">
+                    <span class="a-size-small a-color-secondary">
+                      販売: Amazon Japan G.K.
+                    </span>
+                  </div>
+                  <div class="a-row">
+                    <span class="a-size-small">
+                      <div class="a-row a-size-small">
+                        返品期間：いつでもいいよ〜〜〜〜〜
+                      </div>
+                    </span>
+                  </div>
+                  <div class="a-row">
+                    <span class="a-size-small a-color-price">
+                      ￥ <%= order_product.price.floor.to_s(:delimited) %>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="a-fixed-right-grid-col a-col-right" style="width:250px;margin-right:-250px;float:left;">
+          <div class="a-row">
+            <div class="a-button-stack">
+              <span class="a-button a-button-normal a-spacing-mini" id="a-autoid-12">
+                <span class="a-button-inner ">
+                  <a id="商品のレビュー" href="/products/<%= order_product.product_id %>/reviews/new" class="a-button-text " role="button">
+                  商品のレビューを書く
+                </a>
               </span>
             </span>
           </div>
         </div>
       </div>
     </div>
-    <div class="a-fixed-right-grid a-spacing-top-medium">
-      <div class="a-fixed-right-grid-inner a-grid-vertical-align a-grid-top">
-        <div class="a-fixed-right-grid-col a-col-left" style="padding-right:3.2%;float:left;">
-          <div class="a-row">
-        <div class="a-fixed-left-grid a-spacing-none"><div class="a-fixed-left-grid-inner" style="padding-left:100px">
-    <div class="a-text-center a-fixed-left-grid-col a-col-left" style="width:100px;margin-left:-100px;float:left;">
-      <div class="item-view-left-col-inner">
-        <a class="a-link-normal" href="/products/<%= order_product.product_id %>">
-          <img alt="" src="<%= order_product.product_image %>" aria-hidden="true" onload="if (typeof uet == 'function') { uet('cf');}" class="yo-critical-feature" height="" width="64" title="退屈なことはPythonにやらせよう" data-a-hires="https://images-fe.ssl-images-amazon.com/images/I/51hk%2B5bKNrL._SY180_.jpg">
-        </a>
-      </div>
-    </div>
-    <div class="a-fixed-left-grid-col a-col-right" style="padding-left:1.5%;float:left;">
-      <div class="a-row">
-        <a class="a-link-normal" href="/products/<%= order_product.product_id %>">
-        <%= order_product.product_name %>
-        </a>
-      </div>
-      <div class="a-row">
-        <span class="a-size-small">
-        Al Sweigart
-        </span>
-      </div>
-      <div class="a-row">
-        <span class="a-size-small a-color-secondary">
-          販売: Amazon Japan G.K.
-        </span>
-      </div>
-      <div class="a-row">
-        <span class="a-size-small">
-          <div class="a-row a-size-small">
-          返品期間：いつでもいいよ〜〜〜〜〜
-        </div>
-      </span>
-    </div>
-    <div class="a-row">
-      <span class="a-size-small a-color-price">
-        ￥ <%= order_product.price %>
-      </span>
-    </div>
-    <div class="a-row">
-      <span class="a-color-secondary a-text-bold">
-    </span>
-    <span class="a-color-secondary">
-    </span>
-    </div>
-    <div class="a-row">
-<div class="a-row a-spacing-top-mini">
-<span class="a-declarative" data-action="a-modal" >
-<span class="a-button" id="a-autoid-11">
-  <span class="a-button-inner">
-    <input class="a-button-input" type="submit" aria-labelledby="a-autoid-11-announce">
-    <span class="a-button-text" aria-hidden="true" id="a-autoid-11-announce">
-      再度購入
-    </span>
-  </span>
-</span>
-</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="a-fixed-right-grid-col a-col-right" style="width:250px;margin-right:-250px;float:left;">
-  <div class="a-row">
-    <div class="a-button-stack">
-      <span class="a-button a-button-normal a-spacing-mini" id="a-autoid-12">
-        <span class="a-button-inner">
-          <a id="商品の返品_1" href="/orders" class="a-button-text" role="button">
-            商品の返品
-        </a>
-      </span>
-    </span>
-    <span class="a-button a-button-normal a-spacing-mini" id="a-autoid-13">
-      <span class="a-button-inner">
-        <a id="梱包についてのご意見を送る_1" href="/orders" class="a-button-text" role="button">
-        梱包についてのご意見を送る
-        </a>
-      </span>
-    </span>
-    <span class="a-button a-button-normal a-spacing-mini" id="a-autoid-14">
-      <span class="a-button-inner">
-        <a id="商品レビューを書く_1" href="/products/<%= order_product.product_id %>/reviews/new" class="a-button-text" role="button">
-        商品レビューを書く
-        </a>
-      </span>
-    </span>
-    <span class="a-declarative" data-action="a-modal" >
-      <span class="a-button a-button-normal a-spacing-mini" id="a-autoid-15">
-        <span class="a-button-inner">
-          <a id="注文を非表示にする_1" href="/orders" class="a-button-text" role="button">
-            注文を非表示にする
-          </a>
-        </span>
-      </span>
-    </span>
   </div>
-</div>
-</div>
-</div>
-</div>
 </div>
 </div>
 <% end %>
