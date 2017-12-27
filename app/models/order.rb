@@ -33,6 +33,6 @@ class Order < ApplicationRecord
     order.order_products.each do |order_product|
       sum += order_product.price.to_i
     end
-    return sum + 360
+    return (sum + 360).to_s(:delimited)
   end
 end

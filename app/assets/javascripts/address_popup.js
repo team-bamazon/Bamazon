@@ -23,7 +23,7 @@ $(document).on('turbolinks:load', function () {
         });
     }
 
-    $(".a-declarative").on("mouseenter", function() {
+    $(".order-declarative").on("mouseenter", function() {
         if(!displayFlg){
             var w_span = $(this).outerWidth();
             var h_span = $(this).outerHeight();
@@ -37,7 +37,7 @@ $(document).on('turbolinks:load', function () {
         }
     });
 
-    $(".a-declarative").on("mouseleave", function() {
+    $(".order-declarative").on("mouseleave", function() {
         fadeOutAddress();
     });
 });
