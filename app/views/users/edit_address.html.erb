@@ -101,10 +101,13 @@
         <a id ="ya-myab-address-delete-btn-0" class = "a-link-normal" data-method = "delete" href ="/users/<%= current_user.id %>/addresses/<%= address.id%>">
           <span class="a-declarative" data-action="a-modal" data-a-modal="{&quot;name&quot;:&quot;deleteAddressModal-0&quot;,&quot;width&quot;:&quot;400&quot;,&quot;header&quot;:&quot;削除を確認&quot;}">削除</span>
         </a>
+        <% if address.status == 0 %>
         &nbsp; | &nbsp;
-        <a id ="ya-myab-address-update-status-btn-0" class = "a-link-normal" data-method = "patch" href="/users/<%= current_user.id %>/addresses/<%= address.id %>/update_status">
-          規定の住所に設定
+        <!-- edit_addressのところでもjsが動くので一旦id名変更 -->
+        <a id ="user-address-satus-update" class = "a-link-normal" data-method = "patch" href="/users/<%= current_user.id %>/addresses/<%= address.id %>/update_status">
+          既定の住所に設定
         </a>
+        <% end %>
        </div>
      </div>
      <% end %>
