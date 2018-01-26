@@ -46,7 +46,7 @@ label, legend {
     background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
     border-color: #a88734 #9c7e31 #846a29;
     color: #111;
-    margin-top: 10px;
+    margin-top: 0px;
     width: 85px;
     height: 30px;
 }
@@ -60,6 +60,10 @@ label, legend {
     margin-bottom: 10px;
 }
 
+#address_status {
+    margin-top: 10px;
+    display: inline-block;
+}
 // #form-button{
 //     color: #111;
 // }

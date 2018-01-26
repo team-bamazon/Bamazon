@@ -162,6 +162,8 @@
           <%= f.text_field :phone_number, {id: "text_form" }%>
           </div>
               <%= f.submit value: "変更を保存", id: "form-button"%>
+              <%= f.check_box :status %>
+              <%= f.label :status, "お届け先の住所に設定する", id:"address_status" %>
           </div>
           </div>
         <% end %>
