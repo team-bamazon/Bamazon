@@ -5,7 +5,7 @@
       <div class = "a-section a-spacing-double-large">
         <div class= "a-row a-spacing-micro">
           <div class="a-column a-span4 a-spacing-none a-spacing-top-mini address-column">
-            <a id="order-address-add-link" class="a-link-normal add-new-address-button">
+            <a id="order-address-add-link" class="a-link-normal add-new-address-button" href = "/orders/<%= @order.id %>/new_select_address">
               <div class="a-box first-desktop-address-tile">
                 <div class="a-box-inner a-padding-extra-large">
                   <div id="ya-myab-plus-address-icon" class="a-section a-spacing-none address-plus-icon aok-inline-block">➕
@@ -22,7 +22,7 @@
             <div id = "ya-myab-display-address-block-0" class = "a-box a-spacing-none normal-desktop-address-tile">
               <div class="a-box-inner a-padding-none">
                 <% if address.status == 1 %>
-                <div id="status-0" class="a-section a-spacing-none default-section">
+                <div id="status-1" class="a-section a-spacing-none default-section">
                   <span class="a-size-small a-color-secondary default-line-item">既定の住所: &nbsp;
                   </span>
                   <div id="ya-myab-default-shipping-address-icon" class="a-section a-spacing-none amazon-logo aok-inline-block"></div>
@@ -70,10 +70,17 @@
                 </div>
               </div>
             </div>
-            <div id ="ya-myab-edit-address-desktop-row-0" class = "a-row edit-address-desktop-link">
-              <a id ="ya-myab-address-update-status-btn-0" class = "a-link-normal" data-method = "patch" href="/users/<%= current_user.id %>/addresses/<%= address.id %>/update_status">
+            <!-- 既定になっている住所に出ないようにif追加 -->
+            <div id ="ya-myab-edit-address-desktop-row-0" class = "a-row edit-address-desktop-link set-main-address-btn">
+              <% if address.status == 0 %>
+              <a id ="ya-myab-address-update-status-btn-0" class = "a-link-normal status-update-btn" data-method = "patch" href="/users/<%= current_user.id %>/addresses/<%= address.id %>/update_status">
                 お届け先住所に設定
               </a>
+              <% elsif address.status == 1 %>
+              <a id ="ya-myab-address-update-status-btn-0" class = "a-link-normal status-update-btn" style="display: none;"data-method = "patch" href="/users/<%= current_user.id %>/addresses/<%= address.id %>/update_status">
+                お届け先住所に設定
+              </a>
+              <% end %>
             </div>
           </div>
           <% end %>
@@ -156,6 +163,8 @@
                             <%= f.text_field :phone_number, {id: "text_form" }%>
                           </div>
                           <%= f.submit "住所を登録する", style: "background-color: #FFCC00; border-color: #a88734 #9c7e31 #846a29; background: linear-gradient(to bottom,#f7dfa5,#f0c14b);", id: "order_address" %>
+                          <%= f.check_box :status %>
+                          <%= f.label :status, "お届け先の住所に設定する" %>
                         </div>
                       </div>
                     </div>
