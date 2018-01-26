@@ -30,4 +30,27 @@ class OrdersController < ApplicationController
     @cart.destroy
   end
 
+  def new_select_address
+    @order = Order.find(params[:id])
+    @address = Address.new
+    @user_addresses = current_user.addresses
+
+  end
+
+  def order_new_address_create
+    @order = Order.find(params[:id])
+    @change_address = Address.find_by(status: 1, user_id: current_user.id)
+    @change_address.update(status: 0) if @change_address.present?
+    @address = Address.new(order_new_address_params)
+    @address.save
+    redirect_to edit_order_path
+  end
+
+  private
+
+  def order_new_address_params
+    params.require(:address).permit(:full_name, :country, :postal_code_one, :postal_code_two, :region, :street_address_one, :street_address_two, :building_name, :phone_number).merge(user_id: current_user.id, status: 1)
+  end
+
+
 end
