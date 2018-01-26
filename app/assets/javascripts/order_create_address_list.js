@@ -11,9 +11,9 @@ $(document).on('turbolinks:load', function () {
             //モーダルウィンドウを表示
             $("#create-address-list-modal-bg,#create-address-list-modal-main").fadeIn("slow");
 
-            //背景のどこか、またはキャンセルボタンをクリックしたらモーダルを閉じる
-            $("#create-address-list-modal-bg,#cancel_button,.a-button-close.a-declarative,.a-icon-close").click(function(){
-                $("#create-address-list-modal-main,#create-address-list-modal-bg").fadeOut("slow",function(){
+            //背景のどこか、またはキャンセルボタン、住所を追加をクリックしたらモーダルを閉じる
+            $("#create-address-list-modal-bg,#cancel_button,.a-button-close.a-declarative,.a-icon-close, #order-address-add-link").click(function(){
+                $("#create-address-list-modal-main,#create-address-list-modal-bg").fadeOut("fast",function(){
                     //挿入した<div id="modal-bg"></div>を削除
                     $('#create-addresslist--modal-bg').remove() ;
                 });
@@ -68,25 +68,48 @@ $(document).on('turbolinks:load', function () {
 });
 
 $(document).on('turbolinks:load', function () {
-    var html = '<div id="status-0" class="a-section a-spacing-none default-section">' +
+
+    var settedAddressHtml = '<div id="status-1" class="a-section a-spacing-none default-section">' +
                   '<span class="a-size-small a-color-secondary default-line-item">既定の住所: </span>'+
                   '<div id="ya-myab-default-shipping-address-icon" class="a-section a-spacing-none amazon-logo aok-inline-block"></div>' +
-                '</div>'
-    $('#ya-myab-address-update-status-btn-0').on('click', function(e){
+                '</div>';
+
+    function buildDisplayAddressHtml(address){
+        var html = '<ul class="displayAddressUL">'+
+                                    '<li>'+address.full_name+'</li>'+
+                                      '<li>'+address.postal_code_one+'-'+ address.postal_code_two+ '</li>'+
+                                      '<li>'+address.region +' '+ address.street_address_one + address.street_address_two + address.building_name+'</li>'+
+                                      '<li>'+'電話番号:'+address.phone_number+'</li>'+
+                                      '</ul>';
+        return html
+    }
+
+    $('.status-update-btn').on('click', function(e){
         e.preventDefault();
         e.stopPropagation();
-        btn = $(this)
-        var formData = new FormData(this);
-        var href = $(this).attr('action');
+        var btn = $(this);
+        // 'action'でとるよりもhtmlにあったhrefの方が欲しいurlになっていそうだったので変更あと'POST'も'PATCH'に
+        var href = $(this).attr('href');
+        // dataでformDataを送る必要がなさそうなのでajaxから削除。
         $.ajax ({
             url: href,
-            type: 'POST',
-            data: formData,
+            type: 'PATCH',
             dataType: 'json',
-            processData: false,
-            contentType: false
+            // processData: false,
+            // contentType: false
         })
-        $('#status-0').remove();
-        btn.parent().parent().find('.a-box-inner').prepend(html)
+        // .doneがなかったので追加
+        .done(function (json) {
+             var displayAddressHtml = buildDisplayAddressHtml(json);
+            $('#status-1').remove();
+            // 'btn'に$がなかったので追加
+            $(btn).parent().parent().find('.a-box-inner').prepend(settedAddressHtml);
+            // 元々届け先だったものにボタンの追加
+            $('.status-update-btn').show();
+            // 住所に設定ボタンを削除
+            $(btn).hide();
+            // モーダルじゃないところに住所の変更を反映
+            $('.displayAddressDiv').html(displayAddressHtml);
+        })
     });
 });
