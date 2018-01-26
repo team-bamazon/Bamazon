@@ -130,9 +130,9 @@ $(document).on('turbolinks:load', function () {
         $(".registar-area").append(registarHtml);
         $("#nav-cart-count").text(headerCartHtml);
       });
-
+// 1つ前に商品が削除されたメッセージが消えるように
       $(".deleted_product").closest(".sc-list-item-border").fadeOut(800);
-
+// カートに商品がなくなった時のビュー
       if($(cart_products).length == 0){
         $(".cart_head").delay(800).queue(function(){
           $(".cart_head").html(cartHeadHtml);
