@@ -35,4 +35,9 @@ class Order < ApplicationRecord
     end
     return (sum + 360).to_s(:delimited)
   end
+
+  def address_status(order)
+    @address = order.user.addresses.find_by(status: 1)
+    return @address
+  end
 end

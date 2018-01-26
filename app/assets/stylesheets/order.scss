@@ -267,6 +267,41 @@ td:first-child {
   width: 100%;
 }
 
+// 住所登録リストのモーダル
+
+#create-address-list-modal-bg {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+}
+
+#create-address-list-modal-main {
+  display: none;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #666666;
+  position: fixed;
+  z-index: 201;
+}
+
+#create-address-list-modal-main .a-spacing-double-large {
+  width: 90%;
+  margin: 0 auto;
+  float: none!important;
+}
+
+#create-address-list-modal-main .a-spacing-medium {
+  margin-left: 49px;
+  margin-bottom: 0!important;
+}
+
+
 // 住所登録のモーダル
 
 #create-address-modal-bg {

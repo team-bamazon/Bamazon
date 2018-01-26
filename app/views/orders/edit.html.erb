@@ -1,4 +1,93 @@
 <div id="checkoutDisplayPage">
+  <div id="create-address-list-modal-main" class="a-section" >
+    <div class = "a-section a-spacing-medium a-text-left address-wide-container-desktop" id="a-popover-3">
+      <h1 class="a-spacing-medium">住所</h1>
+      <div class = "a-section a-spacing-double-large">
+        <div class= "a-row a-spacing-micro">
+          <div class="a-column a-span4 a-spacing-none a-spacing-top-mini address-column">
+            <a id="order-address-add-link" class="a-link-normal add-new-address-button" href = "/orders/<%= @order.id %>/new_select_address">
+              <div class="a-box first-desktop-address-tile">
+                <div class="a-box-inner a-padding-extra-large">
+                  <div id="ya-myab-plus-address-icon" class="a-section a-spacing-none address-plus-icon aok-inline-block">➕
+                  </div>
+                  <h2 class="a-color-tertiary">
+                  新しい住所を追加
+                  </h2>
+                </div>
+              </div>
+            </a>
+          </div>
+          <% current_user.addresses.each do |address|%>
+          <div class ="a-column a-span4 a-spacing-none a-spacing-top-mini address-column">
+            <div id = "ya-myab-display-address-block-0" class = "a-box a-spacing-none normal-desktop-address-tile">
+              <div class="a-box-inner a-padding-none">
+                <% if address.status == 1 %>
+                <div id="status-1" class="a-section a-spacing-none default-section">
+                  <span class="a-size-small a-color-secondary default-line-item">既定の住所: &nbsp;
+                  </span>
+                  <div id="ya-myab-default-shipping-address-icon" class="a-section a-spacing-none amazon-logo aok-inline-block"></div>
+                </div>
+                <% end %>
+                <div class="a-section address-section-with-default">
+                  <div class="a-row a-spacing-small">
+                    <ul class="a-unordered-list a-nostyle a-vertical">
+                      <li>
+                        <span class="a-list-item">
+                          <h5 id="address-ui-widgets-FullName" class="id-addr-ux-search-text  a-text-bold">
+                          <%= address.full_name %>
+                          </h5>
+                        </span>
+                      </li>
+                      <li>
+                        <span class="a-list-item">
+                          <span id="address-ui-widgets-PostalCode" class="id-addr-ux-search-text">
+                          <%= address.postal_code_one %>-<%= address.postal_code_two %>
+                          </span>
+                        </span>
+                      </li>
+                      <li>
+                        <span class="a-list-item">
+                          <span id="address-ui-widgets-StateAddressLineOne" class="id-addr-ux-search-text"><%= address.region %>, <%= address.street_address_one %><%= address.street_address_two %> <%= address.building_name %>
+                          </span>
+                        </span>
+                      </li>
+                      <li>
+                        <span class="a-list-item">
+                          <span id="address-ui-widgets-Country" class="id-addr-ux-search-text">
+                          <%= address.country %>
+                          </span>
+                        </span>
+                      </li>
+                      <li>
+                        <span class="a-list-item">
+                          <span id="address-ui-widgets-PhoneNumber" class="id-addr-ux-search-text">
+                          電話番号: <%= address.count_secret %><%= address.last_four_digits %>
+                          </span>
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 既定になっている住所に出ないようにif追加 -->
+            <div id ="ya-myab-edit-address-desktop-row-0" class = "a-row edit-address-desktop-link set-main-address-btn">
+              <% if address.status == 0 %>
+              <a id ="ya-myab-address-update-status-btn-0" class = "a-link-normal status-update-btn" data-method = "patch" href="/users/<%= current_user.id %>/addresses/<%= address.id %>/update_status">
+                お届け先住所に設定
+              </a>
+              <% elsif address.status == 1 %>
+              <a id ="ya-myab-address-update-status-btn-0" class = "a-link-normal status-update-btn" style="display: none;"data-method = "patch" href="/users/<%= current_user.id %>/addresses/<%= address.id %>/update_status">
+                お届け先住所に設定
+              </a>
+              <% end %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
   <div id="create-address-modal-main">
     <div class="a-popover a-popover-modal a-declarative pop-create" id="a-popover-1" aria-hidden="false" style="width: 639px; max-width: none; visibility: visible; margin: 0px; opacity: 1; display: block; padding: 0;">
       <span tabindex="0" role="dialog" class="a-popover-start a-popover-a11y-offscreen" aria-labelledby="a-popover-header-1"></span>
@@ -74,6 +163,8 @@
                             <%= f.text_field :phone_number, {id: "text_form" }%>
                           </div>
                           <%= f.submit "住所を登録する", style: "background-color: #FFCC00; border-color: #a88734 #9c7e31 #846a29; background: linear-gradient(to bottom,#f7dfa5,#f0c14b);", id: "order_address" %>
+                          <%= f.check_box :status %>
+                          <%= f.label :status, "お届け先の住所に設定する" %>
                         </div>
                       </div>
                     </div>
@@ -279,10 +370,17 @@
                               <div class="a-row" id="desktop-shipping-address-div">
                                 <div class="displayAddressDiv">
                                   <ul class="displayAddressUL">
-                                    <li><%= @order.user.addresses[0].full_name %></li>
-                                    <li><%= @order.user.addresses[0].postal_code_one %>-<%= @order.user.addresses[0].postal_code_two %></li>
-                                    <li><%= @order.user.addresses[0].region %> <%= @order.user.addresses[0].street_address_one %><%= @order.user.addresses[0].street_address_two %><%= @order.user.addresses[0].building_name %></li>
-                                    <li>電話番号:<%= @order.user.addresses[0].phone_number %></li>
+                                    <% if @order.address_status(@order).present? %>
+                                      <li><%= @order.address_status(@order).full_name %></li>
+                                      <li><%= @order.address_status(@order).postal_code_one %>-<%= @order.address_status(@order).postal_code_two %></li>
+                                      <li><%= @order.address_status(@order).region %> <%= @order.address_status(@order).street_address_one %><%= @order.address_status(@order).street_address_two %><%= @order.address_status(@order).building_name %></li>
+                                      <li>電話番号:<%= @order.address_status(@order).phone_number %></li>
+                                    <% else %>
+                                      <li><%= @order.user.addresses[0].full_name %></li>
+                                      <li><%= @order.user.addresses[0].postal_code_one %>-<%= @order.user.addresses[0].postal_code_two %></li>
+                                      <li><%= @order.user.addresses[0].region %> <%= @order.user.addresses[0].street_address_one %><%= @order.user.addresses[0].street_address_two %><%= @order.user.addresses[0].building_name %></li>
+                                      <li>電話番号:<%= @order.user.addresses[0].phone_number %></li>
+                                    <% end %>
                                   </ul>
                                 </div>
                               </div>

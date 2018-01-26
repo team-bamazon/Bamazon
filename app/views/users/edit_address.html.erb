@@ -44,11 +44,13 @@
       <div class ="a-column a-span4 a-spacing-none a-spacing-top-mini address-column">
         <div id = "ya-myab-display-address-block-0" class = "a-box a-spacing-none normal-desktop-address-tile">
           <div class="a-box-inner a-padding-none">
+            <% if address.status == 1 %>
             <div class="a-section a-spacing-none default-section">
               <span class="a-size-small a-color-secondary default-line-item">既定の住所: &nbsp;
               </span>
-            <div id="ya-myab-default-shipping-address-icon" class="a-section a-spacing-none amazon-logo aok-inline-block"></div>
-          </div>
+              <div id="ya-myab-default-shipping-address-icon" class="a-section a-spacing-none amazon-logo aok-inline-block"></div>
+            </div>
+            <% end %>
           <div class="a-section             address-section-with-default">
             <div class="a-row a-spacing-small">
               <ul class="a-unordered-list a-nostyle a-vertical">
@@ -95,10 +97,17 @@
         <a id="ya-myab-address-edit-btn-0" class="a-link-normal" href="/users/<%= current_user.id %>/addresses/<%= address.id %>/edit">
           変更
         </a>
-         &nbsp; | &nbsp;
-         <a id ="ya-myab-address-delete-btn-0" class = "a-link-normal" data-method = "delete" href ="/users/<%= current_user.id %>/addresses/<%= address.id%>">
+        &nbsp; | &nbsp;
+        <a id ="ya-myab-address-delete-btn-0" class = "a-link-normal" data-method = "delete" href ="/users/<%= current_user.id %>/addresses/<%= address.id%>">
           <span class="a-declarative" data-action="a-modal" data-a-modal="{&quot;name&quot;:&quot;deleteAddressModal-0&quot;,&quot;width&quot;:&quot;400&quot;,&quot;header&quot;:&quot;削除を確認&quot;}">削除</span>
-         </a>
+        </a>
+        <% if address.status == 0 %>
+        &nbsp; | &nbsp;
+        <!-- edit_addressのところでもjsが動くので一旦id名変更 -->
+        <a id ="user-address-satus-update" class = "a-link-normal" data-method = "patch" href="/users/<%= current_user.id %>/addresses/<%= address.id %>/update_status">
+          既定の住所に設定
+        </a>
+        <% end %>
        </div>
      </div>
      <% end %>

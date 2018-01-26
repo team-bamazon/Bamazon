@@ -23,7 +23,9 @@ class OrderProductsController < ApplicationController
   def set_order
     if current_user.orders.present?
       @order = Order.find_by(user_id: current_user.id, status: 0)
-      @order.destroy
+      if @order.present?
+        @order.destroy
+      end
     end
     @order = Order.create(user_id: current_user.id, status: 0)
   end
